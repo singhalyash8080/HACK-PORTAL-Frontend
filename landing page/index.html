@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="stylesheet" href="styles.css">
+      <script src="index.js"></script>
+      <title>Landing Page</title>
+        <style>       
+        #topbarsearch .input-field .prefix { 
+            width:0rem !important;    
+            }        
+        #topbarsearch nav ul li:hover, nav ul li.active {
+                background-color: none !important;
+            }
+        .input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content{
+            margin-left: 1rem !important;
+            }
+        </style>        
+    </head>
+    <body>         
+        <nav class="red">
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo white-text">Logo</a>   
+                <ul class="hide-on-med-and-down right">               
+                    <li>    
+                       <div class="center row">
+                          <div class="col s12 " >
+                            <div class="row" id="topbarsearch">
+                              <div class="input-field col s6 s12 white-text">
+                                <i class="white-text material-icons prefix">search</i>
+                                <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete white-text" >
+                                </div>
+                              </div>
+                            </div>
+                          </div>          
+                      </li>                     
+                    <li><a href="#" class="white-text">Make Teams</a></li>
+                    <li><a href="#" class="white-text">Login</a></li>
+                    <li><a href="#" class="white-text">Sign Up</a></li>
+                </ul>
+            </div>
+          </nav>
+          <style> * {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 100%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+          <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              
+              <img src="https://media.altpress.com/uploads/2018/08/8c94495b-the-1975-2018-pc-brett-lloyd.jpg" style="width:100%">
+              <div class="text"></div>
+            </div>
+            
+            <div class="mySlides fade">
+              
+              <img src="https://glittermagrocks.com/connect/wp-content/uploads/2016/10/glitter42.jpeg" style="width:100%">
+              <div class="text"></div>
+            </div>
+            
+            <div class="mySlides fade">
+              
+              <img src="https://chorus.fm/wp-content/uploads/2016/01/the-1975-2.jpg" style="width:100%">
+              <div class="text"></div>
+            </div>
+            
+            </div>
+            <br>
+            
+            <div style="text-align:center">
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+            </div>
+            <script>
+              var slideIndex = 0;
+              showSlides();
+              
+              function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";  
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1}    
+                for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";  
+                dots[slideIndex-1].className += " active";
+                setTimeout(showSlides, 2000); // Change image every 2 seconds
+              }
+              </script>
+          <div class="container">
+             <div class="row valign-wrapper">
+              
+              <div class="col s12 m6 valign">
+                
+                <div class="card-panel white max-width">
+                  
+                  <button class="btn waves-effect waves-light right" type="submit" name="action">Apply
+                    <i class="material-icons right">send</i>
+                  </button>
+                  
+                  <div class="left-align">
+                  <span class="red-text">Hackathon 1 
+                  </span>
+                  </div>
+              
+                
+              </div>
+            </div>  
+            </div>
+             </div>
+  
+    <div class="row valign-wrapper">
+      <div class="col s12 m5 valign">
+        <div class="card-panel white">
+          <span class="red-text">Join Teams Now!
+    
+          <div class=team-no>
+            <div class="left-align">
+            <div class="row valign-wrapper ">
+
+              
+              <div class="col s12 m5 valign">
+              
+                
+                <div class="card-panel white max-width">
+                
+                  <span class="red-text">Team 1 
+                  </span>
+                </div>
+              
+              </div>
+            
+              <div class="join">
+              <button class="btn waves-effect waves-light right" type="submit" name="action">Join
+              </button> 
+              </div>
+            </div>
+           
+            </div>
+          </div>
+            
+             
+          </span>
+        </div>
+      </div>
+    </div>
+    
+  
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+      <script>
+            $(document).ready(function(){                 
+                $('input.autocomplete').autocomplete({
+                data: {
+                    "Apple": null,
+                    "Microsoft": null,
+                    "Google": null,
+                    "Gargle":null
+                }
+                });                
+                });
+      </script>        
+    </body>
+  </html>
