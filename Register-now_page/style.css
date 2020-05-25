@@ -1,11 +1,35 @@
+/* #topbarsearch .input-field .prefix { 
+    width:0rem !important;    
+    }        
+#topbarsearch nav ul li:hover, nav ul li.active {
+        background-color: none !important;
+    }
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content{
+    margin-left: 1rem !important;
+    } */
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
+#topbarsearch .input-field .prefix { 
+    width:0rem !important;    
+    }
+
+/* .input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content{
+    margin-left: 1rem !important;
+    } */
+
+#topbarsearch nav ul li:hover, nav ul li.active {
+    background-color: none !important;
+}
 body {
     margin: 0;
-    font-size: 1.3rem;
-    font-family: 'Roboto', sans-serif;
+    overflow: scroll;
+      
+    /* font-size: 1.3rem; */
+    /* font-family: 'Roboto', sans-serif;
+    /* font-family: Verdana, sans-serif; */
 }
 
 .back1{
@@ -34,12 +58,9 @@ form{
 .form-inside{
     color:white;
     /* font-family: 'Roboto', sans-serif; */
-    font-size:19px;
+    /* font-size:19px; */
 }
 
-input::-webkit-input-placeholder {
-    color:rgb(65, 62, 62) !important;
-}
 
 
 
