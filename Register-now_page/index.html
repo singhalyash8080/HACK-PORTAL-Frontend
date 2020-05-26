@@ -1,91 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Now</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js"></script>
+
 
 </head>
 
 <body>
 
-    <!-- <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Logo</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <!-- navbar start -->
 
-            <li>
-                <form>
-                <i class="material-icons">search</i></label>
-                <input id="search" type="search" required>
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-                </form>
-              </li>
-            <li><a href="#">LogIn</a></li>
-            <li><a href="#">Register Now</a></li>
-          </ul>
+  <nav class="red" style="padding:0px 10px; position: fixed;">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+
+
+      <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul class="hide-on-med-and-down right">
+        <li>
+          <div class="center row">
+            <div class="col s12 ">
+              <div class="row" id="topbarsearch">
+                <div class="input-field col s6 s12 white-text">
+                  <i class="white-text material-icons prefix" style="margin:-2.5px">search</i>
+                  <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete white-text">
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="#">Make Teams</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Signup</a></li>
+      </ul>
+
+
+    </div>
+
+  </nav>
+  <ul class="sidenav" id="mobile-nav">
+    <li>
+      <div class="center row">
+        <div class="col s12 ">
+          <div class="row" id="topbarsearch">
+            <div class="input-field col s6 s12 red-text">
+              <i class="red-text material-icons prefix">search</i>
+              <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete red-text">
+            </div>
+          </div>
         </div>
-    </nav> -->
+      </div>
+    </li>
+    <li><a href="#">Make Teams</a></li>
+    <li><a href="#">Login</a></li>
+    <li><a href="#">Signup</a></li>
 
-    <!-- <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul class="hide-on-med-and-down right">
-                <li>
-                    <div class="center row">
-                        <div class="col s12 ">
-                            <div class="row" id="topbarsearch">
-                                <div class="input-field col s6 s12 ">
-                                    <i class="material-icons prefix">search</i>
-                                    <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete #ffffff white ser">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="#">Make team</a></li>
-                <li><a href="#">LogIn</a></li>
-                <li><a href="#">Register Now</a></li>
-            </ul>
-        </div>
-    </nav> -->
+  </ul>
 
-    <nav class="red">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo white-text">Logo</a>   
-            <ul class="hide-on-med-and-down right">               
-                <li>    
-                   <div class="center row">
-                      <div class="col s12 " >
-                        <div class="row" id="topbarsearch">
-                          <div class="input-field col s6 s12 white-text">
-                            <i class="white-text material-icons prefix">search</i>
-                            <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete white-text" >
-                            </div>
-                          </div>
-                        </div>
-                      </div>          
-                  </li>                     
-                <li><a href="#" class="white-text">Make Teams</a></li>
-                <li><a href="#" class="white-text">Login</a></li>
-                <li><a href="#" class="white-text">Sign Up</a></li>
-            </ul>
-        </div>
-      </nav>
+  <div class="left" style="width:100%">
+    <form>
+      <div class="input-field" style="display:none" id="search-icon">
+        <input type="search" id="search-txt">
+        <label for="search-txt">search</label>
+        <i class="material-icons" id="close-icon">close</i>
+      </div>
+    </form>
+  </div>
+  </ul>
 
+  <!-- navbar end -->
     <div class="card-panel teal lighten-2 back1">
     </div>
 
