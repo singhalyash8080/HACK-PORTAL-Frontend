@@ -1,0 +1,35 @@
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;
+overflow:scroll;}
+h4{
+    padding-left: 10px;
+    
+}
+.plus{
+    padding-left:980px;
+    position: relative;;
+    top:-55px;
+}
+.plus .fixed-action-btn{
+    top:12%;
+    right:20%;
+}
+@media only screen and (max-width: 600px){
+    .plus .fixed-action-btn{
+    top:12%;
+    right:20%;
+    }
+}
+.add .fixed-action-btn{
+    top:12%;
+    right:15%;
+}
+@media only screen and (max-width: 600px){
+    .add .fixed-action-btn{
+    top:12%;
+    right:10%;
+    }
+}
+
+ 
+   
