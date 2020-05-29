@@ -6,7 +6,6 @@ var hack_names=["hackathon 1","hackathon 2","hackathon 3","hackathon 4","hackath
 var hack_text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
 var hack_link='This is it'
 
-//main code below
 
 var ob_head ={
     1:"one-head",
@@ -35,7 +34,7 @@ var ob_butt={
 for (let i = 0; i <5; i++) {
     $("#"+ob_head[i+1]).text(hack_names[i]);
     $("#"+ob_txt[i+1]).text(hack_text);
-    $("#"+ob_butt[i+1]).html('<a id="one-butt" class="waves-effect waves-light btn" href="'+hack_link+'">Apply</a>')
+    $("#"+ob_butt[i+1]).html('<a id="one-butt" class="waves-effect waves-light btn" href="'+hack_link+'">View Details</a>')
 }
 
 //end of code for getting hackathon details
@@ -49,7 +48,6 @@ var req_skill=["required skill - x1","required skill - x1","required skill - x3"
 var team_descp='njfenvj dsnfkjnsfj kns gkjnsjkjkgn dsjg sjgknskgs kgkms gknskjgnks mk dksgmklsdmgklds mk sklgklsmd'
 var team_link='nothing'
 
-//main code below
 
 var ob_head={
     1:"one-head2",

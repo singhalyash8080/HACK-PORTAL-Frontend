@@ -1,0 +1,14 @@
+/* default code */
+* {box-sizing: border-box;}
+
+body{
+    margin:0;
+}
+
+/* default code end */
+
+.back1{
+    height:400px;
+    background-color: rgb(121, 30, 64);
+    color: white;
+}
