@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
-    
     var readURL = function(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -23,15 +21,32 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function() {
-    $("#myDiv").click(function () {
-     $("#mydiv").show()
-     $("#myDiv").hide()
-    });
-    $("mydiv").click(function () {
-     $("#myDiv").show()
-     $("#mydiv").hide()
-    });
-    
-   });
+// function to edit profile
+
+function myEdit(button) {
+    var x = document.getElementById("first_name").readOnly;
+    var y = document.getElementById("last_name").readOnly;
+    var z = document.getElementById("password").readOnly;
+    var w = document.getElementById("email").readOnly; 
+
+    if (x == true) {
+        document.getElementById("first_name").readOnly = false;
+        document.getElementById("last_name").readOnly = false;
+        document.getElementById("password").readOnly = false;
+        document.getElementById("email").readOnly = false;
+    }
+}
+
+function mySave(button) {
+    var x = document.getElementById("first_name").readOnly;
+
+    if (x == false) {
+        document.getElementById("first_name").readOnly = true;
+        document.getElementById("last_name").readOnly = true;
+        document.getElementById("password").readOnly = true;
+        document.getElementById("email").readOnly = true;
+    }
+}
+
+//end of function to edit profile
   
