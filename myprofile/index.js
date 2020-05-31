@@ -25,10 +25,6 @@ $(document).ready(function() {
 
 function myEdit(button) {
     var x = document.getElementById("first_name").readOnly;
-    var y = document.getElementById("last_name").readOnly;
-    var z = document.getElementById("password").readOnly;
-    var w = document.getElementById("email").readOnly; 
-
     if (x == true) {
         document.getElementById("first_name").readOnly = false;
         document.getElementById("last_name").readOnly = false;
