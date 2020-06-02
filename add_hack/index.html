@@ -1,15 +1,13 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Create a hackathon</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-
-
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -67,47 +65,29 @@
         <li><a href="../myprofile/index.html">Profile</a></li>
 
     </ul>
-    <!-- navbar end -->
 
-    <!-- header background -->
-    <div class="back1">
-        <br>
+    <!-- end of navbar -->
 
-        <h3>Hackathons are a great way to <br>connect and build your skills</h3>
-        <div class="row">
-            <div class="col s1">
-                <a class="btn-floating btnwaves-effect waves-light red" href="../add_hack/index.html"><i class="material-icons">add</i></a>
-            </div>
+    <h4>Add your hackathon here</h4>
+    <br><br>
+    <form>
+        <label>Name</label>
+        <input type="text"><br><br><br>
 
-            <div class="col s2">
-                Add a upcoming hackathon
-            </div>
-        </div>
+        <label>Date and time</label>
+        <input type="datetime"><br><br><br>
 
-    </div>
+        <label>Venue</label>
+        <input type="text"><br><br><br>
 
-    <!-- header background end -->
+        <label>Description</label>
+        <input type="text"><br><br><br>
 
+        <label>Registration link</label>
+        <input type="text"><br><br><br>
 
-    <div class="content">
-
-        <div class="row">
-            <div class="col s3"></div>
-
-            <div class="col s3">
-                <h4>Upcoming Hackathons</h4>
-            </div>
-
-            <div class="col s3">
-                <input type="search" placeholder="search">
-            </div>
-
-            <div class="col s3"></div>
-        </div>
-
-    </div>
-    <script src="index.js"></script>
+        <button>Add</button>
+    </form>
 
 </body>
-
 </html>
