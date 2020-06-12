@@ -34,61 +34,61 @@ var ob_butt={
 for (let i = 0; i <5; i++) {
     $("#"+ob_head[i+1]).text(hack_names[i]);
     $("#"+ob_txt[i+1]).text(hack_text);
-    $("#"+ob_butt[i+1]).html('<a id="one-butt" class="waves-effect waves-light btn" href="'+hack_link+'">View Details</a>')
+    $("#"+ob_butt[i+1]).html('<a id="one-butt" href="'+hack_link+'">Learn More</a>')
 }
 
 //end of code for getting hackathon details
 
 //code for getting popular teams
 
-// var team_names=["team 1","team 2","team 3","team 4","team 5 ","team 6","team 7"]
+var team_names=["team 1","team 2","team 3","team 4","team 5 ","team 6","team 7"]
 
-// var req_skill=["required skill - x1","required skill - x1","required skill - x3","required skill - x4","required skill - x5"]
+var req_skill=["required skill - x1","required skill - x1","required skill - x3","required skill - x4","required skill - x5"]
 
-// var team_descp='njfenvj dsnfkjnsfj kns gkjnsjkjkgn dsjg sjgknskgs kgkms gknskjgnks mk dksgmklsdmgklds mk sklgklsmd'
-// var team_link='nothing'
-
-
-// var ob_head={
-//     1:"one-head2",
-//     2:"two-head2",
-//     3:"three-head2",
-//     4:"four-head2",
-//     5:"five-head2"
-// }
-
-// var ob_txt={
-//     1:"one-txt2",
-//     2:"two-txt2",
-//     3:"three-txt2",
-//     4:"four-txt2",
-//     5:"five-txt2"
-// }
-
-// var ob_txt2={
-//     1:"one-txt2",
-//     2:"two-txt2",
-//     3:"three-txt2",
-//     4:"four-txt2",
-//     5:"five-txt2"
-// }
+var team_descp='njfenvj dsnfkjnsfj kns gkjnsjkjkgn dsjg sjgknskgs kgkms gknskjgnks mk dksgmklsdmgklds mk sklgklsmd'
+var team_link='nothing'
 
 
-// var ob_butt={
-//     1:"one-butt2",
-//     2:"two-butt2",
-//     3:"three-butt2",
-//     4:"four-butt2",
-//     5:"five-butt2"
-// }
+var ob_head={
+    1:"one-head2",
+    2:"two-head2",
+    3:"three-head2",
+    4:"four-head2",
+    5:"five-head2"
+}
+
+var ob_txt={
+    1:"one-txt2",
+    2:"two-txt2",
+    3:"three-txt2",
+    4:"four-txt2",
+    5:"five-txt2"
+}
+
+var ob_txt2={
+    1:"one-txt2",
+    2:"two-txt2",
+    3:"three-txt2",
+    4:"four-txt2",
+    5:"five-txt2"
+}
 
 
-// for (let i = 0; i <5; i++) {
-//     $("#"+ob_head[i+1]).text(team_names[i]);
-//     $("#"+ob_txt[i+1]).text(req_skill[i]);
-//     $("#"+ob_butt[i+1]).html('<a id="one-butt" class="waves-effect waves-light btn" href="'+team_link+'">Apply</a>')
-//     $("#"+ob_txt2[i+1]).text(team_descp);
-// }
+var ob_butt={
+    1:"one-butt2",
+    2:"two-butt2",
+    3:"three-butt2",
+    4:"four-butt2",
+    5:"five-butt2"
+}
+
+
+for (let i = 0; i <5; i++) {
+    $("#"+ob_head[i+1]).text(team_names[i]);
+    $("#"+ob_txt[i+1]).text(req_skill[i]);
+    $("#"+ob_butt[i+1]).html('<a id="one-butt" class="waves-effect waves-light btn" href="'+team_link+'">Apply</a>')
+    $("#"+ob_txt2[i+1]).text(team_descp);
+}
 
 //end of code for getting teams
 
