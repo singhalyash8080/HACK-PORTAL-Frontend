@@ -79,12 +79,11 @@ img{
 
 /* content  */
 
-.part2-1{
+.back-content{
     background-color:#3D5A80;
-    /* padding:100px; */
 }
 
-.part2-1-head{
+.part2-1-head, .part2-2-head{
     font-size:60px;
     color:white;
 }
@@ -100,6 +99,21 @@ img{
     border-bottom-right-radius:45px;
     display:flex;
     flex-direction: column;
+    height:285px;
+}
+
+#one2,#two2,#three2,#four2,#five2{
+    background-color: white;
+    padding:20px;
+    width:85%;
+    margin:0 auto;
+    border-top-left-radius:45px;
+    border-top-right-radius:45px;
+    border-bottom-right-radius:45px;
+    border-bottom-left-radius:45px;
+    display:flex;
+    flex-direction: column;
+    height:285px;
 }
 
 #one-head,#two-head,#three-head,#four-head,#five-head{
@@ -108,6 +122,14 @@ img{
     color:#3D5A80;
 }
 
+#one-head2,#two-head2,#three-head2,#four-head2,#five-head2{
+    font-size:40px;
+    text-transform: capitalize;
+    color:#3D5A80;
+}
+
+
+
 #one-txt,#two-txt,#three-txt,#four-txt,#five-txt{
     width:85%;
     /* border:pink solid 2px; */
@@ -115,7 +137,24 @@ img{
     color:#3D5A80;
 }
 
+#one-txt2,#two-txt2,#three-txt2,#four-txt2,#five-txt2{
+    width:85%;
+    /* border:pink solid 2px; */
+    margin-left:40px;
+    color:#3D5A80;
+}
+
 #one-butt,#two-butt,#three-butt,#four-butt,#five-butt{
+    /* width:30%; */
+    /* border:2px red solid; */
+    /* margin-left:220px; */
+    align-self: flex-end;
+    font-size:26px;
+    color:#293241;
+}
+
+
+#one-butt2,#two-butt2,#three-butt2,#four-butt2,#five-butt2{
     /* width:30%; */
     /* border:2px red solid; */
     /* margin-left:220px; */
@@ -137,4 +176,55 @@ img{
         text-align: center;
     }
 
+}
+
+@media only screen and (max-width:1244px){
+
+    #one,#two,#three,#four,#five,#one2,#two2,#three2,#four2,#five2{
+        height:325px;
+    }
+
+}
+
+@media only screen and (max-width:992px){
+    #one,#two,#three,#four,#five,#one2,#two2,#three2,#four2,#five2{
+        height:initial;
+    }
+}
+
+@media only screen and (max-width:429px){
+
+    .part2-1-head, .part2-2-head{
+        font-size:32px;
+    }
+
+}
+
+@media only screen and (max-width:540px) and (min-width:430px){
+    .part2-1-head, .part2-2-head{
+        font-size:42px;
+    }
+}
+
+@media only screen and (max-width:475px){
+    .t1{
+        font-size:20px;
+    }
+
+    .main-head{
+        font-size:40px;
+    }
+
+    .butt-getstarted{   
+        font-size:29px;
+        border-radius:48px;
+    }
+
+    .back-content p{
+        font-size:12px;
+    }
+
+    #one-head,#two-head,#three-head,#four-head,#five-head,#one-head2,#two-head2,#three-head2,#four-head2,#five-head2{
+        font-size: 32px;
+    }
 }
