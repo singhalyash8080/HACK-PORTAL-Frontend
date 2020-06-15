@@ -82,5 +82,65 @@ for (let i = 0; i <5; i++) {
 //end of code for getting teams
 
 
+// firebase for signIn
+
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
+    authDomain: "hackportal-53efe.firebaseapp.com",
+    databaseURL: "https://hackportal-53efe.firebaseio.com",
+    projectId: "hackportal-53efe",
+    storageBucket: "hackportal-53efe.appspot.com",
+    messagingSenderId: "945327566569",
+    appId: "1:945327566569:web:04739afc0b939fcf658a78",
+    measurementId: "G-MTPN0JGL08"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+            console.log("USER LOGGED IN")
+            window.location.replace("http://localhost:5500/create_profile/index.html");
+    } else {
+            // No user is signed in.
+            console.log("USER NOT LOGGED IN")
+    }
+})
+
+$(document).ready(function(){
+    $("#signIn").submit(function(){
+    
+    window.localStorage.setItem('emailForSignIn',$("#getmail").val())
+
+    alert('Please click ok to send a link to '+$("#getmail").val()+' to verify your email')
+    });
+});
 
 
+var email=''
+
+if((window.localStorage.getItem('emailForSignIn'))){
+    var email = (window.localStorage.getItem('emailForSignIn'))
+    window.localStorage.removeItem('emailForSignIn')
+}
+
+var actionCodeSettings = {
+    // URL you want to redirect back to. The domain (www.example.com) for this
+    // URL must be whitelisted in the Firebase Console.
+    url: 'http://localhost:5500/create_profile/index.html',
+    handleCodeInApp: true
+};
+
+firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
+    .then(function () {
+        // The link was successfully sent. Inform the user.
+        // Save the email locally so you don't need to ask the user for it again
+        // if they open the link on the same device.
+        // console.log('success')
+        window.localStorage.setItem('emailForSignIn', email)
+    })
+    .catch(function (error) {
+        // Some error occurred, you can inspect the code: error.code
+    });
