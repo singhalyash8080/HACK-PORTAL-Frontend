@@ -40,13 +40,13 @@ body{
     top:100px;
 }
 
-.butt-getstarted{
+/* .butt-getstarted{
     background-color:#3D5A80;
     color:white;
     padding:20px;   
     font-size:40px;
     border-radius:48px;
-}
+} */
 
 img{
     max-width:100%;
@@ -215,10 +215,10 @@ img{
         font-size:40px;
     }
 
-    .butt-getstarted{   
+    /* .butt-getstarted{   
         font-size:29px;
         border-radius:48px;
-    }
+    } */
 
     .back-content p{
         font-size:12px;
