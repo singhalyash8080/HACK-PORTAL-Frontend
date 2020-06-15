@@ -102,7 +102,7 @@ firebase.analytics();
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
             console.log("USER LOGGED IN")
-            window.location.replace("create_profile/index.html");
+            window.location.replace("https://singhalyash8080.github.io/HACK-PORTAL-Frontend/create_profile/index.html");
     } else {
             // No user is signed in.
             console.log("USER NOT LOGGED IN")
@@ -129,7 +129,7 @@ if((window.localStorage.getItem('emailForSignIn'))){
 var actionCodeSettings = {
     // URL you want to redirect back to. The domain (www.example.com) for this
     // URL must be whitelisted in the Firebase Console.
-    url: 'create_profile/index.html',
+    url: 'https://singhalyash8080.github.io/HACK-PORTAL-Frontend/create_profile/index.html',
     handleCodeInApp: true
 };
 
