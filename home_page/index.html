@@ -17,94 +17,131 @@
 </head>
 
 <body>
-    <nav class="red" style="padding:0px 10px;">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
+    <section class="Navbar">
 
-
-            <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-                <i class="material-icons">menu</i>
-            </a>
-            <ul class="hide-on-med-and-down right">
+        <div class="mob-Navbar">
+            <ul id="slide-out" class="sidenav">
                 <li>
-                    <div class="center row">
-                        <div class="col s12 ">
-                            <div class="row" id="topbarsearch">
-                                <div class="input-field col s6 s12 white-text">
-                                    <i class="white-text material-icons prefix" style="margin:-2.5px">search</i>
-                                    <input type="text" placeholder="search" style="padding:6px;" id="autocomplete-input"
-                                        class="autocomplete white-text">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="user-view">
+                        <!-- <div class="background">
+                        <img src="images/office.jpg">
+                      </div> -->
+                        <!-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> -->
+                        <a href="#"><span class="name">John Doe</span></a>
+                        <a href="#"><span class="email">jdandturk@gmail.com</span></a>
                     </div>
                 </li>
-                <li><a href="../home_page/index.html">Home</a></li>
-                <li><a href="../myteams/index.html">MyTeams</a></li>
-                <li><a href="../myprofile/index.html">Profile</a></li>
+            
+                <li><a href="../home_page/index.html" style="color: #3D5A80;">Search</a></li>
+            
+                <li><a href="../myteams/index.html" style="color: #3D5A80;">MyTeams</a></li>
+            
+                <li><a href="../myprofile/index.html" style="color: #3D5A80;">Profile</a></li>
             </ul>
-
-
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons" id="mob-nav-icon">menu</i></a>
         </div>
 
-    </nav>
-    <ul class="sidenav" id="mobile-nav">
-        <li>
-            <div class="center row">
-                <div class="col s12 ">
-                    <div class="row" id="topbarsearch">
-                        <div class="input-field col s6 s12 red-text">
-                            <i class="red-text material-icons prefix">search</i>
-                            <input type="text" placeholder="search" id="autocomplete-input"
-                                class="autocomplete red-text">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li><a href="../home_page/index.html">Home</a></li>
-        <li><a href="../myteams/index.html">MyTeams</a></li>
-        <li><a href="../myprofile/index.html">Profile</a></li>
 
-    </ul>
+        <div class="heading-nav">
+            HackPortal
+        </div>
+
+        <div class="lnks">
+            <div class="link1">
+                <a href="../home_page/index.html">Search</a>
+            </div>
+    
+            <div class="link2">
+                <a href="../myteams/index.html">MyTeams</a>
+            </div>
+    
+            <div class="link3">
+                <a href="../myprofile/index.html">Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
     <!-- navbar end -->
 
     <!-- header background -->
-    <div class="back1">
-        <br>
-
-        <h3>Hackathons are a great way to <br>connect and build your skills</h3>
-        <div class="row">
-            <div class="col s1">
-                <a class="btn-floating btnwaves-effect waves-light red" href="../add_hack/index.html"><i class="material-icons">add</i></a>
+    <section class="layout">
+        <div class="head">
+            <div class="shapes">
+                <div class="shape1"></div>
+                <div class="shape2"></div>
+                <div class="shape3"></div>
             </div>
 
-            <div class="col s2">
-                Add a upcoming hackathon
+            <div class="head1">
+                <img src="https://static1.squarespace.com/static/556b5950e4b07e55e369809c/5ab926fd352f5304cf19bb7f/5ad3de2f03ce641bc8aed9b8/1585509761468/standing+desk.jpg?format=1500w">
+            </div>
+
+            <div class="head2">
+                <h2>Hackathons are a <br> great way to connect <br>and build your skills</h2>
+                <br><br>
+                <a href="../add_hack/index.html" class="add_link">Add your hackathon here</a>
             </div>
         </div>
+    </section>
 
+    <div class="curve-shape">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D5A80" fill-opacity="1" d="M0,160L60,176C120,192,240,224,360,218.7C480,213,600,171,720,154.7C840,139,960,149,1080,160C1200,171,1320,181,1380,186.7L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
     </div>
 
-    <!-- header background end -->
+    <!-- <div class="curve-shape">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D5A80" fill-opacity="1" d="M0,192L60,208C120,224,240,256,360,266.7C480,277,600,267,720,240C840,213,960,171,1080,149.3C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div> -->
+
+    <div class="curve-fill"></div>
 
 
-    <div class="content">
+    <div class="back-content">
+        <section class="layout">
+            <div class="row">
+                <div class="col l2"></div>
+                <div class="col l8 part2-1">
+                    <h4 class="part2-1-head">Upcoming Hackathons</h4>
+                    <br><br>
+                    <div id="one">
+                        <h5 id="one-head"></h5>
+        
+                        <p id="one-txt"></p>
+                        <a id="one-butt" ></a>
+                    
+                    </div>
+                    <br>
+        
+                    <div id="two">
+                        <h5 id="two-head"></h5>
+                        <p id="two-txt"></p>
+                        <a id="two-butt"></a>
+                    </div>
+                    <br>
+        
+                    <div id="three">
+                        <h5 id="three-head"></h5>
+                        <p id="three-txt"></p>
+                        <a id="three-butt"></a>
+                    </div>
+                    <br>
 
-        <div class="row">
-            <div class="col s3"></div>
+                    <div id="view_more_link">
+                        <a href="#" style="color: white;font-size:35px;">View More</a>
+                    </div>
+                </div>
 
-            <div class="col s3">
-                <h4>Upcoming Hackathons</h4>
+                <br><br>
+
+                <div class="col l2 shape-cont">
+                    
+                    <div class="shape-cont1"></div>
+                    <div class="shape-cont2"></div>
+                    <div class="shape-cont3"></div>
+                </div>
             </div>
-
-            <div class="col s3">
-                <input type="search" placeholder="search">
-            </div>
-
-            <div class="col s3"></div>
-        </div>
-
+        </section>
     </div>
     <script src="index.js"></script>
 
