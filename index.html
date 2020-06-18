@@ -1,138 +1,38 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <!-- Required styles for Material Web -->
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <title>Add your hackathon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
 <body>
-
-    <section class="layout">
-        <div class="part1">
-            
-            <div class="part1-1">
-                <h1 class="main-head">Hack Portal</h1>
-    
-                <p class="t1">Find teams and projects to <br>collaborate during hackathons</p>
-    
-                <!-- <a href="home_page/index.html" class="butt-getstarted"> Get Started</a> -->
-                <!-- <input type="email"> -->
-                <form id="signIn">
-                    <label class="mdc-text-field mdc-text-field--outlined">
-                        <input type="email" class="mdc-text-field__input" aria-labelledby="my-label-id" id="getmail">
-                        <span class="mdc-notched-outline">
-                            <span class="mdc-notched-outline__leading"></span>
-                            <span class="mdc-notched-outline__notch">
-                                <span class="mdc-floating-label" id="my-label-id">Email</span>
-                            </span>
-                            <span class="mdc-notched-outline__trailing"></span>
-                        </span>
-                    </label>
-                </form>
-            </div>
-
-            <div class="shape1"></div>
-
-            <div class="part1-2">
-                <img src="https://images.theconversation.com/files/287438/original/file-20190808-144847-18h50u6.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip">
-            </div>
-
-            <div class="shape2"></div>
-        </div>
-    </section>
-
-    <!-- <br><br><br><br><br><br> -->
-
-
-    <div class="curve-shape">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D5A80" fill-opacity="1" d="M0,160L60,176C120,192,240,224,360,218.7C480,213,600,171,720,154.7C840,139,960,149,1080,160C1200,171,1320,181,1380,186.7L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    <h1>Add your hackathon</h1>
+    <div class="arrow">
+    <button class="btn"style="background-color: white;cursor:pointer;border:none;
+    color: #3D5A80;
+    margin-top: -80px;
+    padding-left: 200px;
+    outline: none;"><i class="fa fa-arrow-left fa-3x"></i></button>
     </div>
-
-    <!-- <div class="curve-shape">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D5A80" fill-opacity="1" d="M0,192L60,208C120,224,240,256,360,266.7C480,277,600,267,720,240C840,213,960,171,1080,149.3C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-    </div> -->
-
-    <div class="curve-fill"></div>
-
-    <div class="back-content">
-        <section class="layout">
-            <div class="row">
-                <div class="col l2"></div>
-                <div class="col l8 part2-1">
-                    <h4 class="part2-1-head">Upcoming Hackathons</h4>
-                    <br><br>
-                    <div id="one">
-                        <h5 id="one-head"></h5>
-        
-                        <p id="one-txt"></p>
-                        <a id="one-butt" ></a>
-                    
-                    </div>
-                    <br>
-        
-                    <div id="two">
-                        <h5 id="two-head"></h5>
-                        <p id="two-txt"></p>
-                        <a id="two-butt"></a>
-                    </div>
-                    <br>
-        
-                    <div id="three">
-                        <h5 id="three-head"></h5>
-                        <p id="three-txt"></p>
-                        <a id="three-butt"></a>
-                    </div>
-                    <br>
-
-                    <div id="view_more_link">
-                        <a href="#" style="color: white;font-size:35px;" class="view_m_lnk">View More</a>
-                    </div>
-                </div>
-
-                <br><br>
-
-                <div class="col l2 shape-cont">
-                    
-                    <div class="shape-cont1"></div>
-                    <div class="shape-cont2"></div>
-                    <div class="shape-cont3"></div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <script src="index.js"></script>
+    <div class="container">
+        <form>
+           <div class="label"style="font-family:Montserrat;color:#3D5A80;margin-top:60px;margin-left:70px;font-size:30px;">Name:</div>
+           <input type="text"style="margin-left:75px;background: rgba(41, 50, 65, 0.1);width:80%;border:none;height:50px;margin-top:5px;font-size:30px;">
+           <div class="label"style="font-family:Montserrat;color:#3D5A80;margin-top:20px;margin-left:70px;font-size:30px;">Date and Time:</div>
+           <input type="text"style="margin-left:75px;background: rgba(41, 50, 65, 0.1);width:80%;border:none;height:50px;margin-top:5px;font-size:30px;">
+           <div class="label"style="font-family:Montserrat;color:#3D5A80;margin-top:20px;margin-left:70px;font-size:30px;">Venue:</div>
+           <input type="text"style="margin-left:75px;background: rgba(41, 50, 65, 0.1);width:80%;border:none;height:50px;margin-top:5px;font-size:30px;">
+           <div class="label"style="font-family:Montserrat;color:#3D5A80;margin-top:20px;margin-left:70px;font-size:30px;">Description:</div>
+           <textarea rows="12" cols="20" style="font-size:30px;margin-left:75px;background: rgba(41, 50, 65, 0.1);width:80%;border:none;margin-top:5px;"></textarea>
+           <div class="label"style="font-family:Montserrat;color:#3D5A80;margin-top:20px;margin-left:70px;font-size:30px;">Link to website/registration site:</div>
+           <input type="text"style="margin-left:75px;background: rgba(41, 50, 65, 0.1);width:80%;border:none;height:50px;margin-top:5px;font-size:30px;">
+          <div class="btns">
+           <button class="btn">Cancel</button>
+           <button class="btn"style="margin-left:600px;margin-top:-50px;">Confirm</button>
+           </div>
 </body>
-
-<!-- Required Material Web JavaScript library -->
-<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-<!-- Instantiate single textfield component rendered in the document -->
-<script>
-  mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
-</script>
-
 </html>
