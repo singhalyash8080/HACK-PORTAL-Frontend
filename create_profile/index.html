@@ -4,11 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
-    This is the page which is shown after signing in
+    <div class="container">
+        <h1 >Complete Your Profile</h1>
+        <div class="progress-bar">
+           <div class="step">
+              
+              <div class="bullet">
+              <span>1</span>
+              </div>
+           <div class="check fas fa-check"></div>
+           </div>      
+           <div class="step">
+              <div class="bullet">
+              <span>2</span>
+              </div>
+           <div class="check fas fa-check"></div>
+           </div>
+           <div class="step">
+              <div class="bullet">
+              <span>3</span>
+              <div class="check fas fa-check"></div>
+           </div>  
+           </div>
+        </div>
+        <div class="form-outer">
+           <form action="#">
+              <div class="page slidepage"id="personal">
+                 <div class="title">Personal</div>
+                 <div class="field">
+                    <div class="label"id="name"style="margin-top:30px;">Name:</div>
+                    <input type="text"style="margin-top:50px;">
+                    <b class="form-text text-danger" id="nameError"></b>
+                 </div>
+                 <div class="field">
+                    <div class="label"id="email"style="margin-top:70px;">Personal email id:</div>
+                    <input type="text"style="margin-top:100px;">
+                    <b class="form-text text-danger" id="emailError"></b>
+                 </div>
+                 <div class="field">
+                    <div class="label"id="uni"style="margin-top:120px;">University name:</div>
+                    <input type="text"style="margin-top:150px;">
+                    <b class="form-text text-danger" id="uniError"></b> 
+                 </div>
+                 <div class="field">
+                    <div class="label"id="year"style="margin-top:170px;">Year of graduation:</div>
+                    <input type="text"style="margin-top:200px;">
+                    <b class="form-text text-danger" id="yearError"></b> 
+                 </div>
+                 <div class="field nextBtn"style="margin-left:80px;margin-top:250px;">
+                    <button ><i class="fa fa-arrow-right fa-2x"></i></button>
+                 </div>
+              </div>
+              <div class="page"id="skills">
+                 <div class="title">Skills</div>
+                    <div class="field">
+                    <div class="label"id="des">Brief Description about yourself:</div>
+                    <textarea rows="12" cols="20" style="font-size:30px;width:100%;border:none;margin-top:5px;margin-top: 20px;background: rgba(41, 50, 65, 0.1);"></textarea>
+                    <b class="form-text text-danger" id="desError"></b>
+                    </div>
+                 <div class="field">
+                    <div class="label"style="top:0px;left:40px;margin-top:160px">Web Development</div>
+                    <input type="radio"style="height:20px;width:30px;margin-top:165px;">
+                 </div>
+                 <div class="field">
+                    <div class="label"style="top:0px;left:40px;margin-top:140px;">App Development</div>
+                    <input type="radio"style="height:20px;width:30px;margin-top:145px;">
+                 </div>
+                 <div class="field">
+                    <div class="label"style="top:0px;left:40px;margin-top:120px;">Data Science</div>
+                    <input type="radio"style="height:20px;width:30px;margin-top:125px;">
+                 </div>
+                 <div class="field">
+                    <div class="label"style="top:0px;left:40px;margin-top:100px;">Design-UI/UX</div>
+                    <input type="radio"style="height:20px;width:30px;margin-top:105px;">
+                 </div>
+                 <div class="field">
+                    <div class="label"style="top:0px;left:40px;margin-top:80px;">Management Skills</div>
+                    <input type="radio"style="height:20px;width:30px;margin-top:85px;">
+                 </div>
+                 <div class="field">
+                    <div class="label"style="top:0px;left:40px;margin-top:60px;">Blockchain</div>
+                    <input type="radio"style="height:20px;width:30px;margin-top:65px;">
+                 </div>
+                 <div class="field">
+                    <div class="label"style="top:0px;left:40px;margin-top:40px;">Cybersecurity</div>
+                    <input type="radio"style="height:20px;width:30px;margin-top:45px;">
+                 </div>
+                 <div class="field btns">
+                    <button class="next-1 next"><i class="fa fa-arrow-right fa-2x"></i></button>
+                 </div>
+              </div>
+              <div class="page"id="links">
+                 <div class="title">Links</div>
+                 <div class="title"style="font-size:25px;padding-bottom:10px;">(you can skip this section)</div>
+                 <div class="field">
+                    <div class="label"style="margin-top:30px;">Github:</div>
+                    <input type="text"style="margin-top:50px;">
+                 </div>
+                 <div class="field">
+                    <div class="label"style="margin-top:70px;">Stack Overflow:</div>
+                    <input type="text"style="margin-top:100px;">
+                 </div>
+                 <div class="field">
+                    <div class="label"style="margin-top:120px;">Your Website:</div>
+                    <input type="text"style="margin-top:150px;">
+                 </div>
+                 <a href="../home_page/index.html"></a>
+                 <div class="field btns"style="margin-left:80px;margin-top:250px;">
+                 <button class="submit next"><i class= "fa fa-check fa-2x"></i></button>
+                 </div>
+                 </a>
+           </form>
+        </div>
+     </div>
+     <script src="index.js"></script>
 
-    <a href="../home_page/index.html">Submit</a>
+     
 </body>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
