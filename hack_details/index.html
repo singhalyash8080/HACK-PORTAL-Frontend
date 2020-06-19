@@ -1,83 +1,87 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a hackathon</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-
+    <title>Hackathon information</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script> 
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <script src="index.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
 </head>
-
 <body>
+    <section class="Navbar">
 
-    <nav class="red" style="padding:0px 10px;">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
-
-
-            <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-                <i class="material-icons">menu</i>
-            </a>
-            <ul class="hide-on-med-and-down right">
+        <div class="mob-Navbar">
+            <ul id="slide-out" class="sidenav">
                 <li>
-                    <div class="center row">
-                        <div class="col s12 ">
-                            <div class="row" id="topbarsearch">
-                                <div class="input-field col s6 s12 white-text">
-                                    <i class="white-text material-icons prefix" style="margin:-2.5px">search</i>
-                                    <input type="text" placeholder="search" style="padding:6px;" id="autocomplete-input"
-                                        class="autocomplete white-text">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="user-view">
+                        <!-- <div class="background">
+                        <img src="images/office.jpg">
+                      </div> -->
+                        <!-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> -->
+                        <a href="#"><span class="name">John Doe</span></a>
+                        <a href="#"><span class="email">jdandturk@gmail.com</span></a>
                     </div>
                 </li>
-                <li><a href="../home_page/index.html">Home</a></li>
-                <li><a href="../myteams/index.html">MyTeams</a></li>
-                <li><a href="../myprofile/index.html">Profile</a></li>
+            
+                <li><a href="../home_page/index.html" style="color: #3D5A80;">Search</a></li>
+            
+                <li><a href="../myteams/index.html" style="color: #3D5A80;">MyTeams</a></li>
+            
+                <li><a href="../myprofile/index.html" style="color: #3D5A80;">Profile</a></li>
             </ul>
-
-
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons" id="mob-nav-icon">menu</i></a>
         </div>
 
-    </nav>
-    <ul class="sidenav" id="mobile-nav">
-        <li>
-            <div class="center row">
-                <div class="col s12 ">
-                    <div class="row" id="topbarsearch">
-                        <div class="input-field col s6 s12 red-text">
-                            <i class="red-text material-icons prefix">search</i>
-                            <input type="text" placeholder="search" id="autocomplete-input"
-                                class="autocomplete red-text">
-                        </div>
-                    </div>
-                </div>
+
+        <div class="heading-nav">
+            HackPortal
+        </div>
+
+        <div class="lnks">
+            <div class="link1">
+                <a href="../home_page/index.html"id="lnk1">Search</a>
             </div>
-        </li>
-        <li><a href="../home_page/index.html">Home</a></li>
-        <li><a href="../myteams/index.html">MyTeams</a></li>
-        <li><a href="../myprofile/index.html">Profile</a></li>
-
-    </ul>
-
-    <!-- end of navbar -->
-
-    <h5 id="name"> <b>Name : </b></h5><br>  
-    <h5 id="date"> <b>date : </b> </h5><br>
-    <h5 id="Venue"> <b>Venue : </b> </h5><br>
-    <h5 id="desc"> <b>Description : </b> </h5><br>
-    <h5 id="link"> <b>hackathon link : </b> </h5><br>
-
-    <a class="waves-effect waves-light btn" href="../myteams/index.html">Create Team</a>
-
-    <script src="index.js"></script>
     
+            <div class="link2">
+                <a href="../myteams/index.html"id="lnk2">MyTeams</a>
+            </div>
+    
+            <div class="link3">
+                <a href="../myprofile/index.html"id="lnk3">Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <div class="arrow1">
+    <button class="btn btn-flat"id="arrow"style="margin-left:150px;color:#3D5A80"><i class="material-icons"style="font-size:40px;">arrow_back</i></button>
+</div>
+<h1 id="hackname">DevSoc</h1>
+<h2 id="venue">Anna Auditorium,VIT</h2>
+<h3 id="date">Monday to Wednesday<br>16th to 18th March 2020</h3>
+<p>DEVSOC is CodeChef-VIT’s annual flagship event hoping to empower young minds by bringing enthusiastic technocrats and
+    thinkers under one roof. This year, the second iteration of the hackathon is being held with a goal to create a
+    sprint like event, where participants create, hack, innovate to solve problems while adhering to the spirit of
+    creativity and teamwork. The event is spread over three days, with the hackathon lasting 48 hours consisting of
+    amazing swags, prizes, food and drinks!</p>
+<p>Link:</p>
+<a href="#"id="hacklink" target="_blank">DevSoc Link</a>
+<p>Teams:</p>
+<div class="btns">
+    <a href="#"id="viewlink">
+        <button class="btn" id="view" style="margin-left:5px;">View</button></a>
+    <a href="../create_team/index.html"id="createlink">
+        <button class="btn" id="create" style="margin-left:-200px;">Create</button></a>
+</div>
+     
+
 </body>
-</html>
+</html> 
