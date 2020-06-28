@@ -7,7 +7,7 @@ $(document).ready(function(){
 var hack_names=["hackathon 1","hackathon 2","hackathon 3"]
 
 var hack_text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English..."
-var hack_link='temp/join_first.html'
+var hack_link='../hack_details/index.html'
 
 
 var ob_head ={

@@ -20,13 +20,13 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script> -->
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script> -->
+    <!-- <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script> -->
 </head>
 
 <body>
@@ -41,7 +41,8 @@
     
                 <!-- <a href="home_page/index.html" class="butt-getstarted"> Get Started</a> -->
                 <!-- <input type="email"> -->
-                <form id="signIn">
+
+                <!-- <form id="signIn">
                     <label class="mdc-text-field mdc-text-field--outlined">
                         <input type="email" class="mdc-text-field__input" aria-labelledby="my-label-id" id="getmail">
                         <span class="mdc-notched-outline">
@@ -52,7 +53,40 @@
                             <span class="mdc-notched-outline__trailing"></span>
                         </span>
                     </label>
+
+                    <label class="mdc-text-field mdc-text-field--outlined">
+                        <input type="password" class="mdc-text-field__input" aria-labelledby="my-label-id2" id="getpass">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="my-label-id2">Password</span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                        </span>
+                    </label>
+                </form> -->
+
+
+                <!-- <label>Email</label> -->
+                <form id="SignIn">
+                    <input type="email" id="signIn-elem" placeholder="Email"><br>
+                    <input type="password" id="signIn-elem" placeholder="Password">
+                    <div class="sub-elem">
+                        <p> <a href="create_profile/index.html" style="text-decoration: none;"> Dont have an account ? </a></p>
+                        <button class="login"><a href= "home_page/index.html"> Login </a></button>
+                    </div>
                 </form>
+
+                <div class="auth">
+                    <a href="#" id="signIN">
+                        <button class="logIn">Login</button>
+                    </a> <br><br>
+    
+                    <a href="create_profile/index.html">
+                        <button class="signUp">Signup</button>
+                    </a>
+                </div>
+
             </div>
 
             <div class="shape1"></div>
@@ -109,7 +143,7 @@
                     <br>
 
                     <div id="view_more_link">
-                        <a href="#" style="color: white;font-size:35px;" class="view_m_lnk">View More</a>
+                        <a href="temp/join_first.html" style="color: white;font-size:35px;" class="view_m_lnk">View More</a>
                     </div>
                 </div>
 

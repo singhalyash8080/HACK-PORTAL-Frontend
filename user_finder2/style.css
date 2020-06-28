@@ -1,0 +1,227 @@
+/* default code */
+* {box-sizing: border-box;}
+
+body{
+    margin:0;
+}
+
+/* default code end */
+
+
+/* navbar */
+.Navbar{
+    display: flex;
+    margin-top:49px;
+}
+
+.heading-nav{
+    /* border:2px red solid; */
+    width:50%;
+    font-size:38px;
+    color: #3D5A80;
+    padding:20px;
+}
+
+.lnks{
+    /* border: 2px solid blue; */
+    display: flex;
+    width:50%;
+    justify-content:space-evenly;
+    padding:20px;
+}
+
+.link1,.link2,.link3{
+    /* border:2px red solid; */
+    font-size:38px;
+}
+
+.link1 a,.link2 a,.link3 a{
+    color: #3D5A80;
+    padding:0 30px;
+}
+
+.mob-Navbar{
+    margin-top:13px;
+    /* border:2px red solid; */
+    /* width:10%; */
+    margin-left:10px;
+    padding:20px;
+    /* text-align: end; */
+    /* background-color:black; */
+}
+
+#mob-nav-icon{
+    font-size:40px;
+}
+
+.link1 a:hover, .link2 a:hover, .link3 a:hover{
+    background-color: #3D5A80;
+    color:white;
+    padding:0px 30px;
+    border-bottom-left-radius:50px;
+    border-top-left-radius:50px;
+    border-bottom-right-radius:50px;
+    border-top-right-radius:50px;
+}
+
+
+/* navbar end */
+
+/* content */
+
+.content{
+    /* border:2px green solid; */
+}
+
+.profiles{
+    background: #3D5A80;
+    border-radius: 24px 0px;
+    padding:10px;
+}
+
+.list{
+    color:#fff;
+    display: flex;
+    /* border:red solid 2px; */
+}
+
+.item{
+    /* border:2px blue solid; */
+    padding:0 30px;
+    /* margin:0 auto; */
+    font-size:14px;
+}
+
+.text{
+    /* border:2px purple solid; */
+    font-size:25px;
+    color:#fff;
+}
+
+.shape1{
+    width:151px;
+    height:151px;
+    background: #E0FBFC;
+    transform: rotate(30deg);
+    z-index:3;
+
+    position: relative;
+    top:130px;
+}
+
+.shape2{
+    width:159px;
+    height:159px;
+    background: #EE6C4D;
+    z-index:2;
+    border-radius:50%;
+
+    position: relative;
+    bottom:120px;
+}
+
+.shape3{
+    width: 0; 
+    height: 0; 
+    border-left: 115px solid transparent;
+    border-right: 85px solid transparent;
+    border-bottom: 130px solid #98C1D9;
+    z-index:1;
+    transform: rotate(-135deg);
+    
+    position: relative;
+    bottom:270px;
+    left:40px;
+}
+
+/* content end */
+
+/* media queries */
+
+        /* for navbar */
+        @media only screen and (min-width: 993px){
+            .mob-Navbar{
+                display:none;
+            }
+        }
+        
+        @media only screen and (max-width: 1299px){
+        
+            .heading-nav{
+                font-size:35px;
+            }
+        
+            .link1,.link2,.link3{
+                font-size:35px;
+            }
+        
+        }
+        
+        @media only screen and (max-width: 992px){
+            .lnks{
+                display: none;
+            }
+        
+            .heading-nav{
+                text-align: end;
+                font-size:40px;
+                margin-right:20px;
+            }
+        
+            .Navbar{
+                justify-content: space-between;
+            }
+        }
+        
+        @media only screen and (max-width: 992px){
+            .lnks{
+                display: none;
+            }
+        
+            .heading-nav{
+                text-align: end;
+                font-size:40px;
+            }
+        
+            .Navbar{
+                justify-content: space-between;
+            }
+        }
+        
+        @media only screen and (max-width: 444px){
+            .heading-nav{
+                font-size:30px;
+            }
+        
+            #mob-nav-icon{
+                font-size:30px;
+            }
+        }
+        
+           /* navbar media queries end */
+
+        /* media queries for content */
+
+        @media only screen and (max-width: 992px){
+            .shapes{
+                display:none;
+            }
+        }
+
+
+        @media only screen and (max-width: 861px){
+
+            .item{
+                padding:0 20px;
+                font-size:12px;
+            }
+
+        }
+
+        @media only screen and (max-width: 465px){
+            .list{
+                flex-direction: column;
+            }
+        }
+
+        /* end of media queries for content */
