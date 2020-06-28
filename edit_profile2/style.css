@@ -207,4 +207,12 @@ body{
         padding:7px 15px;
     }
 }
+
+@media only screen and (max-width:826px){
+
+    .form1-cont{
+        width:90%;
+    }
+
+}
     /* end of media queries for content */
