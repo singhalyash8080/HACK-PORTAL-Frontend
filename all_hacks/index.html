@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Required styles for Material Web -->
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="back-content">
+        <section class="layout">
+            <div class="row">
+                <div class="col l2">
+                    <h4 class="part2-1-head">
+                        <i class="material-icons medium">arrow_back</i>
+                    </h4>
+                </div>
+                <div class="col l8 part2-1">
+                    <h4 class="part2-1-head">All Hackathons</h4>
+                    <br><br>
+                    <div id="one">
+                        <h5 id="one-head"></h5>
+        
+                        <p id="one-txt"></p>
+                        <a id="one-butt" ></a>
+                    
+                    </div>
+                    <br>
+        
+                    <div id="two">
+                        <h5 id="two-head"></h5>
+                        <p id="two-txt"></p>
+                        <a id="two-butt"></a>
+                    </div>
+                    <br>
+        
+                    <div id="three">
+                        <h5 id="three-head"></h5>
+                        <p id="three-txt"></p>
+                        <a id="three-butt"></a>
+                    </div>
+                    <br>
+
+                    <div id="four">
+                        <h5 id="four-head"></h5>
+                        <p id="four-txt"></p>
+                        <a id="four-butt"></a>
+                    </div>
+                    <br>
+
+                    <div id="five">
+                        <h5 id="five-head"></h5>
+                        <p id="five-txt"></p>
+                        <a id="five-butt"></a>
+                    </div>
+                    <br>
+
+                    <div id="view_more_link">
+                        <a href="#" style="color: white;font-size:30px;" class="view_m_lnk" onclick="change()">View More</a>
+                    </div>
+                </div>
+
+                <br><br>
+
+                <div class="col l2 shape-cont">
+                    
+                    <div class="shape-cont1"></div>
+                    <div class="shape-cont2"></div>
+                    <div class="shape-cont3"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="index.js"></script>
+    
+</body>
+
+<!-- Required Material Web JavaScript library -->
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<!-- Instantiate single textfield component rendered in the document -->
+<script>
+  mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
+</script>
+
+</html>

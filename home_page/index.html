@@ -32,11 +32,11 @@
                     </div>
                 </li>
             
-                <li><a href="../home_page/index.html" style="color: #3D5A80;">Search</a></li>
+                <li><a href="../user_finder1/index.html" style="color: #3D5A80;">Search</a></li>
             
-                <li><a href="../myteams/index.html" style="color: #3D5A80;">MyTeams</a></li>
+                <li><a href="../my_teams/index.html" style="color: #3D5A80;">MyTeams</a></li>
             
-                <li><a href="../myprofile/index.html" style="color: #3D5A80;">Profile</a></li>
+                <li><a href="../edit_profile1/index.html" style="color: #3D5A80;">Profile</a></li>
             </ul>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons" id="mob-nav-icon">menu</i></a>
         </div>
@@ -48,15 +48,15 @@
 
         <div class="lnks">
             <div class="link1">
-                <a href="../home_page/index.html">Search</a>
+                <a href="../user_finder1/index.html">Search</a>
             </div>
     
             <div class="link2">
-                <a href="../myteams/index.html">MyTeams</a>
+                <a href="../my_teams/index.html">MyTeams</a>
             </div>
     
             <div class="link3">
-                <a href="../myprofile/index.html">Profile</a>
+                <a href="../edit_profile1/index.html">Profile</a>
             </div>
         </div>
     </section>
@@ -128,7 +128,7 @@
                     <br>
 
                     <div id="view_more_link">
-                        <a href="#" style="color: white;font-size:35px;">View More</a>
+                        <a href="../all_hacks/index.html" style="color: white;font-size:35px;text-decoration: none;">View More</a>
                     </div>
                 </div>
 
@@ -146,69 +146,5 @@
     <script src="index.js"></script>
 
 </body>
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
-<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
-        authDomain: "hackportal-53efe.firebaseapp.com",
-        databaseURL: "https://hackportal-53efe.firebaseio.com",
-        projectId: "hackportal-53efe",
-        storageBucket: "hackportal-53efe.appspot.com",
-        messagingSenderId: "945327566569",
-        appId: "1:945327566569:web:04739afc0b939fcf658a78",
-        measurementId: "G-MTPN0JGL08"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-
-    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-        // Additional state parameters can also be passed via URL.
-        // This can be used to continue the user's intended action before triggering
-        // the sign-in operation.
-        // Get the email if available. This should be available if the user completes
-        // the flow on the same device where they started it.
-        var email = window.localStorage.getItem('emailForSignIn')
-        if (!email) {
-            // User opened the link on a different device. To prevent session fixation
-            // attacks, ask the user to provide the associated email again. For example:
-            email = window.prompt('Please provide your email for confirmation');
-        }
-        // console.log('success2')
-        // The client SDK will parse the code from the link for you.
-        firebase.auth().signInWithEmailLink(email, window.location.href)
-            .then(function (result) {
-                // Clear email from storage.
-                window.localStorage.removeItem('emailForSignIn');
-                // You can access the new user via result.user
-                // Additional user info profile not available via:
-                // result.additionalUserInfo.profile == null
-                // You can check if the user is new or existing:
-                // result.additionalUserInfo.isNewUser
-            })
-            .catch(function (error) {
-                // Some error occurred, you can inspect the code: error.code
-                // Common errors could be invalid email and invalid or expired OTPs.
-            });
-    }
-
-    firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-            console.log("USER LOGGED IN")
-    } else {
-            // No user is signed in.
-            console.log("USER NOT LOGGED IN")
-    }
-    })
-</script>
 
 </html>

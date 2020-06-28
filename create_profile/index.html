@@ -4,193 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</head>
-<body>
-    <div class="container">
-        <h1 >Complete Your Profile</h1>
-        <div class="progress-bar">
-           <div class="step">
-              
-              <div class="bullet">
-              <span>1</span>
-              </div>
-           <div class="check fas fa-check"></div>
-           </div>      
-           <div class="step">
-              <div class="bullet">
-              <span>2</span>
-              </div>
-           <div class="check fas fa-check"></div>
-           </div>
-           <div class="step">
-              <div class="bullet">
-              <span>3</span>
-              <div class="check fas fa-check"></div>
-           </div>  
-           </div>
-        </div>
-        <div class="form-outer">
-           <form action="#">
-              <div class="page slidepage"id="personal">
-                 <div class="title">Personal</div>
-                 <div class="field">
-                    <div class="label"id="name"style="margin-top:30px;">Name:</div>
-                    <input type="text"style="margin-top:50px;">
-                    <b class="form-text text-danger" id="nameError"></b>
-                 </div>
-                 <div class="field">
-                    <div class="label"id="email"style="margin-top:70px;">Personal email id:</div>
-                    <input type="text"style="margin-top:100px;">
-                    <b class="form-text text-danger" id="emailError"></b>
-                 </div>
-                 <div class="field">
-                    <div class="label"id="uni"style="margin-top:120px;">University name:</div>
-                    <input type="text"style="margin-top:150px;">
-                    <b class="form-text text-danger" id="uniError"></b> 
-                 </div>
-                 <div class="field">
-                    <div class="label"id="year"style="margin-top:170px;">Year of graduation:</div>
-                    <input type="text"style="margin-top:200px;">
-                    <b class="form-text text-danger" id="yearError"></b> 
-                 </div>
-                 <div class="field nextBtn"style="margin-left:80px;margin-top:250px;">
-                    <button ><i class="fa fa-arrow-right fa-2x"></i></button>
-                 </div>
-              </div>
-              <div class="page"id="skills">
-                 <div class="title">Skills</div>
-                    <div class="field">
-                    <div class="label"id="des">Brief Description about yourself:</div>
-                    <textarea rows="12" cols="20" style="font-size:30px;width:100%;border:none;margin-top:5px;margin-top: 20px;background: rgba(41, 50, 65, 0.1);"></textarea>
-                    <b class="form-text text-danger" id="desError"></b>
-                    </div>
-                 <div class="field">
-                    <div class="label"style="top:0px;left:40px;margin-top:160px">Web Development</div>
-                    <input type="radio"style="height:20px;width:30px;margin-top:165px;">
-                 </div>
-                 <div class="field">
-                    <div class="label"style="top:0px;left:40px;margin-top:140px;">App Development</div>
-                    <input type="radio"style="height:20px;width:30px;margin-top:145px;">
-                 </div>
-                 <div class="field">
-                    <div class="label"style="top:0px;left:40px;margin-top:120px;">Data Science</div>
-                    <input type="radio"style="height:20px;width:30px;margin-top:125px;">
-                 </div>
-                 <div class="field">
-                    <div class="label"style="top:0px;left:40px;margin-top:100px;">Design-UI/UX</div>
-                    <input type="radio"style="height:20px;width:30px;margin-top:105px;">
-                 </div>
-                 <div class="field">
-                    <div class="label"style="top:0px;left:40px;margin-top:80px;">Management Skills</div>
-                    <input type="radio"style="height:20px;width:30px;margin-top:85px;">
-                 </div>
-                 <div class="field">
-                    <div class="label"style="top:0px;left:40px;margin-top:60px;">Blockchain</div>
-                    <input type="radio"style="height:20px;width:30px;margin-top:65px;">
-                 </div>
-                 <div class="field">
-                    <div class="label"style="top:0px;left:40px;margin-top:40px;">Cybersecurity</div>
-                    <input type="radio"style="height:20px;width:30px;margin-top:45px;">
-                 </div>
-                 <div class="field btns">
-                    <button class="next-1 next"><i class="fa fa-arrow-right fa-2x"></i></button>
-                 </div>
-              </div>
-              <div class="page"id="links">
-                 <div class="title">Links</div>
-                 <div class="title"style="font-size:25px;padding-bottom:10px;">(you can skip this section)</div>
-                 <div class="field">
-                    <div class="label"style="margin-top:30px;">Github:</div>
-                    <input type="text"style="margin-top:50px;">
-                 </div>
-                 <div class="field">
-                    <div class="label"style="margin-top:70px;">Stack Overflow:</div>
-                    <input type="text"style="margin-top:100px;">
-                 </div>
-                 <div class="field">
-                    <div class="label"style="margin-top:120px;">Your Website:</div>
-                    <input type="text"style="margin-top:150px;">
-                 </div>
-                 <a href="../home_page/index.html"></a>
-                 <div class="field btns"style="margin-left:80px;margin-top:250px;">
-                 <button class="submit next"><i class= "fa fa-check fa-2x"></i></button>
-                 </div>
-                 </a>
-           </form>
-        </div>
-     </div>
-     <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-     
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <section class="header">
+        <div class="part1">
+            <h1 class="part1-a">Complete your profile</h1>
+
+            <div class="part1-b">
+                <p class="point" id="point1">1</p>
+
+                <p class="line" id="line1"></p>
+
+                <p class="point" id="point2">2</p>
+
+                <p class="line" id="line2"></p>
+
+                <p class="point" id="point3">3</p>
+            </div>
+
+        </div>
+    
+        <div class="part2">
+            <div class="shape1"></div>
+
+            <div class="shape2"></div>
+
+            <div class="shape3"></div>
+
+        </div>
+    </section>
+
+    <section class="content">
+        
+        <div class="form1">
+
+            <h2 class="form1-head">Personal</h2>
+
+            <div class="form1-cont">
+                <label>Name:</label><br><br>
+                <input type="text"><br><br>
+    
+                <label>Personal email id:</label><br><br>
+                <input type="email"><br><br>
+    
+                <label>University Name:</label><br><br>
+                <input type="text"><br><br>
+    
+                <label>Year of Graduation:</label><br><br>
+                <input type="number"><br><br>
+
+                <div class="form1-butt">
+                    <i class="material-icons form1-butt-b" id="form1-butt">arrow_forward</i>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <div class="form2">
+            <h2 class="form1-head">Skills</h2>
+
+            <div class="form2-cont">
+                <label>Brief description about yourself : </label><br>
+                <!-- <input type="text" class="txt-inp"><br><br> -->
+                <textarea class="txt-inp"></textarea><br><br>
+    
+                <label>Your skills:</label><br>
+    
+                <div class="form2-inps">
+                    <input type="checkbox"><label id="label-form2">Web Development</label><br><br>
+                </div>
+
+                <div class="form2-inps">
+                    <input type="checkbox"><label id="label-form2">Mobile App Development</label><br><br>
+                </div>
+    
+                <div class="form2-inps">
+                    <input type="checkbox"><label id="label-form2">Devops</label><br><br>
+                </div>
+    
+                <div class="form2-inps">
+                    <input type="checkbox"><label id="label-form2">Machine learning</label><br><br>
+                </div>
+    
+                <div class="form2-inps">
+                    <input type="checkbox"><label id="label-form2">Artificial intelligence</label><br><br>
+                </div>
+    
+                <div class="form2-inps">
+                    <input type="checkbox"><label id="label-form2">Design - UI/UX</label><br><br>
+                </div>
+    
+                <div class="form2-inps">
+                    <input type="checkbox"><label id="label-form2">Management skills</label><br><br>
+                </div>
+    
+                <div class="form2-inps">
+                    <input type="checkbox"><label id="label-form2">Blockchain</label><br><br>
+                </div>
+    
+                <div class="form2-inps">
+                    <input type="checkbox"><label id="label-form2">Cybersecurity</label><br><br>
+                </div>
+
+                <div class="form1-butt">
+                    <i class="material-icons form1-butt-b" id="form2-butt">arrow_forward</i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form3">
+            <h2 class="form1-head">Links</h2>
+
+            <div class="form1-cont">
+
+                <label>Github</label><br>
+                <input type="text"><br><br>
+    
+                <label>Stackoverflow</label><br>
+                <input type="text"><br><br>
+    
+                <label>Your Website</label><br>
+                <input type="text"><br><br>    
+
+                <div class="form1-butt">
+                    <i class="material-icons form1-butt-b" id="form3-butt"><a href="../home_page/index.html" style="text-decoration: none;">arrow_forward</a></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+    <script src="index.js"></script>
 </body>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
-<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
-        authDomain: "hackportal-53efe.firebaseapp.com",
-        databaseURL: "https://hackportal-53efe.firebaseio.com",
-        projectId: "hackportal-53efe",
-        storageBucket: "hackportal-53efe.appspot.com",
-        messagingSenderId: "945327566569",
-        appId: "1:945327566569:web:04739afc0b939fcf658a78",
-        measurementId: "G-MTPN0JGL08"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-
-    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-        // Additional state parameters can also be passed via URL.
-        // This can be used to continue the user's intended action before triggering
-        // the sign-in operation.
-        // Get the email if available. This should be available if the user completes
-        // the flow on the same device where they started it.
-        var email = window.localStorage.getItem('emailForSignIn')
-        if (!email) {
-            // User opened the link on a different device. To prevent session fixation
-            // attacks, ask the user to provide the associated email again. For example:
-            email = window.prompt('Please provide your email for confirmation');
-        }
-        // console.log('success2')
-        // The client SDK will parse the code from the link for you.
-        firebase.auth().signInWithEmailLink(email, window.location.href)
-            .then(function (result) {
-                // Clear email from storage.
-                window.localStorage.removeItem('emailForSignIn');
-                // You can access the new user via result.user
-                // Additional user info profile not available via:
-                // result.additionalUserInfo.profile == null
-                // You can check if the user is new or existing:
-                // result.additionalUserInfo.isNewUser
-            })
-            .catch(function (error) {
-                // Some error occurred, you can inspect the code: error.code
-                // Common errors could be invalid email and invalid or expired OTPs.
-            });
-    }
-
-    firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-            console.log("USER LOGGED IN")
-    } else {
-            // No user is signed in.
-            console.log("USER NOT LOGGED IN")
-    }
-    })
-</script>
 
 </html>

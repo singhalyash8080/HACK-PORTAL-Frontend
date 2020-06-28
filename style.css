@@ -68,10 +68,72 @@ img{
     width:150px;
     height:150px;
     position: relative;
-    top:150px;
+    top:80px;
     align-self: flex-end;
     right:60px;
     z-index:-1;
+}
+
+.logIn,.signUp{
+
+    font-size:30px;
+    padding:15px 25px;
+    width:15rem;
+    cursor: pointer;
+}
+
+.logIn{
+    background: #3D5A80;
+    border-radius:8px;
+    color:#fff;
+}
+
+.signUp{
+    border: 4px solid #3D5A80;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: #3D5A80;
+    border:1px #3D5A80 solid;
+}
+
+#SignIn{
+    display: none;
+    max-width:60%;
+    /* border:2px purple solid; */
+    /* padding:20px 30px; */
+    padding:20px 20px 20px 0px;
+}
+
+#signIn-elem{
+    /* border:2px red solid; */
+    border: none;
+    background: rgba(41, 50, 65, 0.1);
+    color:#3D5A80;
+    /* padding:5px 30px; */
+    /* max-width:50%; */
+    padding:10px;
+    /* border:green solid 2px; */
+}
+
+.sub-elem{
+    /* max-width:50%; */
+    /* padding:5px 30px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px;
+    /* border:green solid 2px; */
+    
+}
+
+.login{
+    padding:10px 20px;
+    /* border:red solid 2px; */
+    font-size:20px;
+    background: #3D5A80;
+    border-radius: 8px;
+    color:#fff;
+    cursor: pointer;
 }
 
 
@@ -212,11 +274,79 @@ img{
         display:none;
     }
 
+    #signIn-elem{
+        max-width:30%;
+    }
+
     .part1-1{
         width:100%;
         text-align: center;
     }
 
+    #SignIn{
+        margin:0 auto;
+        max-width:35%;
+    }
+
+    #signIn-elem{
+        max-width:100%;
+    }
+
+}
+
+@media only screen and (max-width: 1007px){
+    #SignIn{
+        max-width:45%;
+    }
+}
+
+@media only screen and (max-width: 750px){
+
+    #SignIn{
+        max-width:55%;
+    }
+
+}
+
+@media only screen and (max-width: 622px){
+
+    #SignIn{
+        max-width:60%;
+        padding:15px 15px 15px 0px;
+    }
+
+    #signIn-elem{
+        /* padding:5px 30px; */
+        /* max-width:50%; */
+        padding:7px;
+    }
+    
+    .sub-elem{
+        /* max-width:50%; */
+        /* padding:5px 30px; */
+        padding:7px;
+        
+    }
+    
+    .login{
+        padding:7px 15px;
+        font-size:17px;
+    }
+
+}
+
+@media only screen and (max-width: 530px){
+
+    #SignIn{
+        max-width:80%;
+    }
+
+}
+
+@media only screen and (max-width: 385px){
+    #SignIn{
+        max-width:94%;
+    }
 }
 
 
