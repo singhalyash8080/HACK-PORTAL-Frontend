@@ -59,5 +59,5 @@ $(".stackoverflow").html('<a href='+stackoverflow+'>'+ stackoverflow +'</a>')
 $(".label8").text(label8)
 $(".website").html('<a href='+website+'>'+ website +'</a>')
 
-$(".invite").append('<button> <a href='+invite_link+'>Invite</a> </button>')
+$(".invite").append('<button> <a href="'+invite_link+'" style="text-decoration:none;">Invite</a> </button>')
 // end of code for getting hackathon
