@@ -37,7 +37,10 @@ function skill() {
     body: JSON.stringify(raw),
   };
 
-  fetch("http://localhost:3000/users/searchuserprofiles/1", requestOptions)
+  fetch(
+    "https://hackportal.azurewebsites.net/users/searchuserprofiles/1",
+    requestOptions
+  )
     .then((response) => {
       return response.json();
     })
