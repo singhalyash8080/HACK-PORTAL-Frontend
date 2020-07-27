@@ -189,7 +189,7 @@ img{
     border-bottom-right-radius:45px;
     display:flex;
     flex-direction: column;
-    height:300px;
+    max-height:100%;
 }
 
 #one-head,#two-head,#three-head{
@@ -413,13 +413,6 @@ img{
     /* end header media queries */
 
     /* content media queries */
-@media only screen and (max-width:1244px){
-
-    #one,#two,#three{
-        height:350px;
-    }
-
-}
 
 @media only screen and (max-width:992px){
     #one,#two,#three{

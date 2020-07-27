@@ -9,13 +9,14 @@ $(document).ready(function(){
 
 // code for getting hackathon details of some hackathons
 
-var hack_names=["hackathon 1","hackathon 2","hackathon 3"]
+var hack_names=[]
 
-var hack_text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English..."
-var hack_link='temp/join_first.html'
+// var hack_text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English..."
+var hack_text = []
+var hack_link=[]
 
 
-var ob_head ={
+var ob_head = {
     1:"one-head",
     2:"two-head",
     3:"three-head"
@@ -33,11 +34,51 @@ var ob_butt={
     3:"three-butt"
 }
 
-for (let i = 0; i <3; i++) {
-    $("#"+ob_head[i+1]).text(hack_names[i]);
-    $("#"+ob_txt[i+1]).text(hack_text);
-    $("#"+ob_butt[i+1]).html('<a id="one-butt" href="'+hack_link+'">Learn More</a>')
-}
+var arrayy=['<div id="one"><h5 id="one-head"></h5><p id="one-txt"></p><a id="one-butt" ></a></div><br>','<div id="two"><h5 id="two-head"></h5><p id="two-txt"></p><a id="two-butt" ></a></div><br>',
+'<div id="three"><h5 id="three-head"></h5><p id="three-txt"></p><a id="three-butt" ></a></div><br>']
+
+const url= 'https://hackportal.herokuapp.com/events/getevents/1'
+
+axios.get(url)
+.then(data => {
+    // console.log(data.data.documents.length)
+    $('.part2-1').append('<h4 class="part2-1-head">All Hackathons</h4>')
+    $('.part2-1').append('<br><br>')
+    // $('.part2-1-head').append('<div id="one"><h5 id="one-head"></h5><p id="one-txt"></p><a id="one-butt" ></a></div><br>')
+
+    if(data.data.documents.length>3){
+        len=3
+    }
+    else{
+        len=data.data.documents.length
+    }
+
+    for (let i = 0; i <len; i++) {
+
+        $('.part2-1').append(arrayy[i])
+    }
+
+    $('.part2-1').append('<div id="view_more_link"><a href="../all_hacks/index.html" style="color: white;font-size:35px;text-decoration: none;">View All</a></div>')
+
+
+    for (let i = 0; i < len; i++) {
+
+        hack_names.push(data.data.documents[i].nameOfEvent)
+        hack_text.push(data.data.documents[i].description)
+        hack_link.push(data.data.documents[i].eventUrl)
+
+    }
+
+    for (let i = 0; i < len; i++) {
+        $("#" + ob_head[i + 1]).text(hack_names[i]);
+        $("#" + ob_txt[i + 1]).text(hack_text[i]);
+        $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="' + hack_link[i] + '">Learn More</a>')
+    }
+
+})
+.catch(err=> console.log(err))
+
+
 
 //end of code for getting hackathon details
 

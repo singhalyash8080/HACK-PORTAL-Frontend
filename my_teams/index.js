@@ -4,24 +4,49 @@ $(document).ready(function(){
 
 // code for content
 
-var team_names= ['team 1','team 2','team 3','team 4']
-var hack_names= ['hack 1','hack 2','hack 3','hack 4']
-var description = ['Team ABC is a one of a kind team where you can grow your various skills in tech and other domains.Our project idea is to make a ...',
-'Team ABC is a one of a kind team where you can grow your various skills in tech and other domains.Our project idea is to make a ...',
-'Team ABC is a one of a kind team where you can grow your various skills in tech and other domains.Our project idea is to make a ...',
-'Team ABC is a one of a kind team where you can grow your various skills in tech and other domains.Our project idea is to make a ...']
+var myHeaders = new Headers();
+myHeaders.append("authtoken", "vaibhav");
 
-var admin_name = ['you','John Foster','Yash','You']
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
 
-var team_link = ['../team_info/index.html','../team_info/index.html','../team_info/index.html','../team_info/index.html']
+fetch("https://hackportal.herokuapp.com/users/getuserprofile", requestOptions)
+  .then(response => response.json())
+  .then(async (result) => {
+    // console.log(result.teams)
+    var team_link = '../team_info/index.html'
+
+    for (let i = 0; i < result.teams.length; i++) {
 
 
-for (let i = 0; i < team_names.length; i++) {
+      var myHeaders = new Headers();
+      myHeaders.append("authtoken", "vaibhav");
 
-  $(".content").append('<div class="team"> <p class="team_name">'+team_names[i]+'</p><p class="hack_name">'+hack_names[i]+'</p><p class="description">'
-  +description+'</p><div class="list"><p class="item">Admin : '+admin_name[i]+'</p> <p class="item"><a href="'+team_link[i]+'" style="color:#fff;">View</p></div></div><br><br>')
-}
+      var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
 
+      await fetch("https://hackportal.herokuapp.com/teams/getteaminfo/"+result.teams[i], requestOptions)
+        .then(response => response.json())
+        .then(results =>{
+          $(".content").append('<div class="team"> <p class="team_name">'+results.teamName+'</p><p class="hack_name">'+results.nameOfEvent+'</p><p class="description">'
+          +results.description+'</p><div class="list"><p class="item">Admin : '+'you'+'</p> <p class="item"><a href="'+team_link+'" style="color:#fff;">View</p></div></div><br><br>')
+          // console.log('one')
+        })
+        .catch(error => console.log('error', error));
+    }
+
+    // console.log($('.content').html())
+
+    // console.log($('.pagination').html())
+
+  })
+  .catch(error => console.log('error', error));
 
 
 
