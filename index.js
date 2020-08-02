@@ -58,7 +58,7 @@ axios.get(url)
         $('.part2-1').append(arrayy[i])
     }
 
-    $('.part2-1').append('<div id="view_more_link"><a href="../all_hacks/index.html" style="color: white;font-size:35px;text-decoration: none;">View All</a></div>')
+    $('.part2-1').append('<div id="view_more_link"><a href="/temp/join_first.html" style="color: white;font-size:35px;text-decoration: none;">View All</a></div>')
 
 
     for (let i = 0; i < len; i++) {
@@ -72,7 +72,7 @@ axios.get(url)
     for (let i = 0; i < len; i++) {
         $("#" + ob_head[i + 1]).text(hack_names[i]);
         $("#" + ob_txt[i + 1]).text(hack_text[i]);
-        $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="' + hack_link[i] + '">Learn More</a>')
+        $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="' + '/temp/join_first.html' + '">Learn More</a>')
     }
 
 })
@@ -82,68 +82,114 @@ axios.get(url)
 
 //end of code for getting hackathon details
 
-
-
-// firebase for signIn
+//firebase for signIn
 
 // Your web app's Firebase configuration
-// var firebaseConfig = {
-//     apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
-//     authDomain: "hackportal-53efe.firebaseapp.com",
-//     databaseURL: "https://hackportal-53efe.firebaseio.com",
-//     projectId: "hackportal-53efe",
-//     storageBucket: "hackportal-53efe.appspot.com",
-//     messagingSenderId: "945327566569",
-//     appId: "1:945327566569:web:04739afc0b939fcf658a78",
-//     measurementId: "G-MTPN0JGL08"
-// };
-// Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
+var firebaseConfig = {
+    apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
+    authDomain: "hackportal-53efe.firebaseapp.com",
+    databaseURL: "https://hackportal-53efe.firebaseio.com",
+    projectId: "hackportal-53efe",
+    storageBucket: "hackportal-53efe.appspot.com",
+    messagingSenderId: "945327566569",
+    appId: "1:945327566569:web:04739afc0b939fcf658a78",
+    measurementId: "G-MTPN0JGL08"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics()
+  
+  function toggleSignIn() {
+    if (firebase.auth().currentUser) {
+      // [START signout]
+      firebase.auth().signOut();
+      // [END signout]
+    } else {
 
-// firebase.auth().onAuthStateChanged(function (user) {
-//     if (user) {
-//             console.log("USER LOGGED IN")
-//             window.location.replace("http://localhost:5500/create_profile/index.html");
-            
-//     } else {
-//             // No user is signed in.
-//             console.log("USER NOT LOGGED IN")
-//     }
-// })
+      var email = $('.email').val();
+      var password = $('.password').val();
 
-// $(document).ready(function(){
-//     $("#signIn").submit(function(){
-    
-//     window.localStorage.setItem('emailForSignIn',$("#getmail").val())
+      if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
+      }
+      if (password.length < 4) {
+        alert('Please enter a password.');
+        return;
+      }
+      // Sign in with email and pass.
+      // [START authwithemail]
+      firebase.auth().signInWithEmailAndPassword(email, password).then(() => console.log('signed-in')).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode === 'auth/wrong-password') {
+          alert('Wrong password.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        alert(error)
+        // document.getElementById('quickstart-sign-in').disabled = false;
+        // [END_EXCLUDE]
+      });
+      // [END authwithemail]
+    }
+    // document.getElementById('quickstart-sign-in').disabled = true;
+  }
+  
+  function handleSignUp() {
+    var email = $('.email').val();
+    var password = $('.password').val();
 
-//     alert('Please click ok to send a link to '+$("#getmail").val()+' to verify your email')
-//     });
-// });
-
-
-// var email=''
-
-// if((window.localStorage.getItem('emailForSignIn'))){
-//     var email = (window.localStorage.getItem('emailForSignIn'))
-//     window.localStorage.removeItem('emailForSignIn')
-// }
-
-// var actionCodeSettings = {
-//     // URL you want to redirect back to. The domain (www.example.com) for this
-//     // URL must be whitelisted in the Firebase Console.
-//     url: 'http://localhost:5500/create_profile/index.html',
-//     handleCodeInApp: true
-// };
-
-// firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
-//     .then(function () {
-//         // The link was successfully sent. Inform the user.
-//         // Save the email locally so you don't need to ask the user for it again
-//         // if they open the link on the same device.
-//         // console.log('success')
-//         window.localStorage.setItem('emailForSignIn', email)
-//     })
-//     .catch(function (error) {
-//         // Some error occurred, you can inspect the code: error.code
-//     });
+    if (email.length < 4) {
+      alert('Please enter an email address.');
+      return;
+    }
+    if (password.length < 4) {
+      alert('Please enter a password.');
+      return;
+    }
+    // Create user with email and pass.
+    // [START createwithemail]
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => console.log('user created')).catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // [START_EXCLUDE]
+      if (errorCode == 'auth/weak-password') {
+        alert('The password is too weak.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+      // [END_EXCLUDE]
+    });
+    // [END createwithemail]
+  }
+  
+  function sendEmailVerification() {
+    // [START sendemailverification]
+    firebase.auth().currentUser.sendEmailVerification().then(function () {
+      // Email Verification sent!
+      // [START_EXCLUDE]
+      alert('Email Verification Sent!');
+      // [END_EXCLUDE]
+    });
+    // [END sendemailverification]
+  }
+  
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      console.log("USER LOGGED IN")
+      window.location.replace("/home_page/index.html");
+    //   firebase.auth().currentUser.getIdToken(true)
+    //     .then((idToken) => {
+    //       console.log(idToken)
+    //     })
+    } else {
+      // No user is signed in.
+      console.log("USER NOT LOGGED IN")
+    }
+  })

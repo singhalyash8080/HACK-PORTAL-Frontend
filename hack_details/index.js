@@ -1,38 +1,93 @@
-$(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
+  authDomain: "hackportal-53efe.firebaseapp.com",
+  databaseURL: "https://hackportal-53efe.firebaseio.com",
+  projectId: "hackportal-53efe",
+  storageBucket: "hackportal-53efe.appspot.com",
+  messagingSenderId: "945327566569",
+  appId: "1:945327566569:web:04739afc0b939fcf658a78",
+  measurementId: "G-MTPN0JGL08"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics()
 
-// code for getting content
+var auth_tok = ''
 
-var hack_name= 'DevSoc'
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    console.log("USER LOGGED IN")
+    //   window.location.replace("/home_page/index.html");
+    firebase.auth().currentUser.getIdToken(true)
+      .then((idToken) => {
+        //   console.log(idToken)
+        auth_tok += idToken
 
-var label1= 'Link :'
-
-var venue= 'Anna Auditorium,VIT'
-var days='Monday to Wednesday'
-var date= '16th-18th March, 2020'
-
-var description= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum omnis tempora natus. Velit non omnis debitis, accusamus nemo ipsa porro temporibus labore maxime, dicta sint eveniet? Nobis facilis illum debitis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptates doloremque incidunt perferendis nesciunt ullam ut, voluptas delectus earum et nihil culpa iste ipsam voluptatum corporis optio dolor obcaecati fugiat.'
-
-
-var skills= ['Mobile App Development','Design UI/UX','Management skills','Machine learning']
-var team_mates=['John Foster(Admin)','Foster John','Itachi Uchiha']
-var link='https://devsoc.codechefvit.com/ '
-var invite_link='../add_team/index.html'
+        // code for getting content
 
 
-$(".hack_name").text(hack_name)
+        var label1 = 'Link :'
 
-$(".venue").text(venue)
+        var myHeaders = new Headers();
+        myHeaders.append("authtoken", auth_tok);
 
-$(".days").text(days)
-$(".date").text(date)
+        var raw = "";
 
-$(".description").text(description)
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
 
-$(".label1").text(label1)
-$(".link").html('<a href="https://devsoc.codechefvit.com/">'+link+'</a>')
+        const queryString = window.location.search;
+        console.log(queryString);
 
-$(".invite").append('<button> <a href='+invite_link+'>Create team</a> </button>')
+        var event_ID = ''
 
-// end of code for getting hackathon
+        for (let i = 0; i < queryString.length; i++) {
+          if (i != 0) {
+            event_ID += queryString[i]
+          }
+
+        }
+
+        fetch("https://hackportal.herokuapp.com/events/geteventinfo/" + event_ID, requestOptions)
+          .then(response => response.json())
+          .then(result => {
+
+            console.log(result)
+
+
+            $(".hack_name").text(result.nameOfEvent)
+
+            $(".venue").text(result.location)
+
+            $(".date").text(result.startDate + ' to ' + result.endDate)
+            // $(".date").text(date)
+
+            $(".description").text(result.description)
+
+            $(".label1").text(label1)
+            $(".link").html('<a href="https://devsoc.codechefvit.com/">' + result.eventUrl + '</a>')
+
+            $(".invite").append('<button> <a href=' + '../add_team/index.html?' + result._id + '>Create team</a> </button>')
+
+            $('.shapes').append('<img src="' + result.eventImage + '">')
+
+          })
+          .catch(error => console.log('error', error));
+
+        // end of code for getting hackathon
+
+      })
+  } else {
+    // No user is signed in.
+    console.log("USER NOT LOGGED IN")
+  }
+})
+
+$(document).ready(function () {
+  $('.sidenav').sidenav();
+});
+

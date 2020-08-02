@@ -1,63 +1,110 @@
-$(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
+  authDomain: "hackportal-53efe.firebaseapp.com",
+  databaseURL: "https://hackportal-53efe.firebaseio.com",
+  projectId: "hackportal-53efe",
+  storageBucket: "hackportal-53efe.appspot.com",
+  messagingSenderId: "945327566569",
+  appId: "1:945327566569:web:04739afc0b939fcf658a78",
+  measurementId: "G-MTPN0JGL08"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics()
 
-// code for getting content
+var auth_tok = ''
 
-var name= 'Pamela Foster'
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    console.log("USER LOGGED IN")
+    //   window.location.replace("/home_page/index.html");
+    firebase.auth().currentUser.getIdToken(true)
+      .then((idToken) => {
+        //   console.log(idToken)
+        auth_tok += idToken
 
-var label1= 'Email:'
-var label2= 'University name:'
-var label3= 'Year of graduation:'
-var label4= 'Description:'
-var label5= 'Skills:'
-var label6= 'Github link: '
-var label7= 'Stackoverflow link: '
-var label8= 'Website: '
+        // code for getting content
 
-var email= 'pamela.foster@example.com'
-var university= 'Vellore Institute of Technology'
-var year= '2020'
+        var label1 = 'Email:'
+        var label2 = 'University name:'
+        var label3 = 'Year of graduation:'
+        var label4 = 'Description:'
+        var label5 = 'Skills:'
+        var label6 = 'Github link: '
+        var label7 = 'Stackoverflow link: '
+        var label8 = 'Website: '
 
-var description= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum omnis tempora natus. Velit non omnis debitis, accusamus nemo ipsa porro temporibus labore maxime, dicta sint eveniet? Nobis facilis illum debitis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptates doloremque incidunt perferendis nesciunt ullam ut, voluptas delectus earum et nihil culpa iste ipsam voluptatum corporis optio dolor obcaecati fugiat.'
+        const queryString = window.location.search;
 
-
-var skills= ['Mobile App Development','Design UI/UX','Management skills','Machine learning']
-
-var invite_link='../add_to_team/index.html'
-
-var github= 'https://devsoc.codechefvit.com/ '
-var stackoverflow= 'https://devsoc.codechefvit.com/ '
-var website= 'https://devsoc.codechefvit.com/ '
+        var id = ''
 
 
-$(".name").text(name)
+        for (let i = 0; i < queryString.length; i++) {
+          if (i != 0) {
+            id += queryString[i]
+          }
 
-$(".label1").text(label1)
-$(".email").text(email)
+        }
 
-$(".label2").text(label2)
-$(".university").text(university)
 
-$(".label3").text(label3)
-$(".year").text(year)
 
-$(".label4").text(label4)
-$(".description").text(description)
+        var requestOptions = {
+          method: "GET",
+          headers: {
+            authtoken:
+              auth_tok,
+            "Content-Type": "application/json",
+          }
+        };
 
-$(".label5").text(label5)
-for (let i = 0; i < skills.length; i++) {
-  $(".skills").append('<p class="points">'+skills[i]+'</p>')
-}
+        fetch("https://hackportal.azurewebsites.net/users/" + id, requestOptions)
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
 
-$(".label6").text(label6)
-$(".github").html('<a href='+github+'>'+ github +'</a>')
+            $(".name").text(result.name)
 
-$(".label7").text(label7)
-$(".stackoverflow").html('<a href='+stackoverflow+'>'+ stackoverflow +'</a>')
+            $(".label1").text(label1)
+            $(".email").text(result.email)
 
-$(".label8").text(label8)
-$(".website").html('<a href='+website+'>'+ website +'</a>')
+            $(".label2").text(label2)
+            $(".university").text(result.college)
 
-$(".invite").append('<button> <a href="'+invite_link+'" style="text-decoration:none;">Invite</a> </button>')
-// end of code for getting hackathon
+            $(".label3").text(label3)
+            $(".year").text(result.expectedGraduation)
+
+            $(".label4").text(label4)
+            $(".description").text(result.bio)
+
+            $(".label5").text(label5)
+            for (let i = 0; i < result.skills.length; i++) {
+              $(".skills").append('<p class="points">' + result.skills[i] + '</p>')
+            }
+
+            $(".label6").text(label6)
+            $(".github").html('<a href=' + result.githubLink + '>' + result.githubLink + '</a>')
+
+            $(".label7").text(label7)
+            $(".stackoverflow").html('<a href=' + result.stackOverflowLink + '>' + result.stackOverflowLink + '</a>')
+
+            $(".label8").text(label8)
+            $(".website").html('<a href=' + result.externalLink + '>' + result.externalLink + '</a>')
+
+            $(".invite").append('<button> <a href="' + '../add_to_team/index.html' + '" style="text-decoration:none;">Invite</a> </button>')
+
+          })
+          .catch(err => console.log(err))
+
+      })
+  } else {
+    // No user is signed in.
+    console.log("USER NOT LOGGED IN")
+  }
+})
+
+$(document).ready(function () {
+  $('.sidenav').sidenav();
+});
+

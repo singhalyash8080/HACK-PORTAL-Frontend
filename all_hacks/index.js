@@ -1,3 +1,36 @@
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
+    authDomain: "hackportal-53efe.firebaseapp.com",
+    databaseURL: "https://hackportal-53efe.firebaseio.com",
+    projectId: "hackportal-53efe",
+    storageBucket: "hackportal-53efe.appspot.com",
+    messagingSenderId: "945327566569",
+    appId: "1:945327566569:web:04739afc0b939fcf658a78",
+    measurementId: "G-MTPN0JGL08"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics()
+
+  var auth_tok=''
+  
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      console.log("USER LOGGED IN")
+    //   window.location.replace("/home_page/index.html");
+      firebase.auth().currentUser.getIdToken(true)
+        .then((idToken) => {
+        //   console.log(idToken)
+            auth_tok+=idToken
+
+        })
+    } else {
+      // No user is signed in.
+      console.log("USER NOT LOGGED IN")
+    }
+  })
+
 // code for getting hackathon details of some hackathons
 
 var hack_names=[]
@@ -38,12 +71,12 @@ const url= 'https://hackportal.herokuapp.com/events/getevents/1'
 
 axios.get(url)
 .then(data => {
-    // console.log(data.data.documents.length)
+    console.log(data.data)
     $('.part2-1').append('<h4 class="part2-1-head">All Hackathons</h4>')
     $('.part2-1').append('<br><br>')
     // $('.part2-1-head').append('<div id="one"><h5 id="one-head"></h5><p id="one-txt"></p><a id="one-butt" ></a></div><br>')
 
-    var page_count = 2
+    var page_count = data.data.totalPageCount
 
     if(data.data.documents.length>5){
         len=5
@@ -64,14 +97,13 @@ axios.get(url)
 
         hack_names.push(data.data.documents[i].nameOfEvent)
         hack_text.push(data.data.documents[i].description)
-        hack_link.push(data.data.documents[i].eventUrl)
-
+        hack_link.push(data.data.documents[i]._id)
     }
 
     for (let i = 0; i < len; i++) {
         $("#" + ob_head[i + 1]).text(hack_names[i]);
         $("#" + ob_txt[i + 1]).text(hack_text[i]);
-        $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="' + hack_link[i] + '">Learn More</a>')
+        $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="../hack_details/index.html?' + hack_link[i] + '">Learn More</a>')
     }
 
     var beg = 1
@@ -134,7 +166,7 @@ function change(beg,x,curr) {
             
             // console.log(arrayy)
         
-            var page_count = 2
+            var page_count = data.data.totalPageCount
         
             if(data.data.documents.length>5){
                 len=5

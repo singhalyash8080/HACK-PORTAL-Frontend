@@ -22,13 +22,13 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script> -->
-    <!-- <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 </head>
 
 <body>
@@ -71,11 +71,11 @@
 
                 <!-- <label>Email</label> -->
                 <form id="SignIn">
-                    <input type="email" id="signIn-elem" placeholder="Email"><br>
-                    <input type="password" id="signIn-elem" placeholder="Password">
+                    <input type="email" id="signIn-elem" placeholder="Email" class="email"><br>
+                    <input type="password" id="signIn-elem" placeholder="Password" class="password">
                     <div class="sub-elem">
-                        <p> <a href="create_profile/index.html" style="text-decoration: none;"> Dont have an account ? </a></p>
-                        <button class="login"><a href= "home_page/index.html" style="text-decoration: none;color:white"> Login </a></button>
+                        <p> <a href="#" style="text-decoration: none;"> Dont have an account ? </a></p>
+                        <button class="login" onclick="toggleSignIn()"> Login </button>
                     </div>
                 </form>
 
@@ -84,7 +84,7 @@
                         <button class="logIn">Login</button>
                     </a> <br><br>
     
-                    <a href="create_profile/index.html">
+                    <a href="#">
                         <button class="signUp">Signup</button>
                     </a>
                 </div>

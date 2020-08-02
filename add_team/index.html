@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link href="style.css" rel="stylesheet" type="text/css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 </head>
 
 <body>
@@ -25,23 +34,17 @@
 
             <div class="form1-cont">
                 <label>Team name :</label><br><br>
-                <input type="text"><br><br>
+                <input type="text" id='team_name'><br><br>
     
-                <label>Hackathon name :</label><br><br>
-                <input type="text"><br><br>
-    
-                <label>Hackathon link :</label><br><br>
-                <input type="text"><br><br>
-    
-                <label>Project Description :</label><br><br>
+                <label >Team Description :</label><br><br>
                 <textarea class="txt-inp"></textarea><br><br>
 
-                <label>Skills required :</label><br><br>
-                <input type="text"><br><br>
+                <label >Skills required :</label><br><br>
+                <input type="text" id='team_skills'><br><br>
 
                 <div class="accept_invite">
                     <a href="../home_page/index.html" style="text-decoration: none;"><button class="reject">Cancel</button></a>
-                    <a href="../home_page/index.html" style="text-decoration: none;"><button class="accept">Confirm </button></a>
+                    <button class="accept" onclick="confirm()">Confirm </button>
                 </div><br>
             </div>
 
