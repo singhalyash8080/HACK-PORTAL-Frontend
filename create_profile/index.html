@@ -53,7 +53,7 @@
         
         <div class="form1">
 
-            <h2 class="form1-head">Personal</h2>
+            <h2 class="form1-head">Personal</h2><br>
 
             <div class="form1-cont">
                 <label>Name:</label><br><br>
@@ -64,9 +64,10 @@
     
                 <label>Expected Year of Graduation:</label><br><br>
                 <input type="number" id="yearOfGraduation"><br><br>
+                <br>
 
-                <div class="form1-butt">
-                    <i class="material-icons form1-butt-b" id="form1-butt">arrow_forward</i>
+                <div class="form1-butt-uniq">
+                    <button id="form1-butt-2"> Next </button>
                 </div>
             </div>
 
@@ -74,12 +75,11 @@
         </div>
 
         <div class="form2">
-            <h2 class="form1-head">Skills</h2>
+            <h2 class="form1-head">Skills</h2> <br>
 
             <div class="form2-cont">
                 <label>Brief description about yourself : </label><br>
-                <!-- <input type="text" class="txt-inp"><br><br> -->
-                <textarea class="txt-inp" id="bio"></textarea><br><br>
+                <textarea class="txt-inp" id="bio" style="resize: none;"></textarea><br><br>
     
                 <label>Your skills:</label><br>
     
@@ -119,15 +119,18 @@
                     <input type="checkbox" id="9" value="Cybersecurity"><label id="label-form2">Cybersecurity</label><br><br>
                 </div>
 
+                <br>
+
                 <div class="form1-butt">
-                    <i class="material-icons form1-butt-b" id="form2-butt">arrow_forward</i>
+                    <button id="form2-butt-1"> Prev </button>
+                    <button id="form2-butt-2">Next</button>
                 </div>
             </div>
 
         </div>
 
         <div class="form3">
-            <h2 class="form1-head">Links</h2>
+            <h2 class="form1-head">Links</h2><br>
 
             <div class="form1-cont">
 
@@ -138,10 +141,14 @@
                 <input type="text" id="stackOverFlowLink"><br><br>
     
                 <label>Your Website</label><br>
-                <input type="text" id="externalLink"><br><br>    
+                <input type="text" id="externalLink"><br><br>
+                
+                <br>
 
                 <div class="form1-butt">
-                    <i class="material-icons form1-butt-b" id="form3-butt"><a href="#" style="text-decoration: none;">arrow_forward</a></i>
+                    <button id="form3-butt-1">Prev</button>
+                    <button id="form3-butt-2">Submit</button>
+                    <!-- <i class="material-icons form1-butt-b" id="form3-butt"><a href="#" style="text-decoration: none;">arrow_forward</a></i> -->
                 </div>
             </div>
         </div>

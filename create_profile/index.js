@@ -42,7 +42,7 @@ var externallink = ''
 
 
 $(document).ready(function () {
-  $("#form1-butt").click(function () {
+  $("#form1-butt-2").click(function () {
 
     $("#line1").css("visibility", "initial");
     $("#point1").css("background-color", "#3D5A80");
@@ -50,14 +50,31 @@ $(document).ready(function () {
     $(".form1").css("display", "none");
     $(".form2").css("display", "initial");
 
-    name += $('#name').val()
-    college += $('#college').val()
-    year += $('#yearOfGraduation').val()
+    name=''
+    college=''
+    year=''
+
+    name = $('#name').val()
+    college = $('#college').val()
+    year = $('#yearOfGraduation').val()
+  });
+});
+
+
+$(document).ready(function () {
+  $("#form2-butt-1").click(function () {
+
+    $("#line1").css("visibility", "hidden");
+    $("#point1").css("background-color", "white");
+    $("#point1").css("color", "initial");
+    $(".form2").css("display", "none");
+    $(".form1").css("display", "initial");
+
   });
 });
 
 $(document).ready(function () {
-  $("#form2-butt").click(function () {
+  $("#form2-butt-2").click(function () {
 
     $("#line2").css("visibility", "initial");
     $("#point2").css("background-color", "#3D5A80");
@@ -65,7 +82,11 @@ $(document).ready(function () {
     $(".form2").css("display", "none");
     $(".form3").css("display", "initial");
 
-    bio += $('#bio').val()
+    bio=''
+
+    bio = $('#bio').val()
+
+    skillarray=[]
 
     for (let i = 1; i <= 9; i++) {
       if ($("#" + i.toString()).is(":checked")) {
@@ -77,11 +98,29 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  $("#form3-butt").click(async function () {
+  $("#form3-butt-1").click(function () {
 
-    github += ($('#githubLink').val())
-    stack += ($('#stackOverFlowLink').val())
-    externallink += ($('#externalLink').val())
+    $("#line2").css("visibility", "hidden");
+    $("#point2").css("background-color", "white");
+    $("#point2").css("color", "initial");
+    $(".form3").css("display", "none");
+    $(".form2").css("display", "initial");
+
+  });
+});
+
+
+
+$(document).ready(function () {
+  $("#form3-butt-2").click(async function () {
+
+    github=''
+    stack=''
+    externallink=''
+
+    github = ($('#githubLink').val())
+    stack = ($('#stackOverFlowLink').val())
+    externallink = ($('#externalLink').val())
 
     const raw = {
       name: name,
