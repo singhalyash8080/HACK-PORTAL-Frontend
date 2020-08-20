@@ -19,6 +19,17 @@
     <link href="style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
 </head>
 
 <body>
@@ -26,59 +37,18 @@
     <div class="back-content">
         <section class="layout">
             <div class="row">
-                <div class="col l2">
-                    <h4 class="part2-1-head">
-                        <a href="../home_page/index.html" style="text-decoration: none;"><i class="material-icons medium">arrow_back</i> </a>
-                    </h4>
-                </div>
-                <div class="col l8 part2-1">
-                    <h4 class="part2-1-head">All Hackathons</h4>
-                    <br><br>
-                    <div id="one">
-                        <h5 id="one-head"></h5>
-        
-                        <p id="one-txt"></p>
-                        <a id="one-butt" ></a>
-                    
-                    </div>
-                    <br>
-        
-                    <div id="two">
-                        <h5 id="two-head"></h5>
-                        <p id="two-txt"></p>
-                        <a id="two-butt"></a>
-                    </div>
-                    <br>
-        
-                    <div id="three">
-                        <h5 id="three-head"></h5>
-                        <p id="three-txt"></p>
-                        <a id="three-butt"></a>
-                    </div>
-                    <br>
+                <h4 class="part2-1-head">
+                    <a href="../home_page/index.html" style="text-decoration: none;color: #fff;"><i class="material-icons medium">arrow_back</i> </a>
+                </h4>
 
-                    <div id="four">
-                        <h5 id="four-head"></h5>
-                        <p id="four-txt"></p>
-                        <a id="four-butt"></a>
-                    </div>
-                    <br>
-
-                    <div id="five">
-                        <h5 id="five-head"></h5>
-                        <p id="five-txt"></p>
-                        <a id="five-butt"></a>
-                    </div>
-                    <br>
-
-                    <div id="view_more_link">
-                        <a href="#" style="color: white;font-size:30px;" class="view_m_lnk" onclick="change()">View More</a>
-                    </div>
+                <div class="col m1 l2"></div>
+                
+                <div class="col s12 m10 l8 part2-1">
                 </div>
 
                 <br><br>
 
-                <div class="col l2 shape-cont">
+                <div class="col m1 l2 shape-cont">
                     
                     <div class="shape-cont1"></div>
                     <div class="shape-cont2"></div>
@@ -91,12 +61,5 @@
     <script src="index.js"></script>
     
 </body>
-
-<!-- Required Material Web JavaScript library -->
-<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-<!-- Instantiate single textfield component rendered in the document -->
-<script>
-  mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
-</script>
 
 </html>

@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
 </head>
 
 <body>
 
-    <input type="email" placeholder="email">
-    <br>
-    <input type="text" placeholder="Team name">
-    <br><br>
+    <div class="add_to_team">
+        
+    </div>
 
-    <a href="../user_finder1/index.html"><button>Send</button> </a>
+    <button onclick="sendInvite()">Send invite</button>
+    <a href="../home_page/index.html"> <button>Go to home page</button> </a>
     
     
 </body>
+
+<script src="index.js"></script>
+
 </html>

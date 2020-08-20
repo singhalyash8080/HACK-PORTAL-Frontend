@@ -1,46 +1,152 @@
-$(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
+  authDomain: "hackportal-53efe.firebaseapp.com",
+  databaseURL: "https://hackportal-53efe.firebaseio.com",
+  projectId: "hackportal-53efe",
+  storageBucket: "hackportal-53efe.appspot.com",
+  messagingSenderId: "945327566569",
+  appId: "1:945327566569:web:04739afc0b939fcf658a78",
+  measurementId: "G-MTPN0JGL08"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics()
 
-// code for getting content
+var auth_tok = ''
 
-var name= 'Team name'
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    console.log("USER LOGGED IN")
+    //   window.location.replace("/home_page/index.html");
+    firebase.auth().currentUser.getIdToken(true)
+      .then((idToken) => {
+        //   console.log(idToken)
+        auth_tok += idToken
 
-var label1= 'Hackathon: '
-var label2= 'Teamsize: '
-var label3= 'Project Description:'
-var label4= 'Skills Required:'
-var label5= 'Team mates: '
+        // code for getting content
 
-var hackathon= 'DevSoc'
-var team_size= '2/4'
+        var name = 'Team name'
 
-var description= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum omnis tempora natus. Velit non omnis debitis, accusamus nemo ipsa porro temporibus labore maxime, dicta sint eveniet? Nobis facilis illum debitis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptates doloremque incidunt perferendis nesciunt ullam ut, voluptas delectus earum et nihil culpa iste ipsam voluptatum corporis optio dolor obcaecati fugiat.'
+        var label1 = 'Hackathon: '
+        var label2 = 'Teamsize: '
+        var label3 = 'Project Description:'
+        var label4 = 'Skills Required:'
+        var label5 = 'Team mates: '
+
+        const queryString = window.location.search;
+        console.log(queryString);
+
+        var team_id = ''
+
+        for (let i = 0; i < queryString.length; i++) {
+          if (i != 0) {
+            team_id += queryString[i]
+          }
+
+        }
 
 
-var skills= ['Mobile App Development','Design UI/UX','Management skills','Machine learning']
-var team_mates=['John Foster(Admin)','Foster John','Itachi Uchiha']
+        var myHeaders = new Headers();
+        myHeaders.append("authtoken", auth_tok);
+
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+
+        fetch("https://hackportal.herokuapp.com/teams/getteaminfo/" + team_id, requestOptions)
+          .then(response => response.json())
+          .then(result => {
+            console.log(result)
+
+            $(".team_name").text(result.teamName)
+
+            $(".label1").text(label1)
+            $(".hackathon_name").text(result.nameOfEvent)
+
+            $(".label2").text(label2)
+            $(".team_size").text('2/4')
+
+            $(".label3").text(label3)
+            $(".description").text(result.description)
+
+            $(".label4").text(label4)
+            for (let i = 0; i < result.skillsRequired.length; i++) {
+              $(".skills").append('<p class="points">' + result.skillsRequired[i] + '</p>')
+            }
+
+            $(".label5").text(label5)
+            for (let i = 0; i < result.membersInfo.length; i++) {
+              $(".team_mates").append('<p class="points">' + result.membersInfo[i].name + '</p>')
+            }
+
+            $(".invite").append('<button> <a href=' + '#' + '>Invite</a> </button>')
+
+          })
+          .catch(error => console.log('error', error));
 
 
-$(".team_name").text(name)
+        function accept_request() {
 
-$(".label1").text(label1)
-$(".hackathon_name").text(hackathon)
 
-$(".label2").text(label2)
-$(".team_size").text(team_size)
+          var raw = {
+            teamId: team_id
+          }
 
-$(".label3").text(label3)
-$(".description").text(description)
+          console.log(raw)
 
-$(".label4").text(label4)
-for (let i = 0; i < skills.length; i++) {
-  $(".skills").append('<p class="points">'+skills[i]+'</p>')
-}
+          var requestOptions = {
+            method: 'PATCH',
+            headers: {
+              authtoken: auth_tok,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(raw),
+            redirect: 'follow'
+          };
 
-$(".label5").text(label5)
-for (let i = 0; i < team_mates.length; i++) {
-  $(".team_mates").append('<p class="points">'+team_mates[i]+'</p>')
-}
+          fetch("https://hackportal.herokuapp.com/users/acceptteaminvite/" + team_id, requestOptions)
+            .then(response => response.json())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
 
-// end of code for getting hackathon
+          window.location.replace("../view_applications/index.html");
+        }
+
+        function reject_request() {
+
+          var raw = {
+            teamId: team_id
+          }
+
+          console.log(raw)
+
+          var requestOptions = {
+            method: 'PATCH',
+            headers: {
+              authtoken:
+                auth_tok,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(raw),
+            redirect: 'follow'
+          };
+
+          fetch("https://hackportal.herokuapp.com/users/rejectteaminvite/" + team_id, requestOptions)
+            .then(response => response.json())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+          window.location.replace("../view_applications/index.html");
+
+
+        }
+
+      })
+  } else {
+    // No user is signed in.
+    console.log("USER NOT LOGGED IN")
+  }
+})

@@ -8,6 +8,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -24,27 +33,30 @@
             </div>
 
             <div class="form1-cont">
-                <label>Name :</label><br><br>
-                <input type="text"><br><br>
+                <label>Name of Event :</label><br><br>
+                <input type="text" id="name"><br><br>
     
-                <label>Date and Time :</label><br><br>
-                <input type="text"><br><br>
+                <label>Start Date :</label><br><br>
+                <input type="text" id="startDate"><br><br>
+
+                <label>End Date :</label><br><br>
+                <input type="text" id="endDate"><br><br>
     
                 <label>Venue :</label><br><br>
-                <input type="text"><br><br>
+                <input type="text" id="venue"><br><br>
     
                 <label>Description :</label><br><br>
                 <textarea class="txt-inp"></textarea><br><br>
 
-                <label>Link to Website/registration site :</label><br><br>
-                <input type="text"><br><br>
+                <label>Team Size :</label><br><br>
+                <input type="text" id="team_size"><br><br>
 
-                <label>Upload image(optional) :</label><br><br>
-                <input type="text"><br><br>
+                <label>Image :</label><br><br>
+                <input type="file" onchange="encodeImageFileAsURL(this)"/><br><br>
 
                 <div class="accept_invite">
-                    <a href="../home_page/index.html" style="text-decoration: none;"><button class="reject">Cancel</button> </a>
-                    <a href="../home_page/index.html" style="text-decoration: none;"><button class="accept">Confirm</button> </a>
+                    <a href="../home_page/index.html" style="text-decoration: none;"><button class="reject">Cancel</button></a>
+                    <button class="accept" onclick="confirm()">Confirm </button>
                 </div><br>
             </div>
             
@@ -54,6 +66,5 @@
 
         <script src="index.js"></script>
 </body>
-
 
 </html>

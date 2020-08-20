@@ -1,29 +1,84 @@
-$(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
+  authDomain: "hackportal-53efe.firebaseapp.com",
+  databaseURL: "https://hackportal-53efe.firebaseio.com",
+  projectId: "hackportal-53efe",
+  storageBucket: "hackportal-53efe.appspot.com",
+  messagingSenderId: "945327566569",
+  appId: "1:945327566569:web:04739afc0b939fcf658a78",
+  measurementId: "G-MTPN0JGL08"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics()
 
-// code for content
+var auth_tok = ''
 
-var team_names= ['team 1','team 2','team 3','team 4']
-var hack_names= ['hack 1','hack 2','hack 3','hack 4']
-var description = ['Team ABC is a one of a kind team where you can grow your various skills in tech and other domains.Our project idea is to make a ...',
-'Team ABC is a one of a kind team where you can grow your various skills in tech and other domains.Our project idea is to make a ...',
-'Team ABC is a one of a kind team where you can grow your various skills in tech and other domains.Our project idea is to make a ...',
-'Team ABC is a one of a kind team where you can grow your various skills in tech and other domains.Our project idea is to make a ...']
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    console.log("USER LOGGED IN")
+    //   window.location.replace("/home_page/index.html");
+    firebase.auth().currentUser.getIdToken(true)
+      .then((idToken) => {
+        //   console.log(idToken)
+        auth_tok += idToken
 
-var admin_name = ['you','John Foster','Yash','You']
+        // code for content
 
-var team_link = ['../team_info/index.html','../team_info/index.html','../team_info/index.html','../team_info/index.html']
+        var myHeaders = new Headers();
+        myHeaders.append("authtoken", auth_tok);
+
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+
+        fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+          .then(response => response.json())
+          .then(async (result) => {
+            console.log(result)
+
+            var team_link = '../team_info/index.html'
+
+            for (let i = 0; i < result.teams.length; i++) {
 
 
-for (let i = 0; i < team_names.length; i++) {
+              var myHeaders = new Headers();
+              myHeaders.append("authtoken", auth_tok);
 
-  $(".content").append('<div class="team"> <p class="team_name">'+team_names[i]+'</p><p class="hack_name">'+hack_names[i]+'</p><p class="description">'
-  +description+'</p><div class="list"><p class="item">Admin : '+admin_name[i]+'</p> <p class="item"><a href="'+team_link[i]+'" style="color:#fff;">View</p></div></div><br><br>')
-}
+              var requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow'
+              };
 
+              await fetch("https://hackportal.herokuapp.com/teams/getteaminfo/" + result.teams[i], requestOptions)
+                .then(response => response.json())
+                .then(results => {
+                  console.log(results)
+                  $(".content").append('<div class="team"> <p class="team_name">' + results.teamName + '</p><p class="hack_name">' + results.nameOfEvent + '</p><p class="description">'
+                    + results.description + '</p><div class="list"><p class="item">Admin : ' + 'you' + '</p> <p class="item"><a href="' + team_link + '?' + results._id + '" style="color:#fff;">View</p></div></div><br><br>')
+                  // console.log('one')
+                })
+                .catch(error => console.log('error', error));
+            }
 
+            // console.log($('.content').html())
 
+            // console.log($('.pagination').html())
 
+          })
+          .catch(error => console.log('error', error));
+      })
+  } else {
+    // No user is signed in.
+    console.log("USER NOT LOGGED IN")
+  }
+})
 
+$(document).ready(function () {
+  $('.sidenav').sidenav();
+});
 

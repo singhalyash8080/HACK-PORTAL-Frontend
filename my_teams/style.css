@@ -150,6 +150,39 @@ body{
     left:40px;
 } */
 
+#pages{
+    /* border:2px red solid; */
+    width:80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.pagination {
+    display: inline-block;
+    /* background-color:transparent; */
+  }
+  
+  .pagination a {
+    color:black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    /* margin:0 auto; */
+  }
+  
+  .pagination a.active {
+    border:1px blue solid;
+    /* background-color: #293241; */
+    color: black;
+  }
+
+  .pagination{
+    /* border:green 2px solid; */
+    margin:0 auto;
+    }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+
 /* content end */
 
 /* media queries */
