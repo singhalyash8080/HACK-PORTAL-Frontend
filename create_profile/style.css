@@ -16,11 +16,12 @@ body{
 .header{
     display: flex;
     /* border:red 2px solid; */
+    /* padding:50px; */
 }
 
 .part1{
     /* border:green 2px solid; */
-    width:75%;
+    width:72%;
     display: flex;
     flex-direction: column;
     /* align-items: flex-start; */
@@ -29,7 +30,7 @@ body{
 
 .part2{
     /* border:blue solid 2px; */
-    width:25%;
+    width:28%;
     /* overflow-x: hidden; */
     overflow: hidden;
     position: relative;
@@ -54,30 +55,32 @@ body{
     align-self: flex-end;
     justify-content: space-between;
     align-items: center;
-    padding:50px;
+    /* padding:50px; */
     position: relative; 
-    bottom:30px;
-    right:50px;
+    /* bottom:30px; */
+    /* right:50px; */
+    text-align: center;
 }
 
 .point{
     /* border:2px solid blue; */
     /* margin:0px 50px 0 50px; */
-    height: 10%;
-    width: 10%;
+    /* height: 40%; */
+    /* width: 10%; */
     border-radius: 50%;
     /* border-style:solid;
     border-color:black; */
-    border: 4px solid #3D5A80;
-    font-size:40px;
-    /* padding:10px; */
+    border: 3px solid #3D5A80;
+    font-size:25px;
+    padding:10px;
+    margin: 0;
     text-align: center;
     color: #3D5A80;
 }
 
 .line{
     border: 2px solid #3D5A80;
-    width:35%;
+    width:45%;
     height:0%;
     visibility: hidden;
 }
@@ -136,8 +139,8 @@ body{
     /* border:2px green solid; */
     width:80%;
     margin:0 auto;
-    position: relative;
-    bottom:40px;
+    /* position: relative; */
+    /* bottom:40px; */
 }
 
 .form2,.form3{
@@ -146,8 +149,9 @@ body{
 
 .form1,.form2,.form3{
     position: relative;
-    bottom:30px;
+    bottom:90px;
 }
+
 
 .form1-cont,.form2-cont{
     /* border:2px blue solid; */
@@ -187,6 +191,8 @@ body{
     align-self: center;
     border-style: solid;
     border-color:rgba(41, 50, 65, 0.1);
+    color:#3D5A80;
+    font-size:20px;
 }
 
 .form1-cont input{
@@ -197,27 +203,80 @@ body{
     align-self: center;
     border-style: solid;
     border-color:rgba(41, 50, 65, 0.1);
+    color:#3D5A80;
+    font-size:20px;
 }
 
 
 .form1-butt{
-    /* display:flex; */
+    display:flex;
+    justify-content: space-between;
     /* border:green solid 2px; */
     /* height:50px; */
     width:80%;
     margin:0 auto;
-    text-align: end;
+    /* text-align: end; */
     
 }
 
-.form1-butt-b{
-    /* border:blue solid 2px; */
-    color:#3D5A80;
-    cursor:pointer;
-    font-size:35px;
+.form1-butt-uniq{
+    display:flex;
+    justify-content:flex-end;
+    /* border:green solid 2px; */
+    /* height:50px; */
+    width:80%;
+    margin:0 auto;
+    /* text-align: end; */
+    
 }
 
+#form1-butt-2,#form2-butt-2,#form3-butt-2{
+    /* text-align:right; */
+    /* border:2px red solid; */
+    /* margin-right:0; */
+    /* align-self: flex-end; */
+    /* justify-self: end; */
+    /* justify-items: flex-end; */
+    /* place-self:end; */
+    background: #3D5A80;
+    border-radius: 8px;
+    color:white;
+    font-size: 20px;
+    border:1px #3D5A80 solid;
+    padding:10px 25px;
+    cursor: pointer;
+}
+
+#form2-butt-1,#form3-butt-1{
+    border-radius: 8px;
+    color:#3D5A80 ;
+    font-size: 20px;
+    border:3px solid #3D5A80 ;
+    padding:10px 25px;
+    cursor: pointer;
+}
+
+
+
 /* content end */
+
+/* common  */
+
+input:focus{
+    outline-color: transparent;
+    color:#3D5A80;
+    font-size:20px;
+}
+
+textarea:focus{
+    outline-color: transparent;
+    color:#3D5A80;
+    font-size:18px;
+}
+
+
+
+/* common end */
 
 
 /* media queries */
@@ -240,8 +299,16 @@ body{
         right:0px;
     }
 
-    .point{
+    /* .point{
         font-size:40px;
+    } */
+
+    .header{
+        margin-bottom:30px;
+    }
+
+    .form1,.form2,.form3{
+        bottom:0px;
     }
 }
 
@@ -250,16 +317,16 @@ body{
         font-size:30px;
     }
 
-    .point{
+    /* .point{
         font-size:30px;
-    }
+    } */
 }
 
 @media only screen and (max-width:610px){
-    .point{
+    /* .point{
         font-size:25px;
         border: 2px solid #3D5A80;
-    }
+    } */
 
     .line{
         border: 2px solid #3D5A80;
@@ -295,10 +362,10 @@ body{
 }
 
 @media only screen and (max-width:483px){
-    .point{
+    /* .point{
        height:16%;
        width:25%;
-    }
+    } */
 
     .part1-a{
         font-size:22px;
@@ -318,21 +385,47 @@ body{
         padding:10px;
     }
 
+    .form2-cont label,.form1-cont label{
+        font-size:16px;
+    }
+
+    #label-form2{
+        font-size:14px;
+    }
+
 }
 
 @media only screen and (max-width:483px){
     .form1-head{
         font-size:22px;
     }
+
+    .form2-cont label,.form1-cont label{
+        font-size:13px;
+    }
 }
 
 @media only screen and (max-width:529px){
     #label-form2{
-        font-size:13px;
-    }
-
-    .form2-cont label,.form1-cont label{
-        font-size:15px;
+        font-size:11px;
     }
 }
     /* end of media queries for content */
+
+
+    /* common media queries */
+
+@media only screen and (max-width:770px){
+
+    #form1-butt-2,#form2-butt-2,#form3-butt-2{
+        padding:5px 10px;
+        font-size:16px; 
+    }
+    #form2-butt-1,#form3-butt-1{
+        padding:5px 10px;
+        font-size:16px;
+    }
+}
+
+
+    /* common media queries end */
