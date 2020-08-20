@@ -59,8 +59,34 @@ axios.get(url)
     for (let i = 0; i < len; i++) {
 
         hack_names.push(data.data.documents[i].nameOfEvent)
-        hack_text.push(data.data.documents[i].description)
-        hack_link.push(data.data.documents[i]._id)
+
+        var desc_limit= (data.data.documents[i].description).split(" ")
+        // console.log(desc_limit)
+
+        if(desc_limit.length>40){
+
+          var desc_text=''
+
+          for (let j = 0; j < 40; j++) {
+            
+            if(j==39){
+              desc_text+=(desc_limit[j]+'....')
+            }
+            else{
+              desc_text+=(desc_limit[j]+' ')
+            }
+
+          }
+
+          hack_text.push(desc_text)
+
+        }
+        else{
+          hack_text.push(data.data.documents[i].description)
+        }
+
+
+        hack_link.push(data.data.documents[i].eventUrl)
 
     }
 
