@@ -1,3 +1,17 @@
+// code for pre-loader
+
+$(document).ready(function() {
+  //Preloader
+  preloaderFadeOutTime = 5000;
+  function hidePreloader() {
+  var preloader = $('.spinner-wrapper');
+  preloader.fadeOut(preloaderFadeOutTime);
+  }
+  hidePreloader();
+  });
+
+// end of pre-loader
+
 $(document).ready(function(){
   $('.sidenav').sidenav();
 });
@@ -10,6 +24,17 @@ $(document).ready(function(){
         $(".shape2").css("top","-10px")
     });
   });
+
+  $(document).ready(function(){
+    $("#signUP").click(function(){
+      
+        $(".auth").css("display","none")
+        $("#SignUp").css("display","inherit")
+        $(".shape2").css("top","-10px")
+    });
+  });
+
+
 
 // code for getting hackathon details of some hackathons
 
@@ -62,7 +87,7 @@ axios.get(url)
         $('.part2-1').append(arrayy[i])
     }
 
-    $('.part2-1').append('<div id="view_more_link"><a href="/temp/join_first.html" style="color: white;font-size:35px;text-decoration: none;">View All</a></div>')
+    $('.part2-1').append('<div id="view_more_link"><a href="#" onclick="signInFirst()" style="color: white;font-size:35px;text-decoration: none;">View All</a></div>')
 
 
     for (let i = 0; i < len; i++) {
@@ -102,7 +127,7 @@ axios.get(url)
     for (let i = 0; i < len; i++) {
         $("#" + ob_head[i + 1]).text(hack_names[i]);
         $("#" + ob_txt[i + 1]).text(hack_text[i]);
-        $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="' + '/temp/join_first.html' + '">Learn More</a>')
+        $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="#" onclick="signInFirst()">Learn More</a>')
     }
 
 })
@@ -128,6 +153,14 @@ var firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics()
+
+  document.getElementById("SignIn").addEventListener("click", function(event){
+    event.preventDefault()
+  });
+
+  document.getElementById("SignUp").addEventListener("click", function(event){
+    event.preventDefault()
+  });
   
   function toggleSignIn() {
     if (firebase.auth().currentUser) {
@@ -139,6 +172,8 @@ var firebaseConfig = {
       var email = $('.mail').val();
       var password = $('.password').val();
 
+      // console.log(email)
+      // console.log(password)
       if (email.length < 4) {
         alert('Please enter a valid email address.');
         return;
@@ -149,7 +184,10 @@ var firebaseConfig = {
       }
       // Sign in with email and pass.
       // [START authwithemail]
-      firebase.auth().signInWithEmailAndPassword(email, password).then(() => console.log('signed-in')).catch(function (error) {
+      firebase.auth().signInWithEmailAndPassword(email, password).then(() =>{ 
+        console.log('signed-in')
+        window.location.replace("/home_page/index.html");
+      }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -170,8 +208,11 @@ var firebaseConfig = {
   }
   
   function handleSignUp() {
-    var email = $('.email').val();
-    var password = $('.password').val();
+    var email = $('.emaill').val();
+    var password = $('.pass').val();
+
+    console.log(email)
+    console.log(password)
 
     if (email.length < 4) {
       alert('Please enter an email address.');
@@ -183,7 +224,11 @@ var firebaseConfig = {
     }
     // Create user with email and pass.
     // [START createwithemail]
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => console.log('user created')).catch(function (error) {
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(() =>{ 
+      console.log('user created')
+      window.location.replace("/verify_account/index.html")
+
+    }).catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -213,7 +258,7 @@ var firebaseConfig = {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       console.log("USER LOGGED IN")
-      window.location.replace("/home_page/index.html");
+      // window.location.replace("/home_page/index.html");
     //   firebase.auth().currentUser.getIdToken(true)
     //     .then((idToken) => {
     //       console.log(idToken)
@@ -223,3 +268,7 @@ var firebaseConfig = {
       console.log("USER NOT LOGGED IN")
     }
   })
+
+  function signInFirst(){
+    alert('Sign In first')
+  }

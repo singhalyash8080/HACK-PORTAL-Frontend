@@ -27,25 +27,19 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics()
 
-function signOut(){
-
-  firebase.auth().signOut()
-
-  window.location.replace("../index.html");
-}
-
 var auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     console.log("USER LOGGED IN")
+    //   window.location.replace("/home_page/index.html");
 
     if(user.emailVerified==false){
 
       window.location.replace("../verify_account/index.html");
 
     }
-    
+
     firebase.auth().currentUser.getIdToken(true)
       .then((idToken) => {
         // console.log(idToken)
@@ -71,6 +65,8 @@ firebase.auth().onAuthStateChanged(function (user) {
               }
           })
 
+        // code for getting content
+
         var label1 = 'Email:'
         var label2 = 'University name:'
         var label3 = 'Year of graduation:'
@@ -79,17 +75,46 @@ firebase.auth().onAuthStateChanged(function (user) {
         var label6 = 'Github link: '
         var label7 = 'Stackoverflow link: '
         var label8 = 'Website: '
+        var label9 = 'Team invited to :'
+
+        const queryString = window.location.search;
+
+        console.log(queryString)
+
+        var array2 = decodeURI(queryString).split('&')
+
+        console.log(array2)
+        var final = []
+
+        for (let i = 0; i < array2.length; i++) {
+          var x = ''
+          var start = 9
+
+          if (i == 0) {
+            start = 10
+          }
+          for (let j = start; j < array2[i].length; j++) {
+            x += array2[i][j]
+          }
+          final.push(x)
+        }
+
+        console.log(final)
+
+        var id = (final[2].split('='))[1]
+
 
 
         var requestOptions = {
           method: "GET",
           headers: {
-            authtoken: auth_tok,
+            authtoken:
+              auth_tok,
             "Content-Type": "application/json",
           }
         };
 
-        fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+        fetch("https://hackportal.azurewebsites.net/users/" + id, requestOptions)
           .then((response) => {
             return response.json();
           })
@@ -123,9 +148,10 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".label8").text(label8)
             $(".website").html('<a href=' + result.externalLink + '>' + result.externalLink + '</a>')
 
-            $(".invite").append('<button> <a href="' + '#' + '" style="text-decoration:none;">Invite</a> </button>')
+            $(".label9").text(label9)
+            $(".team_invited_to").text(final[1])
 
-
+            $(".invite").append('<button onclick="cancelInvite()"> <a href="' + '#' + '" style="text-decoration:none;">Cancel Invite</a> </button>')
 
           })
           .catch(err => console.log(err))
@@ -137,9 +163,73 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 })
 
+function cancelInvite() {
 
-$(document).ready(function () {
-  $('.sidenav').sidenav();
-});
+  const queryString = window.location.search;
 
-// code for getting content
+  console.log(queryString)
+
+  var array2 = decodeURI(queryString).split('&')
+
+  console.log(array2)
+  var final = []
+
+  for (let i = 0; i < array2.length; i++) {
+    var x=''
+    if(i==0){
+      for (let k = 8; k < array2[i].length; k++) {
+        x+=array2[i][k]
+      }
+
+      final.push(x)
+    }
+    else if(i==2){
+
+      for (let k = 10; k < array2[i].length; k++) {
+        x+=array2[i][k]
+      }
+
+      final.push(x)
+
+    }
+
+    
+  }
+
+  console.log(final)
+
+  var raw = {
+    teamId: final[0],
+    inviteeId: final[1]
+  }
+
+  console.log(raw)
+
+
+  var requestOptions = {
+    method: 'POST',
+    headers: {
+      authtoken:
+        auth_tok,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(raw),
+    redirect: 'follow'
+  };
+
+  fetch("https://hackportal.herokuapp.com/teams/cancelinvite", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      console.log(result)
+      alert('invite cancelled')
+    })
+    .catch(error => {
+      console.log('error', error)
+      alert(error)
+    });
+}
+
+  $(document).ready(function () {
+    $('.sidenav').sidenav();
+  });
+

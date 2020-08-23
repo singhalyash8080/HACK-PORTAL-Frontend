@@ -1,3 +1,17 @@
+// code for pre-loader
+
+$(document).ready(function() {
+    //Preloader
+    preloaderFadeOutTime = 5000;
+    function hidePreloader() {
+    var preloader = $('.spinner-wrapper');
+    preloader.fadeOut(preloaderFadeOutTime);
+    }
+    hidePreloader();
+    });
+  
+  // end of pre-loader
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
@@ -19,14 +33,41 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         console.log("USER LOGGED IN")
         //   window.location.replace("/home_page/index.html");
+
+        if(user.emailVerified==false){
+
+            window.location.replace("../verify_account/index.html");
+      
+        }
+
         firebase.auth().currentUser.getIdToken(true)
             .then((idToken) => {
                 //   console.log(idToken)
                 auth_tok += idToken
 
+                var requestOptions = {
+                    method: "GET",
+                    headers: {
+                      authtoken: auth_tok,
+                      "Content-Type": "application/json",
+                    }
+                  };
+          
+                  fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+                    .then((response) => {
+                      return response.json();
+                    })
+                    .catch(error=>{
+                        if(error.message=='email not verified'){
+          
+                        window.location.replace("../create_profile/index.html");
+          
+                        }
+                    })
+
                 var view_team_link = '../team_invitation/index.html'
 
-                var view_sent_link = '#'
+                var view_sent_link = '../cancel_invite/index.html'
 
 
                 // for (let i = 0; i < view_team.length; i++) {
@@ -36,6 +77,8 @@ firebase.auth().onAuthStateChanged(function (user) {
                 // for (let i = 0; i < view_sent.length; i++) {
                 //     $(".view_sent").append('<div class="field"> <p class="txt">' + view_sent[i] + '</p> <div class="lnk"> <a class="lnk_inside" href="' + view_sent_link[i] + '">View</a> </div>' + '</div><br>')
                 // }
+
+                var currentUserId=''
 
 
                 var myHeaders = new Headers();
@@ -51,6 +94,8 @@ firebase.auth().onAuthStateChanged(function (user) {
                     .then(response => response.json())
                     .then(result => {
                         console.log(result)
+
+                        currentUserId=result._id
 
                         for (let i = 0; i < result.teamInvites.length; i++) {
 
@@ -75,27 +120,44 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                         }
 
-                        // for (let i = 0; i < result.teams.length; i++) {
+                        for (let i = 0; i < result.teams.length; i++) {
 
-                        //     var myHeaders = new Headers();
-                        //     myHeaders.append("authtoken", "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU1NGE3NTQ3Nzg1ODdjOTRjMTY3M2U4ZWEyNDQ2MTZjMGMwNDNjYmMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vaGFja3BvcnRhbC01M2VmZSIsImF1ZCI6ImhhY2twb3J0YWwtNTNlZmUiLCJhdXRoX3RpbWUiOjE1OTYzMTU3ODEsInVzZXJfaWQiOiJMZDFPZmF0V0ZHVlZOQzlBOHFyOUxlQ0RrVjMzIiwic3ViIjoiTGQxT2ZhdFdGR1ZWTkM5QThxcjlMZUNEa1YzMyIsImlhdCI6MTU5NjMxNjI5MSwiZXhwIjoxNTk2MzE5ODkxLCJlbWFpbCI6InNpbmdoYWwueWFzaDgwODBAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsic2luZ2hhbC55YXNoODA4MEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.IgkqGqnQ3GT7aBWo4DbBQvgGDpL7jnvOX3M-lGXlraymr9N5RTP2hyaDS6tCEoEelO4RTP_fEUS0PMFUkjbcRdVP7Ei1EmJatrEULurT1RLzZ1mul1iGjrYWqtptJcW7qcHi8_ZqhN9XZu7aqNGz3uVe-jyzkTMIvyAOLxoO57AIZmloRw_2NFKEdnZGnsd2Att58XyqveoueHTlUTANUwPM7JabGO0o9p7QfxEZfpRmzxQMuH8BoTD139fF5X-gRffSqKdBMakcQWklFpavF2vmBHmyEbj_fVmJjIr2rmQRl4oUlgYSAwSmUIuAFqXozWlnGqjeyxVYYNaVjPdkXA");
+                            var myHeaders = new Headers();
+                            myHeaders.append("authtoken", auth_tok);
 
-                        //     var requestOptions = {
-                        //         method: 'GET',
-                        //         headers: myHeaders,
-                        //         redirect: 'follow'
-                        //     };
+                            var requestOptions = {
+                                method: 'GET',
+                                headers: myHeaders,
+                                redirect: 'follow'
+                            };
 
-                        //     fetch("https://hackportal.herokuapp.com/teams/getteaminfo/"+result.teams[i], requestOptions)
-                        //         .then(response => response.json())
-                        //         .then(result => {
-                        //             console.log(result)
-                        //             $(".view_sent").append('<div class="field"> <p class="txt">' + result.teamName + '</p> <div class="lnk"> <a class="lnk_inside" href="' + view_sent_link[i] + '">View</a> </div>' + '</div><br>')
+                            fetch("https://hackportal.herokuapp.com/teams/getteaminfo/" + result.teams[i], requestOptions)
+                                .then(response => response.json())
+                                .then(Result => {
+                                    console.log(Result)
 
-                        //         })
-                        //         .catch(error => console.log('error', error));
+                                    for (let k = 0; k < Result.pendingRequestsInfo.length; k++) {
 
-                        // }
+                                        var params = {
+                                            teamId: Result._id,
+                                            teamName:Result.teamName,
+                                            profileId:Result.pendingRequestsInfo[k]._id
+                                        }
+                                        
+                                        var queryString = $.param(params);
+
+                                        console.log(queryString)
+
+                                        if(currentUserId==Result.creatorId){
+                                            $(".view_sent").append('<div class="field"> <p class="txt">' + Result.pendingRequestsInfo[k].name + '</p> <div class="lnk"> <a class="lnk_inside" href="' + view_sent_link+'?'+queryString + '">View</a> </div>' + '</div><br>')
+                                        }
+
+                                    }
+
+                                })
+                                .catch(error => console.log('error', error));
+
+                        }
                     })
                     .catch(error => console.log('error', error));
 
@@ -105,4 +167,8 @@ firebase.auth().onAuthStateChanged(function (user) {
         console.log("USER NOT LOGGED IN")
     }
 })
+
+$(document).ready(function () {
+    $('.sidenav').sidenav();
+});
 

@@ -39,6 +39,7 @@ var firebaseConfig = {
       window.location.replace("../verify_account/index.html");
 
     }
+
       firebase.auth().currentUser.getIdToken(true)
         .then((idToken) => {
         //   console.log(idToken)
@@ -58,11 +59,64 @@ var firebaseConfig = {
               })
               .catch(error=>{
                   if(error.message=='email not verified'){
-
+    
                   window.location.replace("../create_profile/index.html");
-
+    
                   }
               })
+
+            const queryString = window.location.search;
+            // console.log(queryString);
+            var team_id=''
+        
+            for (let i = 0; i < queryString.length; i++) {
+                if(i!=0){
+                    team_id+=queryString[i]
+                }
+                
+            }
+
+            var myHeaders = new Headers();
+        myHeaders.append("authtoken", auth_tok);
+
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+
+        fetch("https://hackportal.herokuapp.com/teams/getteaminfo/" + team_id, requestOptions)
+          .then(response => response.json())
+          .then(result => {
+            console.log(result)
+
+            // $(".team_name").defaultV(result.teamName)
+            document.getElementById('team_name').defaultValue= result.teamName
+
+            document.getElementById('description').defaultValue= result.description
+
+            // $(".label4").text(label4)
+
+            for (let i = 1; i <= 9; i++) {
+                        
+              var skilz = $('#'+i.toString()).val()
+  
+              for (let j = 0; j < result.skillsRequired.length; j++) {
+                  
+                  
+                  if(skilz.toLowerCase()==result.skillsRequired[j]){
+  
+                      $('#'+i.toString()).attr('checked',true)
+                  }
+                  
+              }
+              
+          }
+
+          })
+          .catch(error => console.log('error', error));
+
+
 
         })
     } else {
@@ -79,11 +133,11 @@ async function confirm() {
 
     const queryString = window.location.search;
     // console.log(queryString);
-    var event_id=''
+    var team_id=''
 
     for (let i = 0; i < queryString.length; i++) {
         if(i!=0){
-            event_id+=queryString[i]
+            team_id+=queryString[i]
         }
         
     }
@@ -100,7 +154,7 @@ async function confirm() {
 
     var raw = {
         teamName: $('#team_name').val(),
-        eventId: event_id,
+        eventId: team_id,
         description: $('.txt-inp').val(),
         skillsRequired: skill_array
     }
@@ -116,11 +170,11 @@ async function confirm() {
         body: JSON.stringify(raw)
     };
 
-    await fetch("https://hackportal.herokuapp.com/teams/setteam", requestOptions)
+    await fetch("https://hackportal.herokuapp.com/teams/updateteam/"+team_id, requestOptions)
         .then(response => response.json())
         .then(result =>{
             // console.log(result)
-            alert('Your team has been created successfully')
+            alert('Your team has been updated successfully')
         } )
         .catch(error => console.log('error', error));
 
