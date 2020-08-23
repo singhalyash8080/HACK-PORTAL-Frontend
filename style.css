@@ -5,6 +5,113 @@ body{
     margin:0;
 }
 
+/* for preloader */
+.spinner-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3D5A80;
+    z-index: 999999;
+    }
+
+.spinner{
+    position: absolute;
+    top: 48%;
+    left: 48%;
+}
+
+.sk-folding-cube {
+    margin: 20px auto;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    -webkit-transform: rotateZ(45deg);
+            transform: rotateZ(45deg);
+  }
+  
+  .sk-folding-cube .sk-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1); 
+  }
+  .sk-folding-cube .sk-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+            animation: sk-foldCubeAngle 2.4s infinite linear both;
+    -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+  }
+  .sk-folding-cube .sk-cube2 {
+    -webkit-transform: scale(1.1) rotateZ(90deg);
+            transform: scale(1.1) rotateZ(90deg);
+  }
+  .sk-folding-cube .sk-cube3 {
+    -webkit-transform: scale(1.1) rotateZ(180deg);
+            transform: scale(1.1) rotateZ(180deg);
+  }
+  .sk-folding-cube .sk-cube4 {
+    -webkit-transform: scale(1.1) rotateZ(270deg);
+            transform: scale(1.1) rotateZ(270deg);
+  }
+  .sk-folding-cube .sk-cube2:before {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+  }
+  .sk-folding-cube .sk-cube3:before {
+    -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s; 
+  }
+  .sk-folding-cube .sk-cube4:before {
+    -webkit-animation-delay: 0.9s;
+            animation-delay: 0.9s;
+  }
+  @-webkit-keyframes sk-foldCubeAngle {
+    0%, 10% {
+      -webkit-transform: perspective(140px) rotateX(-180deg);
+              transform: perspective(140px) rotateX(-180deg);
+      opacity: 0; 
+    } 25%, 75% {
+      -webkit-transform: perspective(140px) rotateX(0deg);
+              transform: perspective(140px) rotateX(0deg);
+      opacity: 1; 
+    } 90%, 100% {
+      -webkit-transform: perspective(140px) rotateY(180deg);
+              transform: perspective(140px) rotateY(180deg);
+      opacity: 0; 
+    } 
+  }
+  
+  @keyframes sk-foldCubeAngle {
+    0%, 10% {
+      -webkit-transform: perspective(140px) rotateX(-180deg);
+              transform: perspective(140px) rotateX(-180deg);
+      opacity: 0; 
+    } 25%, 75% {
+      -webkit-transform: perspective(140px) rotateX(0deg);
+              transform: perspective(140px) rotateX(0deg);
+      opacity: 1; 
+    } 90%, 100% {
+      -webkit-transform: perspective(140px) rotateY(180deg);
+              transform: perspective(140px) rotateY(180deg);
+      opacity: 0; 
+    }
+  }
+
+ /* pre-loader-end */
+
 /* default code end */
 
 /* navbar */
@@ -151,7 +258,7 @@ img{
     border:4px #3D5A80 solid;
 }
 
-#SignIn{
+#SignIn,#SignUp{
     display: none;
     max-width:60%;
     /* border:2px purple solid; */
@@ -165,7 +272,7 @@ img{
     font-size:26px;
 }
 
-#signIn-elem{
+#signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
     /* border:2px red solid; */
     border: none;
     background: rgba(41, 50, 65, 0.1);
@@ -327,6 +434,15 @@ img{
     margin:0 auto;
 }
 
+.no-hacks{
+    font-size:35px;
+    color:whitesmoke;
+    /* border:red solid 2px; */
+    text-align: center;
+}
+
+/* content end */
+
 /* footer */
 
 .foot-items{
@@ -373,9 +489,6 @@ img{
 }
 
 /* footer end */
-
-
-/* content end */
 
 /* media queries */
 
@@ -446,7 +559,7 @@ img{
         top:0px;
     }
 
-    #signIn-elem{
+    #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
         max-width:30%;
     }
 
@@ -455,12 +568,12 @@ img{
         text-align: center;
     }
 
-    #SignIn{
+    #SignIn,#SignUp{
         margin:0 auto;
         max-width:35%;
     }
 
-    #signIn-elem{
+    #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
         max-width:100%;
     }
 
@@ -474,7 +587,7 @@ img{
 
 @media only screen and (max-width: 750px){
 
-    #SignIn{
+    #SignIn,#SignUp{
         max-width:55%;
     }
 
@@ -482,12 +595,12 @@ img{
 
 @media only screen and (max-width: 622px){
 
-    #SignIn{
+    #SignIn,#SignUp{
         max-width:60%;
         padding:15px 15px 15px 0px;
     }
 
-    #signIn-elem{
+    #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
         /* padding:5px 30px; */
         /* max-width:50%; */
         padding:7px;
@@ -513,14 +626,14 @@ img{
 
 @media only screen and (max-width: 530px){
 
-    #SignIn{
+    #SignIn,#SignUp{
         max-width:80%;
     }
 
 }
 
 @media only screen and (max-width: 385px){
-    #SignIn{
+    #SignIn,#SignUp{
         max-width:94%;
     }
 }

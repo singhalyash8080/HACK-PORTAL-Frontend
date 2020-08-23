@@ -114,7 +114,6 @@ body{
 
 /* default code end */
 
-
 /* navbar */
 .Navbar{
     display: flex;
@@ -198,9 +197,10 @@ body{
 
 /* navbar end */
 
+
 /* content */
 
-.hack_name{
+.name{
     color: #3D5A80;
 }
 
@@ -209,26 +209,15 @@ body{
     color: #3D5A80;
 }
 
-.content p{
+.content p,.content a{
     font-size:25px;
     color: #213753;
     margin:0;
 }
 
-
-.skills,.team_mates{
-    /* border:green solid 2px; */
-    width:85%;
-    margin:0 auto;
+.content a{
+    text-decoration: underline;
 }
-
-
-.shapes img{
-    max-width:100%;
-    max-height:300px;
-}
-
-
 
 .invite{
     /* border:2px red solid; */
@@ -239,12 +228,54 @@ body{
 .invite button{
     background-color:#3D5A80;
     padding:12px 25px;
-    border-radius: 8px;
+    border-radius: 7px;
     border:1px #3D5A80 solid;
 }
 
 .invite button a{
     color:white;
+}
+
+.skills{
+    /* border:green solid 2px; */
+    width:85%;
+    margin:0 auto;
+}
+
+.shape1{
+    width:151px;
+    height:151px;
+    background: #E0FBFC;
+    transform: rotate(30deg);
+    z-index:3;
+
+    position: relative;
+    top:130px;
+}
+
+.shape2{
+    width:159px;
+    height:159px;
+    background: #EE6C4D;
+    z-index:2;
+    border-radius:50%;
+
+    position: relative;
+    bottom:120px;
+}
+
+.shape3{
+    width: 0; 
+    height: 0; 
+    border-left: 115px solid transparent;
+    border-right: 85px solid transparent;
+    border-bottom: 130px solid #98C1D9;
+    z-index:1;
+    transform: rotate(-135deg);
+    
+    position: relative;
+    bottom:270px;
+    left:40px;
 }
 
 /* content end */
@@ -307,13 +338,13 @@ body{
 
 }
 
-   /* navbar media queries end */
+   /* navbar media queries end */        
 
         /* media queries for content */
 
         @media only screen and (max-width: 600px){
 
-            .hack_name{
+            .name{
                 font-size:35px;
             }
 
@@ -335,35 +366,10 @@ body{
             }
         }
 
-        @media only screen and (max-width: 400px){
-            .hack_name{
-                font-size:32px;
-            }
-
-            .content label{
-                font-size:12px;
-            }
-
-            .content p{
-                font-size:15px;
-            }
-
-            .invite{
-                font-size:22px;
-            }
-
-            .invite button{
-                background-color:#3D5A80;
-                padding:8px 20px;
-            }
-        }
-
-        @media only screen and (max-width: 992px){
-
+        @media only screen and (max-width: 1143px){
             .shapes{
                 display: none;
             }
-
         }
 
         /* end of media queries for content */

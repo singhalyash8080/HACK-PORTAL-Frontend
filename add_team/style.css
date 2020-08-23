@@ -8,6 +8,113 @@ body{
     font-weight: normal;
 }
 
+/* for preloader */
+.spinner-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3D5A80;
+    z-index: 999999;
+    }
+
+.spinner{
+    position: absolute;
+    top: 48%;
+    left: 48%;
+}
+
+.sk-folding-cube {
+    margin: 20px auto;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    -webkit-transform: rotateZ(45deg);
+            transform: rotateZ(45deg);
+  }
+  
+  .sk-folding-cube .sk-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1); 
+  }
+  .sk-folding-cube .sk-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+            animation: sk-foldCubeAngle 2.4s infinite linear both;
+    -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+  }
+  .sk-folding-cube .sk-cube2 {
+    -webkit-transform: scale(1.1) rotateZ(90deg);
+            transform: scale(1.1) rotateZ(90deg);
+  }
+  .sk-folding-cube .sk-cube3 {
+    -webkit-transform: scale(1.1) rotateZ(180deg);
+            transform: scale(1.1) rotateZ(180deg);
+  }
+  .sk-folding-cube .sk-cube4 {
+    -webkit-transform: scale(1.1) rotateZ(270deg);
+            transform: scale(1.1) rotateZ(270deg);
+  }
+  .sk-folding-cube .sk-cube2:before {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+  }
+  .sk-folding-cube .sk-cube3:before {
+    -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s; 
+  }
+  .sk-folding-cube .sk-cube4:before {
+    -webkit-animation-delay: 0.9s;
+            animation-delay: 0.9s;
+  }
+  @-webkit-keyframes sk-foldCubeAngle {
+    0%, 10% {
+      -webkit-transform: perspective(140px) rotateX(-180deg);
+              transform: perspective(140px) rotateX(-180deg);
+      opacity: 0; 
+    } 25%, 75% {
+      -webkit-transform: perspective(140px) rotateX(0deg);
+              transform: perspective(140px) rotateX(0deg);
+      opacity: 1; 
+    } 90%, 100% {
+      -webkit-transform: perspective(140px) rotateY(180deg);
+              transform: perspective(140px) rotateY(180deg);
+      opacity: 0; 
+    } 
+  }
+  
+  @keyframes sk-foldCubeAngle {
+    0%, 10% {
+      -webkit-transform: perspective(140px) rotateX(-180deg);
+              transform: perspective(140px) rotateX(-180deg);
+      opacity: 0; 
+    } 25%, 75% {
+      -webkit-transform: perspective(140px) rotateX(0deg);
+              transform: perspective(140px) rotateX(0deg);
+      opacity: 1; 
+    } 90%, 100% {
+      -webkit-transform: perspective(140px) rotateY(180deg);
+              transform: perspective(140px) rotateY(180deg);
+      opacity: 0; 
+    }
+  }
+
+ /* pre-loader-end */
+
 /* default code end */
 
 /* content */
@@ -20,19 +127,8 @@ body{
 
 .heading{
     display: flex;
+    justify-content: center;
     /* border:blue 2px solid; */
-}
-
-.butt-container{
-    width:20%;
-    display: flex;
-}
-
-.back{
-    /* border:red solid 2px; */
-    /* font-size:32px; */
-    align-self: center;
-    /* width:20%; */
 }
 
 .form1-head{
@@ -40,7 +136,7 @@ body{
     color: #3D5A80;
     /* border:2px green solid; */
     /* margin-left:100px; */
-    width:60%;
+    /* width:60%; */
     text-align: center;
     /* width:60%; */
     /* margin:0 auto; */
@@ -54,13 +150,6 @@ body{
     display: flex;
     flex-direction: column;
     background-color:rgba(196, 196, 196, 0.1);;
-}
-
-.back{
-    background-color:transparent;
-    border: none;
-    font-size:40px;
-    color:#3D5A80;
 }
 
 .form1-cont label{
@@ -91,7 +180,43 @@ body{
     align-self: center;
     border-style: solid;
     border-color:rgba(41, 50, 65, 0.1);
+    outline: none;
 }
+
+.form1-cont textarea{
+    resize: none;
+    outline: none;
+}
+
+.skills_req{
+    /* border:2px red solid; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
+    width:40%;
+    margin:0 auto;
+}
+
+.skill-inps{
+    /* border:green solid 2px; */
+    /* text-align: left; */
+    display: flex;
+}
+
+.skill-inps input{
+    /* border:2px pink solid; */
+    width:10%;
+    /* align-self: flex-end; */
+    margin-right:5px;
+}
+
+.skill-inps label{
+    /* border:2px blue solid; */
+    font-size:18px;
+    width:90%;
+}
+
 
 .accept_invite{
     /* border:red solid 2px; */
@@ -103,9 +228,12 @@ body{
 
 .reject{
     background-color: white;
-    border:none;
+    /* border:none; */
     color: #3D5A80;
     padding:12px 25px;
+    border-radius: 8px;
+    border:2px #3D5A80 solid;
+    cursor: pointer;
 }
 
 .accept{
@@ -113,19 +241,33 @@ body{
     border:none;
     color:white;
     padding:12px 25px;
+    border-radius: 7px;
+    cursor: pointer;
 }
 
 /* content end */
 
 
+/* common  */
+
+input{
+    /* outline-color: transparent; */
+    color:#3D5A80;
+    font-size:20px;
+}
+
+textarea{
+    /* outline-color: transparent; */
+    color:#3D5A80;
+    font-size:18px;
+}
+
+/* common end */
+
 /* media queries */
 
     /* media queries for content */
 @media only screen and (max-width:705px){
-    
-    .back{
-        font-size:30px;
-    }
 
     .form1-head{
         font-size:30px;
@@ -197,6 +339,25 @@ body{
 
     .form1-cont{
         width:90%;
+    }
+}
+
+@media only screen and (max-width:1080px){
+
+    .skill-inps label{
+        /* border:2px blue solid; */
+        font-size:15px;
+        /* width:95%; */
+    }
+
+}
+
+@media only screen and (max-width:570px){
+
+    .skill-inps label{
+        /* border:2px blue solid; */
+        font-size:12px;
+        /* width:95%; */
     }
 }
     /* end of media queries for content */

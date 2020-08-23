@@ -1,3 +1,17 @@
+// code for pre-loader
+
+$(document).ready(function() {
+    //Preloader
+    preloaderFadeOutTime = 5000;
+    function hidePreloader() {
+    var preloader = $('.spinner-wrapper');
+    preloader.fadeOut(preloaderFadeOutTime);
+    }
+    hidePreloader();
+    });
+  
+  // end of pre-loader
+  
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
@@ -19,6 +33,13 @@ var firebaseConfig = {
     if (user) {
       console.log("USER LOGGED IN")
     //   window.location.replace("/home_page/index.html");
+
+      if(user.emailVerified==false){
+
+        window.location.replace("../verify_account/index.html");
+  
+      }
+      
       firebase.auth().currentUser.getIdToken(true)
         .then((idToken) => {
         //   console.log(idToken)
@@ -69,70 +90,16 @@ var firebaseConfig = {
             
                     
                 })
-                .catch(err => console.log(err))
-            
-            async function confirm() {
-            
-                var name = ''
-                var college = ''
-                var year = ''
-                var bio = ''
-                var skillarray = []
-                var github = ''
-                var stack = ''
-                var externallink = ''
-            
-                name += $('#name').val()
-                college += $('#college').val()
-                year += $('#yearOfGraduation').val()
-            
-                bio += $('#bio').val()
-            
-                for (let i = 1; i <= 9; i++) {
-                    if ($("#" + i.toString()).is(":checked")) {
-                        skillarray.push($('#' + i.toString()).val())
+                .catch(err =>{ 
+                    console.log(err)
+
+                    if(error.message=='email not verified'){
+
+                        window.location.replace("../create_profile/index.html");
+          
                     }
-                }
-            
-                github += ($('#githubLink').val())
-                stack += ($('#stackOverFlowLink').val())
-                externallink += ($('#externalLink').val())
-            
-                const raw = {
-                    name: name,
-                    college: college,
-                    expectedGraduation: year,
-                    bio: bio,
-                    skills: skillarray,
-                    githubLink: github,
-                    stackOverflowLink: stack,
-                    externalLink: externallink
-                }
-            
-                var requestOptions = {
-                    method: 'PATCH',
-                    headers: {
-                        authtoken:auth_tok,
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(raw),
-                    redirect: 'follow'
-                };
-            
-                await fetch("https://hackportal.herokuapp.com/users/", requestOptions)
-                    .then(response => response.text())
-                    .then(result => console.log(result))
-                    .catch(error => console.log('error', error));
-            
-                alert('profile was updated successfully')
-            
-                window.location.replace("../home_page/index.html");
-            
-            }
-            
-            function cancel() {
-                window.location.replace("../home_page/index.html");
-            }
+                    
+                })
 
         })
     } else {
@@ -140,3 +107,66 @@ var firebaseConfig = {
       console.log("USER NOT LOGGED IN")
     }
   })
+
+  async function confirm() {
+            
+    var name = ''
+    var college = ''
+    var year = ''
+    var bio = ''
+    var skillarray = []
+    var github = ''
+    var stack = ''
+    var externallink = ''
+
+    name += $('#name').val()
+    college += $('#college').val()
+    year += $('#yearOfGraduation').val()
+
+    bio += $('#bio').val()
+
+    for (let i = 1; i <= 9; i++) {
+        if ($("#" + i.toString()).is(":checked")) {
+            skillarray.push($('#' + i.toString()).val())
+        }
+    }
+
+    github += ($('#githubLink').val())
+    stack += ($('#stackOverFlowLink').val())
+    externallink += ($('#externalLink').val())
+
+    const raw = {
+        name: name,
+        college: college,
+        expectedGraduation: year,
+        bio: bio,
+        skills: skillarray,
+        githubLink: github,
+        stackOverflowLink: stack,
+        externalLink: externallink
+    }
+
+    var requestOptions = {
+        method: 'PATCH',
+        headers: {
+            authtoken:auth_tok,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(raw),
+        redirect: 'follow'
+    };
+
+    await fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
+    alert('profile was updated successfully')
+
+    window.location.replace("../home_page/index.html");
+
+}
+
+function cancel() {
+    window.location.replace("../home_page/index.html");
+}

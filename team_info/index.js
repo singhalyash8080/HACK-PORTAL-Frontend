@@ -1,3 +1,17 @@
+// code for pre-loader
+
+$(document).ready(function() {
+  //Preloader
+  preloaderFadeOutTime = 5000;
+  function hidePreloader() {
+  var preloader = $('.spinner-wrapper');
+  preloader.fadeOut(preloaderFadeOutTime);
+  }
+  hidePreloader();
+  });
+
+// end of pre-loader
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
@@ -19,10 +33,45 @@ firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     console.log("USER LOGGED IN")
     //   window.location.replace("/home_page/index.html");
+
+    if(user.emailVerified==false){
+
+      window.location.replace("../verify_account/index.html");
+
+    }
+
     firebase.auth().currentUser.getIdToken(true)
       .then((idToken) => {
         //   console.log(idToken)
         auth_tok += idToken
+
+        var myHeaders = new Headers();
+        myHeaders.append("authtoken", auth_tok);
+
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+
+        var currentUserId = ''
+
+        fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+          .then(response => response.json())
+          .then(result => {
+            currentUserId += result._id
+            // console.log(result)
+          })
+          .catch(error =>{ 
+            console.log('error', error)
+
+            if(error.message=='email not verified'){
+
+              window.location.replace("../create_profile/index.html");
+
+              }
+            
+          });
 
         // code for getting content
 
@@ -79,10 +128,51 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             $(".label5").text(label5)
             for (let i = 0; i < result.membersInfo.length; i++) {
-              $(".team_mates").append('<p class="points">' + result.membersInfo[i].name + '</p>')
+
+              if (result.creatorId == result.membersInfo[i]._id) {
+                $(".team_mates").append('<p class="points">' + result.membersInfo[i].name + ' (Admin)</p>')
+              }
+              else {
+                $(".team_mates").append('<p class="points">' + result.membersInfo[i].name + '</p>')
+              }
+
             }
 
-            $(".invite").append('<button> <a href=' + '#' + '>Invite</a> </button>')
+            if (currentUserId != result.creatorId) {
+              $('.team-butt').css("display", "none")
+            }
+
+            $(".team-butt-cover").append('<button class="delete-team" > <a href="' + '#' + '" style="color:#3D5A80;">Delete</a> </button>')
+
+            $(".team-butt-cover").append('<button class="edit-team"> <a href="' + '../edit_team/index.html?' + result._id + '" style="color:white;">Edit</a> </button>')
+
+            $('.delete-team').click(async function () {
+
+              var myHeaders = new Headers();
+              myHeaders.append("authtoken", auth_tok);
+
+              var requestOptions = {
+                method: 'DELETE',
+                headers: myHeaders,
+                redirect: 'follow'
+              };
+
+              // console.log(team_id)
+
+              await fetch("https://hackportal.herokuapp.com/teams/deleteteam/" + team_id, requestOptions)
+                .then(response => response.json())
+                .then(result => {
+
+                  console.log(result)
+
+                  alert('team has been deleted successfully')
+
+                })
+                .catch(error => console.log('error', error));
+
+              window.location.replace("../home_page/index.html");
+            }
+            )
 
           })
           .catch(error => console.log('error', error));

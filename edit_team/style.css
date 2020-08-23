@@ -152,6 +152,13 @@ body{
     background-color:rgba(196, 196, 196, 0.1);;
 }
 
+.back{
+    background-color:transparent;
+    border: none;
+    font-size:40px;
+    color:#3D5A80;
+}
+
 .form1-cont label{
     font-size:25px;
     color: #3D5A80;
@@ -183,6 +190,41 @@ body{
     outline: none;
 }
 
+.form1-cont textarea{
+    resize: none;
+    outline: none;
+}
+
+.skills_req{
+    /* border:2px red solid; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
+    width:40%;
+    margin:0 auto;
+}
+
+.skill-inps{
+    /* border:green solid 2px; */
+    /* text-align: left; */
+    display: flex;
+}
+
+.skill-inps input{
+    /* border:2px pink solid; */
+    width:10%;
+    /* align-self: flex-end; */
+    margin-right:5px;
+}
+
+.skill-inps label{
+    /* border:2px blue solid; */
+    font-size:18px;
+    width:90%;
+}
+
+
 .accept_invite{
     /* border:red solid 2px; */
     width:80%;
@@ -212,6 +254,7 @@ body{
 
 /* content end */
 
+
 /* common  */
 
 input{
@@ -221,14 +264,14 @@ input{
 }
 
 textarea{
-    outline:none;
-    resize: none;
+    /* outline-color: transparent; */
     color:#3D5A80;
     font-size:18px;
 }
 
-/* common end */
 
+
+/* common end */
 
 /* media queries */
 
@@ -301,18 +344,29 @@ textarea{
     }
 }
 
-@media only screen and (max-width: 348px){
-
-    .form1-head{
-        font-size:19px;
-    }
-}
-
 @media only screen and (max-width:826px){
 
     .form1-cont{
         width:90%;
     }
+}
 
+@media only screen and (max-width:1080px){
+
+    .skill-inps label{
+        /* border:2px blue solid; */
+        font-size:15px;
+        /* width:95%; */
+    }
+
+}
+
+@media only screen and (max-width:570px){
+
+    .skill-inps label{
+        /* border:2px blue solid; */
+        font-size:12px;
+        /* width:95%; */
+    }
 }
     /* end of media queries for content */

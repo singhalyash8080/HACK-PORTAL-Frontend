@@ -114,7 +114,6 @@ body{
 
 /* default code end */
 
-
 /* navbar */
 .Navbar{
     display: flex;
@@ -200,59 +199,101 @@ body{
 
 /* content */
 
-.hack_name{
-    color: #3D5A80;
-}
-
-.content label{
-    font-size:20px;
-    color: #3D5A80;
-}
-
-.content p{
-    font-size:25px;
-    color: #213753;
-    margin:0;
-}
-
-
-.skills,.team_mates{
-    /* border:green solid 2px; */
-    width:85%;
-    margin:0 auto;
-}
-
-
-.shapes img{
+img{
     max-width:100%;
-    max-height:300px;
 }
 
-
-
-.invite{
-    /* border:2px red solid; */
-    text-align: end;
-    font-size:30px;
+.verify-account{
+    text-align:center;
 }
 
-.invite button{
-    background-color:#3D5A80;
-    padding:12px 25px;
+.txt{
+    color: #293241;
+    font-size: 28px;
+}
+
+.txt-mail{
+    font-size: 36px;
+    color:#293241;
+    font-weight: 500;
+}
+
+.verify-account button{
+
+    background: #3D5A80;
     border-radius: 8px;
-    border:1px #3D5A80 solid;
-}
-
-.invite button a{
+    padding:15px 30px;
+    border:1px solid #3D5A80;
     color:white;
+    font-size:30px;
+    cursor: pointer;
 }
 
 /* content end */
 
+
+/* footer */
+
+.curve-shape{
+    position:relative;
+    top:40px;
+}
+
+footer{
+    background-color:#3D5A80;
+    position: relative;
+    top:20px;
+}
+
+.foot-items{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: baseline; */
+    padding:80px;
+    /* border:2px solid red; */
+}
+
+.foot1{
+    /* border:2px yellow solid; */
+    width:50%;
+    font-size:24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* align-self: flex-start; */
+    color: white;
+}
+
+.foot2{
+    /* border:2px solid blue; */
+    font-size:24px;
+    display:flex;
+    width:30%;
+    justify-content: space-evenly;
+    /* align-items: ; */
+}
+
+.foot-logo{
+    /* border:2px purple solid; */
+    text-align: center;
+}
+
+.foot-logo p{
+    font-size:22px;
+    color: white;
+}
+
+#copyright{
+    position: relative;
+    top:5px;
+}
+
+/* footer end */
+
 /* media queries */
 
-        /* for navbar */
-@media only screen and (min-width: 1143px){
+/* for navbar */
+@media only screen and (min-width: 1133px){
     .mob-Navbar{
         display:none;
     }
@@ -309,61 +350,99 @@ body{
 
    /* navbar media queries end */
 
-        /* media queries for content */
+   /* content media queries  */
 
-        @media only screen and (max-width: 600px){
+   @media only screen and (max-width:800px){
 
-            .hack_name{
-                font-size:35px;
-            }
+    .txt{
+        font-size:22px;
+    }
 
-            .content label{
-                font-size:15px;
-            }
+    .txt-mail{
+        font-size:30px;
+    }
 
-            .content p{
-                font-size:18px;
-            }
+    .verify-account button{
+        font-size:25px;
+    }
 
-            .invite{
-                font-size:25px;
-            }
+   }
 
-            .invite button{
-                background-color:#3D5A80;
-                padding:9px 22px;
-            }
+   @media only screen and (max-width:530px){
+
+    .txt{
+        font-size:18px;
+    }
+
+    .txt-mail{
+        font-size:23px;
+    }
+
+    .verify-account button{
+        font-size:20px;
+        padding:13px 27px;
+    }
+   }
+
+   @media only screen and (max-width:400px){
+
+    .txt{
+        font-size:14px;
+    }
+
+    .txt-mail{
+        font-size:18px;
+    }
+
+    .verify-account button{
+        font-size:17px;
+        padding:12px 24px;
+    }
+
+   }
+
+   /* content media queries end  */
+
+
+    /* footer media queries  */
+
+    @media only screen and (max-width:915px){
+
+        .foot-items{
+            flex-direction: column;
+            padding:40px;
         }
 
-        @media only screen and (max-width: 400px){
-            .hack_name{
-                font-size:32px;
-            }
-
-            .content label{
-                font-size:12px;
-            }
-
-            .content p{
-                font-size:15px;
-            }
-
-            .invite{
-                font-size:22px;
-            }
-
-            .invite button{
-                background-color:#3D5A80;
-                padding:8px 20px;
-            }
+        .foot1{
+            width: 100%;
+            text-align: center;
+            /* flex-direction: row; */
+            display: initial;
         }
 
-        @media only screen and (max-width: 992px){
-
-            .shapes{
-                display: none;
-            }
-
+        .foot2{
+            display: initial;
+            width: 100%;
+            text-align: center;
+            margin-top:20px;
         }
 
-        /* end of media queries for content */
+    }
+
+    @media only screen and (max-width:480px){
+        .foot-logo svg{
+            display: none;
+        }
+
+        .foot1{
+            font-size:16px;
+        }
+
+        .foot-logo{
+            font-size:18px;
+        }
+
+
+    }
+
+    /* footer media queries end  */

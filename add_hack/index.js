@@ -1,3 +1,17 @@
+// code for pre-loader
+
+$(document).ready(function() {
+  //Preloader
+  preloaderFadeOutTime = 5000;
+  function hidePreloader() {
+  var preloader = $('.spinner-wrapper');
+  preloader.fadeOut(preloaderFadeOutTime);
+  }
+  hidePreloader();
+  });
+
+// end of pre-loader
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
@@ -19,10 +33,39 @@ var firebaseConfig = {
     if (user) {
       console.log("USER LOGGED IN")
     //   window.location.replace("/home_page/index.html");
+
+     if(user.emailVerified==false){
+
+        window.location.replace("../verify_account/index.html");
+  
+      }
+
+
       firebase.auth().currentUser.getIdToken(true)
         .then((idToken) => {
         //   console.log(idToken)
             auth_tok+=idToken
+
+            var requestOptions = {
+                method: "GET",
+                headers: {
+                  authtoken: auth_tok,
+                  "Content-Type": "application/json",
+                }
+              };
+      
+              fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+                .then((response) => {
+                  return response.json();
+                })
+                .catch(error=>{
+                    if(error.message=='email not verified'){
+
+                    window.location.replace("../create_profile/index.html");
+
+                    }
+                })
+
 
         })
     } else {
@@ -61,6 +104,7 @@ async function confirm() {
         description: $('.txt-inp').val(),
         minimumTeamSize: team_size[0],
         maximumTeamSize: team_size[1],
+        eventUrl:$('#event_url').val(),
         eventImage:base64code
     }
 

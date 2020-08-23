@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add your hackathon</title>
     <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -21,15 +21,27 @@
 </head>
 
 <body>
+
+    <!-- pre-loader -->
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="sk-folding-cube">
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+              </div>
+        </div>
+    </div>
+    
+    <!-- pre-loader-end -->
+
     <section class="content">
         
         <div class="form1">
 
             <div class="heading">
-                <div class="butt-container">
-                    <a href="../home_page/index.html" style="text-decoration: none;"><i class="material-icons back">arrow_back</i> </a>
-                </div>
-                <h2 class="form1-head">Add your hackathon</h2><br><br>
+                <h2 class="form1-head">Add your hackathon</h2><br><br><br><br>
             </div>
 
             <div class="form1-cont">
@@ -48,8 +60,11 @@
                 <label>Description :</label><br><br>
                 <textarea class="txt-inp"></textarea><br><br>
 
-                <label>Team Size :</label><br><br>
+                <label>Team Size(l-h) :</label><br><br>
                 <input type="text" id="team_size"><br><br>
+
+                <label>Event Url :</label><br><br>
+                <input type="text" id="event_url"><br><br>
 
                 <label>Image :</label><br><br>
                 <input type="file" onchange="encodeImageFileAsURL(this)"/><br><br>
