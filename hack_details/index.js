@@ -117,7 +117,10 @@ firebase.auth().onAuthStateChanged(function (user) {
             $('.shapes').append('<img src="' + result.eventImage + '">')
 
           })
-          .catch(error => console.log('error', error));
+          .catch(error => {
+            console.log('error', error)
+            alert(error)
+          });
 
         // end of code for getting hackathon
 

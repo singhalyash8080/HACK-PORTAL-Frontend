@@ -168,7 +168,10 @@ firebase.auth().onAuthStateChanged(function (user) {
                   alert('team has been deleted successfully')
 
                 })
-                .catch(error => console.log('error', error));
+                .catch(error => {
+                  console.log('error', error)
+                  alert(error)
+                });
 
               window.location.replace("../home_page/index.html");
             }

@@ -127,7 +127,7 @@ async function confirm() {
         } )
         .catch(error =>{ 
             console.log('error', error)
-            // alert('Your hackathon cant be ')
+            alert(error)
         });
 
     window.location.replace("../home_page/index.html");

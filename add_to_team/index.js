@@ -170,8 +170,14 @@ function sendInvite() {
 
         fetch("https://hackportal.herokuapp.com/teams/sendinvite", requestOptions)
             .then(response => response.json())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+            .then(result =>{ 
+                console.log(result)
+                alert('request sent successfully')
+            })
+            .catch(error => {
+                console.log('error', error)
+                alert(error)
+            });
     }
 }
 

@@ -137,7 +137,10 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".invite").append('<button> <a href="' + '../add_to_team/index.html' + '" style="text-decoration:none;">Invite</a> </button>')
 
           })
-          .catch(err => console.log(err))
+          .catch(err => {
+            console.log(err)
+            alert(error)
+          })
 
       })
   } else {

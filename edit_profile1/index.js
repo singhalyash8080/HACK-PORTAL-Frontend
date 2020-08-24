@@ -128,7 +128,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
           })
-          .catch(err => console.log(err))
+          .catch(err =>{ 
+            console.log(err)
+            alert(error)
+          })
 
       })
   } else {

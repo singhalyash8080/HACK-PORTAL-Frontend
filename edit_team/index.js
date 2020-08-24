@@ -176,7 +176,10 @@ async function confirm() {
             // console.log(result)
             alert('Your team has been updated successfully')
         } )
-        .catch(error => console.log('error', error));
+        .catch(error => {
+          console.log('error', error)
+          alert(error)
+        });
 
     window.location.replace("../home_page/index.html");
 }
