@@ -265,7 +265,7 @@ var firebaseConfig = {
     //     .then((idToken) => {
     //       console.log(idToken)
     //     })
-
+    auth_tok=''
     if(user.emailVerified==true){
 
       firebase.auth().currentUser.getIdToken(true)
