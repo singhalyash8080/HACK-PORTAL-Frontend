@@ -296,7 +296,7 @@ function change(beg, x, curr) {
                 for (let i = 0; i < len; i++) {
                     $("#" + ob_head[i + 1]).text(hack_names[i]);
                     $("#" + ob_txt[i + 1]).text(hack_text[i]);
-                    $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="' + hack_link[i] + '">Learn More</a>')
+                    $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="../hack_details/index.html?' + hack_link[i] + '">Learn More</a>')
                 }
 
                 if (page_count <= 6) {
