@@ -183,7 +183,10 @@ firebase.auth().onAuthStateChanged(function (user) {
           fetch("https://hackportal.herokuapp.com/users/rejectteaminvite/" + team_id, requestOptions)
             .then(response => response.json())
             .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+            .catch(error => {
+              console.log('error', error)
+              alert(error)
+            });
 
           window.location.replace("../view_applications/index.html");
 

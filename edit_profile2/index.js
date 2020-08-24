@@ -158,10 +158,14 @@ var firebaseConfig = {
 
     await fetch("https://hackportal.herokuapp.com/users/", requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-
-    alert('profile was updated successfully')
+        .then(result => {
+            console.log(result)
+            alert('profile was updated successfully')
+        })
+        .catch(error => {
+            console.log('error', error)
+            alert(error)
+        });
 
     window.location.replace("../home_page/index.html");
 

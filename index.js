@@ -258,11 +258,37 @@ var firebaseConfig = {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       console.log("USER LOGGED IN")
+
+      // if(user.)
       // window.location.replace("/home_page/index.html");
     //   firebase.auth().currentUser.getIdToken(true)
     //     .then((idToken) => {
     //       console.log(idToken)
     //     })
+
+    if(user.emailVerified==true){
+
+      fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+      .then((response) => {
+        return response.json();
+      })
+      .then((result)=>{
+        window.location.replace("../home_page/index.html");
+      })
+      .catch(error=>{
+          if(error.message=='email not verified'){
+
+          window.location.replace("../create_profile/index.html");
+
+          }
+      })
+
+    }
+    else if(user.emailVerified==false){
+      window.location.replace("../verify_account/index.html");
+    }
+
+
     } else {
       // No user is signed in.
       console.log("USER NOT LOGGED IN")

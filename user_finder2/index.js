@@ -130,7 +130,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           body: JSON.stringify(raw),
         };
 
-        fetch("https://hackportal.azurewebsites.net/users/searchuserprofiles/1", requestOptions)
+        fetch("https://hackportal.herokuapp.com/users/searchuserprofiles/1", requestOptions)
           .then((response) => {
             return response.json();
           })
@@ -279,7 +279,7 @@ function change(beg, x, curr) {
       body: JSON.stringify(raw),
     };
 
-    fetch("https://hackportal.azurewebsites.net/users/searchuserprofiles/" + curr, requestOptions)
+    fetch("https://hackportal.herokuapp.com/users/searchuserprofiles/" + curr, requestOptions)
       .then((response) => {
         return response.json();
       })
