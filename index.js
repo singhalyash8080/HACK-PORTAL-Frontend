@@ -268,19 +268,34 @@ var firebaseConfig = {
 
     if(user.emailVerified==true){
 
-      fetch("https://hackportal.herokuapp.com/users/", requestOptions)
-      .then((response) => {
-        return response.json();
-      })
-      .then((result)=>{
-        window.location.replace("../home_page/index.html");
-      })
-      .catch(error=>{
-          if(error.message=='email not verified'){
+      firebase.auth().currentUser.getIdToken(true)
+      .then((idToken) => {
+      //   console.log(idToken)
+          auth_tok+=idToken
 
-          window.location.replace("../create_profile/index.html");
+          var requestOptions = {
+              method: "GET",
+              headers: {
+                authtoken: auth_tok,
+                "Content-Type": "application/json",
+              }
+            };
 
-          }
+            fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+            .then((response) => {
+              return response.json();
+            })
+            .then((result)=>{
+              window.location.replace("../home_page/index.html");
+            })
+            .catch(error=>{
+                if(error.message=='email not verified'){
+      
+                window.location.replace("../create_profile/index.html");
+      
+                }
+            })
+
       })
 
     }
