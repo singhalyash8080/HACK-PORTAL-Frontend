@@ -186,7 +186,7 @@ var firebaseConfig = {
       // [START authwithemail]
       firebase.auth().signInWithEmailAndPassword(email, password).then(() =>{ 
         console.log('signed-in')
-        window.location.replace("/home_page/index.html");
+        window.location.replace("./home_page/index.html");
       }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -226,7 +226,7 @@ var firebaseConfig = {
     // [START createwithemail]
     firebase.auth().createUserWithEmailAndPassword(email, password).then(() =>{ 
       console.log('user created')
-      window.location.replace("/verify_account/index.html")
+      window.location.replace("./verify_account/index.html")
 
     }).catch(function (error) {
       // Handle Errors here.
