@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
   //Preloader
-  preloaderFadeOutTime = 5000;
+  preloaderFadeOutTime = 1000;
   function hidePreloader() {
   var preloader = $('.spinner-wrapper');
   preloader.fadeOut(preloaderFadeOutTime);
@@ -128,6 +128,19 @@ axios.get(url)
         $("#" + ob_head[i + 1]).text(hack_names[i]);
         $("#" + ob_txt[i + 1]).text(hack_text[i]);
         $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="#" onclick="signInFirst()">Learn More</a>')
+    }
+
+    if(data.data.documents.length==0){
+
+      $('.back-content').css("display","none")
+      $('.curve-shape').css("display","none")
+      $('.curve-fill').css("display","none")
+      $('.curve-shapeDown').css("display","none")
+      $('.footer1').css("display","none")
+      $('.foot1').css("color","white")
+      $('.foot1 p').css("color","white")
+      $('.curve-shape2').css("display","inherit")
+      $('.footer2').css("display","inherit")
     }
 
 })

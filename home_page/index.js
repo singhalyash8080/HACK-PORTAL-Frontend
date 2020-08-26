@@ -111,6 +111,19 @@ axios.get(url)
         $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="../hack_details/index.html?' + hack_link[i] + '">Learn More</a>')
     }
 
+    if(data.data.documents.length==0){
+
+      $('.back-content').css("display","none")
+      $('.curve-shape').css("display","none")
+      $('.curve-fill').css("display","none")
+      $('.curve-shapeDown').css("display","none")
+      $('.footer1').css("display","none")
+      $('.foot1').css("color","white")
+      $('.foot1 p').css("color","white")
+      $('.curve-shape2').css("display","inherit")
+      $('.footer2').css("display","inherit")
+    }
+
 })
 .catch(err=> console.log(err))
 //end of code for getting hackathon details

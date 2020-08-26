@@ -194,6 +194,29 @@ body{
     justify-content: space-between;
 }
 
+.no-res{
+    /* border:red solid 2px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.no-res img{
+    max-width:100%;
+    /* border:2px green solid; */
+    margin:0 auto;
+    max-height:350px;
+}
+
+.no-res p{
+    /* border:blue solid 2px; */
+    text-align: center;
+    color: #3D5A80;
+    font-size:35px;
+}
+
+
 
 /* navbar end */
 
@@ -415,6 +438,15 @@ footer{
                 padding:20px;
             }
         }
+
+        @media only screen and (max-width: 630px){
+            
+            .no-res p{
+                font-size:20px;
+            }
+
+        }
+
 
         /* end of media queries for content */
 

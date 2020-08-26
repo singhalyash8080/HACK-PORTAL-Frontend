@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
   //Preloader
-  preloaderFadeOutTime = 6000;
+  preloaderFadeOutTime = 1000;
   function hidePreloader() {
   var preloader = $('.spinner-wrapper');
   preloader.fadeOut(preloaderFadeOutTime);
@@ -108,6 +108,12 @@ firebase.auth().onAuthStateChanged(function (user) {
                   console.log('error', error)
                   alert(error)
                 });
+            }
+
+            if(result.teams.length==0){
+
+              $('.content').append('<div class="no-res"><img src="../resources/illuspng.png"></img> <p>You are not part of any team yet</div><br><br><br>')
+
             }
 
             // console.log($('.content').html())

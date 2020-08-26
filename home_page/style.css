@@ -409,6 +409,26 @@ body{
     top:5px;
 }
 
+.curve-shape2{
+    display: none;
+    position: relative;
+    top:7px;
+}
+
+.footer2{
+    display:none;
+    position: relative;
+    /* top:22px; */
+    background-color: #3D5A80;
+    border-style:solid;
+    border-color:#3D5A80;
+    border-bottom-width:4px;
+}
+
+.footer2 p{
+    color:white;
+}
+
 /* footer end */
 
 
