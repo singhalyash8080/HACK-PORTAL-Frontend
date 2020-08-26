@@ -123,6 +123,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                         }
 
+                        if(result.teamInvites.length==0){
+                            $(".view_team").append('<p>There are no invites !<p>')
+                        }
+
                         for (let i = 0; i < result.teams.length; i++) {
 
                             var myHeaders = new Headers();
@@ -160,6 +164,10 @@ firebase.auth().onAuthStateChanged(function (user) {
                                 })
                                 .catch(error => console.log('error', error));
 
+                        }
+
+                        if(result.teams.length==0){
+                            $(".view_sent").append('<p> There are no sent invites !</p>')
                         }
                     })
                     .catch(error => console.log('error', error));

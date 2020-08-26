@@ -306,13 +306,17 @@ body{
 
 .curve-shape{
     position:relative;
-    top:40px;
+    top:7px;
 }
 
 footer{
     background-color:#3D5A80;
     position: relative;
-    top:20px;
+    bottom:2px;
+    background-color: #3D5A80;
+    border-style:solid;
+    border-color:#3D5A80;
+    border-bottom-width:4px;
 }
 
 .foot-items{

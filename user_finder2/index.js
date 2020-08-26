@@ -168,6 +168,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             }
 
+            $(".content").append('<br><br>')
+
             for (let i = 0; i < names.length; i++) {
 
               $(".content").append(
@@ -197,6 +199,8 @@ firebase.auth().onAuthStateChanged(function (user) {
             $('.pagination').append('<a href="#" class="nextpg" onclick="change2(' + beg + ',' + end + ',' + curr + ',' + page_count + ')">&raquo;</a>')
 
             $('#page' + curr.toString()).attr("class", "active pgs")
+
+            $('.content').append('<br><br><br><br>')
           })
           .catch((error) => console.log("error", error));
 
@@ -314,6 +318,8 @@ function change(beg, x, curr) {
 
         }
 
+        $(".content").append('<br><br>')
+
         for (let i = 0; i < len; i++) {
 
           $(".content").append(
@@ -340,6 +346,8 @@ function change(beg, x, curr) {
         $('.pagination').append('<a href="#" class="nextpg" onclick="change2(' + beg + ',' + end + ',' + curr + ',' + page_count + ')">&raquo;</a>')
 
         $('#page' + curr.toString()).attr("class", "active pgs")
+
+        $('.content').append('<br><br><br><br>')
       })
       .catch((error) => console.log("error", error));
 
