@@ -216,7 +216,10 @@ body{
     font-size:35px;
 }
 
-
+#logoo{
+    position: relative;
+    top:10px;
+}
 
 /* navbar end */
 

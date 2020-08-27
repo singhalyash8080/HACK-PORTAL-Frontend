@@ -194,6 +194,11 @@ body{
     justify-content: space-between;
 }
 
+#logoo{
+    position: relative;
+    top:10px;
+}
+
 
 /* navbar end */
 

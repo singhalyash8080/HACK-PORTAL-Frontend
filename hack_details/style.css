@@ -196,6 +196,11 @@ body{
 }
 
 
+#logoo{
+    position: relative;
+    top:10px;
+}
+
 /* navbar end */
 
 /* content */
