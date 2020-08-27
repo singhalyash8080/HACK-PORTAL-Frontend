@@ -496,7 +496,7 @@ img{
 .curve-shape2{
     display: none;
     position: relative;
-    top:7px;
+    top:9px;
 }
 
 .footer2{
@@ -518,20 +518,20 @@ img{
 /* media queries */
 
 /* for navbar */
-@media only screen and (min-width: 993px){
+@media only screen and (min-width: 1143px){
     .mob-Navbar{
         display:none;
     }
 }
 
 
-@media only screen and (max-width: 992px){
+@media only screen and (max-width: 1142px){
     .lnks{
         display: none;
     }
 }
 
-@media only screen and (max-width: 992px){
+@media only screen and (max-width: 1142px){
     .lnks{
         display: none;
     }

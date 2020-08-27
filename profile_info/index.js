@@ -106,6 +106,8 @@ firebase.auth().onAuthStateChanged(function (user) {
           })
           .then((result) => {
 
+            console.log(result)
+
             $(".name").text(result.name)
 
             $(".label1").text(label1)
