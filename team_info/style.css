@@ -294,6 +294,14 @@ body{
     cursor: pointer;
 }
 
+.edit-team:focus{
+    background-color:#3D5A80;
+}
+
+.delete-team:focus{
+    background-color: white;
+}
+
 
 /* content end */
 

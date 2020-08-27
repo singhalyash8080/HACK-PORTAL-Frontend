@@ -287,6 +287,14 @@ body{
     cursor: pointer;
 }
 
+.reject:focus{
+    background-color: white;
+}
+
+.accept:focus{
+    background-color: #3D5A80;
+}
+
 /* content end */
 
 /* media queries */

@@ -236,6 +236,10 @@ body{
     color:white;
 }
 
+.invite button:focus{
+    background-color: #3D5A80;
+}
+
 .skills{
     /* border:green solid 2px; */
     width:85%;

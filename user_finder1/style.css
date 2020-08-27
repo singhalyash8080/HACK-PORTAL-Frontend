@@ -261,6 +261,10 @@ body{
     border: 4px solid #3D5A80;
     cursor:pointer;
 }
+
+.search-butt:focus{
+    background-color: white;
+}
 /* content end */
 
 /* footer */

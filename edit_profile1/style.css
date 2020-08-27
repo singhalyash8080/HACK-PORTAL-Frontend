@@ -309,6 +309,14 @@ body{
     cursor: pointer;
 }
 
+.accept:focus{
+    background-color: #3D5A80;
+}
+
+.reject:focus{
+    background-color:white;
+}
+
 /* content end */
 
 /* footer */

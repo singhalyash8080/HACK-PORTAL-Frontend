@@ -269,6 +269,10 @@ body{
     cursor: pointer;
 }
 
+.sendInvite-inside button:focus{
+    background-color: #3D5A80;
+}
+
 /* content end */
 
 /* media queries */

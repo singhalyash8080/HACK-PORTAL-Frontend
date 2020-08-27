@@ -249,6 +249,15 @@ img{
     border-style: none;
     border-radius:8px;
     color:#fff;
+    /* box-shadow: none!important; */
+}
+
+.logIn:focus,.login:focus{
+    background-color: #3D5A80;
+}
+
+.signUp:focus{
+    background-color: white;
 }
 
 .signUp{
@@ -256,6 +265,7 @@ img{
     border-radius: 8px;
     color: #3D5A80;
     border:4px #3D5A80 solid;
+    background-color: white;
 }
 
 #SignIn,#SignUp{

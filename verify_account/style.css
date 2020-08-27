@@ -229,6 +229,10 @@ img{
     cursor: pointer;
 }
 
+.verify-account button:focus{
+    background-color:#3D5A80;
+}
+
 /* content end */
 
 

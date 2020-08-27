@@ -243,6 +243,10 @@ body{
     border:1px #3D5A80 solid;
 }
 
+.invite button:focus{
+    background-color: #3D5A80;
+}
+
 .invite button a{
     color:white;
 }
