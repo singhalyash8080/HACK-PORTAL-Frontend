@@ -100,7 +100,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           }
         };
 
-        fetch("https://hackportal.azurewebsites.net/users/" + id, requestOptions)
+        fetch("https://hackportal.herokuapp.com/users/" + id, requestOptions)
           .then((response) => {
             return response.json();
           })
@@ -136,7 +136,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".label8").text(label8)
             $(".website").html('<a href=' + result.externalLink + '>' + result.externalLink + '</a>')
 
-            $(".invite").append('<button> <a href="' + '../add_to_team/index.html' + '" style="text-decoration:none;">Invite</a> </button>')
+            $(".invite").append('<button> <a href="' + '../add_to_team/index.html?'+result.email + '" style="text-decoration:none;">Invite</a> </button>')
 
           })
           .catch(err => {

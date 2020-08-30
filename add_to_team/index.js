@@ -65,8 +65,12 @@ firebase.auth().onAuthStateChanged(function (user) {
                         }
                     })
 
+                const queryString = window.location.search;
+
                 
-                $('.sendInvite-inside').append('<br><input type="text" id="email" placeholder="name@example.com"><br><br>')
+                $('.sendInvite-inside').append('<br><input type="text" id="email"><br><br>')
+
+                document.getElementById('email').defaultValue=(queryString.split('?'))[1]
 
                 $('.sendInvite-inside').append('<h4>Choose team :</h4><br>')
 

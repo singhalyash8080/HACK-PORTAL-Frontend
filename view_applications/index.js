@@ -1,16 +1,16 @@
 // code for pre-loader
 
-$(document).ready(function() {
+$(document).ready(function () {
     //Preloader
     preloaderFadeOutTime = 5000;
     function hidePreloader() {
-    var preloader = $('.spinner-wrapper');
-    preloader.fadeOut(preloaderFadeOutTime);
+        var preloader = $('.spinner-wrapper');
+        preloader.fadeOut(preloaderFadeOutTime);
     }
     hidePreloader();
-    });
-  
-  // end of pre-loader
+});
+
+// end of pre-loader
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -34,10 +34,10 @@ firebase.auth().onAuthStateChanged(function (user) {
         console.log("USER LOGGED IN")
         //   window.location.replace("/home_page/index.html");
 
-        if(user.emailVerified==false){
+        if (user.emailVerified == false) {
 
             window.location.replace("../verify_account/index.html");
-      
+
         }
 
         firebase.auth().currentUser.getIdToken(true)
@@ -48,20 +48,20 @@ firebase.auth().onAuthStateChanged(function (user) {
                 var requestOptions = {
                     method: "GET",
                     headers: {
-                      authtoken: auth_tok,
-                      "Content-Type": "application/json",
+                        authtoken: auth_tok,
+                        "Content-Type": "application/json",
                     }
-                  };
-          
-                  fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+                };
+
+                fetch("https://hackportal.herokuapp.com/users/", requestOptions)
                     .then((response) => {
-                      return response.json();
+                        return response.json();
                     })
-                    .catch(error=>{
-                        if(error.message=='email not verified'){
-          
-                        window.location.replace("../create_profile/index.html");
-          
+                    .catch(error => {
+                        if (error.message == 'email not verified') {
+
+                            window.location.replace("../create_profile/index.html");
+
                         }
                     })
 
@@ -78,7 +78,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 //     $(".view_sent").append('<div class="field"> <p class="txt">' + view_sent[i] + '</p> <div class="lnk"> <a class="lnk_inside" href="' + view_sent_link[i] + '">View</a> </div>' + '</div><br>')
                 // }
 
-                var currentUserId=''
+                var currentUserId = ''
 
 
                 var myHeaders = new Headers();
@@ -95,7 +95,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                     .then(result => {
                         console.log(result)
 
-                        currentUserId=result._id
+                        currentUserId = result._id
 
                         for (let i = 0; i < result.teamInvites.length; i++) {
 
@@ -123,8 +123,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                         }
 
-                        if(result.teamInvites.length==0){
-                            $(".view_team").append('<p>There are no invites !<p>')
+                        if (result.teamInvites.length == 0) {
+                            $(".view_team").append('<p id="zero_result">There are no invites !<p>')
                         }
 
                         for (let i = 0; i < result.teams.length; i++) {
@@ -147,18 +147,22 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                                         var params = {
                                             teamId: Result._id,
-                                            teamName:Result.teamName,
-                                            profileId:Result.pendingRequestsInfo[k]._id
+                                            teamName: Result.teamName,
+                                            profileId: Result.pendingRequestsInfo[k]._id
                                         }
-                                        
+
                                         var queryString = $.param(params);
 
                                         console.log(queryString)
 
-                                        if(currentUserId==Result.creatorId){
-                                            $(".view_sent").append('<div class="field"> <p class="txt">' + Result.pendingRequestsInfo[k].name + '</p> <div class="lnk"> <a class="lnk_inside" href="' + view_sent_link+'?'+queryString + '">View</a> </div>' + '</div><br>')
+                                        if (currentUserId == Result.creatorId) {
+                                            $(".view_sent").append('<div class="field"> <p class="txt">' + Result.pendingRequestsInfo[k].name + '</p> <div class="lnk"> <a class="lnk_inside" href="' + view_sent_link + '?' + queryString + '">View</a> </div>' + '</div><br>')
                                         }
 
+                                    }
+
+                                    if(Result.pendingRequests.length==0){
+                                        $(".view_sent").append('<p id="zero_result"> There are no sent invites !</p>')
                                     }
 
                                 })
@@ -166,11 +170,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                         }
 
-                        if(result.teams.length==0){
-                            $(".view_sent").append('<p> There are no sent invites !</p>')
-                        }
                     })
                     .catch(error => console.log('error', error));
+
 
             })
     } else {

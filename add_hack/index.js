@@ -119,8 +119,13 @@ async function confirm() {
         body: JSON.stringify(raw)
     };
 
+
+
     await fetch("https://hackportal.herokuapp.com/events/setevent", requestOptions)
-        .then(response => response.json())
+        .then(response => {
+        console.log(response.status)
+        return response.json()
+        })
         .then(result =>{
             // console.log(result)
             alert('Your hackathon has been added successfully')

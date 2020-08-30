@@ -34,6 +34,16 @@ $(document).ready(function(){
     });
   });
 
+function gotosignup(){
+  $("#SignIn").css("display","none")
+  $("#SignUp").css("display","inherit")
+}
+
+function gotologin(){
+  $("#SignIn").css("display","inherit")
+  $("#SignUp").css("display","none")
+}
+
 
 
 // code for getting hackathon details of some hackathons

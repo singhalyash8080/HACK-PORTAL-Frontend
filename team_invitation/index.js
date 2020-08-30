@@ -155,7 +155,10 @@ firebase.auth().onAuthStateChanged(function (user) {
               console.log(result)
               alert('Team Invitation accepted')
             })
-            .catch(error => console.log('error', error));
+            .catch(error =>{ 
+              console.log('error', error)
+              alert(error)
+            });
 
           window.location.replace("../view_applications/index.html");
         }
