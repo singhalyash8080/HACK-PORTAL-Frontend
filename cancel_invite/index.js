@@ -1,14 +1,9 @@
 // code for pre-loader
 
-$(document).ready(function() {
-  //Preloader
-  preloaderFadeOutTime = 5000;
-  function hidePreloader() {
+function hidePreloader() {
   var preloader = $('.spinner-wrapper');
-  preloader.fadeOut(preloaderFadeOutTime);
-  }
-  hidePreloader();
-  });
+  preloader.fadeOut();
+}
 
 // end of pre-loader
 
@@ -31,10 +26,10 @@ var auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log("USER LOGGED IN")
+    // console.log("USER LOGGED IN")
     //   window.location.replace("/home_page/index.html");
 
-    if(user.emailVerified==false){
+    if (user.emailVerified == false) {
 
       window.location.replace("../verify_account/index.html");
 
@@ -55,14 +50,17 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         fetch("https://hackportal.herokuapp.com/users/", requestOptions)
           .then((response) => {
-            return response.json();
-          })
-          .catch(error=>{
-              if(error.message=='email not verified'){
+
+            if (response.status == 404) {
 
               window.location.replace("../create_profile/index.html");
 
-              }
+            }
+
+            return response.json();
+          })
+          .catch(error => {
+            alert(error)
           })
 
         // code for getting content
@@ -79,11 +77,11 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         const queryString = window.location.search;
 
-        console.log(queryString)
+        // console.log(queryString)
 
         var array2 = decodeURI(queryString).split('&')
 
-        console.log(array2)
+        // console.log(array2)
         var final = []
 
         for (let i = 0; i < array2.length; i++) {
@@ -99,7 +97,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           final.push(x)
         }
 
-        console.log(final)
+        // console.log(final)
 
         var id = (final[2].split('='))[1]
 
@@ -114,7 +112,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           }
         };
 
-        fetch("https://hackportal.azurewebsites.net/users/" + id, requestOptions)
+        fetch("https://hackportal.herokuapp.com/users/" + id, requestOptions)
           .then((response) => {
             return response.json();
           })
@@ -153,13 +151,14 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             $(".invite").append('<button onclick="cancelInvite()"> <a href="' + '#' + '" style="text-decoration:none;">Cancel Invite</a> </button>')
 
+            hidePreloader()
           })
           .catch(err => console.log(err))
 
       })
   } else {
     // No user is signed in.
-    console.log("USER NOT LOGGED IN")
+    // console.log("USER NOT LOGGED IN")
   }
 })
 
@@ -167,43 +166,43 @@ function cancelInvite() {
 
   const queryString = window.location.search;
 
-  console.log(queryString)
+  // console.log(queryString)
 
   var array2 = decodeURI(queryString).split('&')
 
-  console.log(array2)
+  // console.log(array2)
   var final = []
 
   for (let i = 0; i < array2.length; i++) {
-    var x=''
-    if(i==0){
+    var x = ''
+    if (i == 0) {
       for (let k = 8; k < array2[i].length; k++) {
-        x+=array2[i][k]
+        x += array2[i][k]
       }
 
       final.push(x)
     }
-    else if(i==2){
+    else if (i == 2) {
 
       for (let k = 10; k < array2[i].length; k++) {
-        x+=array2[i][k]
+        x += array2[i][k]
       }
 
       final.push(x)
 
     }
 
-    
+
   }
 
-  console.log(final)
+  // console.log(final)
 
   var raw = {
     teamId: final[0],
     inviteeId: final[1]
   }
 
-  console.log(raw)
+  // console.log(raw)
 
 
   var requestOptions = {
@@ -218,18 +217,31 @@ function cancelInvite() {
   };
 
   fetch("https://hackportal.herokuapp.com/teams/cancelinvite", requestOptions)
-    .then(response => response.json())
+    .then(response => {
+
+      if (response.status == 200) {
+
+        Toastify({
+          text: "Invite cancelled",
+          backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+          className: "info",
+        }).showToast();
+
+        window.setTimeout(() => window.location.replace("../view_applications/index.html"), 2000);
+
+      }
+
+      return response.json()
+    })
     .then(result => {
-      console.log(result)
-      alert('invite cancelled')
     })
     .catch(error => {
-      console.log('error', error)
+      // console.log('error', error)
       alert(error)
     });
 }
 
-  $(document).ready(function () {
-    $('.sidenav').sidenav();
-  });
+$(document).ready(function () {
+  $('.sidenav').sidenav();
+});
 

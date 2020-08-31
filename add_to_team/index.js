@@ -1,15 +1,10 @@
 // code for pre-loader
 
-$(document).ready(function() {
-    //Preloader
-    preloaderFadeOutTime = 5000;
-    function hidePreloader() {
+function hidePreloader() {
     var preloader = $('.spinner-wrapper');
-    preloader.fadeOut(preloaderFadeOutTime);
-    }
-    hidePreloader();
-    });
-  
+    preloader.fadeOut();
+}
+
 // end of pre-loader
 
 // Your web app's Firebase configuration
@@ -31,46 +26,48 @@ var auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        console.log("USER LOGGED IN")
+        // console.log("USER LOGGED IN")
         //   window.location.replace("/home_page/index.html");
 
-        if(user.emailVerified==false){
+        if (user.emailVerified == false) {
 
             window.location.replace("../verify_account/index.html");
-      
+
         }
 
         firebase.auth().currentUser.getIdToken(true)
-            .then((idToken) =>{
+            .then((idToken) => {
                 //   console.log(idToken)
                 auth_tok += idToken
 
                 var requestOptions = {
                     method: "GET",
                     headers: {
-                      authtoken: auth_tok,
-                      "Content-Type": "application/json",
+                        authtoken: auth_tok,
+                        "Content-Type": "application/json",
                     }
-                  };
-          
-                  fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+                };
+
+                fetch("https://hackportal.herokuapp.com/users/", requestOptions)
                     .then((response) => {
-                      return response.json();
-                    })
-                    .catch(error=>{
-                        if(error.message=='email not verified'){
-    
-                        window.location.replace("../create_profile/index.html");
-    
+
+                        if (response.status == 404) {
+
+                            window.location.replace("../create_profile/index.html");
+
                         }
+                        return response.json();
+                    })
+                    .catch(error => {
+                        alert(error)
                     })
 
                 const queryString = window.location.search;
 
-                
+
                 $('.sendInvite-inside').append('<br><input type="text" id="email"><br><br>')
 
-                document.getElementById('email').defaultValue=(queryString.split('?'))[1]
+                document.getElementById('email').defaultValue = (queryString.split('?'))[1]
 
                 $('.sendInvite-inside').append('<h4>Choose team :</h4><br>')
 
@@ -78,7 +75,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                 $('.sendInvite-inside').append('<div class="invite-butt"> <button onclick="sendInvite()">Send invite</button> </div>')
 
-                
+
 
                 var requestOptions = {
                     method: 'GET',
@@ -113,11 +110,13 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                                     if (data.creatorId == creater_id) {
 
-                                        $('.add_to_team').append('<label><input type="checkbox" class="filled-in" value="'+data._id+'" /><span>'+data.teamName+'</span></label><br><br>')
+                                        $('.add_to_team').append('<label><input type="checkbox" class="filled-in" value="' + data._id + '" /><span>' + data.teamName + '</span></label><br><br>')
                                     }
 
+                                    hidePreloader()
+
                                 })
-                                .catch(error =>{ 
+                                .catch(error => {
                                     console.log('error', error)
                                     alert(error)
                                 });
@@ -125,12 +124,12 @@ firebase.auth().onAuthStateChanged(function (user) {
                         }
 
                     })
-                    .catch(error => {console.log('error', error)});
+                    .catch(error => { console.log('error', error) });
 
             })
     } else {
         // No user is signed in.
-        console.log("USER NOT LOGGED IN")
+        // console.log("USER NOT LOGGED IN")
     }
 })
 
@@ -148,7 +147,7 @@ function sendInvite() {
     }
 
     // console.log(selchbox)
-    console.log(inpfields)
+    // console.log(inpfields)
 
 
     for (let k = 0; k < selchbox.length; k++) {
@@ -158,7 +157,7 @@ function sendInvite() {
             teamId: selchbox[k]
         }
 
-        console.log(raw)
+        // console.log(raw)
 
 
         var requestOptions = {
@@ -173,18 +172,45 @@ function sendInvite() {
         };
 
         fetch("https://hackportal.herokuapp.com/teams/sendinvite", requestOptions)
-            .then(response => response.json())
-            .then(result =>{ 
-                console.log(result)
-                alert('request sent successfully')
+            .then(response => {
+
+                if (response.status == 200) {
+
+                    Toastify({
+                        text: "request sent successfully",
+                        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                        className: "info",
+                    }).showToast();
+
+                    window.setTimeout(() => window.location.replace("../home_page/index.html"), 2000);
+
+
+                }
+
+                return response.json()
+            })
+            .then(result => {
+                // console.log(result)
+
+                // if(result.message){
+
+                //     Toastify({
+                //       text: result.message,
+                //       backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                //       className: "info",
+                //     }).showToast();
+
+                //   }
             })
             .catch(error => {
-                console.log('error', error)
+                // console.log('error', error)
                 alert(error)
             });
+
+
     }
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('.sidenav').sidenav();
-  });
+});

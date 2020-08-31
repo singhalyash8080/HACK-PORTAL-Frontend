@@ -1,17 +1,11 @@
 // code for pre-loader
 
-$(document).ready(function() {
-    //Preloader
-    preloaderFadeOutTime = 5000;
-    function hidePreloader() {
+function hidePreloader() {
     var preloader = $('.spinner-wrapper');
-    preloader.fadeOut(preloaderFadeOutTime);
-    }
-    hidePreloader();
-    });
-  
-  // end of pre-loader
-  
+    preloader.fadeOut();
+}
+// end of pre-loader
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
@@ -22,94 +16,94 @@ var firebaseConfig = {
     messagingSenderId: "945327566569",
     appId: "1:945327566569:web:04739afc0b939fcf658a78",
     measurementId: "G-MTPN0JGL08"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics()
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics()
 
-  var auth_tok=''
-  
-  firebase.auth().onAuthStateChanged(function (user) {
+var auth_tok = ''
+
+firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      console.log("USER LOGGED IN")
-    //   window.location.replace("/home_page/index.html");
+        //   console.log("USER LOGGED IN")
+        //   window.location.replace("/home_page/index.html");
 
-      if(user.emailVerified==false){
+        if (user.emailVerified == false) {
 
-        window.location.replace("../verify_account/index.html");
-  
-      }
-      
-      firebase.auth().currentUser.getIdToken(true)
-        .then((idToken) => {
-        //   console.log(idToken)
-            auth_tok+=idToken
+            window.location.replace("../verify_account/index.html");
 
-            var requestOptions = {
-                method: "GET",
-                headers: {
-                    authtoken:auth_tok,
-                    "Content-Type": "application/json",
-                }
-            };
-            
-            fetch("https://hackportal.herokuapp.com/users/", requestOptions)
-                .then((response) => {
-                    return response.json();
-                })
-                .then((result) => {
-            
-                    console.log(result)
-                    document.getElementById("name").defaultValue = result.name
-            
-                    document.getElementById("college").defaultValue = result.college
-            
-                    document.getElementById("yearOfGraduation").defaultValue = result.expectedGraduation
-            
-                    document.getElementById("bio").defaultValue = result.bio
-            
-                    for (let i = 1; i <= 9; i++) {
-                        
-                        var skilz = $('#'+i.toString()).val()
-            
-                        for (let j = 0; j < result.skills.length; j++) {
-                            
-                            
-                            if(skilz.toLowerCase()==result.skills[j]){
-            
-                                $('#'+i.toString()).attr('checked',true)
-                            }
-                            
+        }
+
+        firebase.auth().currentUser.getIdToken(true)
+            .then((idToken) => {
+                //   console.log(idToken)
+                auth_tok += idToken
+
+                var requestOptions = {
+                    method: "GET",
+                    headers: {
+                        authtoken: auth_tok,
+                        "Content-Type": "application/json",
+                    }
+                };
+
+                fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+                    .then((response) => {
+
+                        if (response.status == 404) {
+
+                            window.location.replace("../create_profile/index.html");
+
                         }
-                        
-                    }
-            
-                    document.getElementById("githubLink").defaultValue = result.githubLink
-                    document.getElementById("stackOverFlowLink").defaultValue = result.stackOverflowLink
-                    document.getElementById("externalLink").defaultValue = result.externalLink
-            
-                    
-                })
-                .catch(err =>{ 
-                    console.log(err)
 
-                    if(error.message=='email not verified'){
+                        return response.json();
+                    })
+                    .then((result) => {
 
-                        window.location.replace("../create_profile/index.html");
-          
-                    }
-                    
-                })
+                        // console.log(result)
+                        document.getElementById("name").defaultValue = result.name
 
-        })
+                        document.getElementById("college").defaultValue = result.college
+
+                        document.getElementById("yearOfGraduation").defaultValue = result.expectedGraduation
+
+                        document.getElementById("bio").defaultValue = result.bio
+
+                        for (let i = 1; i <= 9; i++) {
+
+                            var skilz = $('#' + i.toString()).val()
+
+                            for (let j = 0; j < result.skills.length; j++) {
+
+
+                                if (skilz.toLowerCase() == result.skills[j]) {
+
+                                    $('#' + i.toString()).attr('checked', true)
+                                }
+
+                            }
+
+                        }
+
+                        document.getElementById("githubLink").defaultValue = result.githubLink
+                        document.getElementById("stackOverFlowLink").defaultValue = result.stackOverflowLink
+                        document.getElementById("externalLink").defaultValue = result.externalLink
+
+                        hidePreloader()
+                    })
+                    .catch(err => {
+                        alert(err)
+                    })
+
+            })
     } else {
-      // No user is signed in.
-      console.log("USER NOT LOGGED IN")
+        // No user is signed in.
+        //   console.log("USER NOT LOGGED IN")
     }
-  })
+})
 
-  async function confirm() {
-            
+async function confirm() {
+
     var name = ''
     var college = ''
     var year = ''
@@ -149,7 +143,7 @@ var firebaseConfig = {
     var requestOptions = {
         method: 'PATCH',
         headers: {
-            authtoken:auth_tok,
+            authtoken: auth_tok,
             "Content-Type": "application/json",
         },
         body: JSON.stringify(raw),
@@ -157,18 +151,30 @@ var firebaseConfig = {
     };
 
     await fetch("https://hackportal.herokuapp.com/users/", requestOptions)
-        .then(response => response.text())
+        .then(response => {
+
+            if (response.status == 200) {
+
+                Toastify({
+                    text: "profile was updated successfully",
+                    backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                    className: "info",
+                }).showToast();
+
+                window.setTimeout(() => window.location.replace("../edit_profile1/index.html"), 2000);
+
+
+            }
+
+
+            return response.json()
+        })
         .then(result => {
-            console.log(result)
-            alert('profile was updated successfully')
+            // console.log(result)
         })
         .catch(error => {
-            console.log('error', error)
             alert(error)
         });
-
-    window.location.replace("../home_page/index.html");
-
 }
 
 function cancel() {

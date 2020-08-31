@@ -150,6 +150,7 @@ body{
     display: flex;
     flex-direction: column;
     background-color:rgba(196, 196, 196, 0.1);;
+    padding:20px;
 }
 
 .form1-cont label{

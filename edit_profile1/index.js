@@ -1,14 +1,10 @@
 // code for pre-loader
 
-$(document).ready(function() {
-  //Preloader
-  preloaderFadeOutTime = 5000;
-  function hidePreloader() {
+function hidePreloader() {
   var preloader = $('.spinner-wrapper');
-  preloader.fadeOut(preloaderFadeOutTime);
-  }
-  hidePreloader();
-  });
+  preloader.fadeOut();
+}
+
 
 // end of pre-loader
 
@@ -27,7 +23,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics()
 
-function signOut(){
+function signOut() {
 
   firebase.auth().signOut()
 
@@ -38,14 +34,14 @@ var auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log("USER LOGGED IN")
+    // console.log("USER LOGGED IN")
 
-    if(user.emailVerified==false){
+    if (user.emailVerified == false) {
 
       window.location.replace("../verify_account/index.html");
 
     }
-    
+
     firebase.auth().currentUser.getIdToken(true)
       .then((idToken) => {
         // console.log(idToken)
@@ -61,14 +57,16 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         fetch("https://hackportal.herokuapp.com/users/", requestOptions)
           .then((response) => {
-            return response.json();
-          })
-          .catch(error=>{
-              if(error.message=='email not verified'){
 
+            if (response.status == 404) {
               window.location.replace("../create_profile/index.html");
 
-              }
+            }
+
+            return response.json();
+          })
+          .catch(error => {
+            alert(error)
           })
 
         var label1 = 'Email:'
@@ -126,9 +124,9 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".invite").append('<button> <a href="' + '#' + '" style="text-decoration:none;">Invite</a> </button>')
 
 
-
+            hidePreloader()
           })
-          .catch(err =>{ 
+          .catch(err => {
             console.log(err)
             alert(error)
           })
@@ -136,7 +134,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       })
   } else {
     // No user is signed in.
-    console.log("USER NOT LOGGED IN")
+    // console.log("USER NOT LOGGED IN")
   }
 })
 

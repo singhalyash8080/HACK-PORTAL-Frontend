@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,10 @@
     <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
@@ -30,14 +35,14 @@
                 <div class="sk-cube2 sk-cube"></div>
                 <div class="sk-cube4 sk-cube"></div>
                 <div class="sk-cube3 sk-cube"></div>
-              </div>
+            </div>
         </div>
     </div>
-    
+
     <!-- pre-loader-end -->
 
     <section class="content">
-        
+
         <div class="form1">
 
             <div class="heading">
@@ -47,39 +52,43 @@
             <div class="form1-cont">
                 <label>Name of Event :</label><br><br>
                 <input type="text" id="name"><br><br>
-    
-                <label>Start Date :</label><br><br>
+
+                <label>Start Date (dd/mm/yyyy) :</label><br><br>
                 <input type="text" id="startDate"><br><br>
 
-                <label>End Date :</label><br><br>
+                <label>End Date (dd/mm/yyyy) :</label><br><br>
                 <input type="text" id="endDate"><br><br>
-    
+
                 <label>Venue :</label><br><br>
                 <input type="text" id="venue"><br><br>
-    
+
                 <label>Description :</label><br><br>
                 <textarea class="txt-inp"></textarea><br><br>
 
-                <label>Team Size(l-h) :</label><br><br>
-                <input type="text" id="team_size"><br><br>
+                <label>Minimum team size :</label><br><br>
+                <input type="text" id="minteam_size"><br><br>
+
+                <label>Maximum team size :</label><br><br>
+                <input type="text" id="maxteam_size"><br><br>
 
                 <label>Event Url :</label><br><br>
                 <input type="text" id="event_url"><br><br>
 
-                <label>Image :</label><br><br>
-                <input type="file" onchange="encodeImageFileAsURL(this)"/><br><br>
+                <label>Image (file limit - 5mb):</label><br><br>
+                <input type="file" onchange="encodeImageFileAsURL(this)" /><br><br>
 
                 <div class="accept_invite">
-                    <a href="../home_page/index.html" style="text-decoration: none;"><button class="reject">Cancel</button></a>
+                    <a href="../home_page/index.html" style="text-decoration: none;"><button
+                            class="reject">Cancel</button></a>
                     <button class="accept" onclick="confirm()">Confirm </button>
                 </div><br>
             </div>
-            
+
         </div>
 
     </section>
 
-        <script src="index.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

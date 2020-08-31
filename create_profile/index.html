@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link href="style.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
@@ -30,7 +35,7 @@
                 <div class="sk-cube2 sk-cube"></div>
                 <div class="sk-cube4 sk-cube"></div>
                 <div class="sk-cube3 sk-cube"></div>
-              </div>
+            </div>
         </div>
     </div>
 
@@ -51,7 +56,7 @@
             </div>
 
         </div>
-    
+
         <div class="part2">
             <div class="shape1"></div>
 
@@ -63,7 +68,7 @@
     </section>
 
     <section class="content">
-        
+
         <div class="form1">
 
             <h2 class="form1-head">Personal</h2><br>
@@ -71,10 +76,10 @@
             <div class="form1-cont">
                 <label>Name:</label><br><br>
                 <input type="text" id="name"><br><br>
-    
+
                 <label>University Name:</label><br><br>
                 <input type="text" id="college"><br><br>
-    
+
                 <label>Expected Year of Graduation:</label><br><br>
                 <input type="number" id="yearOfGraduation"><br><br>
                 <br>
@@ -84,7 +89,7 @@
                 </div>
             </div>
 
-            
+
         </div>
 
         <div class="form2">
@@ -93,43 +98,50 @@
             <div class="form2-cont">
                 <label>Brief description about yourself : </label><br>
                 <textarea class="txt-inp" id="bio" style="resize: none;"></textarea><br><br>
-    
+
                 <label>Your skills:</label><br>
-    
+
                 <div class="form2-inps">
-                    <input type="checkbox" id="1" value="Web Development"><label id="label-form2">Web Development</label><br><br>
+                    <input type="checkbox" id="1" value="Web Development"><label id="label-form2">Web
+                        Development</label><br><br>
                 </div>
 
                 <div class="form2-inps">
-                    <input type="checkbox" id="2" value="Mobile App Development"><label id="label-form2">Mobile App Development</label><br><br>
+                    <input type="checkbox" id="2" value="Mobile App Development"><label id="label-form2">Mobile App
+                        Development</label><br><br>
                 </div>
-    
+
                 <div class="form2-inps">
                     <input type="checkbox" id="3" value="Devops"><label id="label-form2">Devops</label><br><br>
                 </div>
-    
+
                 <div class="form2-inps">
-                    <input type="checkbox" id="4" value="Machine Learning"><label id="label-form2">Machine learning</label><br><br>
+                    <input type="checkbox" id="4" value="Machine Learning"><label id="label-form2">Machine
+                        learning</label><br><br>
                 </div>
-    
+
                 <div class="form2-inps">
-                    <input type="checkbox" id="5" value="Artificial Intelligence"><label id="label-form2">Artificial intelligence</label><br><br>
+                    <input type="checkbox" id="5" value="Artificial Intelligence"><label id="label-form2">Artificial
+                        intelligence</label><br><br>
                 </div>
-    
+
                 <div class="form2-inps">
-                    <input type="checkbox" id="6" value="Design - UI/UX"><label id="label-form2">Design - UI/UX</label><br><br>
+                    <input type="checkbox" id="6" value="Design - UI/UX"><label id="label-form2">Design -
+                        UI/UX</label><br><br>
                 </div>
-    
+
                 <div class="form2-inps">
-                    <input type="checkbox" id="7" value="Management Skills"><label id="label-form2">Management skills</label><br><br>
+                    <input type="checkbox" id="7" value="Management Skills"><label id="label-form2">Management
+                        skills</label><br><br>
                 </div>
-    
+
                 <div class="form2-inps">
                     <input type="checkbox" id="8" value="Blockchain"><label id="label-form2">Blockchain</label><br><br>
                 </div>
-    
+
                 <div class="form2-inps">
-                    <input type="checkbox" id="9" value="Cybersecurity"><label id="label-form2">Cybersecurity</label><br><br>
+                    <input type="checkbox" id="9" value="Cybersecurity"><label
+                        id="label-form2">Cybersecurity</label><br><br>
                 </div>
 
                 <br>
@@ -149,13 +161,13 @@
 
                 <label>Github</label><br>
                 <input type="text" id="githubLink"><br><br>
-    
+
                 <label>Stackoverflow</label><br>
                 <input type="text" id="stackOverFlowLink"><br><br>
-    
+
                 <label>Your Website</label><br>
                 <input type="text" id="externalLink"><br><br>
-                
+
                 <br>
 
                 <div class="form1-butt">

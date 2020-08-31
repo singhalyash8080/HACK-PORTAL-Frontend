@@ -1,14 +1,19 @@
 // code for pre-loader
 
-$(document).ready(function() {
-  //Preloader
-  preloaderFadeOutTime = 5000;
-  function hidePreloader() {
+// $(document).ready(function() {
+//   //Preloader
+//   preloaderFadeOutTime = 5000;
+//   function hidePreloader() {
+//   var preloader = $('.spinner-wrapper');
+//   preloader.fadeOut(preloaderFadeOutTime);
+//   }
+//   hidePreloader();
+//   });
+
+function hidePreloader() {
   var preloader = $('.spinner-wrapper');
-  preloader.fadeOut(preloaderFadeOutTime);
-  }
-  hidePreloader();
-  });
+  preloader.fadeOut();
+}
 
 // end of pre-loader
 
@@ -31,10 +36,10 @@ var auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log("USER LOGGED IN")
+    // console.log("USER LOGGED IN")
     //   window.location.replace("/home_page/index.html");
 
-    if(user.emailVerified==false){
+    if (user.emailVerified == false) {
 
       window.location.replace("../verify_account/index.html");
 
@@ -58,12 +63,12 @@ firebase.auth().onAuthStateChanged(function (user) {
           .then((response) => {
             return response.json();
           })
-          .catch(error=>{
-              if(error.message=='email not verified'){
+          .catch(error => {
+            if (error.message == 'email not verified') {
 
               window.location.replace("../create_profile/index.html");
 
-              }
+            }
           })
 
         var label1 = 'Link :'
@@ -80,7 +85,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         };
 
         const queryString = window.location.search;
-        console.log(queryString);
+        // console.log(queryString);
 
         var event_ID = ''
 
@@ -91,13 +96,13 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         }
 
-        console.log(event_ID)
+        // console.log(event_ID)
 
         fetch("https://hackportal.herokuapp.com/events/geteventinfo/" + event_ID, requestOptions)
           .then(response => response.json())
           .then(result => {
 
-            console.log(result)
+            // console.log(result)
 
 
             $(".hack_name").text(result.nameOfEvent)
@@ -112,9 +117,13 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".label1").text(label1)
             $(".link").html('<a href="https://devsoc.codechefvit.com/">' + result.eventUrl + '</a>')
 
-            $(".invite").append('<button> <a href=' + '../add_team/index.html?' + result._id + '>Create team</a> </button>')
+
+            if (!result.hasTeamForEvent)
+              $(".invite").append('<button> <a href=' + '../add_team/index.html?' + result._id + '>Create team</a> </button>')
 
             $('.shapes').append('<img src="' + result.eventImage + '">')
+
+            hidePreloader()
 
           })
           .catch(error => {
@@ -127,7 +136,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       })
   } else {
     // No user is signed in.
-    console.log("USER NOT LOGGED IN")
+    // console.log("USER NOT LOGGED IN")
   }
 })
 

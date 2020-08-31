@@ -367,6 +367,10 @@ body{
     margin:0 auto;
 }
 
+#view_more_link a{
+    font-size:35px;
+}
+
 
 /* content end */
 
@@ -609,6 +613,10 @@ body{
     .shape-cont1,.shape-cont2,.shape-cont3{
         display: none;
     }
+
+    #view_more_link a{
+        font-size:25px;
+    }
 } 
 
     /* content media queries end */
@@ -650,6 +658,11 @@ body{
 
         .foot-logo{
             font-size:18px;
+        }
+
+        
+        .foot-logo p{
+            font-size:17px;
         }
 
 

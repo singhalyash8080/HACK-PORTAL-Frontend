@@ -463,6 +463,10 @@ img{
     background-color: black;
 }
 
+#view_more_link a{
+    font-size:35px;
+}
+
 /* content end */
 
 /* footer */
@@ -765,6 +769,10 @@ img{
     .shape-cont{
         display: none;
     }
+
+    #view_more_link a{
+        font-size:25px;
+    }
 } 
 
     /* content media queries end */
@@ -808,6 +816,9 @@ img{
             font-size:18px;
         }
 
+        .foot-logo p{
+            font-size:17px;
+        }
 
     }
 

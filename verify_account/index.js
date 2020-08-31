@@ -1,20 +1,20 @@
 // code for pre-loader
 
-$(document).ready(function() {
+$(document).ready(function () {
   //Preloader
-  preloaderFadeOutTime = 5000;
   function hidePreloader() {
-  var preloader = $('.spinner-wrapper');
-  preloader.fadeOut(preloaderFadeOutTime);
+    var preloader = $('.spinner-wrapper');
+    preloader.fadeOut();
   }
-  hidePreloader();
-  });
+
+  hidePreloader()
+});
 
 // end of pre-loader
 
-$(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+$(document).ready(function () {
+  $('.sidenav').sidenav();
+});
 
 
 // Your web app's Firebase configuration
@@ -34,18 +34,18 @@ firebase.analytics()
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log("USER LOGGED IN")
+    // console.log("USER LOGGED IN")
 
     $('.txt-mail').text(user.email)
 
     $('.verify-account').append('<button onclick="sendEmailVerification()">Send</button><br>')
 
-    if(user.emailVerified==true){
+    if (user.emailVerified == true) {
       window.location.replace("../create_profile/index.html")
     }
   }
-  else{
-    console.log('user not logged in ')
+  else {
+    // console.log('user not logged in ')
   }
 })
 
@@ -55,6 +55,12 @@ function sendEmailVerification() {
     // Email Verification sent!
     // [START_EXCLUDE]
     alert('Email Verification Sent!');
+
+    Toastify({
+      text: "Email Verification Sent!",
+      backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+      className: "info",
+    }).showToast();
     // [END_EXCLUDE]
   });
   // [END sendemailverification]

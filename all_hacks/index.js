@@ -1,15 +1,10 @@
 // code for pre-loader
 
-$(document).ready(function() {
-    //Preloader
-    preloaderFadeOutTime = 5000;
-    function hidePreloader() {
+function hidePreloader() {
     var preloader = $('.spinner-wrapper');
-    preloader.fadeOut(preloaderFadeOutTime);
-    }
-    hidePreloader();
-    });
-  
+    preloader.fadeOut();
+}
+
 // end of pre-loader
 
 // Your web app's Firebase configuration
@@ -31,13 +26,13 @@ var auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        console.log("USER LOGGED IN")
+        // console.log("USER LOGGED IN")
         //   window.location.replace("/home_page/index.html");
 
-        if(user.emailVerified==false){
+        if (user.emailVerified == false) {
 
             window.location.replace("../verify_account/index.html");
-      
+
         }
         firebase.auth().currentUser.getIdToken(true)
             .then((idToken) => {
@@ -47,27 +42,30 @@ firebase.auth().onAuthStateChanged(function (user) {
                 var requestOptions = {
                     method: "GET",
                     headers: {
-                      authtoken: auth_tok,
-                      "Content-Type": "application/json",
+                        authtoken: auth_tok,
+                        "Content-Type": "application/json",
                     }
-                  };
-          
-                  fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+                };
+
+                fetch("https://hackportal.herokuapp.com/users/", requestOptions)
                     .then((response) => {
-                      return response.json();
-                    })
-                    .catch(error=>{
-                        if(error.message=='email not verified'){
-    
-                        window.location.replace("../create_profile/index.html");
-    
+
+                        if (response.status == 404) {
+
+                            window.location.replace("../create_profile/index.html");
+
                         }
+
+                        return response.json();
+                    })
+                    .catch(error => {
+                        alert(error)
                     })
 
             })
     } else {
         // No user is signed in.
-        console.log("USER NOT LOGGED IN")
+        // console.log("USER NOT LOGGED IN")
     }
 })
 
@@ -110,11 +108,11 @@ var arrayy = ['<div id="one"><h5 id="one-head"></h5><p id="one-txt"></p><a id="o
 
 const url = 'https://hackportal.herokuapp.com/events/getevents/1'
 
-var num_pages=''
+var num_pages = ''
 
 axios.get(url)
     .then(data => {
-        console.log(data.data)
+        // console.log(data.data)
         $('.part2-1').append('<h4 class="part2-1-head">All Hackathons</h4>')
         $('.part2-1').append('<br><br>')
         // $('.part2-1-head').append('<div id="one"><h5 id="one-head"></h5><p id="one-txt"></p><a id="one-butt" ></a></div><br>')
@@ -196,6 +194,8 @@ axios.get(url)
 
         $('#page' + curr.toString()).attr("class", "active pgs")
 
+        hidePreloader()
+
     })
     .catch(err => console.log(err))
 
@@ -222,11 +222,11 @@ function change(beg, x, curr) {
 
         const url = 'https://hackportal.herokuapp.com/events/getevents/' + curr
 
-        console.log(url)
+        // console.log(url)
 
         axios.get(url)
             .then(data => {
-                console.log(data.data)
+                // console.log(data.data)
                 $('.part2-1').empty()
 
                 // console.log($('.part2-1').html())
@@ -306,7 +306,7 @@ function change(beg, x, curr) {
                     var end = 6
                 }
 
-                console.log('pages '+end)
+                // console.log('pages '+end)
 
                 $('.pagination').append('<a href="#" class="backpg" onclick="change3(' + beg + ',' + end + ',' + curr + ')">&laquo;</a>')
 
@@ -317,6 +317,7 @@ function change(beg, x, curr) {
                 $('.pagination').append('<a href="#" class="nextpg" onclick="change2(' + beg + ',' + end + ',' + curr + ',' + page_count + ')">&raquo;</a>')
 
                 $('#page' + curr.toString()).attr("class", "active pgs")
+
 
             })
             .catch(err => console.log(err))
@@ -380,7 +381,7 @@ function change3(beg, end, curr) {
 
         $('#page' + curr.toString()).attr("class", "active pgs")
 
-    }   
+    }
 
 }
 

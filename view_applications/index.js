@@ -1,14 +1,9 @@
 // code for pre-loader
 
-$(document).ready(function () {
-    //Preloader
-    preloaderFadeOutTime = 5000;
-    function hidePreloader() {
-        var preloader = $('.spinner-wrapper');
-        preloader.fadeOut(preloaderFadeOutTime);
-    }
-    hidePreloader();
-});
+function hidePreloader() {
+    var preloader = $('.spinner-wrapper');
+    preloader.fadeOut();
+}
 
 // end of pre-loader
 
@@ -31,7 +26,7 @@ var auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        console.log("USER LOGGED IN")
+        // console.log("USER LOGGED IN")
         //   window.location.replace("/home_page/index.html");
 
         if (user.emailVerified == false) {
@@ -55,14 +50,17 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                 fetch("https://hackportal.herokuapp.com/users/", requestOptions)
                     .then((response) => {
-                        return response.json();
-                    })
-                    .catch(error => {
-                        if (error.message == 'email not verified') {
+
+                        if (response.status == 404) {
 
                             window.location.replace("../create_profile/index.html");
 
                         }
+
+                        return response.json();
+                    })
+                    .catch(error => {
+                        alert(error)
                     })
 
                 var view_team_link = '../team_invitation/index.html'
@@ -93,7 +91,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 fetch("https://hackportal.herokuapp.com/users/", requestOptions)
                     .then(response => response.json())
                     .then(result => {
-                        console.log(result)
+                        // console.log(result)
 
                         currentUserId = result._id
 
@@ -111,7 +109,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                             fetch("https://hackportal.herokuapp.com/teams/getteaminfo/" + result.teamInvites[i], requestOptions)
                                 .then(response => response.json())
                                 .then(result => {
-                                    console.log(result)
+                                    // console.log(result)
                                     $(".view_team").append('<div class="field"> <p class="txt">' + result.teamName + '</p> <div class="lnk"> <a class="lnk_inside" href="' + view_team_link + '?' + result._id + '">View</a> </div>' + '</div><br>')
 
 
@@ -127,6 +125,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                             $(".view_team").append('<p id="zero_result">There are no invites !<p>')
                         }
 
+
                         for (let i = 0; i < result.teams.length; i++) {
 
                             var myHeaders = new Headers();
@@ -141,43 +140,59 @@ firebase.auth().onAuthStateChanged(function (user) {
                             fetch("https://hackportal.herokuapp.com/teams/getteaminfo/" + result.teams[i], requestOptions)
                                 .then(response => response.json())
                                 .then(Result => {
-                                    console.log(Result)
+                                    // console.log(Result)
 
-                                    for (let k = 0; k < Result.pendingRequestsInfo.length; k++) {
 
-                                        var params = {
-                                            teamId: Result._id,
-                                            teamName: Result.teamName,
-                                            profileId: Result.pendingRequestsInfo[k]._id
+
+
+                                    if (Result.pendingRequestsInfo) {
+                                        for (let k = 0; k < Result.pendingRequestsInfo.length; k++) {
+
+                                            var params = {
+                                                teamId: Result._id,
+                                                teamName: Result.teamName,
+                                                profileId: Result.pendingRequestsInfo[k]._id
+                                            }
+
+                                            var queryString = $.param(params);
+
+                                            // console.log(queryString)
+
+                                            if (currentUserId == Result.creatorId) {
+
+                                                $(".view_sent").append('<div class="field"> <p class="txt">' + Result.pendingRequestsInfo[k].name + '</p> <div class="lnk"> <a class="lnk_inside" href="' + view_sent_link + '?' + queryString + '">View</a> </div>' + '</div><br>')
+                                            }
+
                                         }
-
-                                        var queryString = $.param(params);
-
-                                        console.log(queryString)
-
-                                        if (currentUserId == Result.creatorId) {
-                                            $(".view_sent").append('<div class="field"> <p class="txt">' + Result.pendingRequestsInfo[k].name + '</p> <div class="lnk"> <a class="lnk_inside" href="' + view_sent_link + '?' + queryString + '">View</a> </div>' + '</div><br>')
-                                        }
-
                                     }
 
-                                    if(Result.pendingRequests.length==0){
-                                        $(".view_sent").append('<p id="zero_result"> There are no sent invites !</p>')
-                                    }
+                                    // if(Result.pendingRequests.length==0){
+                                    //     $(".view_sent").append('<p id="zero_result"> There are no sent invites !</p>')
+                                    // }
+
+                                    hidePreloader()
 
                                 })
-                                .catch(error => console.log('error', error));
+                                .catch(error => {
+                                    // console.log('error', error)
+                                });
 
                         }
 
+
+                        // $(".view_sent").append('<p id="zero_result"> There are no sent invites !</p>')
+
                     })
-                    .catch(error => console.log('error', error));
+                    .catch(error => {
+
+                        // console.log('error', error)
+                    });
 
 
             })
     } else {
         // No user is signed in.
-        console.log("USER NOT LOGGED IN")
+        // console.log("USER NOT LOGGED IN")
     }
 })
 

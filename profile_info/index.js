@@ -1,14 +1,9 @@
 // code for pre-loader
 
-$(document).ready(function() {
-  //Preloader
-  preloaderFadeOutTime = 5000;
-  function hidePreloader() {
+function hidePreloader() {
   var preloader = $('.spinner-wrapper');
-  preloader.fadeOut(preloaderFadeOutTime);
-  }
-  hidePreloader();
-  });
+  preloader.fadeOut();
+}
 
 // end of pre-loader
 
@@ -31,10 +26,10 @@ var auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log("USER LOGGED IN")
+    // console.log("USER LOGGED IN")
     //   window.location.replace("/home_page/index.html");
 
-    if(user.emailVerified==false){
+    if (user.emailVerified == false) {
 
       window.location.replace("../verify_account/index.html");
 
@@ -45,7 +40,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         //   console.log(idToken)
         auth_tok += idToken
 
-        
+
         var requestOptions = {
           method: "GET",
           headers: {
@@ -58,12 +53,12 @@ firebase.auth().onAuthStateChanged(function (user) {
           .then((response) => {
             return response.json();
           })
-          .catch(error=>{
-              if(error.message=='email not verified'){
+          .catch(error => {
+            if (error.message == 'email not verified') {
 
               window.location.replace("../create_profile/index.html");
 
-              }
+            }
           })
 
         // code for getting content
@@ -106,7 +101,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           })
           .then((result) => {
 
-            console.log(result)
+            // console.log(result)
 
             $(".name").text(result.name)
 
@@ -136,18 +131,19 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".label8").text(label8)
             $(".website").html('<a href=' + result.externalLink + '>' + result.externalLink + '</a>')
 
-            $(".invite").append('<button> <a href="' + '../add_to_team/index.html?'+result.email + '" style="text-decoration:none;">Invite</a> </button>')
+            $(".invite").append('<button> <a href="' + '../add_to_team/index.html?' + result.email + '" style="text-decoration:none;">Invite</a> </button>')
 
+            hidePreloader()
           })
           .catch(err => {
-            console.log(err)
+            // console.log(err)
             alert(error)
           })
 
       })
   } else {
     // No user is signed in.
-    console.log("USER NOT LOGGED IN")
+    // console.log("USER NOT LOGGED IN")
   }
 })
 

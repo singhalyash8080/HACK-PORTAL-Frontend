@@ -1,14 +1,9 @@
 // code for pre-loader
 
-$(document).ready(function() {
-  //Preloader
-  preloaderFadeOutTime = 5000;
-  function hidePreloader() {
+function hidePreloader() {
   var preloader = $('.spinner-wrapper');
-  preloader.fadeOut(preloaderFadeOutTime);
-  }
-  hidePreloader();
-  });
+  preloader.fadeOut();
+}
 
 // end of pre-loader
 
@@ -31,10 +26,10 @@ var auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log("USER LOGGED IN")
+    // console.log("USER LOGGED IN")
     //   window.location.replace("/home_page/index.html");
 
-    if(user.emailVerified==false){
+    if (user.emailVerified == false) {
 
       window.location.replace("../verify_account/index.html");
 
@@ -55,14 +50,17 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         fetch("https://hackportal.herokuapp.com/users/", requestOptions)
           .then((response) => {
-            return response.json();
-          })
-          .catch(error=>{
-              if(error.message=='email not verified'){
+
+            if (response.status == 404) {
 
               window.location.replace("../create_profile/index.html");
 
-              }
+            }
+
+            return response.json();
+          })
+          .catch(error => {
+            alert(error)
           })
 
         // code for getting content
@@ -76,7 +74,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         var label5 = 'Team invited to : '
 
         const queryString = window.location.search;
-        console.log(queryString);
+        // console.log(queryString);
 
         var team_id = ''
 
@@ -102,7 +100,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           .then(result => {
             // console.log(result)
 
-            console.log(result)
+            // console.log(result)
 
             $(".team_name").text(result.teamName)
 
@@ -126,6 +124,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             $(".invite").append('<button> <a href=' + '#' + '>Invite</a> </button>')
 
+            hidePreloader()
+
           })
           .catch(error => console.log('error', error));
 
@@ -137,7 +137,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             teamId: team_id
           }
 
-          console.log(raw)
+          // console.log(raw)
 
           var requestOptions = {
             method: 'PATCH',
@@ -150,17 +150,31 @@ firebase.auth().onAuthStateChanged(function (user) {
           };
 
           fetch("https://hackportal.herokuapp.com/users/acceptteaminvite/" + team_id, requestOptions)
-            .then(response => response.json())
-            .then(result => {
-              console.log(result)
-              alert('Team Invitation accepted')
+            .then(response => {
+
+              if (response.status == 200) {
+
+                Toastify({
+                  text: "Team invitation accepted",
+                  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                  className: "info",
+                }).showToast();
+
+                window.setTimeout(() => window.location.replace("../view_applications/index.html"), 2000);
+
+              }
+
+              return response.json()
             })
-            .catch(error =>{ 
-              console.log('error', error)
+            .then(result => {
+              // console.log(result)
+              // alert()
+            })
+            .catch(error => {
+              // console.log('error', error)
               alert(error)
             });
 
-          window.location.replace("../view_applications/index.html");
         }
         )
 
@@ -184,15 +198,26 @@ firebase.auth().onAuthStateChanged(function (user) {
           };
 
           fetch("https://hackportal.herokuapp.com/users/rejectteaminvite/" + team_id, requestOptions)
-            .then(response => response.json())
-            .then(result => console.log(result))
+            .then(response => {
+              if (response.status == 200) {
+
+                Toastify({
+                  text: "Team Invitation deleted",
+                  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                  className: "info",
+                }).showToast();
+
+                window.setTimeout(() => window.location.replace("../view_applications/index.html"), 2000);
+
+              }
+
+              return response.json()
+            })
+            .then(result => { })
             .catch(error => {
-              console.log('error', error)
+              // console.log('error', error)
               alert(error)
             });
-
-          window.location.replace("../view_applications/index.html");
-
 
         }
         )
@@ -200,11 +225,11 @@ firebase.auth().onAuthStateChanged(function (user) {
       })
   } else {
     // No user is signed in.
-    console.log("USER NOT LOGGED IN")
+    // console.log("USER NOT LOGGED IN")
   }
 })
 
-$(document).ready(function(){
+$(document).ready(function () {
   $('.sidenav').sidenav();
 });
 

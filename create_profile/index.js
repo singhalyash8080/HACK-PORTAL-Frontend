@@ -1,14 +1,14 @@
 // code for pre-loader
 
-$(document).ready(function() {
+$(document).ready(function () {
   //Preloader
-  preloaderFadeOutTime = 5000;
   function hidePreloader() {
-  var preloader = $('.spinner-wrapper');
-  preloader.fadeOut(preloaderFadeOutTime);
+    var preloader = $('.spinner-wrapper');
+    preloader.fadeOut();
   }
-  hidePreloader();
-  });
+
+  hidePreloader()
+});
 
 // end of pre-loader
 
@@ -27,48 +27,28 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics()
 
-var auth_tok=''
+var auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log("USER LOGGED IN")
-  //   window.location.replace("/home_page/index.html");
+    // console.log("USER LOGGED IN")
+    //   window.location.replace("/home_page/index.html");
 
-    if(user.emailVerified==false){
+    if (user.emailVerified == false) {
 
-    window.location.replace("../verify_account/index.html");
+      window.location.replace("../verify_account/index.html");
 
     }
-    
+
     firebase.auth().currentUser.getIdToken(true)
       .then((idToken) => {
-      //   console.log(idToken)
-          auth_tok+=idToken
-
-          var requestOptions = {
-            method: "GET",
-            headers: {
-              authtoken: auth_tok,
-              "Content-Type": "application/json",
-            }
-          };
-  
-          fetch("https://hackportal.herokuapp.com/users/", requestOptions)
-            .then((response) => {
-              return response.json();
-            })
-            .catch(error=>{
-                if(error.message=='email not verified'){
-  
-                window.location.replace("../create_profile/index.html");
-  
-                }
-            })
+        //   console.log(idToken)
+        auth_tok += idToken
 
       })
   } else {
     // No user is signed in.
-    console.log("USER NOT LOGGED IN")
+    // console.log("USER NOT LOGGED IN")
   }
 })
 
@@ -91,9 +71,9 @@ $(document).ready(function () {
     $(".form1").css("display", "none");
     $(".form2").css("display", "initial");
 
-    name=''
-    college=''
-    year=''
+    name = ''
+    college = ''
+    year = ''
 
     name = $('#name').val()
     college = $('#college').val()
@@ -123,11 +103,11 @@ $(document).ready(function () {
     $(".form2").css("display", "none");
     $(".form3").css("display", "initial");
 
-    bio=''
+    bio = ''
 
     bio = $('#bio').val()
 
-    skillarray=[]
+    skillarray = []
 
     for (let i = 1; i <= 9; i++) {
       if ($("#" + i.toString()).is(":checked")) {
@@ -155,9 +135,9 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#form3-butt-2").click(async function () {
 
-    github=''
-    stack=''
-    externallink=''
+    github = ''
+    stack = ''
+    externallink = ''
 
     github = ($('#githubLink').val())
     stack = ($('#stackOverFlowLink').val())
@@ -179,24 +159,38 @@ $(document).ready(function () {
     var requestOptions = {
       method: 'POST',
       headers: {
-        authtoken:auth_tok,
-          "Content-Type": "application/json",
+        authtoken: auth_tok,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(raw),
       redirect: 'follow'
     };
 
     await fetch("https://hackportal.herokuapp.com/users/", requestOptions)
-      .then(response => response.json())
-      .then(result =>{
-        alert('Your profile has been created successfully')
+      .then(response => {
+
+        if (response.status == 200) {
+
+          Toastify({
+            text: "Your profile has been created successfully",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+            className: "info",
+          }).showToast();
+
+          window.setTimeout(() => window.location.replace("../home_page/index.html"), 2000);
+
+        }
+        else {
+          alert(response.error)
+        }
+        return response.json()
+      })
+      .then(result => {
       })
       .catch(error => {
-        console.log('error', error)
+        // console.log('error', error)
         alert(error)
       });
-
-    window.location.replace("../home_page/index.html");
 
   });
 });

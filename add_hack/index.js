@@ -2,12 +2,12 @@
 
 $(document).ready(function() {
   //Preloader
-  preloaderFadeOutTime = 5000;
   function hidePreloader() {
   var preloader = $('.spinner-wrapper');
-  preloader.fadeOut(preloaderFadeOutTime);
+  preloader.fadeOut();
   }
-  hidePreloader();
+
+  hidePreloader()
   });
 
 // end of pre-loader
@@ -31,7 +31,7 @@ var firebaseConfig = {
   
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      console.log("USER LOGGED IN")
+      // console.log("USER LOGGED IN")
     //   window.location.replace("/home_page/index.html");
 
      if(user.emailVerified==false){
@@ -56,21 +56,25 @@ var firebaseConfig = {
       
               fetch("https://hackportal.herokuapp.com/users/", requestOptions)
                 .then((response) => {
-                  return response.json();
-                })
-                .catch(error=>{
-                    if(error.message=='email not verified'){
+
+                  if(response.status!=200){
 
                     window.location.replace("../create_profile/index.html");
+                    
+                  }
 
-                    }
+                  return response.json();
+                })
+                .then(result=>{})
+                .catch(error=>{
+                  // alert(error)
                 })
 
 
         })
     } else {
       // No user is signed in.
-      console.log("USER NOT LOGGED IN")
+      // console.log("USER NOT LOGGED IN")
     }
   })
 
@@ -78,6 +82,8 @@ var firebaseConfig = {
 var base64code=''
 
 function encodeImageFileAsURL(element){
+
+    base64code=''
 
     var file = element.files[0]
     var reader = new FileReader()
@@ -94,16 +100,14 @@ function encodeImageFileAsURL(element){
 
 async function confirm() {
 
-    var team_size=($("#team_size").val()).split('-')
-
     var raw = {
         nameOfEvent: $('#name').val(),
         startDate: $('#startDate').val(),
         endDate: $('#endDate').val(),
         location: $('#venue').val(),
         description: $('.txt-inp').val(),
-        minimumTeamSize: team_size[0],
-        maximumTeamSize: team_size[1],
+        minimumTeamSize: $('#minteam_size').val(),
+        maximumTeamSize: $('#maxteam_size').val(),
         eventUrl:$('#event_url').val(),
         eventImage:base64code
     }
@@ -123,18 +127,40 @@ async function confirm() {
 
     await fetch("https://hackportal.herokuapp.com/events/setevent", requestOptions)
         .then(response => {
-        console.log(response.status)
-        return response.json()
+        
+        if(response.status==200){
+
+          // alert('Your hackathon has been added successfully')
+          Toastify({
+            text: "Your hackathon has been added successfully",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+            className: "info",
+          }).showToast();
+
+          window.setTimeout(()=>window.location.replace("../home_page/index.html"), 2000);
+
+        }
+        
+          return response.json()
         })
         .then(result =>{
+
+            if(result.message){
+              // alert(result.message)
+              Toastify({
+                text: result.message,
+                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                className: "info",
+              }).showToast();
+
+            }
+
             // console.log(result)
-            alert('Your hackathon has been added successfully')
         } )
         .catch(error =>{ 
-            console.log('error', error)
+            // console.log('error', error)
             alert(error)
         });
 
-    window.location.replace("../home_page/index.html");
 }
 

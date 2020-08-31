@@ -1,14 +1,9 @@
 // code for pre-loader
 
-$(document).ready(function() {
-  //Preloader
-  preloaderFadeOutTime = 5000;
-  function hidePreloader() {
+function hidePreloader() {
   var preloader = $('.spinner-wrapper');
-  preloader.fadeOut(preloaderFadeOutTime);
-  }
-  hidePreloader();
-  });
+  preloader.fadeOut();
+}
 
 // end of pre-loader
 
@@ -31,11 +26,11 @@ var auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log("USER LOGGED IN")
+    // console.log("USER LOGGED IN")
     //   window.location.replace("/home_page/index.html");
 
 
-    if(user.emailVerified==false){
+    if (user.emailVerified == false) {
 
       window.location.replace("../verify_account/index.html");
 
@@ -43,7 +38,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     firebase.auth().currentUser.getIdToken(true)
       .then((idToken) => {
-          // console.log(idToken)
+        // console.log(idToken)
         auth_tok += idToken
 
         var requestOptions = {
@@ -56,14 +51,16 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         fetch("https://hackportal.herokuapp.com/users/", requestOptions)
           .then((response) => {
-            return response.json();
-          })
-          .catch(error=>{
-              if(error.message=='email not verified'){
 
+            if (response.status == 404) {
               window.location.replace("../create_profile/index.html");
 
-              }
+            }
+
+            return response.json();
+          })
+          .catch(error => {
+            alert(error)
           })
 
         // code for content
@@ -80,7 +77,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         fetch("https://hackportal.herokuapp.com/users/", requestOptions)
           .then(response => response.json())
           .then(async (result) => {
-            console.log(result)
+            // console.log(result)
 
             var team_link = '../team_info/index.html'
 
@@ -99,22 +96,24 @@ firebase.auth().onAuthStateChanged(function (user) {
               await fetch("https://hackportal.herokuapp.com/teams/getteaminfo/" + result.teams[i], requestOptions)
                 .then(response => response.json())
                 .then(results => {
-                  console.log(results)
+                  // console.log(results)
                   $(".content").append('<div class="team"> <p class="team_name">' + results.teamName + '</p><p class="hack_name">' + results.nameOfEvent + '</p><p class="description">'
                     + results.description + '</p><div class="list"><p class="item">Admin : ' + results.creatorInfo.name + '</p> <p class="item"><a href="' + team_link + '?' + results._id + '" style="color:#fff;">View</p></div></div><br><br>')
                   // console.log('one')
                 })
                 .catch(error => {
-                  console.log('error', error)
-                  alert(error)
+                  // console.log('error', error)
+                  // alert(error)
                 });
             }
 
-            if(result.teams.length==0){
+            if (result.teams.length == 0) {
 
               $('.content').append('<div class="no-res"><img src="../resources/illuspng.png"></img> <p>You are not part of any team yet</div><br><br><br>')
 
             }
+
+            hidePreloader()
 
             // console.log($('.content').html())
 
@@ -125,7 +124,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       })
   } else {
     // No user is signed in.
-    console.log("USER NOT LOGGED IN")
+    // console.log("USER NOT LOGGED IN")
   }
 })
 

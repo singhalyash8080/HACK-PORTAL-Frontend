@@ -1,14 +1,9 @@
 // code for pre-loader
 
-$(document).ready(function () {
-  //Preloader
-  preloaderFadeOutTime = 5000;
-  function hidePreloader() {
-    var preloader = $('.spinner-wrapper');
-    preloader.fadeOut(preloaderFadeOutTime);
-  }
-  hidePreloader();
-});
+function hidePreloader() {
+  var preloader = $('.spinner-wrapper');
+  preloader.fadeOut();
+}
 
 // end of pre-loader
 
@@ -32,7 +27,7 @@ var num_page=''
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log("USER LOGGED IN")
+    // console.log("USER LOGGED IN")
     //   window.location.replace("/home_page/index.html");
 
     if (user.emailVerified == false) {
@@ -56,14 +51,16 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         fetch("https://hackportal.herokuapp.com/users/", requestOptions)
           .then((response) => {
-            return response.json();
-          })
-          .catch(error => {
-            if (error.message == 'email not verified') {
+
+            if(response.status==404){
 
               window.location.replace("../create_profile/index.html");
 
             }
+            return response.json();
+          })
+          .catch(error => {
+            alert(error)
           })
 
         var requestOptions = {
@@ -94,11 +91,11 @@ firebase.auth().onAuthStateChanged(function (user) {
         var bio = []
 
         const queryString = window.location.search;
-        console.log(queryString);
+        // console.log(queryString);
 
         var array2 = decodeURI(queryString).split('&')
 
-        console.log(array2)
+        // console.log(array2)
         var final = []
 
         for (let i = 0; i < array2.length; i++) {
@@ -114,7 +111,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           final.push(x)
         }
 
-        console.log(final)
+        // console.log(final)
 
         var raw = {
           skills: final
@@ -135,7 +132,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             return response.json();
           })
           .then((result) => {
-            console.log(result);
+            // console.log(result);
 
             data = JSON.stringify(result)
 
@@ -200,7 +197,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             $('#page' + curr.toString()).attr("class", "active pgs")
 
-            $('.content').append('<br><br><br><br>')
+            // $('.content').append('<br><br><br><br>')
+
+            hidePreloader()
           })
           .catch((error) => console.log("error", error));
 
@@ -210,7 +209,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       })
   } else {
     // No user is signed in.
-    console.log("USER NOT LOGGED IN")
+    // console.log("USER NOT LOGGED IN")
   }
 })
 
@@ -248,11 +247,11 @@ function change(beg, x, curr) {
     // console.log('data : ',result)
 
     const queryString = window.location.search;
-    console.log(queryString);
+    // console.log(queryString);
 
     var array2 = decodeURI(queryString).split('&')
 
-    console.log(array2)
+    // console.log(array2)
     var final = []
 
     for (let i = 0; i < array2.length; i++) {
@@ -268,7 +267,7 @@ function change(beg, x, curr) {
       final.push(x)
     }
 
-    console.log(final)
+    // console.log(final)
 
     var raw = {
       skills: final
@@ -288,7 +287,7 @@ function change(beg, x, curr) {
         return response.json();
       })
       .then((result) => {
-        console.log(result);
+        // console.log(result);
 
         $('.content').empty()
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link href="style.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
@@ -30,14 +35,14 @@
                 <div class="sk-cube2 sk-cube"></div>
                 <div class="sk-cube4 sk-cube"></div>
                 <div class="sk-cube3 sk-cube"></div>
-              </div>
+            </div>
         </div>
     </div>
-    
+
     <!-- pre-loader-end -->
 
     <section class="content">
-        
+
         <div class="form1">
 
             <div class="heading">
@@ -47,66 +52,69 @@
             <div class="form1-cont">
                 <label>Team name :</label><br><br>
                 <input type="text" id='team_name'><br><br>
-    
-                <label >Team Description :</label><br><br>
+
+                <label>Team Description :</label><br><br>
                 <textarea class="txt-inp"></textarea><br><br>
 
-                <label >Skills required :</label><br><br>
+                <label>Skills required :</label><br><br>
                 <!-- <input type="text" id='team_skills'><br><br> -->
                 <div class="skills_req">
-        
+
                     <div class="skill-inps">
-                        <input type="checkbox" id="1" value="Web Development"><label >Web Development</label><br><br>
+                        <input type="checkbox" id="1" value="Web Development"><label>Web Development</label><br><br>
                     </div>
-    
+
                     <div class="skill-inps">
-                        <input type="checkbox" id="2" value="Mobile App Development"><label>Mobile App Development</label><br><br>
+                        <input type="checkbox" id="2" value="Mobile App Development"><label>Mobile App
+                            Development</label><br><br>
                     </div>
-        
+
                     <div class="skill-inps">
-                        <input type="checkbox" id="3" value="Devops"><label >Devops</label><br><br>
+                        <input type="checkbox" id="3" value="Devops"><label>Devops</label><br><br>
                     </div>
-        
+
                     <div class="skill-inps">
                         <input type="checkbox" id="4" value="Machine Learning"><label>Machine learning</label><br><br>
                     </div>
-        
+
                     <div class="skill-inps">
-                        <input type="checkbox" id="5" value="Artificial Intelligence"><label>Artificial intelligence</label><br><br>
+                        <input type="checkbox" id="5" value="Artificial Intelligence"><label>Artificial
+                            intelligence</label><br><br>
                     </div>
-        
+
                     <div class="skill-inps">
                         <input type="checkbox" id="6" value="Design - UI/UX"><label>Design - UI/UX</label><br><br>
                     </div>
-        
+
                     <div class="skill-inps">
                         <input type="checkbox" id="7" value="Management Skills"><label>Management skills</label><br><br>
                     </div>
-        
+
                     <div class="skill-inps">
                         <input type="checkbox" id="8" value="Blockchain"><label>Blockchain</label><br><br>
                     </div>
-        
+
                     <div class="skill-inps">
                         <input type="checkbox" id="9" value="Cybersecurity"><label>Cybersecurity</label><br><br>
                     </div>
-    
+
                 </div>
 
                 <br><br>
 
                 <div class="accept_invite">
-                    <a href="../home_page/index.html" style="text-decoration: none;"><button class="reject">Cancel</button></a>
+                    <a href="../home_page/index.html" style="text-decoration: none;"><button
+                            class="reject">Cancel</button></a>
                     <button class="accept" onclick="confirm()">Confirm </button>
                 </div><br>
             </div>
 
-            
+
         </div>
 
     </section>
 
-    
+
 
 
     <script src="index.js"></script>
