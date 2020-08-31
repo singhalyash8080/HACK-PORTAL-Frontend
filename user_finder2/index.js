@@ -208,6 +208,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 
       })
   } else {
+
+    window.location.replace("../index.html");
     // No user is signed in.
     // console.log("USER NOT LOGGED IN")
   }

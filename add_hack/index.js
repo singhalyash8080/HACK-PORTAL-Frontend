@@ -73,6 +73,8 @@ var firebaseConfig = {
 
         })
     } else {
+
+      window.location.replace("../index.html");
       // No user is signed in.
       // console.log("USER NOT LOGGED IN")
     }
@@ -133,7 +135,7 @@ async function confirm() {
           // alert('Your hackathon has been added successfully')
           Toastify({
             text: "Your hackathon has been added successfully",
-            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+            backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
             className: "info",
           }).showToast();
 
@@ -149,7 +151,7 @@ async function confirm() {
               // alert(result.message)
               Toastify({
                 text: result.message,
-                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
                 className: "info",
               }).showToast();
 

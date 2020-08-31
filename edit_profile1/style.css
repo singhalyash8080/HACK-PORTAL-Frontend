@@ -210,9 +210,6 @@ body{
     color: #3D5A80;
 }
 
-.content{
-    /* border:green solid 2px; */
-}
 
 .content label{
     font-size:20px;
@@ -323,6 +320,8 @@ body{
 }
 
 /* content end */
+
+/* common end */
 
 /* footer */
 

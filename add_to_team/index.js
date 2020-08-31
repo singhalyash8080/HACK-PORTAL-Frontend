@@ -128,6 +128,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             })
     } else {
+
+        window.location.replace("../index.html");
         // No user is signed in.
         // console.log("USER NOT LOGGED IN")
     }
@@ -178,7 +180,7 @@ function sendInvite() {
 
                     Toastify({
                         text: "request sent successfully",
-                        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
                         className: "info",
                     }).showToast();
 

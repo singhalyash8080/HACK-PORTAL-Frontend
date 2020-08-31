@@ -127,12 +127,16 @@ firebase.auth().onAuthStateChanged(function (user) {
             hidePreloader()
           })
           .catch(err => {
-            console.log(err)
+            // console.log(err)
             alert(error)
           })
 
       })
   } else {
+
+    window.location.replace("../index.html");
+
+    // hidePreloader()
     // No user is signed in.
     // console.log("USER NOT LOGGED IN")
   }

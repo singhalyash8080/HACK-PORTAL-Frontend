@@ -161,7 +161,9 @@ body{
     margin:0 auto;
     display: flex;
     flex-direction: column;
-    background-color:rgba(196, 196, 196, 0.1);;
+    background-color:rgba(196, 196, 196, 0.1);
+    padding:20px;
+
 }
 
 .back{
@@ -253,12 +255,15 @@ input{
     font-size:20px;
 }
 
+input:focus{
+    outline:none;
+}
+
 textarea{
-    /* outline-color: transparent; */
+    outline:none;
+    resize: none;
     color:#3D5A80;
     font-size:18px;
-    resize: none;
-    outline: none;
 }
 
 /* common end */

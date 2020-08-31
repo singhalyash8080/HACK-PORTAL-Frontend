@@ -123,6 +123,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           .catch(error => console.log('error', error));
       })
   } else {
+    window.location.replace("../index.html");
     // No user is signed in.
     // console.log("USER NOT LOGGED IN")
   }
