@@ -212,12 +212,14 @@ body{
 
 
 .content label{
-    font-size:20px;
+    font-size:25px;
+    font-weight: 600;
     color: #3D5A80;
 }
 
 .content p,.content a{
     font-size:25px;
+    font-weight: 400;
     color: #213753;
     margin:0;
 }
@@ -453,11 +455,7 @@ footer{
                 font-size:35px;
             }
 
-            .content label{
-                font-size:15px;
-            }
-
-            .content p,.content a{
+            .content p,.content a,.content label{
                 font-size:18px;
             }
 
@@ -479,7 +477,7 @@ footer{
                 padding:8px 20px;
             }
 
-            .content p,.content a{
+            .content p,.content a,.content label{
                 font-size:16px;
             }
         }
