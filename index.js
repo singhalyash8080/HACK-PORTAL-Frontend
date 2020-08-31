@@ -333,5 +333,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 })
 
 function signInFirst() {
-  alert('Sign In first')
+  Toastify({
+    text: 'Sign In first',
+    backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+    className: "info",
+  }).showToast();
 }
