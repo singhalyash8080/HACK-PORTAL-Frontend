@@ -363,6 +363,10 @@ body{
     cursor: pointer;
 }
 
+#form1-butt-2:focus,#form2-butt-1:focus,#form2-butt-2:focus,#form3-butt-1:focus,#form3-butt-2:focus{
+outline: none;
+}
+
 
 
 /* content end */
