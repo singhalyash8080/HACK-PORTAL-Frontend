@@ -53,7 +53,7 @@ function sendEmailVerification() {
   firebase.auth().currentUser.sendEmailVerification().then(function () {
     // Email Verification sent!
     // [START_EXCLUDE]
-    alert('Email Verification Sent!');
+    // alert('Email Verification Sent!');
 
     Toastify({
       text: "Email Verification Sent!",
