@@ -206,7 +206,7 @@ function toggleSignIn() {
     // Sign in with email and pass.
     // [START authwithemail]
     firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
-      console.log('signed-in')
+      // console.log('signed-in')
       window.location.replace("./home_page/index.html");
     }).catch(function (error) {
       // Handle Errors here.
@@ -270,7 +270,7 @@ function sendEmailVerification() {
   firebase.auth().currentUser.sendEmailVerification().then(function () {
     // Email Verification sent!
     // [START_EXCLUDE]
-    alert('Email Verification Sent!');
+    // alert('Email Verification Sent!');
     // [END_EXCLUDE]
   });
   // [END sendemailverification]

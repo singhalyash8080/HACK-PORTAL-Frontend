@@ -324,6 +324,10 @@ img{
     cursor: pointer;
 }
 
+#extra_text{
+    font-size: 20px;
+}
+
 
 /* header end */
 
@@ -693,6 +697,14 @@ img{
     .main-head{
         font-size:40px;
     }
+}
+
+@media only screen and (max-width:835px){
+
+    #extra_text{
+        font-size: 15px;
+    }
+
 }
 
  /* content media queries */
