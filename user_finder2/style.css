@@ -302,7 +302,10 @@ body{
     margin:0 auto;
     }
   
-  .pagination a:hover:not(.active) {background-color: #3D5A80;}
+  .pagination a:hover:not(.active) {
+      background-color: #3D5A80;
+      border:2px #3D5A80 solid;
+    }
 
 
 /* content end */

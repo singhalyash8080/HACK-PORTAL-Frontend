@@ -246,7 +246,11 @@ body{
     /* text-align: center; */
     }
   
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+  .pagination a:hover:not(.active) {
+      background-color: #ddd;
+      border:2px #ddd solid;
+      
+    }
 
 /* content end */
 

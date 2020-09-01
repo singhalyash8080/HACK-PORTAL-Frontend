@@ -170,7 +170,6 @@ firebase.auth().onAuthStateChanged(function (user) {
                                     //     $(".view_sent").append('<p id="zero_result"> There are no sent invites !</p>')
                                     // }
 
-                                    hidePreloader()
 
                                 })
                                 .catch(error => {
@@ -178,6 +177,8 @@ firebase.auth().onAuthStateChanged(function (user) {
                                 });
 
                         }
+
+                        hidePreloader()
 
 
                         // $(".view_sent").append('<p id="zero_result"> There are no sent invites !</p>')

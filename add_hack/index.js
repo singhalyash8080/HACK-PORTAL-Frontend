@@ -102,10 +102,19 @@ function encodeImageFileAsURL(element){
 
 async function confirm() {
 
+    var startDate=''
+    var endDate= ''
+
+    var arr1=($('#startDate').val()).split('-')
+    var arr2= ($('#endDate').val()).split('-')
+
+    startDate+=arr1[2]+'/'+arr1[1]+'/'+arr1[0]
+    endDate+=arr2[2]+'/'+arr2[1]+'/'+arr2[0]
+
     var raw = {
         nameOfEvent: $('#name').val(),
-        startDate: $('#startDate').val(),
-        endDate: $('#endDate').val(),
+        startDate: startDate,
+        endDate: endDate,
         location: $('#venue').val(),
         description: $('.txt-inp').val(),
         minimumTeamSize: $('#minteam_size').val(),
