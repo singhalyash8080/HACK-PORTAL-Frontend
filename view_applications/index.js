@@ -23,6 +23,19 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics()
 
 var auth_tok = ''
+var f=0
+
+function changeFlag(x){
+
+    if(x){
+        f=1
+        // console.log('yes')
+    }
+    else{
+        return f
+    }
+    
+}
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -60,7 +73,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                         return response.json();
                     })
                     .catch(error => {
-                        alert(error)
+                        // alert(error)
                     })
 
                 var view_team_link = '../team_invitation/index.html'
@@ -115,14 +128,14 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                                 })
                                 .catch(error => {
-                                    console.log('error', error)
-                                    alert(error)
+                                    // console.log('error', error)
+                                    // alert(error)
                                 });
 
                         }
 
                         if (result.teamInvites.length == 0) {
-                            $(".view_team").append('<p id="zero_result">There are no invites !<p>')
+                            $(".view_team").append('<p id="zero_result"><img src="../resources/illuspng.png"><br>There are no invites !<p>')
                         }
 
 
@@ -142,11 +155,14 @@ firebase.auth().onAuthStateChanged(function (user) {
                                 .then(Result => {
                                     // console.log(Result)
 
-
+                                    if(Result.pendingRequestsInfo.length>0){
+                                        changeFlag(1)
+                                    }
 
 
                                     if (Result.pendingRequestsInfo) {
                                         for (let k = 0; k < Result.pendingRequestsInfo.length; k++) {
+
 
                                             var params = {
                                                 teamId: Result._id,
@@ -167,8 +183,10 @@ firebase.auth().onAuthStateChanged(function (user) {
                                     }
 
                                     // if(Result.pendingRequests.length==0){
-                                    //     $(".view_sent").append('<p id="zero_result"> There are no sent invites !</p>')
+                                    //     
                                     // }
+
+                                hidePreloader()
 
 
                                 })
@@ -176,9 +194,21 @@ firebase.auth().onAuthStateChanged(function (user) {
                                     // console.log('error', error)
                                 });
 
+
+                                // if(i==result.teams.length-1 && f.length==0){
+
+                                //     $(".view_sent").append('<p id="zero_result"> <img src="../resources/illuspng.png"><br> There are no sent invites !</p>')
+
+                                // }
+
                         }
 
-                        hidePreloader()
+                        // console.log(f)
+                        // if(changeFlag()==0){
+
+                        //     $(".view_sent").append('<p id="zero_result"> <img src="../resources/illuspng.png"><br> There are no sent invites !</p>')
+
+                        // }
 
 
                         // $(".view_sent").append('<p id="zero_result"> There are no sent invites !</p>')

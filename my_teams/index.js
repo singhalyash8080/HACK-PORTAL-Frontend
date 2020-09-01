@@ -120,7 +120,9 @@ firebase.auth().onAuthStateChanged(function (user) {
             // console.log($('.pagination').html())
 
           })
-          .catch(error => console.log('error', error));
+          .catch(error => {
+            // console.log('error', error)
+          });
       })
   } else {
     window.location.replace("../index.html");

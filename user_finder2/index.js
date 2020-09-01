@@ -60,7 +60,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             return response.json();
           })
           .catch(error => {
-            alert(error)
+            // alert(error)
           })
 
         var requestOptions = {
@@ -80,7 +80,9 @@ firebase.auth().onAuthStateChanged(function (user) {
           .then((result) => {
             currentUserId = result._id
           })
-          .catch(err => console.log(err))
+          .catch(err => {
+            // console.log(err)
+          })
 
         var names = []
 
@@ -201,7 +203,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             hidePreloader()
           })
-          .catch((error) => console.log("error", error));
+          .catch((error) => {
+            // console.log("error", error)
+          });
 
 
         //end of code for getting hackathon details

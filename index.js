@@ -196,11 +196,29 @@ function toggleSignIn() {
     // console.log(email)
     // console.log(password)
     if (email.length < 4) {
-      alert('Please enter a valid email address.');
+
+      Toastify({
+        text: 'Please enter a valid email address',
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        offset: {
+          y: 50 
+        },
+        className: "info",
+      }).showToast();
+
       return;
     }
     if (password.length < 4) {
-      alert('Please enter a password.');
+
+      Toastify({
+        text: 'Please enter a password',
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        offset: {
+          y: 50 
+        },
+        className: "info",
+      }).showToast();
+
       return;
     }
     // Sign in with email and pass.
@@ -214,12 +232,29 @@ function toggleSignIn() {
       var errorMessage = error.message;
       // [START_EXCLUDE]
       if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password.');
+
+        Toastify({
+          text: 'Wrong password',
+          backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+          offset: {
+            y: 50 
+          },
+          className: "info",
+        }).showToast();
+
       } else {
-        alert(errorMessage);
+
+        Toastify({
+          text: errorMessage,
+          backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+          offset: {
+            y: 50 
+          },
+          className: "info",
+        }).showToast();
+
       }
-      console.log(error);
-      alert(error)
+      // console.log(error);
       // document.getElementById('quickstart-sign-in').disabled = false;
       // [END_EXCLUDE]
     });
@@ -232,21 +267,39 @@ function handleSignUp() {
   var email = $('.emaill').val();
   var password = $('.pass').val();
 
-  console.log(email)
-  console.log(password)
+  // console.log(email)
+  // console.log(password)
 
   if (email.length < 4) {
-    alert('Please enter an email address.');
+
+    Toastify({
+      text: 'Please enter an email address',
+      backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+      offset: {
+        y: 50 
+      },
+      className: "info",
+    }).showToast();
+
     return;
   }
   if (password.length < 4) {
-    alert('Please enter a password.');
+
+    Toastify({
+      text: 'Please enter a password',
+      backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+      offset: {
+        y: 50 
+      },
+      className: "info",
+    }).showToast();
+
     return;
   }
   // Create user with email and pass.
   // [START createwithemail]
   firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
-    console.log('user created')
+    // console.log('user created')
     window.location.replace("./verify_account/index.html")
 
   }).catch(function (error) {
@@ -255,9 +308,22 @@ function handleSignUp() {
     var errorMessage = error.message;
     // [START_EXCLUDE]
     if (errorCode == 'auth/weak-password') {
-      alert('The password is too weak.');
+
+      Toastify({
+        text: 'The password is too weak',
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
     } else {
-      alert(errorMessage);
+      Toastify({
+        text: errorMessage,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        offset: {
+          y: 50 
+        },
+        className: "info",
+      }).showToast();
     }
     console.log(error);
     // [END_EXCLUDE]
@@ -315,7 +381,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             .then((result) => {
             })
             .catch(error => {
-              alert(error)
+              // alert(error)
             })
 
         })

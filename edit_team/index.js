@@ -58,7 +58,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             return response.json();
           })
           .catch(error => {
-            alert(error)
+            // alert(error)
           })
 
         const queryString = window.location.search;
@@ -107,13 +107,12 @@ firebase.auth().onAuthStateChanged(function (user) {
 
               }
 
-              hidePreloader()
-
             }
+
+          hidePreloader()
 
           })
           .catch(error => console.log('error', error));
-
 
 
       })
@@ -191,7 +190,7 @@ async function confirm() {
     })
     .catch(error => {
       // console.log('error', error)
-      alert(error)
+      // alert(error)
     });
 
 }

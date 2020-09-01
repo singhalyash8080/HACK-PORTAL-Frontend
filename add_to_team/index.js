@@ -59,7 +59,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                         return response.json();
                     })
                     .catch(error => {
-                        alert(error)
+                        // alert(error)
                     })
 
                 const queryString = window.location.search;
@@ -113,19 +113,20 @@ firebase.auth().onAuthStateChanged(function (user) {
                                         $('.add_to_team').append('<label><input type="checkbox" class="filled-in" value="' + data._id + '" /><span>' + data.teamName + '</span></label><br><br>')
                                     }
 
-                                    hidePreloader()
-
                                 })
                                 .catch(error => {
                                     console.log('error', error)
-                                    alert(error)
+                                    // alert(error)
                                 });
 
                         }
 
+                        hidePreloader()
+
                     })
                     .catch(error => { console.log('error', error) });
 
+                
             })
     } else {
 

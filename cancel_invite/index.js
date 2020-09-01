@@ -60,7 +60,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             return response.json();
           })
           .catch(error => {
-            alert(error)
+            // alert(error)
           })
 
         // code for getting content
@@ -151,9 +151,12 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             $(".invite").append('<button onclick="cancelInvite()"> <a href="' + '#' + '" style="text-decoration:none;">Cancel Invite</a> </button>')
 
-            hidePreloader()
+          hidePreloader()
+
           })
-          .catch(err => console.log(err))
+          .catch(err => {
+            // console.log(err)
+          })
 
       })
   } else {

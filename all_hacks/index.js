@@ -59,7 +59,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                         return response.json();
                     })
                     .catch(error => {
-                        alert(error)
+                        // alert(error)
                     })
 
             })
@@ -198,8 +198,13 @@ axios.get(url)
 
         hidePreloader()
 
+
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+        //    console.log(err)
+    })
+
+
 
 function change(beg, x, curr) {
     // console.log(
@@ -322,7 +327,9 @@ function change(beg, x, curr) {
 
 
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                //    console.log(err)
+            })
 
     }
 

@@ -64,7 +64,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             return response.json();
           })
           .catch(error => {
-            alert(error)
+            // alert(error)
           })
 
       })
@@ -152,7 +152,7 @@ async function confirm() {
     })
     .catch(error => {
       // console.log('error', error)
-      alert(error)
+      // alert(error)
     });
 }
 

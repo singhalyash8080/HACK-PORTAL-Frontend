@@ -211,6 +211,10 @@ body{
     cursor: pointer;
 }
 
+.accept:focus,.reject:focus{
+    outline: none;
+}
+
 /* content end */
 
 /* common  */

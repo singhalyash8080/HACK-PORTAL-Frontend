@@ -259,9 +259,16 @@ body{
 }
 
 #zero_result{
-    background-color: rgba(41, 50, 65, 0.1) ;
+    /* background-color: rgba(41, 50, 65, 0.1) ; */
     padding:10px 4px;
     text-align:center;
+}
+
+#zero_result img{
+    max-width:100%;
+    /* border:2px green solid; */
+    margin:0 auto;
+    max-height:350px;
 }
 
 
@@ -359,7 +366,7 @@ body{
 
     }
 
-    @media only screen and (max-width: 420px){
+    @media only screen and (max-width: 457px){
 
         .view_team p,.view_sent p{
             font-size:13px;
@@ -367,7 +374,6 @@ body{
 
         .txt,.lnk{
             padding:5px 5px;
-
         }
 
     }

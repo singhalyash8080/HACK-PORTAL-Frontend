@@ -1,15 +1,5 @@
 // code for pre-loader
 
-// $(document).ready(function() {
-//   //Preloader
-//   preloaderFadeOutTime = 5000;
-//   function hidePreloader() {
-//   var preloader = $('.spinner-wrapper');
-//   preloader.fadeOut(preloaderFadeOutTime);
-//   }
-//   hidePreloader();
-//   });
-
 function hidePreloader() {
   var preloader = $('.spinner-wrapper');
   preloader.fadeOut();
@@ -127,8 +117,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 
           })
           .catch(error => {
-            console.log('error', error)
-            alert(error)
+            // console.log('error', error)
+            // alert(error)
           });
 
         // end of code for getting hackathon

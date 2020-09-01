@@ -170,7 +170,7 @@ async function confirm() {
         } )
         .catch(error =>{ 
             // console.log('error', error)
-            alert(error)
+            // alert(error)
         });
 
 }

@@ -66,7 +66,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             return response.json();
           })
           .catch(error => {
-            alert(error)
+            // alert(error)
           })
 
         var label1 = 'Email:'
@@ -123,13 +123,14 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             $(".invite").append('<button> <a href="' + '#' + '" style="text-decoration:none;">Invite</a> </button>')
 
-
             hidePreloader()
+
           })
           .catch(err => {
             // console.log(err)
-            alert(error)
+            // alert(error)
           })
+
 
       })
   } else {

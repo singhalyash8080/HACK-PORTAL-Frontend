@@ -65,7 +65,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             // console.log(result)
           })
           .catch(error => {
-            alert(error)
+            // alert(error)
           });
 
         // code for getting content
@@ -181,7 +181,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 })
                 .catch(error => {
                   // console.log('error', error)
-                  alert(error)
+                  // alert(error)
                 });
 
             }
@@ -190,7 +190,9 @@ firebase.auth().onAuthStateChanged(function (user) {
             hidePreloader()
 
           })
-          .catch(error => console.log('error', error));
+          .catch(error => {
+            // console.log('error', error)
+          });
 
       })
   } else {

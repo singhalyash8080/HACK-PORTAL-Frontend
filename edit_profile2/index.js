@@ -89,11 +89,13 @@ firebase.auth().onAuthStateChanged(function (user) {
                         document.getElementById("stackOverFlowLink").defaultValue = result.stackOverflowLink
                         document.getElementById("externalLink").defaultValue = result.externalLink
 
-                        hidePreloader()
+                    hidePreloader()
+
                     })
                     .catch(err => {
                         alert(err)
                     })
+
 
             })
     } else {
@@ -158,7 +160,7 @@ async function confirm() {
             if (response.status == 200) {
 
                 Toastify({
-                    text: "profile was updated successfully",
+                    text: "profile updated successfully",
                     backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
                     className: "info",
                 }).showToast();
@@ -175,10 +177,10 @@ async function confirm() {
             // console.log(result)
         })
         .catch(error => {
-            alert(error)
+            // alert(error)
         });
 }
 
 function cancel() {
-    window.location.replace("../home_page/index.html");
+    window.location.replace("../edit_profile1/index.html");
 }

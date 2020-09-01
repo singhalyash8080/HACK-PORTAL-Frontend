@@ -182,16 +182,14 @@ $(document).ready(function () {
           window.setTimeout(() => window.location.replace("../home_page/index.html"), 2000);
 
         }
-        else {
-          alert(response.error)
-        }
+
         return response.json()
       })
       .then(result => {
       })
       .catch(error => {
         // console.log('error', error)
-        alert(error)
+        // alert(error)
       });
 
   });

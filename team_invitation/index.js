@@ -172,7 +172,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             })
             .catch(error => {
               // console.log('error', error)
-              alert(error)
+              // alert(error)
             });
 
         }
@@ -216,7 +216,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             .then(result => { })
             .catch(error => {
               // console.log('error', error)
-              alert(error)
+              // alert(error)
             });
 
         }
