@@ -1,14 +1,10 @@
 // code for pre-loader
 
-$(document).ready(function () {
-  //Preloader
-  function hidePreloader() {
-    var preloader = $('.spinner-wrapper');
-    preloader.fadeOut();
-  }
+function hidePreloader() {
+  var preloader = $('.spinner-wrapper');
+  preloader.fadeOut();
+}
 
-  hidePreloader()
-});
 
 // end of pre-loader
 
@@ -48,6 +44,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     window.location.replace("../index.html");
     // console.log('user not logged in ')
   }
+
+  hidePreloader()
 })
 
 function sendEmailVerification() {
