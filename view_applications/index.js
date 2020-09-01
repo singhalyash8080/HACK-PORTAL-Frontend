@@ -103,7 +103,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                 fetch("https://hackportal.herokuapp.com/users/", requestOptions)
                     .then(response => response.json())
-                    .then(result => {
+                    .then(async function (result){
                         // console.log(result)
 
                         currentUserId = result._id
@@ -137,8 +137,9 @@ firebase.auth().onAuthStateChanged(function (user) {
                         if (result.teamInvites.length == 0) {
                             $(".view_team").append('<p id="zero_result"><img src="../resources/illuspng.png"><br>There are no invites !<p>')
                         }
-
-
+                        var ans=0
+                        // promise array
+                        let promArr=[];
                         for (let i = 0; i < result.teams.length; i++) {
 
                             var myHeaders = new Headers();
@@ -150,11 +151,11 @@ firebase.auth().onAuthStateChanged(function (user) {
                                 redirect: 'follow'
                             };
 
-                            fetch("https://hackportal.herokuapp.com/teams/getteaminfo/" + result.teams[i], requestOptions)
+
+                            let prom=  fetch("https://hackportal.herokuapp.com/teams/getteaminfo/" + result.teams[i], requestOptions)
                                 .then(response => response.json())
                                 .then(Result => {
                                     // console.log(Result)
-
                                     if(Result.pendingRequestsInfo.length>0){
                                         changeFlag(1)
                                     }
@@ -182,37 +183,33 @@ firebase.auth().onAuthStateChanged(function (user) {
                                         }
                                     }
 
-                                    // if(Result.pendingRequests.length==0){
-                                    //     
-                                    // }
-
-                                hidePreloader()
-
-
+                                    hidePreloader()
+                                    // console.log("Here length is "+Result.pendingRequestsInfo.length)
+                                    return Result.pendingRequestsInfo.length
                                 })
                                 .catch(error => {
-                                    // console.log('error', error)
                                 });
+                            promArr.push(prom);
+                         }
+                        
+                        let wait =Promise.all(promArr).then((vals)=>{
+                            let ans=0;
+                            // console.log(vals)
+                            vals.forEach((i)=>{if(i>0)ans+=i})
+                            return ans;
+                        })
+                        let fin=await wait.then((data)=>{return data})
+                        
+                        return fin;
 
+                    })
+                    .then((prom)=>{
+                    //    console.log("it works now "+prom)
 
-                                // if(i==result.teams.length-1 && f.length==0){
-
-                                //     $(".view_sent").append('<p id="zero_result"> <img src="../resources/illuspng.png"><br> There are no sent invites !</p>')
-
-                                // }
-
-                        }
-
-                        // console.log(f)
-                        // if(changeFlag()==0){
-
-                        //     $(".view_sent").append('<p id="zero_result"> <img src="../resources/illuspng.png"><br> There are no sent invites !</p>')
-
-                        // }
-
-
-                        // $(".view_sent").append('<p id="zero_result"> There are no sent invites !</p>')
-
+                       if(prom==0){
+                           $('#sentInvite').text('')
+                       }
+                        // prom.then((data)=>console.log("it works now "+data))
                     })
                     .catch(error => {
 

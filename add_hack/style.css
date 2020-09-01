@@ -170,7 +170,9 @@ body{
     /* border:red solid 2px; */
     align-self: center;
     border-style: solid;
+    font-size:20px;
     border-color:rgba(41, 50, 65, 0.1);
+    letter-spacing:1px;
 }
 
 .form1-cont input{
@@ -182,6 +184,8 @@ body{
     border-style: solid;
     border-color:rgba(41, 50, 65, 0.1);
     outline: none;
+    font-size:20px;
+    letter-spacing:1px;
 }
 
 .accept_invite{
@@ -207,7 +211,8 @@ body{
     border:none;
     color:white;
     padding:12px 25px;
-    border-radius: 7px;
+    border-radius: 8px;
+    border:2px #3D5A80 solid;
     cursor: pointer;
 }
 

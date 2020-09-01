@@ -203,6 +203,8 @@ body{
     /* border:green solid 2px; */
     /* text-align: left; */
     display: flex;
+    font-size:20px;
+    letter-spacing:1px;
 }
 
 .skill-inps input{
@@ -210,6 +212,8 @@ body{
     width:10%;
     /* align-self: flex-end; */
     margin-right:5px;
+    font-size:20px;
+    letter-spacing:1px;
 }
 
 .skill-inps label{
@@ -242,7 +246,8 @@ body{
     border:none;
     color:white;
     padding:12px 25px;
-    border-radius: 7px;
+    border-radius: 8px;
+    border:2px #3D5A80 solid;
     cursor: pointer;
 }
 

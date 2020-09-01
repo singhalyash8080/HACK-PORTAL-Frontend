@@ -229,6 +229,9 @@ function cancelInvite() {
         Toastify({
           text: "Invite cancelled",
           backgroundColor: "linear-gradient(to right,#3D5A80, #507093,#7393B0)",
+          offset: {
+            y: 50 
+          },
           className: "info",
         }).showToast();
 

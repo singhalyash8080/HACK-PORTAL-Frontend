@@ -171,7 +171,7 @@ body{
 .link1 a:hover, .link2 a:hover, .link3 a:hover{
     background-color: #3D5A80;
     color:white;
-    padding:0px 30px;
+    padding:5px 30px;
     border-bottom-left-radius:50px;
     border-top-left-radius:50px;
     border-bottom-right-radius:50px;
