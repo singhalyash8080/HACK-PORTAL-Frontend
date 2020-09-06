@@ -301,6 +301,7 @@ body{
     border-radius: 8px;
     margin-left:20px;
     cursor: pointer;
+    min-width:124.44px;
 }
 
 .edit-team:focus{
@@ -416,6 +417,10 @@ body{
                 font-size:20px;
                 padding:8px 20px;
             }
+
+            .edit-team{
+                min-width: 103.03px;
+            }
         }
 
         @media only screen and (max-width: 430px){
@@ -423,6 +428,10 @@ body{
             .edit-team,.delete-team{
                 font-size:18px;
                 padding:7px 18px;
+            }
+
+            .edit-team{
+                min-width:93.33px;
             }
         }
 

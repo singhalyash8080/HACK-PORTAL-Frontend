@@ -65,9 +65,15 @@ firebase.auth().onAuthStateChanged(function (user) {
                 const queryString = window.location.search;
 
 
-                $('.sendInvite-inside').append('<br><input type="text" id="email"><br><br>')
 
+                if((queryString.split('?'))[1]){
+                $('.sendInvite-inside').append('<br><input type="text" id="email"><br><br>')
                 document.getElementById('email').defaultValue = (queryString.split('?'))[1]
+                }
+                else{
+                $('.sendInvite-inside').append('<br><input type="text" id="email" placeholder="mail@example.com"><br><br>')
+
+                }
 
                 $('.sendInvite-inside').append('<h4>Choose team :</h4><br>')
 
@@ -110,7 +116,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                                     if (data.creatorId == creater_id) {
 
-                                        $('.add_to_team').append('<label><input type="checkbox" class="filled-in" value="' + data._id + '" /><span>' + data.teamName + '</span></label><br><br>')
+                                        $('.add_to_team').append('<label><input type="checkbox" class="filled-in checkbox-blue" value="' + data._id + '" /><span>' + data.teamName + '</span></label><br><br>')
                                     }
 
                                 })

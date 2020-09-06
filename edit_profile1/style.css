@@ -300,6 +300,7 @@ body{
     border-radius: 8px;
     margin-right:20px;
     cursor: pointer;
+    min-width:141.48px;
 }
 
 .accept{
@@ -463,6 +464,10 @@ footer{
                 font-size:25px;
             }
 
+            .reject{
+                min-width:135.48px;
+            }
+
             .accept_invite button{
                 padding:9px 22px;
             }
@@ -471,6 +476,9 @@ footer{
         @media only screen and (max-width: 400px){
             .accept,.reject{
                 font-size:22px;
+            }
+            .reject{
+                min-width:121.23px;
             }
 
             .accept_invite button{
