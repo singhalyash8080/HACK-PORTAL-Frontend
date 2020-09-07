@@ -136,7 +136,7 @@ body{
 .lnks{
     /* border: 2px solid blue; */
     display: flex;
-    width:40%;
+    width:35%;
     justify-content:space-evenly;
     padding:10px;
     /* border:2px solid yellow; */
@@ -149,7 +149,7 @@ body{
 
 .link1 a,.link2 a,.link3 a,.link4 a{
     color: rgba(41, 50, 65, 0.5);
-    padding:0 23px;
+    padding:0 18px;
 }
 
 .mob-Navbar{
@@ -171,7 +171,7 @@ body{
 .link1 a:hover, .link2 a:hover, .link3 a:hover, .link4 a:hover{
     background-color: #3D5A80;
     color:white;
-    padding:5px 23px;
+    padding:5px 18px;
     border-bottom-left-radius:50px;
     border-top-left-radius:50px;
     border-bottom-right-radius:50px;
