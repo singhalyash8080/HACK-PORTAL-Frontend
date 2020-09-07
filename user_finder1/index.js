@@ -12,6 +12,17 @@ $(document).ready(function () {
 
 // end of pre-loader
 
+$('.link2 a').css("background-color","#3D5A80");
+$('.link2 a').css("color","white");
+$('.link2 a').css("padding","5px 23px");
+$('.link2 a').css("border-bottom-left-radius","50px");
+$('.link2 a').css("border-top-left-radius","50px");
+$('.link2 a').css("border-bottom-right-radius","50px");
+$('.link2 a').css("border-top-right-radius","50px");
+$(".link2 a").click(function(){
+  return false;
+});
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",

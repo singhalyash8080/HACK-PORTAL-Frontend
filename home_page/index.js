@@ -10,6 +10,17 @@ $(document).ready(function () {
   $('.sidenav').sidenav();
 });
 
+$('.link1 a').css("background-color","#3D5A80");
+$('.link1 a').css("color","white");
+$('.link1 a').css("padding","5px 23px");
+$('.link1 a').css("border-bottom-left-radius","50px");
+$('.link1 a').css("border-top-left-radius","50px");
+$('.link1 a').css("border-bottom-right-radius","50px");
+$('.link1 a').css("border-top-right-radius","50px");
+$(".link1 a").click(function(){
+  return false;
+});
+
 // code for getting hackathon details of some hackathons
 
 var hack_names = []
@@ -61,7 +72,7 @@ axios.get(url)
       $('.part2-1').append(arrayy[i])
     }
 
-    $('.part2-1').append('<div id="view_more_link"><a href="../all_hacks/index.html" style="color: white;text-decoration: none;">View All</a></div>')
+    $('.part2-1').append('<div id="view_more_link"><a href="../all_hacks/index.html">View All</a></div>')
 
 
     for (let i = 0; i < len; i++) {

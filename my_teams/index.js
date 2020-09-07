@@ -7,6 +7,17 @@ function hidePreloader() {
 
 // end of pre-loader
 
+$('.link3 a').css("background-color","#3D5A80");
+$('.link3 a').css("color","white");
+$('.link3 a').css("padding","5px 23px");
+$('.link3 a').css("border-bottom-left-radius","50px");
+$('.link3 a').css("border-top-left-radius","50px");
+$('.link3 a').css("border-bottom-right-radius","50px");
+$('.link3 a').css("border-top-right-radius","50px");
+$(".link3 a").click(function(){
+  return false;
+});
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
@@ -96,9 +107,33 @@ firebase.auth().onAuthStateChanged(function (user) {
               await fetch("https://hackportal.herokuapp.com/teams/getteaminfo/" + result.teams[i], requestOptions)
                 .then(response => response.json())
                 .then(results => {
+
+                  var desc_limit = (results.description).split(" ")
+                  // console.log(desc_limit)
+
+                  var desc_text = ''
+            
+                  if (desc_limit.length > 40) {
+            
+                    
+            
+                    for (let j = 0; j < 40; j++) {
+            
+                      if (j == 39) {
+                        desc_text += (desc_limit[j] + '....')
+                      }
+                      else {
+                        desc_text += (desc_limit[j] + ' ')
+                      }
+            
+                    }
+                  }else{
+                    desc_text+=results.description
+                  }
+            
                   // console.log(results)
                   $(".content").append('<div class="team"> <p class="team_name">' + results.teamName + '</p><p class="hack_name">' + results.nameOfEvent + '</p><p class="description">'
-                    + results.description + '</p><div class="list"><p class="item">Admin : ' + results.creatorInfo.name + '</p> <p class="item"><a href="' + team_link + '?' + results._id + '" style="color:#fff;">View</p></div></div><br><br>')
+                    + desc_text + '</p><div class="list"><p class="item">Admin : ' + results.creatorInfo.name + '</p> <p class="item"><a href="' + team_link + '?' + results._id + '" style="color:#fff;">View</p></div></div><br><br>')
                   // console.log('one')
                 })
                 .catch(error => {

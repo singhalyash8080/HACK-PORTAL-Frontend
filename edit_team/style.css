@@ -235,6 +235,7 @@ body{
 }
 
 .reject{
+    font-size:25px;
     background-color: white;
     /* border:none; */
     color: #3D5A80;
@@ -245,6 +246,7 @@ body{
 }
 
 .accept{
+    font-size:25px;
     background-color:#3D5A80;
     border:none;
     color:white;
@@ -282,6 +284,19 @@ textarea{
 /* media queries */
 
     /* media queries for content */
+
+    @media only screen and (max-width: 440px){
+        .accept,.reject{
+            font-size:22px;
+        }
+    }
+    
+    @media only screen and (max-width: 415px){
+        .accept,.reject{
+            font-size:18px;
+        }
+    }
+    
 @media only screen and (max-width:705px){
 
     .form1-head{

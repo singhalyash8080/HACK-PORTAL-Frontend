@@ -159,7 +159,32 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                 names.push(result.documents[i].name)
                 college.push(result.documents[i].college)
-                bio.push(result.documents[i].bio)
+
+                var desc_limit = (result.documents[i].bio).split(" ")
+                // console.log(desc_limit)
+
+                var desc_text = ''
+          
+                if (desc_limit.length > 40) {
+          
+                  for (let j = 0; j < 40; j++) {
+          
+                    if (j == 39) {
+                      desc_text += (desc_limit[j] + '....')
+                    }
+                    else {
+                      desc_text += (desc_limit[j] + ' ')
+                    }
+          
+                  }
+
+                  bio.push(desc_text)
+
+                }
+                else{
+                  bio.push(result.documents[i].bio)
+                }
+                // console.log(result.documents[i].bio)
 
                 profile_links.push('../profile_info/index.html?' + result.documents[i]._id)
 
