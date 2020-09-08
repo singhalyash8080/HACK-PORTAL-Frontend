@@ -325,7 +325,7 @@ function handleSignUp() {
         className: "info",
       }).showToast();
     }
-    console.log(error);
+    // console.log(error);
     // [END_EXCLUDE]
   });
   // [END createwithemail]
@@ -340,6 +340,56 @@ function sendEmailVerification() {
     // [END_EXCLUDE]
   });
   // [END sendemailverification]
+}
+
+function sendPasswordReset() {
+  // var email = document.getElementById('email').value;
+  var email = $('.mail').val();
+  // [START sendpasswordemail]
+  firebase.auth().sendPasswordResetEmail(email).then(function() {
+    // Password Reset Email Sent!
+    // [START_EXCLUDE]
+    // alert('Password Reset Email Sent!');
+    Toastify({
+      text: 'Password Reset Email Sent',
+      backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+      offset: {
+        y: 50 
+      },
+      className: "info",
+    }).showToast();
+
+    // [END_EXCLUDE]
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // [START_EXCLUDE]
+    if (errorCode == 'auth/invalid-email') {
+      Toastify({
+        text: errorMessage,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        offset: {
+          y: 50 
+        },
+        className: "info",
+      }).showToast();
+      // alert(errorMessage);
+    } else if (errorCode == 'auth/user-not-found') {
+      // alert(errorMessage);
+      Toastify({
+        text: errorMessage,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        offset: {
+          y: 50 
+        },
+        className: "info",
+      }).showToast();
+    }
+    // console.log(error);
+    // [END_EXCLUDE]
+  });
+  // [END sendpasswordemail];
 }
 
 firebase.auth().onAuthStateChanged(function (user) {

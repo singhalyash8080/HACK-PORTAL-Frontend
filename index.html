@@ -133,9 +133,15 @@
                     <input type="email" id="signIn-elem-1" placeholder="Email" class="mail"><br>
                     <input type="password" id="signIn-elem-2" placeholder="Password" class="password">
                     <div class="sub-elem">
-                        <p> <a href="#" style="text-decoration: none;color: rgba(61, 90, 128, 0.75);"
-                                onclick="gotosignup()" id="extra_text">
-                                Don't have an account ?</a></p>
+                        <div style="text-align:left;line-height: 15px;">
+                            <p> <a href="#" style="text-decoration: none;color: rgba(61, 90, 128, 0.75);"
+                                    onclick="gotosignup()" id="extra_text">
+                                    Don't have an account ?</a></p>
+    
+                            <p> <a href="#" style="text-decoration: none;color: rgba(61, 90, 128, 0.75);"
+                                onclick="sendPasswordReset()" id="extra_text">
+                                Forgot Password ?</a></p>
+                        </div>
                         <button class="login" onclick="toggleSignIn()" id="testing"> Login </button>
                     </div>
                 </form>
