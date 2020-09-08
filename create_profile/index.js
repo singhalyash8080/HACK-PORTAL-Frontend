@@ -145,18 +145,103 @@ $(document).ready(function () {
     stack = ($('#stackOverFlowLink').val())
     externallink = ($('#externalLink').val())
 
+    if(name==''){
+
+      Toastify({
+        text: "Name must be filled",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
+    }
+
+    if(college==''){
+      Toastify({
+        text: "College name must be filled",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
+
+    if(bio==''){
+      Toastify({
+        text: "Bio must be filled",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
+
+    if(skillarray.length==0){
+      Toastify({
+        text: "Atleast one skill must be selected",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
+    }
+
+    if(!year.match(/^20\d\d$/)){
+
+      Toastify({
+        text: "Enter the expected year of graduation correctly",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
+    }
+
+    if(github!='' && !github.match(/^https?:\/\/github.com\/[^\/]*\/?$/)){
+
+      Toastify({
+        text: "Enter valid github handle",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
+
+    if(stack!='' && !stack.match(/^https?:\/\/stackoverflow.com\/users\/[0-9]+\/[\w\d-?_.!@#$%^&-()*]+$/)){
+
+      Toastify({
+        text: "Enter valid stackOverFlow handle",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
+
+    if(externallink!='' && !externallink.match(/^((http|https):\/\/[^ "]+)$/)){
+
+      Toastify({
+        text: "Enter valid website url",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
+    }
+
+
     const raw = {
       name: name,
       college: college,
       expectedGraduation: year,
       bio: bio,
       skills: skillarray,
-      githubLink: github,
-      stackOverflowLink: stack,
-      externalLink: externallink
+      githubLink: github || undefined,
+      stackOverflowLink: stack || undefined,
+      externalLink: externallink || undefined
     }
 
-    console.log(raw)
+    // console.log(raw)
+
+    // console.log(raw)
+
 
     var requestOptions = {
       method: 'POST',
@@ -182,6 +267,8 @@ $(document).ready(function () {
           window.setTimeout(() => window.location.replace("../home_page/index.html"), 2000);
 
         }
+
+        // console.log(response)
 
         return response.json()
       })

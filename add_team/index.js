@@ -103,10 +103,54 @@ async function confirm() {
     }
   }
 
+  if($('#team_name').val()==''){
+
+    Toastify({
+      text: "Team name is required",
+      duration:5000,
+      backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+      className: "info",
+    }).showToast();
+
+
+  }
+
+  if( event_id==''){
+
+    Toastify({
+      text: "Event id is required",
+      duration:5000,
+      backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+      className: "info",
+    }).showToast();
+
+  }
+
+  // if($('.txt-inp').val()==''){
+
+  //   Toastify({
+  //     text: "team description is required",
+  //     duration:5000,
+  //     backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+  //     className: "info",
+  //   }).showToast();
+  // }
+
+  if(skill_array==''){
+
+    Toastify({
+      text: "atleast one skill must be selected",
+      duration:5000,
+      backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+      className: "info",
+    }).showToast();
+
+  }
+
   var raw = {
     teamName: $('#team_name').val(),
     eventId: event_id,
-    description: $('.txt-inp').val(),
+    description: $('.txt-inp').val() || undefined,
     skillsRequired: skill_array
   }
 
@@ -140,19 +184,10 @@ async function confirm() {
     })
     .then(result => {
 
-      // if(result.message){
-
-      //   Toastify({
-      //     text: result.message,
-      //     backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-      //     className: "info",
-      //   }).showToast();
-
-      // }
     })
     .catch(error => {
       // console.log('error', error)
-      // alert(error)
+      // alert(error) 
     });
 }
 

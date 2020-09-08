@@ -102,19 +102,117 @@ function encodeImageFileAsURL(element){
 
 async function confirm() {
 
-    var startDate=''
-    var endDate= ''
+    // var startDate=''
+    // var endDate= ''
 
-    var arr1=($('#startDate').val()).split('-')
-    var arr2= ($('#endDate').val()).split('-')
+    // var arr1=($('#startDate').val()).split('-')
+    // var arr2= ($('#endDate').val()).split('-')
 
-    startDate+=arr1[2]+'/'+arr1[1]+'/'+arr1[0]
-    endDate+=arr2[2]+'/'+arr2[1]+'/'+arr2[0]
+    // startDate+=arr1[2]+'/'+arr1[1]+'/'+arr1[0]
+    // endDate+=arr2[2]+'/'+arr2[1]+'/'+arr2[0]
+
+    // console.log(new Date($('#startDate').val()).getTime())
+    // console.log($('#startDate').val())
+
+    // new Date(val).toLocaleString()
+
+    if($('#name').val()==''){
+
+      Toastify({
+        text: "Name of hackathon is required",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
+    }
+
+    if(new Date($('#startDate').val()).getTime()==''){
+
+      Toastify({
+        text: "Start Date is required",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
+
+    if(new Date($('#endDate').val()).getTime()==''){
+
+      Toastify({
+        text: "Start Date is required",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
+
+    if($('#venue').val()==''){
+
+      Toastify({
+        text: "Location is required",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+      
+    }
+
+    if($('.txt-inp').val()==''){
+
+      Toastify({
+        text: "description is required",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+      
+    }
+
+    if($('#minteam_size').val()==''){
+
+      Toastify({
+        text: "minimum team size is required",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
+
+    if($('#maxteam_size').val()==''){
+
+      Toastify({
+        text: "maximum team size is required",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
+
+    if($('#event_url').val()==''){
+
+      Toastify({
+        text: "Event url is required",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
+
+    if($('#event_url').val()!='' && !($('#event_url').val()).match(/^(http|https):\/\/[^ "]+$/)){
+
+      Toastify({
+        text: "Enter valid url",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
 
     var raw = {
         nameOfEvent: $('#name').val(),
-        startDate: startDate,
-        endDate: endDate,
+        startDate: new Date($('#startDate').val()).getTime(),
+        endDate: new Date($('#endDate').val()).getTime(),
         location: $('#venue').val(),
         description: $('.txt-inp').val(),
         minimumTeamSize: $('#minteam_size').val(),
@@ -138,6 +236,8 @@ async function confirm() {
 
     await fetch("https://hackportal.herokuapp.com/events/setevent", requestOptions)
         .then(response => {
+
+        // console.log(response)
         
         if(response.status==200){
 
@@ -156,15 +256,15 @@ async function confirm() {
         })
         .then(result =>{
 
-            if(result.message){
-              // alert(result.message)
-              Toastify({
-                text: result.message,
-                backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
-                className: "info",
-              }).showToast();
+            // if(result.message){
+            //   // alert(result.message)
+            //   Toastify({
+            //     text: result.message,
+            //     backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+            //     className: "info",
+            //   }).showToast();
 
-            }
+            // }
 
             // console.log(result)
         } )

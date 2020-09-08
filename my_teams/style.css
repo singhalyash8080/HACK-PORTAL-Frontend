@@ -135,13 +135,17 @@ footer{
     top:5px;
 }
 
-.fa-facebook,.fa-instagram,.fa-linkedin,.fa-medium{
-    color:white;
-    -o-transition:.5s;
-    -ms-transition:.5s;
-    -moz-transition:.5s;
-    -webkit-transition:.5s;
-    transition:.5s;
+.no-res{
+    /* background-color: rgba(41, 50, 65, 0.1) ; */
+    padding:10px 4px;
+    text-align:center;
+}
+
+.no-res img{
+    max-width:100%;
+    /* border:2px green solid; */
+    margin:0 auto;
+    max-height:350px;
 }
 
 /* footer end */

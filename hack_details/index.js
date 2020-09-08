@@ -24,6 +24,8 @@ firebase.analytics()
 
 var auth_tok = ''
 
+var currentUserId=''
+
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // console.log("USER LOGGED IN")
@@ -52,6 +54,9 @@ firebase.auth().onAuthStateChanged(function (user) {
         fetch("https://hackportal.herokuapp.com/users/", requestOptions)
           .then((response) => {
             return response.json();
+          })
+          .then(result=>{
+            currentUserId+=result._id
           })
           .catch(error => {
             if (error.message == 'email not verified') {
@@ -99,7 +104,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             $(".venue").text(result.location)
 
-            $(".date").text(result.startDate + ' to ' + result.endDate)
+            $(".date").text(new Date(result.startDate ).toLocaleString()+ ' to ' + new Date(result.endDate).toLocaleString())
             // $(".date").text(date)
 
             $(".description").text(result.description)
@@ -108,7 +113,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".link").html('<a href="https://devsoc.codechefvit.com/">' + result.eventUrl + '</a>')
 
 
-            if (!result.hasTeamForEvent)
+            if (!result.hasTeamForEvent && currentUserId!=result.creatorId)
               $(".invite").append('<button> <a href=' + '../add_team/index.html?' + result._id + '>Create team</a> </button>')
 
             $('.shapes').append('<img src="' + result.eventImage + '">')

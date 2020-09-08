@@ -104,7 +104,12 @@ firebase.auth().onAuthStateChanged(function (user) {
                 fetch("https://hackportal.herokuapp.com/users/", requestOptions)
                     .then(response => response.json())
                     .then(async function (result){
-                        // console.log(result)
+
+                        if(result.teams.length==0){
+                            hidePreloader()
+                        }
+
+                        // if(result.team)
 
                         currentUserId = result._id
 

@@ -89,8 +89,10 @@ firebase.auth().onAuthStateChanged(function (user) {
             // $(".team_name").defaultV(result.teamName)
             document.getElementById('team_name').defaultValue = result.teamName
 
+            if(result.description!=undefined){
             document.getElementById('description').defaultValue = result.description
-
+            }
+            
             // $(".label4").text(label4)
 
             for (let i = 1; i <= 9; i++) {
@@ -151,10 +153,44 @@ async function confirm() {
     }
   }
 
+
+  if($('#team_name').val()==''){
+
+    Toastify({
+      text: "Team name is required",
+      duration:5000,
+      backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+      className: "info",
+    }).showToast();
+
+
+  }
+
+  // if($('.txt-inp').val()==''){
+
+  //   Toastify({
+  //     text: "team description is required",
+  //     duration:5000,
+  //     backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+  //     className: "info",
+  //   }).showToast();
+  // }
+
+  if(skill_array==''){
+
+    Toastify({
+      text: "atleast one skill must be selected",
+      duration:5000,
+      backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+      className: "info",
+    }).showToast();
+
+  }
+
   var raw = {
     teamName: $('#team_name').val(),
     eventId: team_id,
-    description: $('.txt-inp').val(),
+    description: $('.txt-inp').val() || undefined,
     skillsRequired: skill_array
   }
 

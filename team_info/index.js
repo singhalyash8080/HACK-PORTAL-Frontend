@@ -114,8 +114,13 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".team_size").text('2/4')
 
             $(".label3").text(label3)
-            $(".description").text(result.description)
 
+            if(result.description!=undefined){
+            $(".description").text(result.description)
+            }
+            else{
+            $(".description").text('-')
+            }
             $(".label4").text(label4)
             for (let i = 0; i < result.skillsRequired.length; i++) {
               $(".skills").append('<p class="points">' + result.skillsRequired[i] + '</p>')

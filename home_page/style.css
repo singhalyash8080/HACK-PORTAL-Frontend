@@ -58,6 +58,15 @@
     /* border:2px green solid; */
 }
 
+.part2-1{
+    /* border:green solid 2px; */
+}
+
+.hacks{
+    /* border:red solid 2px; */
+    /* min-height:100vh; */
+}
+
 .part2-1-head{
     font-size:48px;
     color:white;

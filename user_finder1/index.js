@@ -56,6 +56,9 @@ firebase.auth().onAuthStateChanged(function (user) {
         //   console.log(idToken)
         auth_tok += idToken
 
+
+
+
         var requestOptions = {
           method: "GET",
           headers: {
@@ -110,5 +113,59 @@ function skill() {
 
   // console.log(queryString)
 
-  window.location.replace("../user_finder2/index.html?" + queryString);
+  if(queryString!=''){
+
+    var myHeaders = new Headers();
+    // console.log(auth_tok)
+
+    var requestOptions = {
+      method: "POST",
+      headers: {
+        authtoken: auth_tok,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(raw),
+    };
+
+    fetch("https://hackportal.herokuapp.com/users/searchuserprofiles/1", requestOptions)
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+
+        if(result.documents.length!=0){
+
+        window.location.replace("../user_finder2/index.html?" + queryString);
+
+        }
+        else{
+
+          Toastify({
+            text: "No user with such skill exists",
+            duration:5000,
+            offset: {
+              y: 50 
+            },
+            backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+            className: "info",
+          }).showToast();
+
+
+        }
+      })
+      .catch()
+     
+  }
+  else{
+    Toastify({
+      text: "Select atleast one skill to search",
+      duration:5000,
+      offset: {
+        y: 50 
+      },
+      backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+      className: "info",
+    }).showToast();
+  }
 }
+

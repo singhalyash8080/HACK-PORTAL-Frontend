@@ -133,15 +133,6 @@ footer{
     top:5px;
 }
 
-.fa-facebook,.fa-instagram,.fa-linkedin,.fa-medium{
-    color:white;
-    -o-transition:.5s;
-    -ms-transition:.5s;
-    -moz-transition:.5s;
-    -webkit-transition:.5s;
-    transition:.5s;
-}
-
 /* footer end */
 
 /* media queries */
