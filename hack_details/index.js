@@ -116,7 +116,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             if (!result.hasTeamForEvent && currentUserId!=result.creatorId)
               $(".invite").append('<button> <a href=' + '../add_team/index.html?' + result._id + '>Create team</a> </button>')
 
-            $('.shapes').append('<img src="' + result.eventImage + '">')
+            $('.shapes').append('<img src="' + result.eventImage + '" alt="cant display image">')
 
             hidePreloader()
 
