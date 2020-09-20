@@ -8,6 +8,16 @@ body{
     font-weight: normal;
 }
 
+br { 
+    display: block; 
+    margin: 6px 0; 
+    } 
+     
+br + br { 
+    display: none; 
+} 
+
+
 /* for preloader */
 .spinner-wrapper {
     position: fixed;
