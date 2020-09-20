@@ -36,7 +36,6 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics()
 
 var auth_tok = ''
 
@@ -133,7 +132,7 @@ function skill() {
       })
       .then((result) => {
 
-        if(result.documents.length!=0){
+        if(result.documents.length>1){
 
         window.location.replace("../user_finder2/index.html?" + queryString);
 

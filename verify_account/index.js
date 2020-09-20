@@ -26,7 +26,6 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics()
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {

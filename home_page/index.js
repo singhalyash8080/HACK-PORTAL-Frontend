@@ -150,7 +150,6 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics()
 auth_tok = ''
 
 firebase.auth().onAuthStateChanged(function (user) {

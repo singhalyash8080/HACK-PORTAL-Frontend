@@ -173,7 +173,6 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics()
 
 document.getElementById("SignIn").addEventListener("click", function (event) {
   event.preventDefault()

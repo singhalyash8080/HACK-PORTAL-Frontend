@@ -20,7 +20,6 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics()
 
 var auth_tok = ''
 
@@ -113,10 +112,66 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".link").html('<a href="https://devsoc.codechefvit.com/">' + result.eventUrl + '</a>')
 
 
-            if (!result.hasTeamForEvent && currentUserId!=result.creatorId)
+            if (!result.hasTeamForEvent && currentUserId!=result.creatorId){
               $(".invite").append('<button> <a href=' + '../add_team/index.html?' + result._id + '>Create team</a> </button>')
+              
+            }
+            else if(currentUserId==result.creatorId){
+
+              $('.invite').css('display','none')
+
+              $('.content').append('<div class="team-butt"><div class="team-butt-cover"></div></div>')
+
+              $(".team-butt-cover").append('<button class="delete-team" > <a href="' + '#' + '" style="color:#3D5A80;">Delete</a> </button>')
+
+              $(".team-butt-cover").append('<button class="edit-team"> <a href="' + '../edit_hack/index.html?' + result._id + '" style="color:white;">Edit</a> </button>')
+            }
 
             $('.shapes').append('<img src="' + result.eventImage + '" alt="cant display image">')
+
+            $('.delete-team').click(async function () {
+
+              var myHeaders = new Headers();
+              myHeaders.append("authtoken", auth_tok);
+
+              var requestOptions = {
+                method: 'DELETE',
+                headers: myHeaders,
+                redirect: 'follow'
+              };
+
+              // console.log(team_id)
+
+              await fetch("https://hackportal.herokuapp.com/events/deleteevent/" + result._id, requestOptions)
+                .then(response => {
+
+                  if (response.status == 200) {
+
+                    Toastify({
+                      text: "Hack deleted successfully",
+                      backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                      className: "info",
+                    }).showToast();
+
+                    window.setTimeout(() => window.location.replace("../home_page/index.html"), 2000);
+
+                  }
+
+                  return response.json()
+                })
+                .then(result => {
+
+                  // console.log(result)
+
+
+                })
+                .catch(error => {
+                  // console.log('error', error)
+                  // alert(error)
+                });
+
+            }
+            )
 
             hidePreloader()
 

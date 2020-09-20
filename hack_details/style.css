@@ -51,6 +51,55 @@
     color:white;
 }
 
+
+.team-butt{
+    /* border:2px pink solid; */
+    display: flex;
+    justify-content:flex-end;
+    /* display: none; */
+}
+
+.team-butt-cover{
+    /* border:2px solid red; */
+    width:45%;
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: flex-end;
+}
+
+.delete-team{
+    color: #3D5A80;
+    background-color: white;
+    font-size:24px;
+    padding:10px 25px;
+    border:3px #3D5A80 solid;
+    border-radius: 8px;
+    margin-right:20px;
+    cursor: pointer;
+}
+
+.edit-team{
+    color: white;
+    background:#3D5A80;
+    font-size:24px;
+    padding:10px 25px;
+    border:3px #3D5A80 solid;
+    border-radius: 8px;
+    margin-left:20px;
+    cursor: pointer;
+    min-width:124.44px;
+}
+
+.edit-team:focus{
+    background-color:#3D5A80;
+    outline: none;
+}
+
+.delete-team:focus{
+    background-color: white;
+    outline: none;
+}
+
 /* content end */
 
 /* media queries */
@@ -109,6 +158,30 @@
                 display: none;
             }
 
+        }
+
+        @media only screen and (max-width: 760px){
+
+            .edit-team,.delete-team{
+                font-size:20px;
+                padding:8px 20px;
+            }
+
+            .edit-team{
+                min-width: 103.03px;
+            }
+        }
+
+        @media only screen and (max-width: 430px){
+
+            .edit-team,.delete-team{
+                font-size:18px;
+                padding:7px 18px;
+            }
+
+            .edit-team{
+                min-width:93.33px;
+            }
         }
 
         /* end of media queries for content */

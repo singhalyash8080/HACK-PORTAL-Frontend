@@ -20,9 +20,11 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics()
 
 var auth_tok = ''
+var currentUserId = ''
+
+
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
@@ -40,6 +42,18 @@ firebase.auth().onAuthStateChanged(function (user) {
         //   console.log(idToken)
         auth_tok += idToken
 
+        const queryString = window.location.search;
+
+        var id = ''
+
+
+        for (let i = 0; i < queryString.length; i++) {
+          if (i != 0) {
+            id += queryString[i]
+          }
+
+        }
+
 
         var requestOptions = {
           method: "GET",
@@ -52,6 +66,13 @@ firebase.auth().onAuthStateChanged(function (user) {
         fetch("https://hackportal.herokuapp.com/users/", requestOptions)
           .then((response) => {
             return response.json();
+          })
+          .then((result) => {
+            currentUserId = result._id
+
+            if (currentUserId == id) {
+              window.location.replace("../user_finder1/index.html");
+            }
           })
           .catch(error => {
             if (error.message == 'email not verified') {
@@ -72,18 +93,6 @@ firebase.auth().onAuthStateChanged(function (user) {
         var label7 = 'Stackoverflow link: '
         var label8 = 'Website: '
 
-        const queryString = window.location.search;
-
-        var id = ''
-
-
-        for (let i = 0; i < queryString.length; i++) {
-          if (i != 0) {
-            id += queryString[i]
-          }
-
-        }
-
 
 
         var requestOptions = {
@@ -102,6 +111,8 @@ firebase.auth().onAuthStateChanged(function (user) {
           .then((result) => {
 
             // console.log(result)
+
+            // console.log(currentUserId)
 
             $(".name").text(result.name)
 
@@ -123,13 +134,32 @@ firebase.auth().onAuthStateChanged(function (user) {
             }
 
             $(".label6").text(label6)
-            $(".github").html('<a href=' + result.githubLink + '>' + result.githubLink + '</a>')
+            if (result.githubLink != undefined) {
+              $(".github").html('<a href=' + result.githubLink + '>' + result.githubLink + '</a>')
+            }
+            else {
+              $(".github").html('<a href="#" style="text-decoration:none;">-</a>')
+            }
 
             $(".label7").text(label7)
-            $(".stackoverflow").html('<a href=' + result.stackOverflowLink + '>' + result.stackOverflowLink + '</a>')
+
+            if (result.stackOverflowLink != undefined) {
+              $(".stackoverflow").html('<a href=' + result.stackOverflowLink + '>' + result.stackOverflowLink + '</a>')
+            }
+            else {
+              $(".stackoverflow").html('<a href="#" style="text-decoration:none;">-</a>')
+
+            }
 
             $(".label8").text(label8)
-            $(".website").html('<a href=' + result.externalLink + '>' + result.externalLink + '</a>')
+
+            if (result.externalLink != undefined) {
+              $(".website").html('<a href=' + result.externalLink + '>' + result.externalLink + '</a>')
+            }
+            else {
+
+              $(".website").html('<a href="#" style="text-decoration:none;">-</a>')
+            }
 
             $(".invite").append('<button> <a href="' + '../add_to_team/index.html?' + result.email + '" style="text-decoration:none;">Invite</a> </button>')
 

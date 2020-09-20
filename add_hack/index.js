@@ -25,7 +25,6 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics()
 
   var auth_tok=''
   
@@ -209,10 +208,30 @@ async function confirm() {
       }).showToast();
     }
 
+    if($('#startTime').val()==''){
+
+      Toastify({
+        text: "Start time is required",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
+
+    if($('#endTime').val()==''){
+
+      Toastify({
+        text: "Start time is required",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+    }
+
     var raw = {
         nameOfEvent: $('#name').val(),
-        startDate: new Date($('#startDate').val()).getTime(),
-        endDate: new Date($('#endDate').val()).getTime(),
+        startDate: new Date($('#startDate').val()+'T'+$('#startTime').val()).getTime(),
+        endDate: new Date($('#endDate').val()+'T'+$('#endTime').val()).getTime(),
         location: $('#venue').val(),
         description: $('.txt-inp').val(),
         minimumTeamSize: $('#minteam_size').val(),
@@ -256,15 +275,15 @@ async function confirm() {
         })
         .then(result =>{
 
-            // if(result.message){
-            //   // alert(result.message)
-            //   Toastify({
-            //     text: result.message,
-            //     backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
-            //     className: "info",
-            //   }).showToast();
+            if(result.message){
+              // alert(result.message)
+              Toastify({
+                text: result.message,
+                backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+                className: "info",
+              }).showToast();
 
-            // }
+            }
 
             // console.log(result)
         } )
