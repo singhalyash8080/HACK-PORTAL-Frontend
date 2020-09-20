@@ -106,9 +106,10 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".date").text(new Date(result.startDate ).toLocaleString()+ ' to ' + new Date(result.endDate).toLocaleString())
             // $(".date").text(date)
 
+            $('.teamSize').text(result.minimumTeamSize+' to '+result.maximumTeamSize+' members allowed')
+
             $(".description").text(result.description)
 
-            $(".label1").text(label1)
             $(".link").html('<a href="https://devsoc.codechefvit.com/">' + result.eventUrl + '</a>')
 
 

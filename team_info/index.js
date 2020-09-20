@@ -109,8 +109,8 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".label1").text(label1)
             $(".hackathon_name").text(result.nameOfEvent)
 
-            $(".label2").text(label2)
-            $(".team_size").text('2/4')
+            // $(".label2").text(label2)
+            // $(".team_size").text('2/4')
 
             $(".label3").text(label3)
 
