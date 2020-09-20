@@ -127,6 +127,11 @@ axios.get(url)
       $('.foot1 p').css("color", "white")
       $('.curve-shape2').css("display", "inherit")
       $('.footer2').css("display", "inherit")
+
+      $('.fa-facebook:hover').css('color','white')
+      $('.fa-instagram:hover').css('color','white')
+      $('.fa-medium:hover').css('color','white')
+      $('.fa-linkedin:hover').css('color','white')
     }
 
     hidePreloader()
