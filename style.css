@@ -431,6 +431,10 @@ img{
     #one-head,#two-head,#three-head{
         font-size: 22px;
     }
+
+    #one-butt,#two-butt,#three-butt{
+        font-size:12px;
+    }
 }
 
 @media only screen and (max-width:745px){

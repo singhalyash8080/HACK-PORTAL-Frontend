@@ -112,6 +112,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 async function confirm() {
 
+    var flag=1
     var name = ''
     var college = ''
     var year = ''
@@ -146,7 +147,8 @@ async function confirm() {
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           className: "info",
         }).showToast();
-  
+        
+        flag=0
       }
   
       if(college==''){
@@ -156,6 +158,9 @@ async function confirm() {
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           className: "info",
         }).showToast();
+
+        flag=0
+
       }
   
       if(bio==''){
@@ -165,6 +170,9 @@ async function confirm() {
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           className: "info",
         }).showToast();
+
+        flag=0
+
       }
   
       if(skillarray.length==0){
@@ -174,10 +182,12 @@ async function confirm() {
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           className: "info",
         }).showToast();
+
+        flag=0
   
       }
   
-      if(!year.match(/^20\d\d$/)){
+      if(!year.match(/^202\d$/)){
   
         Toastify({
           text: "Enter the expected year of graduation correctly",
@@ -185,6 +195,8 @@ async function confirm() {
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           className: "info",
         }).showToast();
+
+        flag=0
   
       }
   
@@ -196,6 +208,8 @@ async function confirm() {
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           className: "info",
         }).showToast();
+
+        flag=0
       }
   
       if(stack!='' && !stack.match(/^https?:\/\/stackoverflow.com\/users\/[0-9]+\/[\w\d-?_.!@#$%^&-()*]+$/)){
@@ -206,6 +220,8 @@ async function confirm() {
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           className: "info",
         }).showToast();
+
+        flag=0
       }
   
       if(externallink!='' && !externallink.match(/^((http|https):\/\/[^ "]+)$/)){
@@ -216,7 +232,8 @@ async function confirm() {
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           className: "info",
         }).showToast();
-  
+        
+        flag=0
       }
 
     const raw = {
@@ -240,6 +257,7 @@ async function confirm() {
         redirect: 'follow'
     };
 
+    if(flag)
     await fetch("https://hackportal.herokuapp.com/users/", requestOptions)
         .then(response => {
 

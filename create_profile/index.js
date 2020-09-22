@@ -144,6 +144,8 @@ $(document).ready(function () {
     stack = ($('#stackOverFlowLink').val())
     externallink = ($('#externalLink').val())
 
+    var flag=1
+
     if(name==''){
 
       Toastify({
@@ -152,6 +154,8 @@ $(document).ready(function () {
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
+
+      flag=0
 
     }
 
@@ -162,6 +166,9 @@ $(document).ready(function () {
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
+
+      flag=0
+
     }
 
     if(bio==''){
@@ -171,6 +178,9 @@ $(document).ready(function () {
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
+
+      flag=0
+
     }
 
     if(skillarray.length==0){
@@ -181,9 +191,12 @@ $(document).ready(function () {
         className: "info",
       }).showToast();
 
+      flag=0
+
+
     }
 
-    if(!year.match(/^20\d\d$/)){
+    if(!year.match(/^202\d$/)){
 
       Toastify({
         text: "Enter the expected year of graduation correctly",
@@ -192,6 +205,7 @@ $(document).ready(function () {
         className: "info",
       }).showToast();
 
+      flag=0
     }
 
     if(github!='' && !github.match(/^https?:\/\/github.com\/[^\/]*\/?$/)){
@@ -202,6 +216,8 @@ $(document).ready(function () {
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
+
+      flag=0
     }
 
     if(stack!='' && !stack.match(/^https?:\/\/stackoverflow.com\/users\/[0-9]+\/[\w\d-?_.!@#$%^&-()*]+$/)){
@@ -212,6 +228,9 @@ $(document).ready(function () {
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
+
+      flag=0
+
     }
 
     if(externallink!='' && !externallink.match(/^((http|https):\/\/[^ "]+)$/)){
@@ -222,6 +241,8 @@ $(document).ready(function () {
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
+
+      flag=0
 
     }
 
@@ -252,6 +273,7 @@ $(document).ready(function () {
       redirect: 'follow'
     };
 
+    if(flag)
     await fetch("https://hackportal.herokuapp.com/users/", requestOptions)
       .then(response => {
 

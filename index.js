@@ -158,7 +158,10 @@ axios.get(url)
     hidePreloader()
 
   })
-  .catch(err => console.log(err))
+  .catch(err => {
+    console.log(err)
+    hidePreloader()
+  })
 
 
 

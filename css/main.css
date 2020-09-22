@@ -327,6 +327,12 @@ body{
     transition:.5s;
 }
 
+.curve-shapeDown{
+
+    position: relative;
+    bottom:5px;
+}
+
 
 
 /* footer end */
