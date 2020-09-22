@@ -5,12 +5,14 @@
 }
 
 .content label{
-    font-size:20px;
+    font-size:25px;
+    font-weight: 600;
     color: #3D5A80;
 }
 
 .content p,.content a{
     font-size:25px;
+    font-weight: 400;
     color: #213753;
     margin:0;
 }

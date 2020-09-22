@@ -113,20 +113,14 @@ firebase.auth().onAuthStateChanged(function (user) {
 async function confirm() {
 
     var flag=1
-    var name = ''
-    var college = ''
-    var year = ''
-    var bio = ''
     var skillarray = []
-    var github = ''
-    var stack = ''
-    var externallink = ''
 
-    name += $('#name').val()
-    college += $('#college').val()
-    year += $('#yearOfGraduation').val()
 
-    bio += $('#bio').val()
+    name = $('#name').val()
+    college = $('#college').val()
+    year = $('#yearOfGraduation').val()
+
+    bio = $('#bio').val()
 
     for (let i = 1; i <= 9; i++) {
         if ($("#" + i.toString()).is(":checked")) {
@@ -134,9 +128,9 @@ async function confirm() {
         }
     }
 
-    github += ($('#githubLink').val())
-    stack += ($('#stackOverFlowLink').val())
-    externallink += ($('#externalLink').val())
+    github = ($('#githubLink').val())
+    stack = ($('#stackOverFlowLink').val())
+    externallink = ($('#externalLink').val())
 
 
     if(name==''){
@@ -246,6 +240,8 @@ async function confirm() {
         stackOverflowLink: stack || undefined,
         externalLink: externallink || undefined
     }
+
+    console.log(raw)
 
     var requestOptions = {
         method: 'PATCH',

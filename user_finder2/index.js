@@ -150,12 +150,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             for (let i = 0; i < result.documents.length; i++) {
 
-              // console.log(currentUserId+'   '+result.documents[i]._id)
-
-              
-
-                // console.log('yes')
-
                 names.push(result.documents[i].name)
                 college.push(result.documents[i].college)
 

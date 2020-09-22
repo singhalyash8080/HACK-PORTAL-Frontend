@@ -10,7 +10,7 @@ body{
 
 br { 
     display: block; 
-    margin: 6px 0; 
+    margin: 15px 0; 
     } 
      
 br + br { 
@@ -531,6 +531,14 @@ textarea:focus{
         font-size:11px;
     }
 }
+
+@media only screen and (max-width:388px){
+    #label-form2{
+        font-size:8px;
+    }
+}
+
+
     /* end of media queries for content */
 
 

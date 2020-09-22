@@ -265,7 +265,7 @@ function hidePreloader() {
           eventImage:base64code
       }
   
-    //   console.log(raw)
+      // console.log(raw)
   
       var requestOptions = {
           method: 'PATCH',

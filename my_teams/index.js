@@ -132,7 +132,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             
                   // console.log(results)
                   $(".content").append('<div class="team"> <p class="team_name">' + results.teamName + '</p><p class="hack_name">' + results.nameOfEvent + '</p><p class="description">'
-                    + desc_text + '</p><div class="list"><p class="item">Admin : ' + results.creatorInfo.name + '</p> <p class="item"><a href="' + team_link + '?' + results._id + '" style="color:#fff;">View</p></div></div><br><br>')
+                    + desc_text + '</p><div class="list"><p class="item">Admin : ' + results.creatorInfo.name + '</p> <p class="item" id="view_team_link"><a href="' + team_link + '?' + results._id + '" style="color:#fff; ">View</p></div></div><br><br>')
                   // console.log('one')
                 })
                 .catch(error => {

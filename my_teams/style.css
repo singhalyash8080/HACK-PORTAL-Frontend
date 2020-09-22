@@ -73,6 +73,10 @@
   
   .pagination a:hover:not(.active) {background-color: #ddd;}
 
+    #view_team_link a:hover{
+        text-decoration: underline;
+    }
+
 /* content end */
 
 /* footer */

@@ -182,6 +182,8 @@ function sendInvite() {
         fetch("https://hackportal.herokuapp.com/teams/sendinvite", requestOptions)
             .then(response => {
 
+                // console.log(response.status)
+
                 if (response.status == 200) {
 
                     Toastify({
@@ -197,25 +199,23 @@ function sendInvite() {
 
 
                 }
+                else{
 
-                return response.json()
-            })
-            .then(result => {
-                // console.log(result)
+                    Toastify({
+                        text: response.json().message,
+                        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+                        offset: {
+                            y: 50 
+                          },
+                        className: "info",
+                    }).showToast();
 
-                // if(result.message){
 
-                //     Toastify({
-                //       text: result.message,
-                //       backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-                //       className: "info",
-                //     }).showToast();
-
-                //   }
+                }
             })
             .catch(error => {
                 // console.log('error', error)
-                alert(error)
+                // alert(error)
             });
 
 

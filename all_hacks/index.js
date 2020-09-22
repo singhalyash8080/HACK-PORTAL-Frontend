@@ -7,6 +7,10 @@ function hidePreloader() {
 
 // end of pre-loader
 
+$(document).ready(function () {
+    $('.sidenav').sidenav();
+});
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",

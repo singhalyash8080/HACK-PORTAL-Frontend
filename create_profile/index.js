@@ -53,14 +53,7 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 })
 
-var name = ''
-var college = ''
-var year = ''
-var bio = ''
 var skillarray = []
-var github = ''
-var stack = ''
-var externallink = ''
 
 
 $(document).ready(function () {

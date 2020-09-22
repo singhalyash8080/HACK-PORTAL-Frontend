@@ -137,13 +137,33 @@ firebase.auth().onAuthStateChanged(function (user) {
             }
 
             $(".label6").text(label6)
+
+            if(result.githubLink!=undefined){
             $(".github").html('<a href=' + result.githubLink + '>' + result.githubLink + '</a>')
+            }
+            else{
+            $(".github").html('<a href="#" style="text-decoration:none;">-</a>')
+            }
 
             $(".label7").text(label7)
+
+            if(result.stackOverflowLink!=undefined){
             $(".stackoverflow").html('<a href=' + result.stackOverflowLink + '>' + result.stackOverflowLink + '</a>')
+            }
+            else{
+            $(".stackoverflow").html('<a href="#" style="text-decoration:none;">-</a>')
+
+            }
 
             $(".label8").text(label8)
-            $(".website").html('<a href=' + result.externalLink + '>' + result.externalLink + '</a>')
+
+            if(result.externalLink!=undefined)
+            {$(".website").html('<a href=' + result.externalLink + '>' + result.externalLink + '</a>')
+            }
+            else{
+
+              $(".website").html('<a href="#" style="text-decoration:none;">-</a>')
+            }
 
             $(".label9").text(label9)
             $(".team_invited_to").text(final[1])

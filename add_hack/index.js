@@ -270,22 +270,20 @@ async function confirm() {
           window.setTimeout(()=>window.location.replace("../home_page/index.html"), 2000);
 
         }
+        else{
+
+          if(response.json().message){
+            // alert(result.message)
+            Toastify({
+              text: result.message,
+              backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+              className: "info",
+            }).showToast();
+
+          }
+
+        }
         
-          return response.json()
-        })
-        .then(result =>{
-
-            if(result.message){
-              // alert(result.message)
-              Toastify({
-                text: result.message,
-                backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
-                className: "info",
-              }).showToast();
-
-            }
-
-            // console.log(result)
         } )
         .catch(error =>{ 
             // console.log('error', error)

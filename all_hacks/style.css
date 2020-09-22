@@ -303,6 +303,7 @@ body{
     top:5px;
 }
 
+
 /* footer end */
 
 
@@ -355,6 +356,10 @@ body{
 
     #one-head,#two-head,#three-head,#four-head,#five-head{
         font-size: 22px;
+    }
+
+    #one-butt,#two-butt,#three-butt{
+        font-size:12px;
     }
 }
 

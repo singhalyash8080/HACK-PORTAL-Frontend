@@ -150,12 +150,15 @@ firebase.auth().onAuthStateChanged(function (user) {
 
           fetch("https://hackportal.herokuapp.com/users/acceptteaminvite/" + team_id, requestOptions)
             .then(response => {
-
-              if (response.status == 200) {
+              // console.log(response.status)
+              if (response.status == 201) {
 
                 Toastify({
                   text: "Team invitation accepted",
                   backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                  offset: {
+                    y: 50 
+                  },
                   className: "info",
                 }).showToast();
 
@@ -183,7 +186,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             teamId: team_id
           }
 
-          console.log(raw)
+          // console.log(raw)
 
           var requestOptions = {
             method: 'PATCH',
@@ -198,11 +201,16 @@ firebase.auth().onAuthStateChanged(function (user) {
 
           fetch("https://hackportal.herokuapp.com/users/rejectteaminvite/" + team_id, requestOptions)
             .then(response => {
+
+              // console.log(response.status)
               if (response.status == 200) {
 
                 Toastify({
                   text: "Team Invitation deleted",
                   backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+                  offset: {
+                    y: 50 
+                  },
                   className: "info",
                 }).showToast();
 

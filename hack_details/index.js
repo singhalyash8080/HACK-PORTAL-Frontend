@@ -38,7 +38,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     firebase.auth().currentUser.getIdToken(true)
       .then((idToken) => {
-        //   console.log(idToken)
+        // console.log(idToken)
         auth_tok += idToken
 
         // code for getting content

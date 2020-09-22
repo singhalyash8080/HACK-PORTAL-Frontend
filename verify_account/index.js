@@ -57,6 +57,9 @@ function sendEmailVerification() {
     Toastify({
       text: "Email Verification Sent!",
       backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+      offset: {
+        y: 50 
+      },
       className: "info",
     }).showToast();
     // [END_EXCLUDE]
