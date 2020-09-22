@@ -210,7 +210,6 @@ function sendInvite() {
                         className: "info",
                     }).showToast();
 
-
                 }
             })
             .catch(error => {
