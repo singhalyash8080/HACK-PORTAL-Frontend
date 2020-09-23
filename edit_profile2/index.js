@@ -236,9 +236,9 @@ async function confirm() {
         expectedGraduation: year,
         bio: bio,
         skills: skillarray,
-        githubLink: github || undefined,
-        stackOverflowLink: stack || undefined,
-        externalLink: externallink || undefined
+        githubLink: github || null,
+        stackOverflowLink: stack || null,
+        externalLink: externallink || null
     }
 
     console.log(raw)
