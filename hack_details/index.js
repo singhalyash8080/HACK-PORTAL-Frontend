@@ -119,7 +119,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
             if (!result.hasTeamForEvent && currentUserId!=result.creatorId){
-              $(".invite").append('<button class="create-team"> <a href=' + '../add_team/index.html?' + result._id + ' style="text-decoration:none;">Create team</a> </button>')
+              $(".invite").append('<button class="create-team up"> <a href=' + '../add_team/index.html?' + result._id + ' style="text-decoration:none;">Create team</a> </button>')
               
             }
             else if(currentUserId==result.creatorId){
@@ -128,9 +128,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 
               $('.content').append('<div class="team-butt"><div class="team-butt-cover"></div></div>')
 
-              $(".team-butt-cover").append('<button class="delete-team" > <a href="' + '#' + '" style="color:#3D5A80;text-decoration:none;">Delete</a> </button>')
+              $(".team-butt-cover").append('<button class="delete-team up" > <a href="' + '#' + '" style="color:#3D5A80;text-decoration:none;">Delete</a> </button>')
 
-              $(".team-butt-cover").append('<button class="edit-team"> <a href="' + '../edit_hack/index.html?' + result._id + '" style="color:white;text-decoration:none;">Edit</a> </button>')
+              $(".team-butt-cover").append('<button class="edit-team up"> <a href="' + '../edit_hack/index.html?' + result._id + '" style="color:white;text-decoration:none;">Edit</a> </button>')
             }
 
             $('.shapes').append('<img src="' + result.eventImage + '" alt="cant display image">')

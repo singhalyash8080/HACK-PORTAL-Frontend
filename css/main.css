@@ -8,6 +8,11 @@ body {
     margin: 0;
 }
 
+.up:hover {
+    position: relative;
+    bottom: 2px;
+}
+
 /* for preloader */
 
 .spinner-wrapper {
@@ -258,8 +263,8 @@ body {
     position: relative;
     /* border:yellow 2px solid; */
     /* padding:4%; */
-    width:80%;
-    padding:10px;
+    width: 80%;
+    padding: 10px;
 }
 
 .foot-sub1-1 div {
@@ -268,7 +273,7 @@ body {
     margin: 0 auto;
     position: relative;
     left: 3vw;
-    bottom:12vh;
+    bottom: 12vh;
 }
 
 .logos {
@@ -278,7 +283,7 @@ body {
     display: flex;
     justify-content: space-between;
     position: relative;
-    bottom:10vh;
+    bottom: 10vh;
 }
 
 .sub-foot-text1 {
@@ -303,17 +308,23 @@ body {
     font-size: 16px;
     color: black;
     position: relative;
-    top:2px;
-
+    top: 2px;
 }
 
 .stc-logo {
     /* border:yellow 2px solid; */
     text-align: center;
     position: relative;
-    bottom:2vh;
+    bottom: 2vh;
 }
 
+.sub-foot-text2 span{
+    text-decoration: underline;
+}
+
+.sub-foot-text2 span:hover{
+    text-decoration: none;
+}
 
 /* footer end */
 
@@ -345,70 +356,52 @@ body {
 /* media queries for footer */
 
 @media only screen and (max-width: 992px) {
-
     .logos {
-        margin:6vh auto 0 auto;
+        margin: 6vh auto 0 auto;
         width: 60%;
         display: flex;
         justify-content: space-between;
-        left:0;
+        left: 0;
     }
-
-    
     .foot-sub1-1 div {
         text-align: center;
         width: 100%;
         margin: 0 auto;
-        left:0;
+        left: 0;
     }
-
 }
 
-
-@media only screen and (max-width: 1200px){
-
+@media only screen and (max-width: 1200px) {
     .sub-foot-text1 {
         font-size: 26px;
     }
-    
     .sub-foot-text2 {
         font-size: 22px;
     }
-    
-    .logos{
-        width:60%;
+    .logos {
+        width: 60%;
     }
-
-    .footer-content{
-        width:90%;
+    .footer-content {
+        width: 90%;
     }
-
 }
 
-
-@media only screen and (max-width: 600px){
-
+@media only screen and (max-width: 600px) {
     .sub-foot-text1 {
         font-size: 24px;
     }
-    
     .sub-foot-text2 {
         font-size: 20px;
     }
-    
-    
-
-    .logos{
-        width:70%;
+    .logos {
+        width: 70%;
     }
-
-    .footer-content{
+    .footer-content {
         padding: 0;
     }
-
-    .footer-content{
-        width:100%;
+    .footer-content {
+        width: 100%;
     }
-
 }
+
 /* footer media queries end */

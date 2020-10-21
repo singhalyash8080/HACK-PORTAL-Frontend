@@ -1,48 +1,47 @@
 /* content */
 
-#mail_icon{
-    color:#3D5A80;
-    border-radius:50%;
-    border:4px solid #3D5A80;
-    padding:5px;
+#mail_icon {
+    color: #3D5A80;
+    border-radius: 50%;
+    border: 4px solid #3D5A80;
+    padding: 5px;
 }
 
-.head{
+.head {
     /* border:2px green solid; */
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    font-size:40px;
+    font-size: 40px;
     color: #3D5A80;
-
 }
 
-.team{
+.team {
     /* border:2px solid blue; */
     background: #3D5A80;
     border-radius: 45px 0px;
-    padding:25px;
-    color:#fff;
+    padding: 25px;
+    color: #fff;
 }
 
-.team_name{
-    font-size:34px;
+.team_name {
+    font-size: 34px;
 }
 
-.hack_name,.description{
-    font-size:18px;
+.hack_name, .description {
+    font-size: 18px;
 }
 
-.list{
+.list {
     /* border:2px yellow solid; */
     display: flex;
     justify-content: space-between;
-    font-size:22px;
+    font-size: 22px;
 }
 
-#pages{
+#pages {
     /* border:2px red solid; */
-    width:80%;
+    width: 80%;
     margin: 0 auto;
     display: flex;
 }
@@ -50,38 +49,40 @@
 .pagination {
     display: inline-block;
     /* background-color:transparent; */
-  }
-  
-  .pagination a {
-    color:black;
+}
+
+.pagination a {
+    color: black;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
     /* margin:0 auto; */
-  }
-  
-  .pagination a.active {
-    border:1px blue solid;
+}
+
+.pagination a.active {
+    border: 1px blue solid;
     /* background-color: #293241; */
     color: black;
-  }
+}
 
-  .pagination{
+.pagination {
     /* border:green 2px solid; */
-    margin:0 auto;
-    }
-  
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+    margin: 0 auto;
+}
 
-    #view_team_link a:hover{
-        text-decoration: underline;
-    }
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+#view_team_link a:hover {
+    text-decoration: underline;
+}
 
 /* content end */
 
 /* footer */
 
-.footer1{
+.footer1 {
     display: none;
 }
 
@@ -89,108 +90,89 @@
 
 /* media queries */
 
-        /* media queries for content */
+/* media queries for content */
 
-        @media only screen and (max-width: 992px){
-            
-            .head h2{
-                font-size:44px;
-            }
-        }
-        
-        @media only screen and (max-width: 600px){
-                    
-            .head h2{
-                font-size:38px;
-            }
-        }
-
-        @media only screen and (max-width: 800px){
-            
-
-            .team_name{
-                font-size:24px;
-            }
-            
-            .hack_name,.description{
-                font-size:12px;
-            }
-            
-            .list{
-                font-size:16px;
-            }
-
-            #mail_icon{
-                font-size:35px;
-            }
-
-        }
-
-        @media only screen and (max-width: 400px){
-
-            .team{
-                padding:20px;
-            }
-
-            #mail_icon{
-                font-size:18px;
-            }
-        }
-
-        @media only screen and (max-width: 630px){
-            
-            .no-res p{
-                font-size:20px;
-            }
-
-        }
-
-
-        /* end of media queries for content */
-
-           /* footer media queries  */
-
-   @media only screen and (max-width:915px){
-
-    .foot-items{
-        flex-direction: column;
-        padding:40px;
+@media only screen and (max-width: 992px) {
+    .head h2 {
+        font-size: 44px;
     }
+}
 
-    .foot1{
+@media only screen and (max-width: 600px) {
+    .head h2 {
+        font-size: 38px;
+    }
+    .team {
+        border-radius: 26px 0px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .team_name {
+        font-size: 24px;
+    }
+    .hack_name, .description {
+        font-size: 12px;
+    }
+    .list {
+        font-size: 16px;
+    }
+    #mail_icon {
+        font-size: 35px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .team {
+        padding: 20px;
+    }
+    #mail_icon {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    .no-res p {
+        font-size: 20px;
+    }
+}
+
+/* end of media queries for content */
+
+/* footer media queries  */
+
+@media only screen and (max-width:915px) {
+    .foot-items {
+        flex-direction: column;
+        padding: 40px;
+    }
+    .foot1 {
         width: 100%;
         text-align: center;
         /* flex-direction: row; */
         display: initial;
     }
-
-    .foot2{
+    .foot2 {
         display: initial;
         width: 100%;
         text-align: center;
-        margin-top:20px;
+        margin-top: 20px;
     }
-
 }
 
-@media only screen and (max-width:480px){
-    .foot-logo svg{
+@media only screen and (max-width:480px) {
+    .foot-logo svg {
         display: none;
     }
-
-    .foot1{
-        font-size:16px;
+    .foot1 {
+        font-size: 16px;
     }
-
-    .foot-logo{
-        font-size:18px;
+    .foot-logo {
+        font-size: 18px;
     }
-
-    .foot-logo p{
-        font-size:17px;
+    .foot-logo p {
+        font-size: 17px;
     }
-
 }
 
 /* footer media queries end  */
-        
