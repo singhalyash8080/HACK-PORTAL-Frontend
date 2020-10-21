@@ -2,6 +2,7 @@
 
 .team_name{
     color: #3D5A80;
+    font-size: 50px;
 }
 
 .content label{
@@ -24,78 +25,43 @@
     margin:0 auto;
 }
 
-.shape1{
-    width:151px;
-    height:151px;
-    background: #E0FBFC;
-    transform: rotate(30deg);
-    z-index:3;
-
-    position: relative;
-    top:130px;
-}
-
-.shape2{
-    width:159px;
-    height:159px;
-    background: #EE6C4D;
-    z-index:2;
-    border-radius:50%;
-
-    position: relative;
-    bottom:120px;
-}
-
-.shape3{
-    width: 0; 
-    height: 0; 
-    border-left: 115px solid transparent;
-    border-right: 85px solid transparent;
-    border-bottom: 130px solid #98C1D9;
-    z-index:1;
-    transform: rotate(-135deg);
-    
-    position: relative;
-    bottom:270px;
-    left:40px;
-}
 
 .team-butt{
     /* border:2px pink solid; */
     display: flex;
     justify-content:flex-end;
     /* display: none; */
+    font-size: 25px;
 }
 
 .team-butt-cover{
     /* border:2px solid red; */
-    width:45%;
     display: flex;
     /* justify-content: space-between; */
     justify-content: flex-end;
 }
 
 .delete-team{
-    color: #3D5A80;
     background-color: white;
-    font-size:24px;
-    padding:10px 25px;
-    border:3px #3D5A80 solid;
+    border: none;
+    color: #3D5A80;
+    padding: 6px 14px;
+    border: 3px #3D5A80 solid;
     border-radius: 8px;
-    margin-right:20px;
+    margin-right: 20px;
     cursor: pointer;
 }
 
 .edit-team{
+    background-color: #3D5A80;
+    border: none;
     color: white;
-    background:#3D5A80;
-    font-size:24px;
-    padding:10px 25px;
-    border:3px #3D5A80 solid;
+    padding: 6px 14px;
+    border: 3px #3D5A80 solid;
     border-radius: 8px;
-    margin-left:20px;
+    margin-left: 20px;
     cursor: pointer;
-    min-width:124.44px;
+    min-width: 105.29px;
 }
 
 .edit-team:focus{
@@ -108,67 +74,63 @@
     outline: none;
 }
 
+.shape1 {
+    z-index:3;
+    position:absolute;
+    right:1%;
+    top:34vh;
 
+}
+
+.shape2 svg{
+    z-index:2;
+    position:absolute;
+    right:2%;
+    top:26vh;
+}
+
+.shape3 svg{
+    position: absolute;
+    top:20vh;
+    right:0;
+    z-index:1;
+
+}
+
+.footer1{
+    display: none;
+}
 /* content end */
 
 /* media queries */      
 
-        /* media queries for content */
+/* media queries for content */
 
-        @media only screen and (max-width: 1165px){
+@media only screen and (max-width: 992px) {
+    .shapes {
+        display: none;
+    }
+    .team-butt, .content p, .content a, .content label {
+        font-size: 20px;
+    }
+    .team_name {
+        font-size: 40px;
+    }
+    .edit-team{
+        min-width: 91.03px;
+    }
+}
 
-            .shapes{
-                display: none;
-            }
+@media only screen and (max-width: 600px) {
+    .team-butt, .content p, .content a, .content label {
+        font-size: 13px;
+    }
+    .team_name {
+        font-size: 32px;
+    }
+    .edit-team{
+        min-width: 71.08px;
+    }
+}
 
-        }
-
-        @media only screen and (max-width: 600px){
-            .team_name{
-                font-size:35px;
-            }
-
-
-            .content p,.content label{
-                font-size:18px;
-            }
-
-        }
-
-        @media only screen and (max-width: 400px){
-            .team_name{
-                font-size:32px;
-            }
-
-            .content p,.content label{
-                font-size:15px;
-            }
-
-
-        }
-
-        @media only screen and (max-width: 760px){
-
-            .edit-team,.delete-team{
-                font-size:20px;
-                padding:8px 20px;
-            }
-
-            .edit-team{
-                min-width: 103.03px;
-            }
-        }
-
-        @media only screen and (max-width: 430px){
-
-            .edit-team,.delete-team{
-                font-size:18px;
-                padding:7px 18px;
-            }
-
-            .edit-team{
-                min-width:93.33px;
-            }
-        }
-
-        /* end of media queries for content */
+/* end of media queries for content */

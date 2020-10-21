@@ -5,19 +5,20 @@ function hidePreloader() {
   preloader.fadeOut();
 }
 
-
 // end of pre-loader
 
-$('.link4 a').css("background-color","#3D5A80");
-$('.link4 a').css("color","white");
-$('.link4 a').css("padding","5px 23px");
-$('.link4 a').css("border-bottom-left-radius","50px");
-$('.link4 a').css("border-top-left-radius","50px");
-$('.link4 a').css("border-bottom-right-radius","50px");
-$('.link4 a').css("border-top-right-radius","50px");
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems,{edge:'right'});
+})
+
+
+
+$('.link4 a').css("color","#3D5A80")
+$('.link4 a').css("font-weight","600")
 $(".link4 a").click(function(){
   return false;
-});
+})
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -171,10 +172,3 @@ firebase.auth().onAuthStateChanged(function (user) {
     // console.log("USER NOT LOGGED IN")
   }
 })
-
-
-$(document).ready(function () {
-  $('.sidenav').sidenav();
-});
-
-// code for getting content

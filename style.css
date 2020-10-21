@@ -11,25 +11,40 @@
     max-width:1450px;
     margin:0 auto;
     /* border:2px yellow solid; */
+    min-height:80vh;
 }
 
 .part1{
     margin:50px 0 70px 0;
     display:flex;
+    /* border:2px purple solid; */
 }
 
 .part1-1{
     /* border:2px solid red; */
-    width:60%;
-    position: relative;
-    /* top:110px; */
 }
 
 .part1-2{
     /* border:blue solid 2px; */
-    width:40%;
-    position: relative;
-    /* top:90px; */
+    display: flex;
+
+}
+
+.part1-2-mob{
+    text-align: center;
+}
+
+.part1-2-mob img{
+    /* border: 2px red solid; */
+    width:60%;
+}
+
+.part1-2 img{
+    /* border:yellow 2px solid; */
+}
+
+.part1-2-mob{
+    display: none;
 }
 
 img{
@@ -39,18 +54,20 @@ img{
 .logIn,.signUp{
 
     font-size:30px;
-    padding:15px 25px;
-    width:15rem;
+    padding:10px 24px;
+    /* width:15vw; */
     cursor: pointer;
 }
 
 .logIn{
     background: #3D5A80;
     /* box-sizing: border-box; */
+    border:3px #3D5A80 solid;
     border-style: none;
     border-radius:8px;
     color:#fff;
     /* box-shadow: none!important; */
+    min-width:146.46px;
 }
 
 .logIn:focus,.login:focus{
@@ -65,7 +82,7 @@ img{
     box-sizing: border-box;
     border-radius: 8px;
     color: #3D5A80;
-    border:4px #3D5A80 solid;
+    border:3px #3D5A80 solid;
     background-color: white;
 }
 
@@ -80,7 +97,7 @@ img{
 
 ::placeholder{
     color: rgba(61, 90, 128, 0.75);
-    font-size:26px;
+    font-size:24px;
 }
 
 #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
@@ -94,7 +111,6 @@ img{
     /* border:green solid 2px; */
     box-shadow: none;
     font-size:24px;
-
 }
 
 
@@ -104,16 +120,15 @@ img{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:10px;
+    /* padding:10px; */
     /* flex-direction: column; */
     /* border:green solid 2px; */
-    
 }
 
 .login{
     padding:10px 20px;
     border:#3D5A80 solid 1px;
-    font-size:20px;
+    font-size:24px;
     background: #3D5A80;
     border-radius: 8px;
     color:#fff;
@@ -123,6 +138,13 @@ img{
 #extra_text{
     font-size: 20px;
 }
+
+.sub-elem button{
+    position: relative;
+    left:20px;
+}
+
+
 
 
 /* header end */
@@ -134,6 +156,9 @@ img{
     border:2px #3D5A80 solid;
     /* border:2px green solid; */
     /* min-height:650px; */
+    min-height:100vh;
+    overflow: hidden;
+    position: relative;
 }
 
 .layout{
@@ -144,14 +169,14 @@ img{
 }
 
 .part2-1-head{
-    font-size:48px;
+    font-size:40px;
     color:white;
 }
 
 #one,#two,#three{
     background-color: white;
     padding:20px;
-    width:80%;
+    width:70%;
     margin:0 auto;
     /* border:red solid 2px; */
     border-radius: 45px 0px;
@@ -161,13 +186,14 @@ img{
 }
 
 #one-head,#two-head,#three-head{
-    font-size:40px;
+    font-size:30px;
     text-transform: capitalize;
     color:#3D5A80;
 }
 
 #one-txt,#two-txt,#three-txt{
     width:85%;
+    font-size:20px;
     /* border:pink solid 2px; */
     margin-left:40px;
     color:#3D5A80;
@@ -182,64 +208,31 @@ img{
     color:#293241;
 }
 
-.back-content p{
-    font-size:18px;
-}
-
 .curve-shape{
-    /* background-color:#3D5A80; */
-    /* height:133px; */
-    /* border:2px red solid; */
-    /* margin-top:20px; */
     position: relative;
-    bottom:60px;
-    margin-bottom: 10px;
-}
-
-.curve-fill{
-    background-color:#3D5A80;
-    /* height:80px; */
-    /* border:rgb(73, 187, 28) 60px solid; */
-    margin:-80px;
+    top:1.6vh;
 }
 
 
-.shape-cont1{
-    width:151px;
-    height:151px;
-    background: #E0FBFC;
-    transform: rotate(30deg);
+.shape1 svg{
     z-index:3;
-
     position: relative;
-    top:70px;
+    top:6vh;
+    right:80%;
 }
 
-.shape-cont2{
-    width:159px;
-    height:159px;
-    background: #EE6C4D;
-    z-index:2;
-    border-radius:50%;
-
+.shape2 svg{
+    z-index: 2;
     position: relative;
-    bottom:150px;
-    right:10px;
+    bottom:30vh;
+    right:60%;
 }
 
-.shape-cont3{
-    width: 0; 
-    height: 0; 
-    border-left: 115px solid transparent;
-    border-right: 85px solid transparent;
-    border-bottom: 130px solid #98C1D9;
-    z-index:1;
-    transform: rotate(-135deg);
-    
+.shape3 svg{
+    z-index: 1;
     position: relative;
-    bottom:300px;
-    left:20px;
-
+    bottom:60vh;
+    right:1vw;
 }
 
 #view_more_link{
@@ -247,24 +240,24 @@ img{
     font-size:20px;
     z-index:5;
     /* border:2px red solid; */
-    width:80%;
+    width:70%;
     text-align: end;
     margin:0 auto;
 }
 
 .no-hacks{
-    font-size:35px;
+    font-size:26px;
     color:whitesmoke;
     /* border:red solid 2px; */
     text-align: center;
 }
 
-#testing:active{
-    background-color: black;
+#view_more_link a{
+    font-size:30px;
 }
 
-#view_more_link a{
-    font-size:35px;
+#view_more_link a:hover{
+    text-decoration: underline;
 }
 
 /* content end */
@@ -272,121 +265,172 @@ img{
 /* media queries */
 
 
+/* header media queries  */
 
-@media only screen and (max-width: 1319px) {
+@media only screen and (max-width: 1200px){
+
+    #extra_text{
+        font-size: 14px;
+    }
+
+    .shape3 svg {
+        right:4vw;
+        bottom:66vh;
+    }
+
+    .shape2 svg{
+        right:80%;
+    }
+
+    .shape1 svg{
+        right:100%;
+    }
+
+}
+
+@media only screen and (max-width: 992px){
+
+    .shapes{
+        display: none;
+    }
+
     .part1-2{
-        display:none;
+        display: none;
+    }
+
+    .part1-2-mob{
+        display: initial;
+    }
+
+    .part1{
+        flex-direction: column;
     }
 
     .part1-1{
-        top:0px;
-    }
-
-    #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
-        max-width:30%;
-    }
-
-    .part1-1{
-        width:100%;
         text-align: center;
     }
 
-    #SignIn,#SignUp{
-        margin:0 auto;
-        max-width:35%;
+    .logIn,.signUp,::placeholder{
+        font-size:20px;
     }
 
-    #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
-        max-width:100%;
+    .logIn{
+        min-width: 115.65px;
     }
 
-}
-
-@media only screen and (max-width: 1007px){
-    #SignIn{
-        max-width:45%;
-    }
-}
-
-@media only screen and (max-width: 750px){
-
-    #SignIn,#SignUp{
-        max-width:55%;
-    }
-
-}
-
-@media only screen and (max-width: 622px){
-
-    #SignIn,#SignUp{
-        max-width:60%;
-        padding:15px 15px 15px 0px;
-    }
-
-    #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
-        /* padding:5px 30px; */
-        /* max-width:50%; */
-        padding:7px;
-    }
-    
-    .sub-elem{
-        /* max-width:50%; */
-        /* padding:5px 30px; */
-        padding:7px;
-        
-    }
-    
-    .login{
-        padding:7px 15px;
-        font-size:17px;
+    .sub-elem button,::placeholder{
+        font-size:20px;
     }
 
     .t1{
-        font-size:30px;
+        font-size:34px;
+    }
+
+    #SignIn,#SignUp{
+        margin: 0 auto;
+    }
+
+    #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
+        padding:8px;
+    }
+
+    .sub-elem button{
+        left:16px;
     }
 
 }
 
-@media only screen and (max-width: 530px){
+@media only screen and (max-width: 424px){
+
+
+    .t1{
+        font-size:18px;
+        /* border:2px yellow solid; */
+    }
+
+    .logIn,.signUp,::placeholder{
+        font-size:12px;
+    }
+
+    .logIn{
+        min-width: 90.99px;
+    }
+    
+    .sub-elem button,::placeholder{
+        font-size:12px;
+    }
+
+    #extra_text{
+        font-size: 10px;
+    }
+
+    .inside_getInTouch p{
+        font-size: 10px;
+    }
+
+    #SignIn,#SignUp{
+        max-width:100%;
+
+    }
+
+    .part1-2-mob img{
+        width:90%;
+    }
+
+    #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
+        padding:4px;
+    }
+
+    .sub-elem button{
+        left:8px;
+    }
+
+}
+
+@media only screen and (min-width:425px) and (max-width: 600px){
+
+    .t1{
+        font-size:26px;
+        /* border:2px yellow solid; */
+    }
+
+    .logIn,.signUp,::placeholder{
+        font-size:18px;
+    }
+
+    .logIn{
+        min-width:109.49px;
+    }
+    
+    .sub-elem button,::placeholder{
+        font-size:18px;
+    }
+
+    #extra_text{
+        font-size: 12px;
+    }
 
     #SignIn,#SignUp{
         max-width:80%;
     }
 
-}
+    .part1-2-mob img{
+        width:80%;
+    }
 
-@media only screen and (max-width: 385px){
-    #SignIn,#SignUp{
-        max-width:94%;
+    #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
+        padding:6px;
+    }
+
+    .sub-elem button{
+        left:12px;
     }
 }
 
 
-@media only screen and (max-width:475px){
-    .t1{
-        font-size:20px;
-    }
 
-    .main-head{
-        font-size:40px;
-    }
-}
+/* header media queries end  */
 
-@media only screen and (max-width:835px){
-
-    #extra_text{
-        font-size: 15px;
-    }
-
-}
-
-@media only screen and (max-width:450px){
-
-    #extra_text{
-        font-size: 13px;
-    }
-
-}
 
  /* content media queries */
 
@@ -394,82 +438,62 @@ img{
     #one,#two,#three{
         height:initial;
     }
-}
 
-@media only screen and (max-width:474px){
+    #one,#two,#three{
+        width:80%;
+    }
 
     .part2-1-head{
-        font-size:32px;
+        font-size:34px;
     }
 
-}
-
-@media only screen and (max-width:630px) and (min-width:475px){
-    .part2-1-head{
-        font-size:44px;
-    }
-}
-
-@media only screen and (max-width:445px){
-    .part2-1-head{
-        font-size:28px;
-    }
-}
-
-@media only screen and (max-width:900px) and (min-width:631px){
-    .part2-1-head{
-        font-size:48px;
-    }
-}
-
-@media only screen and (max-width:475px){
-
-    .back-content p{
-        font-size:12px;
+    #one-head,#two-head,#three-head,#view_more_link a{
+        font-size: 24px;
     }
 
-    #one-head,#two-head,#three-head{
-        font-size: 22px;
+    #one-txt,#two-txt,#three-txt{
+        font-size: 18px;
     }
 
     #one-butt,#two-butt,#three-butt{
-        font-size:12px;
+        font-size: 20px;
     }
+
+    #view_more_link{
+        width:80%;
+    }
+
+
 }
 
-@media only screen and (max-width:745px){
+
+@media only screen and (max-width:600px){
     
     #one,#two,#three{
-        width:90%;
+        width:98%;
+    }
+
+    .part2-1-head{
+        font-size:28px;
+    }
+
+    #one-head,#two-head,#three-head,#view_more_link a{
+        font-size: 18px;
+    }
+
+    #one-txt,#two-txt,#three-txt{
+        font-size: 12px;
+    }
+
+    #one-butt,#two-butt,#three-butt{
+        font-size: 14px;
+    }
+
+    #view_more_link{
+        width:98%;
     }
 
 }
 
-@media only screen and (min-width:996px) and (max-width:1516px){
-
-    .shape-cont1{
-        right:50px;
-    }
-
-    .shape-cont2{
-        right:60px;
-    }
-
-    .shape-cont3{
-        left:-60px;
-        /* right:500px; */
-    }
-}
-
-
-@media only screen and (max-width:995px){
-    .shape-cont{
-        display: none;
-    }
-
-    #view_more_link a{
-        font-size:25px;
-    }
-} 
 
     /* content media queries end */

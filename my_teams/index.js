@@ -7,13 +7,14 @@ function hidePreloader() {
 
 // end of pre-loader
 
-$('.link3 a').css("background-color","#3D5A80");
-$('.link3 a').css("color","white");
-$('.link3 a').css("padding","5px 23px");
-$('.link3 a').css("border-bottom-left-radius","50px");
-$('.link3 a').css("border-top-left-radius","50px");
-$('.link3 a').css("border-bottom-right-radius","50px");
-$('.link3 a').css("border-top-right-radius","50px");
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems,{edge:'right'});
+})
+
+$('.link3 a').css("color","#3D5A80");
+$('.link3 a').css("font-weight","600");
 $(".link3 a").click(function(){
   return false;
 });
@@ -165,7 +166,5 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 })
 
-$(document).ready(function () {
-  $('.sidenav').sidenav();
-});
+
 

@@ -7,6 +7,11 @@ function hidePreloader() {
 
 // end of pre-loader
 
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems,{edge:'right'});
+})
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
@@ -267,8 +272,4 @@ function cancelInvite() {
       alert(error)
     });
 }
-
-$(document).ready(function () {
-  $('.sidenav').sidenav();
-});
 

@@ -8,9 +8,11 @@ function hidePreloader() {
 
 // end of pre-loader
 
-$(document).ready(function () {
-  $('.sidenav').sidenav();
-});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems,{edge:'right'});
+})
 
 
 // Your web app's Firebase configuration
@@ -32,8 +34,6 @@ firebase.auth().onAuthStateChanged(function (user) {
     // console.log("USER LOGGED IN")
 
     $('.txt-mail').text(user.email)
-
-    $('.verify-account').append('<button onclick="sendEmailVerification()">Send</button><br>')
 
     if (user.emailVerified == true) {
       window.location.replace("../create_profile/index.html")

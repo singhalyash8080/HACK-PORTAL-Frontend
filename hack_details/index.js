@@ -7,6 +7,11 @@ function hidePreloader() {
 
 // end of pre-loader
 
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems,{edge:'right'});
+})
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
@@ -114,7 +119,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
             if (!result.hasTeamForEvent && currentUserId!=result.creatorId){
-              $(".invite").append('<button> <a href=' + '../add_team/index.html?' + result._id + '>Create team</a> </button>')
+              $(".invite").append('<button class="create-team"> <a href=' + '../add_team/index.html?' + result._id + ' style="text-decoration:none;">Create team</a> </button>')
               
             }
             else if(currentUserId==result.creatorId){
@@ -123,9 +128,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 
               $('.content').append('<div class="team-butt"><div class="team-butt-cover"></div></div>')
 
-              $(".team-butt-cover").append('<button class="delete-team" > <a href="' + '#' + '" style="color:#3D5A80;">Delete</a> </button>')
+              $(".team-butt-cover").append('<button class="delete-team" > <a href="' + '#' + '" style="color:#3D5A80;text-decoration:none;">Delete</a> </button>')
 
-              $(".team-butt-cover").append('<button class="edit-team"> <a href="' + '../edit_hack/index.html?' + result._id + '" style="color:white;">Edit</a> </button>')
+              $(".team-butt-cover").append('<button class="edit-team"> <a href="' + '../edit_hack/index.html?' + result._id + '" style="color:white;text-decoration:none;">Edit</a> </button>')
             }
 
             $('.shapes').append('<img src="' + result.eventImage + '" alt="cant display image">')
@@ -192,8 +197,4 @@ firebase.auth().onAuthStateChanged(function (user) {
     // console.log("USER NOT LOGGED IN")
   }
 })
-
-$(document).ready(function () {
-  $('.sidenav').sidenav();
-});
 

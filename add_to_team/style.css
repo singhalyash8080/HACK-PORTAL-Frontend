@@ -1,115 +1,130 @@
 /* content  */
 
-.sendInvite{
-    max-width:1350px;
+.sendInvite {
+    max-width: 1350px;
     /* border:2px red solid; */
-    margin:0 auto;
+    margin: 0 auto;
 }
 
-.sendInvite h3{
-    font-size:40px;
-    color:#3D5A80;
+.sendInvite h3 {
+    font-size: 40px;
+    color: #3D5A80;
 }
 
-.sendInvite-inside{
+.sendInvite-inside {
     /* border:2px green solid; */
-    width:70%;
-    padding:20px;
-    margin:0 auto;
+    width: 70%;
+    padding: 20px;
+    margin: 0 auto;
 }
 
-.sendInvite-inside h4{
-    font-size:32px;
-    color:#3D5A80;
+.sendInvite-inside h4 {
+    font-size: 32px;
+    color: #3D5A80;
 }
 
-#email{
-
+#email {
     /* border:2px red solid; */
     border: none;
     background: rgba(41, 50, 65, 0.1);
-    color:#3D5A80;
+    color: #3D5A80;
     /* padding:5px 30px; */
     /* max-width:50%; */
-    padding:10px;
+    padding: 10px;
     /* border:green solid 2px; */
     box-shadow: none;
-    font-size:24px;
-
+    font-size: 24px;
 }
 
-.add_to_team{
+.add_to_team {
     /* border:2px pink solid; */
     /* padding:20px; */
-    width:80%;
-    margin:0 auto;
+    width: 80%;
+    margin: 0 auto;
 }
 
-.add_to_team span{
-    color:black;
-    font-size:31px;
+.add_to_team span {
+    color: black;
+    font-size: 31px;
 }
 
-.invite-butt{
+.invite-butt {
     display: flex;
     justify-content: flex-end;
     /* border:2px purple solid; */
+    font-size: 25px;
 }
 
-.sendInvite-inside button{
-    /* border:2px red solid; */
-    /* text-align: end; */
-    background-color:#3D5A80;
-    border:none;
-    color:white;
-    padding:12px 25px;
-    border:3px #3D5A80 solid;
+.sendInvite-inside button {
+    background-color: #3D5A80;
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border: 3px #3D5A80 solid;
     border-radius: 8px;
-    margin-left:20px;
+    margin-left: 20px;
     cursor: pointer;
 }
 
-.sendInvite-inside button:focus{
+.sendInvite-inside button:focus {
     background-color: #3D5A80;
 }
 
-.checkbox-blue[type="checkbox"].filled-in:checked + span:not(.lever):after 
-{
-    border: 2px solid #3D5A80;  
+.checkbox-blue[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid #3D5A80;
     background-color: #3D5A80;
+}
+
+
+#no-team{
+    font-size: 20px;
+}
+
+.footer1{
+    display: none;
 }
 
 /* content end */
 
 /* media queries */
 
-   /* content media queries */
+/* content media queries */
 
-
-   @media only screen and (max-width: 700px){
-
-    .sendInvite h3{
-        font-size:30px;
+@media only screen and (max-width: 700px) {
+    .sendInvite h3 {
+        font-size: 30px;
     }
-
-    .sendInvite-inside h4{
-        font-size:24px;
+    .sendInvite-inside h4 {
+        font-size: 24px;
     }
+}
 
-   }
-
-   @media only screen and (max-width: 440px){
-
-    .sendInvite-inside{
+@media only screen and (max-width: 440px) {
+    .sendInvite-inside {
         /* border:2px green solid; */
-        width:80%;
-        padding:15px;
-        margin:0 auto;
+        width: 80%;
+        padding: 15px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+
+    .invite-butt{
+        font-size: 20px;
     }
 
-   }
+}
 
+@media only screen and (max-width: 600px) {
+    .invite-butt{
+        font-size: 13px;
+    }
 
+    #no-team{
+        font-size:12px;
+    }
 
-   /* content media queries end */
+}
 
+/* content media queries end */
