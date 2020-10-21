@@ -166,7 +166,7 @@ firebase.auth().onAuthStateChanged(function (user) {
               $(".website").html('<a href="#" style="text-decoration:none;">-</a>')
             }
 
-            $(".invite").append('<button> <a href="' + '../add_to_team/index.html?' + result.email + '" style="text-decoration:none;">Invite</a> </button>')
+            $(".invite").append('<button class="up"> <a href="' + '../add_to_team/index.html?' + result.email + '" style="text-decoration:none;">Invite</a> </button>')
 
             hidePreloader()
           })

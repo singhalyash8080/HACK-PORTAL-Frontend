@@ -135,6 +135,11 @@ img{
     cursor: pointer;
 }
 
+
+#signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
+    font-size: 24px;
+}
+
 #extra_text{
     font-size: 20px;
 }
@@ -331,6 +336,7 @@ img{
     }
 
     #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
+        font-size: 20px;
         padding:8px;
     }
 
@@ -378,11 +384,12 @@ img{
     }
 
     #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
-        padding:4px;
+        font-size: 12px;
+        padding:2px;
     }
 
     .sub-elem button{
-        left:8px;
+        left:4px;
     }
 
 }
@@ -419,6 +426,7 @@ img{
     }
 
     #signIn-elem-1,#signIn-elem-2,#signUp-elem-1,#signUp-elem-2{
+        font-size: 18px;
         padding:6px;
     }
 
@@ -470,6 +478,7 @@ img{
 @media only screen and (max-width:600px){
     
     #one,#two,#three{
+        border-radius:26px 0;
         width:98%;
     }
 

@@ -146,9 +146,9 @@ firebase.auth().onAuthStateChanged(function (user) {
               $('.team-butt').css("display", "none")
             }
 
-            $(".team-butt-cover").append('<button class="delete-team" > <a href="' + '#' + '" style="color:#3D5A80;">Delete</a> </button>')
+            $(".team-butt-cover").append('<button class="delete-team up" > <a href="' + '#' + '" style="color:#3D5A80;">Delete</a> </button>')
 
-            $(".team-butt-cover").append('<button class="edit-team"> <a href="' + '../edit_team/index.html?' + result._id + '" style="color:white;">Edit</a> </button>')
+            $(".team-butt-cover").append('<button class="edit-team up"> <a href="' + '../edit_team/index.html?' + result._id + '" style="color:white;">Edit</a> </button>')
 
 
 

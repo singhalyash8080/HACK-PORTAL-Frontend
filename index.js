@@ -233,6 +233,7 @@ function toggleSignIn() {
 
         Toastify({
           text: 'Wrong password',
+          duration: 200,
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           offset: {
             y: 50 

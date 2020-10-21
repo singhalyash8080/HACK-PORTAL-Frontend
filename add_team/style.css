@@ -20,6 +20,11 @@ br+br {
     display: none;
 }
 
+.up:hover{  
+    position: relative;
+    bottom:2px;
+}
+
 /* for preloader */
 
 .spinner-wrapper {

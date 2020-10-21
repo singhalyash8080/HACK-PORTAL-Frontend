@@ -173,7 +173,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".label9").text(label9)
             $(".team_invited_to").text(final[1])
 
-            $(".invite").append('<button onclick="cancelInvite()"> <a href="' + '#' + '" style="text-decoration:none;">Cancel Invite</a> </button>')
+            $(".invite").append('<button onclick="cancelInvite()" class="up"> <a href="' + '#' + '" style="text-decoration:none;">Cancel Invite</a> </button>')
 
           hidePreloader()
 

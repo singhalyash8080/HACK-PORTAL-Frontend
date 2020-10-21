@@ -281,6 +281,7 @@
 @media only screen and (max-width:600px){
     
     #one,#two,#three{
+        border-radius:26px 0;
         width:98%;
     }
 

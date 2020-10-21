@@ -6,14 +6,13 @@
     padding: 25px;
 }
 
-.head{
+.head {
     /* border:2px green solid; */
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    font-size:40px;
+    font-size: 40px;
     color: #3D5A80;
-
 }
 
 .list {
@@ -127,17 +126,18 @@
 
 /* media queries for content */
 
-@media only screen and (max-width: 992px){
-            
-    .head h2{
-        font-size:44px;
+@media only screen and (max-width: 992px) {
+    .head h2 {
+        font-size: 44px;
     }
 }
 
-@media only screen and (max-width: 600px){
-            
-    .head h2{
-        font-size:38px;
+@media only screen and (max-width: 600px) {
+    .head h2 {
+        font-size: 38px;
+    }
+    .profiles {
+        border-radius: 26px 0px;
     }
 }
 
