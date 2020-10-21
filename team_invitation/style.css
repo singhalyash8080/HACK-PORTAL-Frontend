@@ -1,159 +1,148 @@
 /* content */
 
-.team_name{
-    color: #3D5A80;
+body{
+    overflow-x:hidden;
 }
 
-.content label{
-    font-size:25px;
+.team_name {
+    color: #3D5A80;
+    font-size: 50px;
+}
+
+
+.content label {
+    font-size: 25px;
     font-weight: 600;
     color: #3D5A80;
 }
 
-.content p{
-    font-size:25px;
+.content p, .content a {
+    font-size: 25px;
     font-weight: 400;
     color: #213753;
-    margin:0;
+    margin: 0;
 }
 
+.content a {
+    text-decoration: underline;
+}
 
-.skills,.team_mates{
+.invite button {
+    background-color: #3D5A80;
+    padding: 6px 14px;
+}
+
+.invite button a {
+    color: white;
+}
+
+.skills {
     /* border:green solid 2px; */
-    width:85%;
-    margin:0 auto;
+    width: 85%;
+    margin: 0 auto;
 }
 
-.shape1{
-    width:151px;
-    height:151px;
-    background: #E0FBFC;
-    transform: rotate(30deg);
+.shape1 {
     z-index:3;
+    position:absolute;
+    right:1%;
+    top:34vh;
 
-    position: relative;
-    top:130px;
 }
 
-.shape2{
-    width:159px;
-    height:159px;
-    background: #EE6C4D;
+.shape2 svg{
     z-index:2;
-    border-radius:50%;
-
-    position: relative;
-    bottom:120px;
+    position:absolute;
+    right:2%;
+    top:26vh;
 }
 
-.shape3{
-    width: 0; 
-    height: 0; 
-    border-left: 115px solid transparent;
-    border-right: 85px solid transparent;
-    border-bottom: 130px solid #98C1D9;
+.shape3 svg{
+    position: absolute;
+    top:20vh;
+    right:0;
     z-index:1;
-    transform: rotate(-135deg);
-    
-    position: relative;
-    bottom:270px;
-    left:40px;
+
 }
 
-.accept_invite{
+.accept_invite {
     /* border:red solid 2px; */
     text-align: end;
-    font-size:30px;
+    font-size: 25px;
 }
 
-.reject{
+.reject {
     background-color: white;
-    border:none;
+    border: none;
     color: #3D5A80;
-    padding:12px 25px;
-    border:3px #3D5A80 solid;
+    padding: 6px 14px;
+    border: 3px #3D5A80 solid;
     border-radius: 8px;
-    margin-right:20px;
+    margin-right: 20px;
     cursor: pointer;
-    
+    min-width: 119.48px;
 }
 
-.accept{
-    background-color:#3D5A80;
-    border:none;
-    color:white;
-    padding:12px 25px;
-    border:3px #3D5A80 solid;
-    border-radius: 8px;
-    margin-left:20px;
-    cursor: pointer;
-}
-
-.reject:focus{
-    background-color: white;
-}
-
-.accept:focus{
+.accept {
     background-color: #3D5A80;
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border: 3px #3D5A80 solid;
+    border-radius: 8px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.accept:focus {
+    background-color: #3D5A80;
+}
+
+.reject:focus {
+    background-color: white;
 }
 
 /* content end */
 
+/* common end */
+
+/* footer */
+
+.footer1 {
+    display: none;
+}
+
+/* footer end */
+
 /* media queries */
 
-        /* media queries for content */
+/* media queries for content */
 
-        @media only screen and (max-width: 600px){
+@media only screen and (max-width: 992px) {
+    .shapes {
+        display: none;
+    }
+    .accept_invite, .content p, .content a, .content label {
+        font-size: 20px;
+    }
+    .team_name {
+        font-size: 34px;
+    }
+    .reject {
+        min-width: 102.39px;
+    }
+}
 
-            .team_name{
-                font-size:35px;
-            }
+@media only screen and (max-width: 600px) {
+    .accept_invite, .content p, .content a, .content label {
+        font-size: 13px;
+    }
+    .team_name {
+        font-size: 26px;
+    }
+    .reject {
+        min-width: 78.45px;
+    }
+}
 
-            .content label{
-                font-size:15px;
-            }
-
-            .content p{
-                font-size:18px;
-            }
-
-            .accept,.reject{
-                font-size:25px;
-            }
-
-            .accept_invite button{
-                padding:9px 22px;
-            }
-        }
-
-        @media only screen and (max-width: 1143px){
-
-            .shapes{
-                display: none;
-            }
-
-        }
-
-        @media only screen and (max-width: 400px){
-            .team_name{
-                font-size:32px;
-            }
-
-            .content label{
-                font-size:12px;
-            }
-
-            .content p{
-                font-size:15px;
-            }
-
-            .accept,.reject{
-                font-size:22px;
-            }
-
-            .accept_invite button{
-                padding:8px 20px;
-            }
-        }
-
-        /* end of media queries for content */
+/* end of media queries for content */

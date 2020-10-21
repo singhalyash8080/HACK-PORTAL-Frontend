@@ -1,128 +1,136 @@
 /* content */
 
-.name{
-    color: #3D5A80;
+body{
+    overflow-x:hidden;
 }
 
-.content label{
-    font-size:25px;
+.name {
+    color: #3D5A80;
+    font-size: 50px;
+}
+
+
+.content label {
+    font-size: 25px;
     font-weight: 600;
     color: #3D5A80;
 }
 
-.content p,.content a{
-    font-size:25px;
+.content p, .content a {
+    font-size: 25px;
     font-weight: 400;
     color: #213753;
-    margin:0;
+    margin: 0;
 }
 
-.content a{
+.content a {
     text-decoration: underline;
 }
 
-.invite{
-    /* border:2px red solid; */
-    text-align: end;
-    font-size:30px;
-}
-
-.invite button{
-    background-color:#3D5A80;
-    padding:12px 25px;
-    border-radius: 7px;
-    border:1px #3D5A80 solid;
-}
-
-.invite button:focus{
+.invite button {
     background-color: #3D5A80;
+    padding: 6px 14px;
 }
 
 .invite button a{
     color:white;
 }
 
-.skills{
+.skills {
     /* border:green solid 2px; */
-    width:85%;
-    margin:0 auto;
+    width: 85%;
+    margin: 0 auto;
 }
 
-.shape1{
-    width:151px;
-    height:151px;
-    background: #E0FBFC;
-    transform: rotate(30deg);
+.shape1 svg{
     z-index:3;
+    position:absolute;
+    right:1%;
+    top:34vh;
 
-    position: relative;
-    top:130px;
 }
 
-.shape2{
-    width:159px;
-    height:159px;
-    background: #EE6C4D;
+.shape2 svg{
     z-index:2;
-    border-radius:50%;
-
-    position: relative;
-    bottom:120px;
+    position:absolute;
+    right:2%;
+    top:26vh;
 }
 
-.shape3{
-    width: 0; 
-    height: 0; 
-    border-left: 115px solid transparent;
-    border-right: 85px solid transparent;
-    border-bottom: 130px solid #98C1D9;
+.shape3 svg{
+    position: absolute;
+    top:20vh;
+    right:0;
     z-index:1;
-    transform: rotate(-135deg);
-    
-    position: relative;
-    bottom:270px;
-    left:40px;
+
+}
+
+.invite {
+    /* border:red solid 2px; */
+    text-align: end;
+    font-size: 25px;
+}
+
+.invite button{
+    background-color: #3D5A80;
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border: 3px #3D5A80 solid;
+    border-radius: 8px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.accept:focus {
+    background-color: #3D5A80;
+}
+
+.reject:focus {
+    background-color: white;
 }
 
 /* content end */
 
-/* media queries */   
+/* common end */
 
-        /* media queries for content */
+/* footer */
 
-        @media only screen and (max-width: 600px){
+.footer1 {
+    display: none;
+}
 
-            .name{
-                font-size:35px;
-            }
+/* footer end */
 
-            .content p,.content a,.content label{
-                font-size:18px;
-            }
+/* media queries */
 
-            .invite{
-                font-size:25px;
-            }
+/* media queries for content */
 
-            .invite button{
-                background-color:#3D5A80;
-                padding:9px 22px;
-            }
-        }
+@media only screen and (max-width: 992px) {
+    .shapes {
+        display: none;
+    }
+    .invite button, .content p, .content a, .content label {
+        font-size: 20px;
+    }
+    .name {
+        font-size: 34px;
+    }
+    .reject {
+        min-width: 102.39px;
+    }
+}
 
-        @media only screen and (max-width: 400px){
+@media only screen and (max-width: 600px) {
+    .invite button, .content p, .content a, .content label {
+        font-size: 13px;
+    }
+    .name {
+        font-size: 26px;
+    }
+    .reject {
+        min-width: 78.45px;
+    }
+}
 
-            .content p,.content a,.content label{
-                font-size:16px;
-            }
-        }
-
-        @media only screen and (max-width: 1144px){
-
-            .shapes{
-                display: none;
-            }
-
-        }
-
-        /* end of media queries for content */
+/* end of media queries for content */

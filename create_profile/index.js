@@ -59,12 +59,6 @@ var skillarray = []
 $(document).ready(function () {
   $("#form1-butt-2").click(function () {
 
-    $("#line1").css("visibility", "initial");
-    $("#point1").css("background-color", "#3D5A80");
-    $("#point1").css("color", "white");
-    $(".form1").css("display", "none");
-    $(".form2").css("display", "initial");
-
     name = ''
     college = ''
     year = ''
@@ -72,6 +66,57 @@ $(document).ready(function () {
     name = $('#name').val()
     college = $('#college').val()
     year = $('#yearOfGraduation').val()
+
+    var flag=1
+
+    if(name==''){
+
+      Toastify({
+        text: "Name must be filled",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
+      flag=0
+
+    }
+
+    if(college==''){
+      Toastify({
+        text: "College name must be filled",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
+      flag=0
+
+    }
+
+    
+    if(!year.match(/^202\d$/)){
+
+      Toastify({
+        text: "Enter the expected year of graduation correctly",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
+      flag=0
+    }
+
+
+    if(flag){
+      $("#line1").css("visibility", "initial");
+      $("#point1").css("background-color", "#3D5A80");
+      $("#point1").css("color", "white");
+      $(".form1").css("display", "none");
+      $(".form2").css("display", "initial");
+
+    }
+
   });
 });
 
@@ -91,12 +136,6 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#form2-butt-2").click(function () {
 
-    $("#line2").css("visibility", "initial");
-    $("#point2").css("background-color", "#3D5A80");
-    $("#point2").css("color", "white");
-    $(".form2").css("display", "none");
-    $(".form3").css("display", "initial");
-
     bio = ''
 
     bio = $('#bio').val()
@@ -107,6 +146,43 @@ $(document).ready(function () {
       if ($("#" + i.toString()).is(":checked")) {
         skillarray.push($('#' + i.toString()).val())
       }
+    }
+
+    var flag = 1
+
+    if(bio==''){
+      Toastify({
+        text: "Bio must be filled",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
+      flag=0
+
+    }
+
+    if(skillarray.length==0){
+      Toastify({
+        text: "Atleast one skill must be selected",
+        duration:5000,
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
+      flag=0
+
+
+    }
+
+
+    if(flag){
+      $("#line2").css("visibility", "initial");
+      $("#point2").css("background-color", "#3D5A80");
+      $("#point2").css("color", "white");
+      $(".form2").css("display", "none");
+      $(".form3").css("display", "initial");
+
     }
 
   });
@@ -137,69 +213,8 @@ $(document).ready(function () {
     stack = ($('#stackOverFlowLink').val())
     externallink = ($('#externalLink').val())
 
-    var flag=1
+    var flag = 1
 
-    if(name==''){
-
-      Toastify({
-        text: "Name must be filled",
-        duration:5000,
-        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
-        className: "info",
-      }).showToast();
-
-      flag=0
-
-    }
-
-    if(college==''){
-      Toastify({
-        text: "College name must be filled",
-        duration:5000,
-        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
-        className: "info",
-      }).showToast();
-
-      flag=0
-
-    }
-
-    if(bio==''){
-      Toastify({
-        text: "Bio must be filled",
-        duration:5000,
-        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
-        className: "info",
-      }).showToast();
-
-      flag=0
-
-    }
-
-    if(skillarray.length==0){
-      Toastify({
-        text: "Atleast one skill must be selected",
-        duration:5000,
-        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
-        className: "info",
-      }).showToast();
-
-      flag=0
-
-
-    }
-
-    if(!year.match(/^202\d$/)){
-
-      Toastify({
-        text: "Enter the expected year of graduation correctly",
-        duration:5000,
-        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
-        className: "info",
-      }).showToast();
-
-      flag=0
-    }
 
     if(github!='' && !github.match(/^https?:\/\/github.com\/[^\/]*\/?$/)){
 
@@ -266,8 +281,9 @@ $(document).ready(function () {
       redirect: 'follow'
     };
 
-    if(flag)
-    await fetch("https://hackportal.herokuapp.com/users/", requestOptions)
+    if(flag){
+
+      await fetch("https://hackportal.herokuapp.com/users/", requestOptions)
       .then(response => {
 
         if (response.status == 200) {
@@ -292,6 +308,18 @@ $(document).ready(function () {
         // console.log('error', error)
         // alert(error)
       });
+
+    }
+    else{
+
+      Toastify({
+        text: "Profile can't be created. Please try again !",
+        backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
+        className: "info",
+      }).showToast();
+
+    }
+
 
   });
 });

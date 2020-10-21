@@ -6,17 +6,13 @@ function hidePreloader() {
 
 // end of pre-loader
 
-$(document).ready(function () {
-  $('.sidenav').sidenav();
-});
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems,{edge:'right'});
+})
 
-$('.link1 a').css("background-color","#3D5A80");
-$('.link1 a').css("color","white");
-$('.link1 a').css("padding","5px 23px");
-$('.link1 a').css("border-bottom-left-radius","50px");
-$('.link1 a').css("border-top-left-radius","50px");
-$('.link1 a').css("border-bottom-right-radius","50px");
-$('.link1 a').css("border-top-right-radius","50px");
+$('.link1 a').css("color","#3D5A80");
+$('.link1 a').css("font-weight","600");
 $(".link1 a").click(function(){
   return false;
 });
@@ -116,22 +112,13 @@ axios.get(url)
       $("#" + ob_butt[i + 1]).html('<a id="one-butt" href="../hack_details/index.html?' + hack_link[i] + '">Learn More</a>')
     }
 
+
     if (data.data.documents.length == 0) {
-
-      $('.back-content').css("display", "none")
-      $('.curve-shape').css("display", "none")
-      $('.curve-fill').css("display", "none")
-      $('.curve-shapeDown').css("display", "none")
       $('.footer1').css("display", "none")
-      $('.foot1').css("color", "white")
-      $('.foot1 p').css("color", "white")
-      $('.curve-shape2').css("display", "inherit")
-      $('.footer2').css("display", "inherit")
-
-      $('.fa-facebook:hover').css('color','white')
-      $('.fa-instagram:hover').css('color','white')
-      $('.fa-medium:hover').css('color','white')
-      $('.fa-linkedin:hover').css('color','white')
+      
+    }
+    else{
+      $('.footer2').css("display", "none")
     }
 
     hidePreloader()

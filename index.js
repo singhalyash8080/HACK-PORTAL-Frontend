@@ -93,7 +93,7 @@ axios.get(url)
       $('.part2-1').append(arrayy[i])
     }
 
-    $('.part2-1').append('<div id="view_more_link"><a href="#" onclick="signInFirst()" style="color: white;text-decoration: none;">View All</a></div>')
+    $('.part2-1').append('<div id="view_more_link"><a href="#" onclick="signInFirst()" style="color: white;">View All</a></div>')
 
 
     for (let i = 0; i < len; i++) {
@@ -138,21 +138,11 @@ axios.get(url)
 
     if (data.data.documents.length == 0) {
 
-      $('.back-content').css("display", "none")
-      $('.curve-shape').css("display", "none")
-      $('.curve-fill').css("display", "none")
-      $('.curve-shapeDown').css("display", "none")
-      $('.footer1').css("display", "none")
-      $('.foot1').css("color", "white")
-      $('.foot1 p').css("color", "white")
-      $('.curve-shape2').css("display", "inherit")
-      $('.footer2').css("display", "inherit")
-
-      $('.fa-facebook:hover').css('color','white')
-      $('.fa-instagram:hover').css('color','white')
-      $('.fa-medium:hover').css('color','white')
-      $('.fa-linkedin:hover').css('color','white')
+      $('.footer1').css("display", "none")   
       
+    }
+    else{
+      $('.footer2').css("display", "none")   
     }
 
     hidePreloader()

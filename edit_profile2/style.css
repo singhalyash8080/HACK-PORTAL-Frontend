@@ -201,6 +201,8 @@ br + br {
     align-self: center;
     border-style: solid;
     border-color:rgba(41, 50, 65, 0.1);
+    font-size: 20px;
+    letter-spacing: 1px;
 }
 
 .form1-cont input{
@@ -211,6 +213,8 @@ br + br {
     align-self: center;
     border-style: solid;
     border-color:rgba(41, 50, 65, 0.1);
+    font-size: 25px;
+    letter-spacing: 1px;
 }
 
 .form2-inps input{
@@ -233,28 +237,29 @@ br + br {
     width:80%;
     text-align: end;
     align-self: center;
-    font-size:30px;
 }
 
 .reject{
-    font-size:25px;
+    font-size: 25px;
     background-color: white;
-    border:none;
+    border: none;
     color: #3D5A80;
-    padding:12px 25px;
+    padding: 6px 14px;
+    border: 3px #3D5A80 solid;
     border-radius: 8px;
-    border:2px #3D5A80 solid;
+    margin-right: 20px;
     cursor: pointer;
 }
 
 .accept{
-    font-size:25px;
-    background-color:#3D5A80;
-    border:none;
-    color:white;
-    padding:12px 25px;
+    font-size: 25px;
+    background-color: #3D5A80;
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border: 3px #3D5A80 solid;
     border-radius: 8px;
-    border:2px #3D5A80 solid;
+    margin-left: 20px;
     cursor: pointer;
 }
 
@@ -290,62 +295,64 @@ textarea{
 
     /* media queries for content */
 
-    @media only screen and (max-width: 440px){
-        .accept,.reject{
-            font-size:22px;
+
+    @media only screen and (max-width:992px){
+
+        .form1-cont{
+            width:100%;
+        }
+    
+        .reject,.accept,.form1-cont label,.form1-cont input{
+            font-size:20px;
+        }
+    
+        
+        .form1-head{
+            font-size:26px;
+        }
+    
+        .form1-cont{
+            padding: 0;
+        }
+    
+        .form1-cont input{
+            padding:10px;
         }
     }
     
-    @media only screen and (max-width: 415px){
-        .accept,.reject{
-            font-size:18px;
+    @media only screen and (max-width:600px){
+    
+        .reject,.accept,.form1-cont label,.form1-cont input{
+            font-size:13px;
+        }
+    
+        
+        .form1-head{
+            font-size:20px;
+        }
+    
+        .form1-cont input{
+            padding:5px;
+        }
+    
+    }
+    
+    @media only screen and (max-width:1080px) {
+        .skill-inps label {
+            /* border:2px blue solid; */
+            font-size: 15px;
+            /* width:95%; */
         }
     }
     
-@media only screen and (max-width:705px){
+    @media only screen and (max-width:570px) {
+        .skill-inps label {
+            /* border:2px blue solid; */
+            font-size: 12px;
+            /* width:95%; */
+        }
+    }
     
-    .back{
-        font-size:30px;
-    }
-
-    .form1-head{
-        font-size:30px;
-    }
-
-    .form1-butt-a{
-        width:88%;
-    }
-
-    .form1-butt-b{
-        width:12%;
-    }
-
-    .form1-cont input{
-        padding:10px;
-    }
-
-    /* .point{
-        font-size:30px;
-        border: 2px solid #3D5A80;
-
-    } */
-}
-
-@media only screen and (max-width:520px){
-    .form1-butt-a{
-        width:80%;
-    }
-
-    .form1-butt-b{
-        width:20%;
-    }
-}
-
-@media only screen and (max-width:483px){
-    .form1-head{
-        font-size:22px;
-    }
-}
 
 @media only screen and (max-width:529px){
     #label-form2{
@@ -359,26 +366,5 @@ textarea{
 }
 
 
-@media only screen and (max-width: 410px){
 
-    .accept_invite{
-        font-size:20px;
-    }
-
-    .reject{
-        padding:7px 15px;
-    }
-
-    .accept{
-        padding:7px 15px;
-    }
-}
-
-@media only screen and (max-width:826px){
-
-    .form1-cont{
-        width:90%;
-    }
-
-}
     /* end of media queries for content */

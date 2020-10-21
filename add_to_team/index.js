@@ -7,6 +7,12 @@ function hidePreloader() {
 
 // end of pre-loader
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems,{edge:'right'});
+})
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAPKlNwldNx9YCH4el1FFEuMJk1mQpIpp4",
@@ -126,6 +132,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                         }
 
+                        if(result.teams,length==0){
+                            $('.add_to_team').append('<p style="text-align:center;color: #3D5A80;" id="no-team"> You have no teams of your own</p>')
+                        }
+
                         hidePreloader()
 
                     })
@@ -220,7 +230,3 @@ function sendInvite() {
 
     }
 }
-
-$(document).ready(function () {
-    $('.sidenav').sidenav();
-});
