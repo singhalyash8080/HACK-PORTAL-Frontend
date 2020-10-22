@@ -12,15 +12,15 @@ $(document).ready(function () {
 
 // end of pre-loader
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems,{edge:'right'});
+  var instances = M.Sidenav.init(elems, { edge: 'right' });
 })
 
 
-$('.link2 a').css("color","#3D5A80");
-$('.link2 a').css("font-weight","600");
-$(".link2 a").click(function(){
+$('.link2 a').css("color", "#3D5A80");
+$('.link2 a').css("font-weight", "600");
+$(".link2 a").click(function () {
   return false;
 });
 
@@ -109,7 +109,7 @@ function skill() {
 
   // console.log(queryString)
 
-  if(queryString!=''){
+  if (queryString != '') {
 
     var myHeaders = new Headers();
     // console.log(auth_tok)
@@ -129,18 +129,18 @@ function skill() {
       })
       .then((result) => {
 
-        if(result.documents.length>1){
+        if (result.documents.length > 1) {
 
-        window.location.replace("../user_finder2/index.html?" + queryString);
+          window.location.replace("../user_finder2/index.html?" + queryString);
 
         }
-        else{
+        else {
 
           Toastify({
             text: "No user with such skill exists",
-            duration:5000,
+            duration: 1000,
             offset: {
-              y: 50 
+              y: 50
             },
             backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
             className: "info",
@@ -150,18 +150,21 @@ function skill() {
         }
       })
       .catch()
-     
+
   }
-  else{
+  else {
     Toastify({
       text: "Select atleast one skill to search",
-      duration:5000,
+      duration: 1000,
       offset: {
-        y: 50 
+        y: 50
       },
       backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
       className: "info",
     }).showToast();
   }
+
+  $('.search-butt').prop('disabled', true)
+  setTimeout(function () { $('.search-butt').prop('disabled', false) }, 2000);
 }
 

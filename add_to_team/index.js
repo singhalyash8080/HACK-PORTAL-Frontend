@@ -84,7 +84,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                 $('.sendInvite-inside').append('<div class="add_to_team"></div><br>')
 
-                $('.sendInvite-inside').append('<div class="invite-butt"> <button onclick="sendInvite()">Send invite</button> </div>')
+                $('.sendInvite-inside').append('<div class="invite-butt"> <button onclick="sendInvite()" class="add-member">Send invite</button> </div>')
 
 
 
@@ -134,6 +134,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                         if(result.teams,length==0){
                             $('.add_to_team').append('<p style="text-align:center;color: #3D5A80;" id="no-team"> You have no teams of your own</p>')
+                            $('.add-member').css("display","none")
                         }
 
                         hidePreloader()
@@ -198,6 +199,7 @@ function sendInvite() {
 
                     Toastify({
                         text: "request sent successfully",
+                        duration:1000,
                         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
                         offset: {
                             y: 50 
@@ -213,6 +215,7 @@ function sendInvite() {
 
                     Toastify({
                         text: response.json().message,
+                        duration:1000,
                         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
                         offset: {
                             y: 50 
@@ -229,4 +232,7 @@ function sendInvite() {
 
 
     }
+
+    $('.add-member').prop('disabled', true)
+    setTimeout(function () { $('.add-member').prop('disabled', false) }, 2000);
 }

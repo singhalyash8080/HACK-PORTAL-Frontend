@@ -220,12 +220,12 @@ firebase.auth().onAuthStateChanged(function (user) {
                            $('#sentInvite').text('')
                        }
                         // prom.then((data)=>console.log("it works now "+data))
+                        hidePreloader()
                     })
                     .catch(error => {
 
                         // console.log('error', error)
                     });
-
 
             })
     } else {

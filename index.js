@@ -8,9 +8,7 @@ function hidePreloader() {
 
 // end of pre-loader
 
-$(document).ready(function () {
-  $('.sidenav').sidenav();
-});
+
 
 $(document).ready(function () {
   $("#signIN").click(function () {
@@ -138,11 +136,11 @@ axios.get(url)
 
     if (data.data.documents.length == 0) {
 
-      $('.footer1').css("display", "none")   
-      
+      $('.footer1').css("display", "none")
+
     }
-    else{
-      $('.footer2').css("display", "none")   
+    else {
+      $('.footer2').css("display", "none")
     }
 
     hidePreloader()
@@ -197,9 +195,10 @@ function toggleSignIn() {
 
       Toastify({
         text: 'Please enter a valid email address',
+        duration: 1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         offset: {
-          y: 50 
+          y: 50
         },
         className: "info",
       }).showToast();
@@ -209,10 +208,11 @@ function toggleSignIn() {
     if (password.length < 4) {
 
       Toastify({
-        text: 'Please enter a password',
+        text: 'Please enter a valid password',
+        duration: 1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         offset: {
-          y: 50 
+          y: 50
         },
         className: "info",
       }).showToast();
@@ -233,10 +233,10 @@ function toggleSignIn() {
 
         Toastify({
           text: 'Wrong password',
-          duration: 200,
+          duration: 1000,
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           offset: {
-            y: 50 
+            y: 50
           },
           className: "info",
         }).showToast();
@@ -245,21 +245,20 @@ function toggleSignIn() {
 
         Toastify({
           text: errorMessage,
+          duration: 1000,
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           offset: {
-            y: 50 
+            y: 50
           },
           className: "info",
         }).showToast();
 
       }
-      // console.log(error);
-      // document.getElementById('quickstart-sign-in').disabled = false;
-      // [END_EXCLUDE]
     });
-    // [END authwithemail]
   }
-  // document.getElementById('quickstart-sign-in').disabled = true;
+
+  $('.login').prop('disabled', true)
+  setTimeout(function () { $('.login').prop('disabled', false) }, 1100);
 }
 
 function handleSignUp() {
@@ -273,9 +272,10 @@ function handleSignUp() {
 
     Toastify({
       text: 'Please enter an email address',
+      duration: 1000,
       backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
       offset: {
-        y: 50 
+        y: 50
       },
       className: "info",
     }).showToast();
@@ -285,10 +285,11 @@ function handleSignUp() {
   if (password.length < 4) {
 
     Toastify({
-      text: 'Please enter a password',
+      text: 'The password is too weak',
+      duration: 1000,
       backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
       offset: {
-        y: 50 
+        y: 50
       },
       className: "info",
     }).showToast();
@@ -310,6 +311,7 @@ function handleSignUp() {
 
       Toastify({
         text: 'The password is too weak',
+        duration: 1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
@@ -317,17 +319,18 @@ function handleSignUp() {
     } else {
       Toastify({
         text: errorMessage,
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         offset: {
-          y: 50 
+          y: 50
         },
         className: "info",
       }).showToast();
     }
-    // console.log(error);
-    // [END_EXCLUDE]
   });
-  // [END createwithemail]
+
+  $('.login').prop('disabled', true)
+  setTimeout(function () { $('.login').prop('disabled', false) }, 1100);
 }
 
 function sendEmailVerification() {
@@ -345,21 +348,22 @@ function sendPasswordReset() {
   // var email = document.getElementById('email').value;
   var email = $('.mail').val();
   // [START sendpasswordemail]
-  firebase.auth().sendPasswordResetEmail(email).then(function() {
+  firebase.auth().sendPasswordResetEmail(email).then(function () {
     // Password Reset Email Sent!
     // [START_EXCLUDE]
     // alert('Password Reset Email Sent!');
     Toastify({
       text: 'Password Reset Email Sent',
+      duration:1000,
       backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
       offset: {
-        y: 50 
+        y: 50
       },
       className: "info",
     }).showToast();
 
     // [END_EXCLUDE]
-  }).catch(function(error) {
+  }).catch(function (error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -367,9 +371,10 @@ function sendPasswordReset() {
     if (errorCode == 'auth/invalid-email') {
       Toastify({
         text: errorMessage,
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         offset: {
-          y: 50 
+          y: 50
         },
         className: "info",
       }).showToast();
@@ -378,29 +383,24 @@ function sendPasswordReset() {
       // alert(errorMessage);
       Toastify({
         text: errorMessage,
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         offset: {
-          y: 50 
+          y: 50
         },
         className: "info",
       }).showToast();
     }
-    // console.log(error);
-    // [END_EXCLUDE]
+
   });
-  // [END sendpasswordemail];
+
+  // $('.forgot-pass').off('click')
+  // setTimeout(function () { $('.forgot-pass').on('click') }, 1100);
 }
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    // console.log("USER LOGGED IN")
 
-    // if(user.)
-    // window.location.replace("/home_page/index.html");
-    //   firebase.auth().currentUser.getIdToken(true)
-    //     .then((idToken) => {
-    //       console.log(idToken)
-    //     })
     auth_tok = ''
     if (user.emailVerified == true) {
 
@@ -450,9 +450,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 function signInFirst() {
   Toastify({
     text: 'Sign In first',
+    duration:1000,
     backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
     offset: {
-      y: 50 
+      y: 50
     },
     className: "info",
   }).showToast();

@@ -73,7 +73,7 @@ $(document).ready(function () {
 
       Toastify({
         text: "Name must be filled",
-        duration:5000,
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
@@ -85,7 +85,7 @@ $(document).ready(function () {
     if(college==''){
       Toastify({
         text: "College name must be filled",
-        duration:5000,
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
@@ -99,7 +99,7 @@ $(document).ready(function () {
 
       Toastify({
         text: "Enter the expected year of graduation correctly",
-        duration:5000,
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
@@ -116,6 +116,9 @@ $(document).ready(function () {
       $(".form2").css("display", "initial");
 
     }
+
+    $('#form1-butt-2').prop('disabled', true)
+    setTimeout(function () { $('#form1-butt-2').prop('disabled', false) }, 2000);
 
   });
 });
@@ -153,7 +156,7 @@ $(document).ready(function () {
     if(bio==''){
       Toastify({
         text: "Bio must be filled",
-        duration:5000,
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
@@ -165,7 +168,7 @@ $(document).ready(function () {
     if(skillarray.length==0){
       Toastify({
         text: "Atleast one skill must be selected",
-        duration:5000,
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
@@ -185,6 +188,8 @@ $(document).ready(function () {
 
     }
 
+    $('#form2-butt-2').prop('disabled', true)
+    setTimeout(function () { $('#form2-butt-2').prop('disabled', false) }, 2000);
   });
 });
 
@@ -220,7 +225,7 @@ $(document).ready(function () {
 
       Toastify({
         text: "Enter valid github handle",
-        duration:5000,
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
@@ -232,7 +237,7 @@ $(document).ready(function () {
 
       Toastify({
         text: "Enter valid stackOverFlow handle",
-        duration:5000,
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
@@ -245,7 +250,7 @@ $(document).ready(function () {
 
       Toastify({
         text: "Enter valid website url",
-        duration:5000,
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
@@ -290,6 +295,7 @@ $(document).ready(function () {
 
           Toastify({
             text: "Your profile has been created successfully",
+            duration:1000,
             backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
             className: "info",
           }).showToast();
@@ -314,11 +320,15 @@ $(document).ready(function () {
 
       Toastify({
         text: "Profile can't be created. Please try again !",
+        duration:1000,
         backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
         className: "info",
       }).showToast();
 
     }
+
+    $('#form3-butt-2').prop('disabled', true)
+    setTimeout(function () { $('#form3-butt-2').prop('disabled', false) }, 2000);
 
 
   });
