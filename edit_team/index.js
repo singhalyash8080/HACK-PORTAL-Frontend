@@ -157,7 +157,7 @@ async function confirm() {
 
     Toastify({
       text: "Team name is required",
-      duration:5000,
+      duration:1000,
       backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
       className: "info",
     }).showToast();
@@ -179,7 +179,7 @@ async function confirm() {
 
     Toastify({
       text: "atleast one skill must be selected",
-      duration:5000,
+      duration:1000,
       backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
       className: "info",
     }).showToast();
@@ -211,6 +211,7 @@ async function confirm() {
 
         Toastify({
           text: "Your team has been updated successfully",
+          duration:1000,
           backgroundColor: "linear-gradient(to right, #3D5A80, #507093,#7393B0)",
           className: "info",
         }).showToast();
@@ -228,5 +229,8 @@ async function confirm() {
       // alert(error)
     });
 
+    
+  $('.accept').prop('disabled', true)
+  setTimeout(function () { $('.accept').prop('disabled', false) }, 2000);
 }
 

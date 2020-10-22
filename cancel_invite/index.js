@@ -173,7 +173,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             $(".label9").text(label9)
             $(".team_invited_to").text(final[1])
 
-            $(".invite").append('<button onclick="cancelInvite()" class="up"> <a href="' + '#' + '" style="text-decoration:none;">Cancel Invite</a> </button>')
+            $(".invite").append('<button onclick="cancelInvite()" class="up cancel-invite"> <a href="' + '#' + '" style="text-decoration:none;">Cancel Invite</a> </button>')
 
           hidePreloader()
 
@@ -252,6 +252,7 @@ function cancelInvite() {
 
         Toastify({
           text: "Invite cancelled",
+          duration:1000,
           backgroundColor: "linear-gradient(to right,#3D5A80, #507093,#7393B0)",
           offset: {
             y: 50 
@@ -271,5 +272,8 @@ function cancelInvite() {
       // console.log('error', error)
       alert(error)
     });
+
+    $('.cancel-invite').prop('disabled', true)
+    setTimeout(function () { $('.cancel-invite').prop('disabled', false) }, 2000);
 }
 
